@@ -2,7 +2,7 @@ package Object::PerlDesignPatterns;
 
 use 5.006;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 1;
 __END__
@@ -33,7 +33,7 @@ anti-patterns, non-structural recurring code patterns.
 
 Feel free to jump right in and make corrections, suggestions, ask
 questions, play editor, or just rant. 
-Start in L<http://wiki.slowass.net/E<63>TinyWiki> to learn about
+Start in L<http://www.perldesignpatterns.com/E<63>TinyWiki> to learn about
 the TinyWiki software, make a page for yourself, play with
 editing that, perhaps make a link from the GuestLog to your page.
 The markup language is ASCII based - it couldn't be any easier.
@@ -42,232 +42,940 @@ This document is a snapshot of the current state of the Wiki,
 automatically compiled from hundreds of individual
 sections by a Perl script.
 
-To cause my poor old server to prepair an up-to-the-minute HTML
+To cause my poor old server to prepare an up-to-the-minute HTML
 version of this document, go to
-L<http://wiki.slowass.net/assemble.cgiE<63>PerlDesignPatterns>.
+L<http://www.perldesignpatterns.com/assemble.cgiE<63>PerlDesignPatterns>.
+
+=head1 BUGS
+
+My text hasn't been proofread or spellchecked, with few exceptions.
+My code hasn't been tested by other people, and has only been tested
+by myself in a few cases.
 
 Since this project is (atleast partially) out of my hands, there is no
 firm point at which it's finished: the scope is indefinate. Because of
 this, parts of the document will always be in rough shape, contain
 inconsistencies, and so on.
 
-Read on for more information. 
+The PerlDoc version is compiled by podparser.pl, at
+http://www.perldesignpatterns.com/podparser.pl?self , from hundreds of little
+text files. These text files use TinyWiki's markup. This simple ASCII format
+translates well to HTML.
+Things are lost in the translation to PerlDoc, still.  
+Also, the I<pod2html> that comes with Perl doesn't like to create forward links.
+The HTML translator loses the loading two underscores on meta-identifiers
+such as underscore-underscore-PACKAGE-underscore-underscore, and the PerlDoc
+parser probably does too. I cannot find the way to escape ?'s in POD link tags
+so that I<pod2html> won't mangle them.
 
 =head1 AUTHOR
 
 Scott Walters - scott@illogics.org
 
-=head1 PerlDesignPatterns
+=head1 Perl Design Patterns
 
-L<PerlDesignPatterns/PerlDesignPatterns> is a free on-line book, forum, and GNU-Savanna project at
-L<http://savannah.nongnu.org/projects/perlpatbook/> .  
-This is a collaborative work in progress.
-
-
-B<Download this:> If you aren't already viewing this as a single document, 
-fetch L<http://wiki.slowass.net/assemble.cgi?PerlDesignPatterns> - it's easier to skim. Approx 2/3 meg. 
-If you browse and get lost, click the graphic on top and start again. 
-If you get lost on the Wiki, click the graphic on top and start again. 
-
-
-This book is full of tricks for old pros and novices a like.
-
-
-Experts and aspiring experts: 
-L<SkipTheIntroduction/SkipTheIntroduction> is the best places to start browsing, or start at "Object Adapter Design Patterns" and
-work down.
-
-
-Novices, intermediate programmers: 
+L<PerlDesignPatterns/PerlDesignPatterns> is a free on-line book and forum.
+For information about this project and links to download the entire book,
+see L<HomePage/HomePage>, or just click L<http://wiki.slowass.net/E<63>TinyCGI>:assemble.cgi?PerlDesignPatterns -
+Downloading is highly recommended unless you're contributing
+to the project. Novices, intermediate programmers: 
 "Object Nuts and Bolts" is for you. Scroll down.
 
 
-...Introduction
 
-L<AboutQuality/AboutQuality>
-L<AboutPerl/AboutPerl>
-L<AboutObjects/AboutObjects>
-L<AboutPatterns/AboutPatterns>
+
+=head3 Introduction
+
+
+
+
+
+=over 1
+
+=item *
+
 L<SoftwareQualityLevels/SoftwareQualityLevels>
+
+
+=item *
+
+L<AboutPerl/AboutPerl>
+
+
+=item *
+
+L<AboutObjects/AboutObjects>
+
+
+=item *
+
+L<AboutPatterns/AboutPatterns>
+
+
+=item *
+
 L<AboutFlack/AboutFlack>
+
+
+=item *
+
 L<PlanningIsNpComplete/PlanningIsNpComplete>
 
 
-...Object Adapter Design Patterns
+=back
+
+
+
+=head3 Object Adapter Design Patterns
+
+
+
+Experts and advanced programmers: start here.
+
+
+
+
+=over 1
+
+=item *
+
+L<InnerClasses/InnerClasses>
+
+
+=item *
+
 L<AggregatePattern/AggregatePattern>
+
+
+=item *
+
 L<DecoratorPattern/DecoratorPattern>
+
+
+=item *
+
 L<ProxyPattern/ProxyPattern>
+
+
+=item *
+
 L<AdapterPattern/AdapterPattern>
+
+
+=item *
+
 L<FacadePattern/FacadePattern>
+
+
+=item *
+
 L<ResultObject/ResultObject>
+
+
+=item *
+
 L<VisitorPattern/VisitorPattern>
 
 
-...Object State Patterns
+=back
+
+
+
+=head3 Object State Patterns
+
+
+
+
+
+=over 1
+
+=item *
+
 L<ClassAsTypeCode/ClassAsTypeCode>
+
+
+=item *
+
 L<StatePattern/StatePattern>
+
+
+=item *
+
 L<MomentoPattern/MomentoPattern>
 
 
-...Object Creational Patterns
+=back
+
+
+
+=head3 Object Creational Patterns
+
+
+
+
+
+=over 1
+
+=item *
+
 L<SingletonPattern/SingletonPattern>
+
+
+=item *
+
 L<CurryingConcept/CurryingConcept>
+
+
+=item *
+
 L<CloningPattern/CloningPattern>
+
+
+=item *
+
 L<FlyweightPattern/FlyweightPattern>, L<ImmutableObject/ImmutableObject>
+
+
+=item *
+
 L<AbstractFactory/AbstractFactory>
+
+
+=item *
+
 L<FactoryObject/FactoryObject>
+
+
+=item *
+
 L<RunAndReturnSuccessor/RunAndReturnSuccessor>
 
 
-...Object Structure Patterns
+=item *
+
+L<InlineObjects/InlineObjects>
+
+
+=back
+
+
+
+=head3 Object Structure Patterns
+
+
+
+
+
+=over 1
+
+=item *
+
+L<AboutInheritance/AboutInheritance>
+
+
+=item *
+
 L<StateVsClass/StateVsClass>
+
+
+=item *
+
 L<CommandObject/CommandObject>
+
+
+=item *
+
 L<IteratorInterface/IteratorInterface>
+
+
+=item *
+
 L<PassingPattern/PassingPattern>
 
 
-...Object, Lambda Hybrid Patterns
+=back
+
+
+
+=head3 Object, Lambda Hybrid Patterns
+
+
+
+
+
+=over 1
+
+=item *
+
 L<WrapperModule/WrapperModule>
+
+
+=item *
+
 L<AnonymousSubroutineObjects/AnonymousSubroutineObjects>
+
+
+=item *
+
 L<ConstraintSystem/ConstraintSystem>
-L<http://wiki.slowass.net/E<63>RevisitingNameSpaces>
 
 
-...Relational Data Patterns
+=item *
+
+L<RevisitingNamespaces/RevisitingNamespaces>
+
+
+=back
+
+
+
+=head3 Relational Data Patterns
+
+
+
+
+
+=over 1
+
+=item *
+
 L<ObjectsAndRelationalDatabaseSystems/ObjectsAndRelationalDatabaseSystems>
+
+
+=item *
+
 L<SelfJoiningData/SelfJoiningData>
+
+
+=item *
+
 L<ManyToManyRelationship/ManyToManyRelationship>
+
+
+=item *
+
 L<OneToOneRelationshipsTurnIntoOneToManyRelationships/OneToOneRelationshipsTurnIntoOneToManyRelationships>
+
+
+=item *
+
 L<BiDirectionalRelationshipToUnidirectional/BiDirectionalRelationshipToUnidirectional>
 
 
-...Non-Object Patterns
+=back
+
+
+
+=head3 Non-Object Patterns
+
+
+
+
+
+=over 1
+
+=item *
+
 L<NamedArguments/NamedArguments>
+
+
+=item *
+
 L<PassingState/PassingState>
+
+
+=item *
+
 L<FunctionTemplating/FunctionTemplating>
+
+
+=item *
+
 L<AssertPattern/AssertPattern>
+
+
+=item *
+
 L<CodeAsData/CodeAsData>
+
+
+=item *
+
 L<NonReenterable/NonReenterable>
+
+
+=item *
+
 L<SelectPollPattern/SelectPollPattern>
+
+
+=item *
+
 L<JournalingPattern/JournalingPattern>
 
 
-...Application Features
+=item *
+
+L<ApplicationGenerator/ApplicationGenerator>
+
+
+=back
+
+
+
+=head3 Application Features
+
+
+
+
+
+=over 1
+
+=item *
+
 L<WebAuthentication/WebAuthentication>
+
+
+=item *
+
 L<WebScraping/WebScraping>
+
+
+=item *
+
 L<ReadingAFile/ReadingAFile>
+
+
+=item *
+
 L<ConfigFile/ConfigFile>
+
+
+=item *
+
+L<ErrorHandling/ErrorHandling>
+
+
+=item *
+
 L<ErrorReporting/ErrorReporting>
+
+
+=item *
+
 L<ExtensibilityPattern/ExtensibilityPattern>
 
 
-...Anti-Patterns
-<table><tr><td valign="top">
+=back
+
+
+
+=head3 Anti-Patterns
+
+
+
+
+
+=over 1
+
+=item *
+
 L<CutAndPasteProgramming/CutAndPasteProgramming>
+
+
+=item *
+
 L<BlindFaith/BlindFaith>
+
+
+=item *
+
 L<BigBallOfMud/BigBallOfMud>
+
+
+=item *
+
 L<SpaghettiCode/SpaghettiCode>
+
+
+=item *
+
 L<LavaFlow/LavaFlow>
+
+
+=item *
+
 L<BoatAnchor/BoatAnchor>
+
+
+=item *
+
 L<BusySpin/BusySpin>
+
+
+=item *
+
 L<GodObject/GodObject>
+
+
+=item *
+
 L<ObjectOrgy/ObjectOrgy>
-</td><td valign="top">
+
+
+=item *
+
 L<FeatureEnvy/FeatureEnvy>
+
+
+=item *
+
 L<EmptySubclassFailure/EmptySubclassFailure>
+
+
+=item *
+
 L<CheckingTypeInsteadOfMembership/CheckingTypeInsteadOfMembership>
+
+
+=item *
+
 L<ExplicitTypeCaseAnalysis/ExplicitTypeCaseAnalysis>
+
+
+=item *
+
 L<AccumulateAndFire/AccumulateAndFire>
+
+
+=item *
+
 L<ActionAtADistance/ActionAtADistance>
+
+
+=item *
+
 L<InterfaceBloat/InterfaceBloat>
+
+
+=item *
+
 L<FatCommands/FatCommands>
+
+
+=item *
+
 L<HardcodesAreEvil/HardcodesAreEvil>
+
+
+=item *
+
 L<CachingFailure/CachingFailure>
 
 
-...Refactoring
+=item *
+
+L<NoSexUntilMarriage/NoSexUntilMarriage>
+
+
+=item *
+
+L<AbstractionInversion/AbstractionInversion>
+
+
+=back
+
+
+
+=head3 Refactoring
+
+
+
+
+
+=over 1
+
+=item *
+
 L<AboutRefactoring/AboutRefactoring>
+
+
+=item *
+
 L<RefactoringPattern/RefactoringPattern>
+
+
+=item *
+
 L<GeneralizePattern/GeneralizePattern>
+
+
+=item *
+
 L<ExpressionsBecomeFunctions/ExpressionsBecomeFunctions>
+
+
+=item *
+
 L<BreakDownLargeFunctions/BreakDownLargeFunctions>
+
+
+=item *
+
 L<LocalVariablesReplaceGlobalVariables/LocalVariablesReplaceGlobalVariables>
+
+
+=item *
+
 L<GlobalToLexical/GlobalToLexical>
+
+
+=item *
+
 L<SoftrefsToHash/SoftrefsToHash>
+
+
+=item *
+
 L<TooManyVariables/TooManyVariables>
+
+
+=item *
+
 L<TooManyArguments/TooManyArguments>
+
+
+=item *
+
 L<MoveLargeDatastructuresToContainers/MoveLargeDatastructuresToContainers>
+
+
+=item *
+
 L<MoveCollectionsOfFunctionsToObjects/MoveCollectionsOfFunctionsToObjects>
+
+
+=item *
+
 L<SuperClassAbstraction/SuperClassAbstraction>
+
+
+=item *
+
+L<ThinWrappers/ThinWrappers>
+
+
+=item *
+
 L<IntroduceNullObject/IntroduceNullObject>
+
+
+=item *
+
 L<AbstractRootClasses/AbstractRootClasses>
+
+
+=item *
+
 L<BiDirectionalRelationshipToUnidirectional/BiDirectionalRelationshipToUnidirectional>
 
 
-...Concepts
+=item *
+
+L<LiterateProgramming/LiterateProgramming>
+
+
+=back
+
+
+
+=head3 Concepts
+
+
+
+
+
+=over 1
+
+=item *
+
 L<LooseCoupling/LooseCoupling>
+
+
+=item *
+
 L<TypeSafety/TypeSafety>
+
+
+=item *
+
 L<DesignContract/DesignContract>
+
+
+=item *
+
 L<LayeringPattern/LayeringPattern>
+
+
+=item *
+
 L<FunctionalProgramming/FunctionalProgramming>
+
+
+=item *
+
 L<CurryingConcept/CurryingConcept>
+
+
+=item *
+
 L<ManyToManyRelationship/ManyToManyRelationship>
 
 
-...Object Nuts and Bolts
-<table><tr><td valign="top">
+=item *
+
+L<LawOfDemeter/LawOfDemeter>
+
+
+=back
+
+
+
+=head3 Object Nuts and Bolts
+
+
+
+Object novices: start here.
+
+
+
+
+=over 1
+
+=item *
+
 L<InstanceVariables/InstanceVariables>
+
+
+=item *
+
 L<ShortHandInstanceVariables/ShortHandInstanceVariables>
+
+
+=item *
+
 L<StaticVariables/StaticVariables>
+
+
+=item *
+
+L<StaticMethods/StaticMethods>
+
+
+=item *
+
 L<AccessorPattern/AccessorPattern>
+
+
+=item *
+
 L<TypeSafety/TypeSafety>
+
+
+=item *
+
 L<TypedVariables/TypedVariables>
+
+
+=item *
+
 L<PrivateFunctions/PrivateFunctions>
+
+
+=item *
+
 L<FunctionalityIsToBeShared/FunctionalityIsToBeShared>
-L<AbstractClass/AbstractClass>
+
+
+=item *
+
 L<ChainOfConstructors/ChainOfConstructors>
+
+
+=item *
+
 L<TemplateMethod/TemplateMethod>
+
+
+=item *
+
 L<NewObjectFromExisting/NewObjectFromExisting>
-</td><td valign="top">
+
+
+=item *
+
 L<ReturnYourself/ReturnYourself>
+
+
+=item *
+
 L<ReusableFunctions/ReusableFunctions>
-L<InnerClasses/InnerClasses>
+
+
+=item *
+
 L<OverloadOperators/OverloadOperators>
+
+
+=item *
+
 L<CompositePattern/CompositePattern>
+
+
+=item *
+
 L<ExportingPattern/ExportingPattern>
+
+
+=item *
+
 L<ImportPattern/ImportPattern>
-</td></tr></table>
 
 
-...Appendices
+=item *
+
+L<AbstractClass/AbstractClass>
+
+
+=back
+
+
+
+=head3 Appendices
+
+
+
+
+
+=over 1
+
+=item *
+
 L<OtherStructuredSystems/OtherStructuredSystems>
+
+
+=item *
+
 L<SelectCPANModules/SelectCPANModules>
+
+
+=item *
+
 L<HowDoesPerlStackUp/HowDoesPerlStackUp>
+
+
+=item *
+
 L<PerlDoc/PerlDoc>
+
+
+=item *
+
 L<DocBook/DocBook>
+
+
+=item *
+
 L<CvsQuickRef/CvsQuickRef>
+
+
+=item *
+
 L<ClassNaming/ClassNaming>
+
+
+=item *
+
 L<ReferencesMeta/ReferencesMeta>
 
 
-...Other Concepts and Blurbs, Or As Of Yet Unclassified
+=back
+
+
+
+=head3 Other Concepts and Blurbs, Or As Of Yet Unclassified
+
+
+
+
+
+=over 1
+
+=item *
+
 L<PlanToThrowOneAway/PlanToThrowOneAway>
+
+
+=item *
+
 L<HowPerlDiffersFromC/HowPerlDiffersFromC>
+
+
+=item *
+
 L<BasicPerlOOSyntax/BasicPerlOOSyntax>
+
+
+=item *
+
 L<PerlOoNutsAndBolts/PerlOoNutsAndBolts>
 
 
-...Meta
+=back
+
+
+
+=head3 Meta
+
+
+
+
+
+=over 1
+
+=item *
+
 L<PerlPatternsResources/PerlPatternsResources>
+
+
+=item *
+
 L<ReferencesMeta/ReferencesMeta>
-L<GuestLog/GuestLog>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>GuestLog>
+
+
+=item *
+
 L<AboutPerlPatternsProject/AboutPerlPatternsProject>
-L<SkipTheIntroduction/SkipTheIntroduction>
+
+
+=item *
+
 L<YetAnotherIntroduction/YetAnotherIntroduction>
+
+
+=item *
+
 L<AboutTheAuthor/AboutTheAuthor>
 
 
-All content on this server is copyright 2002, 2003 by L<ScottWalters/ScottWalters>, unless otherwise noted. 
+=back
+
+All content on this server is copyright 2002, 2003 by L<http://wiki.slowass.net/E<63>ScottWalters>, unless otherwise noted. 
 Content credited otherwise is copyright its original author and has been generously
 made available by them under the same terms as the rest of the project, 
 the L<GnuFreeDocumentationLicense/GnuFreeDocumentationLicense>. Member of L<CategoryBook/CategoryBook>.
@@ -276,13 +984,13 @@ the L<GnuFreeDocumentationLicense/GnuFreeDocumentationLicense>. Member of L<Cate
 <img src="http://wiki.slowass.net/counter/counter.cgi"> hits since Wed Oct 9 00:20:05 PDT 2002
 
 
-$Id: L<PerlDesignPatterns/PerlDesignPatterns>,v 1.118 2003/03/04 11:51:26 phaedrus Exp $
+$Id: L<PerlDesignPatterns/PerlDesignPatterns>,v 1.189 2003/04/18 07:05:28 phaedrus Exp $
 
 
-Pages Linking to This Page - This is automatically generated.
+External Pages Linking to This Page - this is generated automatically:
 
 
-
+<!-- cut here - do not remove this comment - added by L<PagesLinkingHere/PagesLinkingHere> -->
 
 
 =over 1
@@ -357,324 +1065,402 @@ L<http://www.c2.com/cgi/wiki?PerlPatternsRepository>
 L<http://savannah.nongnu.org/projects/perlpatbook/>
 
 
+=item *
+
+L<http://use.perl.org/~ziggy/journal/6988>
+
+
+=item *
+
+L<http://www.zanthan.com/itymbi/>
+
+
+=item *
+
+L<http://www.zanthan.com/itymbi/archives/000997.html>
+
+
+=item *
+
+L<http://www.zanthan.com/itymbi/archives/000587.html>
+
+
+=item *
+
+L<http://banjo.actrix.com/blog/index.html>
+
+
+=item *
+
+L<http://banjo.actrix.com/blog/>
+
+
+=item *
+
+L<http://www.slowass.net/phaedrus/>
+
+
+=item *
+
+L<http://savannah.nongnu.org/projects/perlpatbook>
+
+
+=item *
+
+L<http://www.freeml.com/message/patterns@freeml.com/0002153;jsessionid=gi7p8hr9b1>
+
+
+=item *
+
+L<http://mail.gnu.org/archive/html/savannah-hackers/2002-09/msg00874.html>
+
+
+=item *
+
+L<http://www.prefnews.ru/>
+
+
+=item *
+
+L<http://savannah.nongnu.org/people/?group=perlpatbook>
+
+
+=item *
+
+L<http://www.livejournal.com/users/skx/?skip=50>
+
+
+=item *
+
+L<http://www.nedbatchelder.com/blog/200303.html>
+
+
+=item *
+
+L<http://www.nedbatchelder.com/blog/index.html>
+
+
+=item *
+
+L<http://www.nedbatchelder.com/blog/>
+
+
+=item *
+
+L<http://perlmonks.org/index.pl?node_id=170442>
+
+
+=item *
+
+L<http://perlmonks.org/index.pl>
+
+
+=item *
+
+L<http://slashdot.org/comments.pl>
+
+
+=item *
+
+L<http://www.nedbatchelder.com/blog/200303.html#e20030325T085634>
+
+
+=item *
+
+L<http://slashdot.org/comments.pl?sid=58824&threshold=1&commentsort=0&mode=thread&pid=5618273>
+
+
+=item *
+
+L<http://slashdot.org/pollBooth.pl?qid=946&aid=-1>
+
+
+=item *
+
+L<http://www.nedbatchelder.com/blog/200303.html#e20030326T071249>
+
+
+=item *
+
+L<http://prefnews.ru/?page=calendar&year=2002&month=12>
+
+
+=item *
+
+L<http://www.perlmonks.org/index.pl?node_id=197321>
+
+
+=item *
+
+L<http://savannah.nongnu.org/people/viewjob.php?group_id=3029&job_id=134>
+
+
+=item *
+
+L<http://www.mg2.org/jive/thread.jsp?forum=2&thread=1294>
+
+
+=item *
+
+L<http://www.mcs.csuhayward.edu/~billard/6140.html>
+
+
+=item *
+
+L<http://www.perlmonks.org/index.pl?node=jdporter>
+
+
 =back
 
 
 
-=head2 SkipTheIntroduction
+=head2 HomePage
 
 
-Skip the introduction and dive in. Some highlights:
+Welcome to L<http://wiki.slowass.net/E<63>TinyWiki>, the L<PerlDesignPatterns/PerlDesignPatterns> repository!
 
 
+Here, CPAN's Object::PerlDesignPatterns (L<http://www.cpan.org/modules/by-module/Object/> L<PerlDesignPatterns|http://search.cpan.org/searchE<63>module=Object::PerlDesignPatterns>) is crafted by you and I. 
+L<PerlDesignPatterns/PerlDesignPatterns> is a B<free online book>, forum, and documentation
+project at L<http://savannah.nongnu.org/projects/perlpatbook/> .
 
-  FunctionalProgramming
-  ShortHandInstanceVariables
-  AccessorPattern
-  TypeSafety
-  TypedVariables
-  PrivateFunctions
-  AbstractClass
-  AbstractFactory
-  InnerClasses
-  OverloadOperators
-  ClassAsTypeCode
-  ImmutableObject
-  FlyweightPattern
-  AnonymousSubroutineObjects
-  ConfigFile
-  FunctionTemplating
-  TooManyArguments
-  ConstraintSystem
-  DecoratorPattern
-  ExportingPattern
-  GodObject
-  MoveCollectionsOfFunctionsToObjects
-  MoveLargeDatastructuresToContainers
-  SharedData
-  StateVsClass
-  TooManyArguments
-  TypedVariables
 
+L<http://wiki.slowass.net/assemble.cgi?PerlDesignPatterns> is the recommended way to enjoy
+this text. It is up to date, all in one document, cross referenced, and
+in a good order to read through. 
 
 
-Newbies: follow a hyperlink as soon as you start to get lost. You'll wind up at the 
-basics if you do this. Meta information is also at the end, including the
-L<GuestLog/GuestLog> and information about the project itself.
 
 
-See L<http://wiki.slowass.net/E<63>TinyWiki> for more information on this collaboration software and notice the navigation links at the bottom. 
+=head3 News
 
 
-=head2 AboutQuality
 
+L<http://www.perldesignpatterns.com> was purchased for this project and
+now links here. Yay!
 
-I<One question that can't be answered from the sample code laying around in most books is [...] GOOD design.>
 
 
-The Linux kernel's design goals are stability, speed, and understandability, in 
-that order. Microsoft aims for ease of use and tight integration. Dealing with 
-multiple developers and turn over demands that software be modular. All of 
-these things are elements of quality.
 
+=head3 Download PerlDesignPatterns
 
-Speed, understandability, modularity, stability, and robustness are elements of 
-software quality. It doesn't make sense for every program to have every bit of 
-polish - nor is it possible. Perl really shines for rapid prototyping, so asking 
-that every single Perl program be fast and scalable is missing the spirit of 
-Perl. A quality Perl program to be one that makes intelligent design tradeoffs.
 
 
-Software quality decomposes many ways. Expending little effort demonstrates 
-mastery and gives an elegant solution. Software that withstands the test of 
-time has continued and educational value: the principles it is based on are 
-enduring -- not the fad of the week. Writing software that can easily be used 
-by other programmers is better than software that no one understands. What you 
-do and don't do in attempting to make your program better should reflect your 
-goals, your values, your ideals. Often it will reflect your weakness - as you're 
-intentionally trying to sound out a concept you haven't completely grasped. 
-Putting ideas into code is a wonderful way to challenge yourself to develop 
-deeper understanding. Chapter 1 XXX takes a look at software quality, in particular.
 
 
-I<...from the start, Perl has never really been satisfied with staying in any one particular ecological niche. Thats not [a] terribly healthy approach in evolutionary terms, especially when your niche goes away. Perl's been pretty lucky so far to land in stable niches, but if some of its current niches dry up someday, that's really only to be expected, and indeed almost hoped for. It's probably the fault of closing ecological niches that we aren't all still swinging from trees, after all.> - L<http://wiki.slowass.net/E<63>LarryWall>
+=over 1
 
+=item *
 
-More and more large applications are being written in Perl. Meerkat, Webmin, and 
-Faq-O-Matic are web-side examples. Major firms from electronics, banking, 
-financial and other industries implement corporate infrastructure and business 
-logic in Perl. In 2000, the United States Department of Commerce used Perl to 
-tally census data. Perl was integral to the Human Genome project. Because of 
-the (often correctly) perceived low quality of Perl code, Perl applications 
-tend to hide from the lime light. To get Perl used in high visibility places, 
-knowing how to write world class code is key. Perl is a non-intrusive language - 
-design principles that apply to large systems don't have anything to do with 
-small ones. Perl doesn't know what you're writing so it enforces nothing.
+L<http://wiki.slowass.net/assemble.cgi?PerlDesignPatterns> - HTML version of the book - 600K
+["The book" is the L<PerlDesignPatterns/PerlDesignPatterns> page, and everything it directly links to, except for L<http://wiki.slowass.net/E<63>ScottWalters> and L<http://wiki.slowass.net/E<63>GuestLog>. There are many other pages in
+the system that are either not finished (see L<http://wiki.slowass.net/E<63>PerlPatternsToDo>) or not
+on-topic to the book. assemble.cgi creates documents]
 
 
-I<But more to the point, why is software so bad? Programming is sometimes compared to an engineering specialty and the point is made that product standards are much lower for software. Software, unlike building construction, for example, is pure design. The actual programming phase is just a finer grained version of what we programmers normally call "design". > -  Ray Yeargin on Librenix.com
+=item *
 
+Object::PerlDesignPatterns (L<http://www.cpan.org/modules/by-module/Object/> L<PerlDesignPatterns|http://search.cpan.org/searchE<63>module=Object::PerlDesignPatterns>) - the last release version - always slightly out of date - different server
 
-Practice and reflection will make your software great. Learning is a very 
-personal thing and demands the right answer be given at the right time, in pace 
-with the student. The most important chapter in any technical book is the index. 
-This book will take the format of an art appreciation course. If we learn how 
-to write good software, it'll be through example, not instruction. This text isn't 
-finished: I have a lot of instruction I still need to remove, and a lot of examples I need to add.
 
+=item *
 
-=head2 AboutPerl
+L<http://www.perldesignpatterns.com/PerlDesignPatterns.ass.html> - 
+assemble.cgi's cache. To save my poor machine from CGI death, link to here
+if you're a high-volume site.
 
 
-Because we don't know how programs will reinvent themselves, we don't know how 
-to design an "Interface" 
-[L<1>]
-, 
-what composite types are involved, and what containment and inheritance hierarchies will look like. In the beginning, we seldom know that a program will grow into this at all!
+=item *
 
+L<http://wiki.slowass.net/download.cgi> - all source files, related or not, in ASCII, and scripts listed at L<http://wiki.slowass.net/E<63>TinyWiki>
 
-Perl's easy going attitude and powerful features shine here. After a program 
-has devised a solution to a logic problem, and after it has proved its 
-continued usefulness, we have a route for improvement.
 
+=back
 
-=head2 AboutObjects
 
 
-I<That's about all there is to it. Now you need just to go off and buy a book about object-oriented design methodology, and bang your forehead with it for the next six months or so.> - perlobj man page
+=head3 TinyWiki PerlDesignPatterns Development and Forum
 
 
-"Objects" allow arbitrary arrangements of useful logic. This enables software 
-to scale, exhibit flexibility within its development cycle, and within the life
-on a single invocation. Implementations of different facilities can be swapped 
-out not only during development, but while the program is running.
 
+Browsing the Wiki confuses mere mortals. Grab L<http://wiki.slowass.net/assemble.cgi?PerlDesignPatterns> instead for casual reading.
 
-Objects don't help you finish a boring program quicker. They don't help much 
-with diddling with a bit of code until it works. They don't magically make your
-programs maintainable and extensible. 
 
 
-Many Perl programmers happily blast OO. I believe every idea has its time and 
-place. Clearly, small scripts aren't the place for OO, and before the code is 
-even working isn't the time. Knowing when and how to use OO means knowing how 
-to benefit from it without it getting in the way.
 
+=over 1
 
-Conventional wisdom says that you can't graft objects onto an existing design. 
-Perhaps you're already a Perl fan because it lets you break rules. This is one 
-that needs breaking. In Perl, you can indeed bless
-[L<2>]
-an existing datastructure into object-hood. 
+=item *
 
+L<http://wiki.slowass.net/E<63>GuestLog>
 
-Graphical User Interfaces
-[L<3>]
-proved the value of Object Oriented programming: see L<http://wiki.slowass.net/E<63>PerlPaint>.  Everything
-that gets drawn on your screen shares are few similarity: it has an appearance that
-only it knows how to draw. It can inside of another object, such as menus can be in title bars
-and buttons can be in windows. It can send messages when activated to other objects which control the
-behavior of the application. Versions of components customized for appearance or behavior
-could easily be created, extending existing code.  Taking advantage of these similarities 
-allowed graphical elements to be mixed and matched, and allowed the application to 
-treat similar elements in the same way. It also allowed complex structures to be arranged
-at run time and continiously revised as the user moved things around on the screen and
-opened windows. The possibilities are built in rather than the limits.
-The gospel spilled out. Large applications and operating systems adopted the tenets.  
-Web programming adopted it after a rash of horrible overgrown "scripts" mostly written
-by Perl programmers. 
-
-
-Software Engineering has traditionally meant applying the right algorithm for 
-the job. Most University educations focus on understanding algorithms. This is 
-important, and L<http://wiki.slowass.net/E<63>AdvancedAlgorithmsInPerl>, O'Reilly Press, is good reading on the topc. 
-Attention to the overall structure of the program, how the algorithms fit 
-together, and building software with (at least the appearance of) a grand 
-design is the trendy new wave.
-
-
-With this in mind, lets think of Objects as tools, just like any other Perl 
-shortcut or magic. Remember - There is More Than One Way To Do It.
-
-
-Back to L<PerlDesignPatterns/PerlDesignPatterns>
-
-
-=head2 AboutPatterns
-
-
-Too many L<http://wiki.slowass.net/E<63>ObjectOriented> programming books tell you what an "OO" program looks 
-like, and all of the benefits you'll receive from writing code in this style. 
-The result has been large amounts of code that use OO features, but miss the 
-boat on profiting from them. Since we're using them strictly for fun and 
-profit, we're going to concentrate on the exact utility of each idea, and when 
-it is useful to apply it.
-
-
-"DesignPatterns" explain how real software problems map into the facilities of 
-Object systems. Patterns give us symptoms to watch for that tip you off that 
-they may be a much better way. They are parables of good software design.
-
-
-"DesignPatternsElementsOfReusableSoftwareComponents" brought 
-L<http://wiki.slowass.net/E<63>DesignPatterns> to computer science. When it did, it talked about OO constructs 
-exclusively. Since Perl programs combine many other ideas,  we're going to 
-extend the concept. Objects are data attached to code; "LambdaClosures" are 
-code attached to data. "Exporting" lets one module alter the world of another. 
-Usually this means adding keywords, but there are few limits. Perl's 
-introspective, L<http://wiki.slowass.net/E<63>DynamicLanguage> capabilities open up a new area of investigation. 
-Perl is multi-paradigmatic, and we should be too.
-
-
-XXX I<I apologize for the length of this letter, for I lacked the time to make it shorter.> -- Blaise Pascal 
-
-
-Are Design Patterns worth it? Programmers freshly exposed to Design Patterns 
-start building Winchester mansions
-[L<4>]
-The creations themselves could likewise said be garish curiosities, Victorian 
-in their own right. The same disease has been noted in programmers first 
-exposed to the lambda programming style of Scheme and programmers first exposed
-to Object Oriented programming. Creatively applying Object Orientation to a 
-problem quickly degenerates into creatively making everything an object. Soon 
-every variable, operator, condition, state, state transition, record, and 
-connection is an object. Don't laugh. I've read serious texts that have turned 
-state transitions into objects [L<5>]. 
-I can see the utility for this - in a case 
-where complex many-to-many relationships existed between state transitions and 
-other parts of the program. There is a difference between building an 
-abstraction and abstract building. I'd have to answer the question "no" for 
-most programmers: Design Patterns aren't worth it. On the other hand, most 
-programmers don't program Perl. Perl programmers already have well-ventilated 
-feet. To me, reading Object Oriented code is often like reading Atari BASIC 
-(or any other non-procedural BASIC, for that matter). Finding out where values 
-come from is a riddle. Names of objects and constructor prototypes give hints 
-about how things are arranged, which let you wager a guess about where it 
-probably should come from, which is sometimes where they do come from. 
-The code is a web, and values tend to travel pretty darn far across it. On the 
-other hand, in BASIC, important constants are near the top. I think BASIC wins 
-this one. BASIC programs were proud of their constants: the fact that they were 
-made into variables instead of repeated hardcodes, and placed at the top of the 
-file, let them proudly display them as the easy to change options they are. In 
-OO programming style, something is either adjusted with a GUI preferences 
-screen, or its a shameful bit of post-war relic. The bad news is in order to be 
-cleansed of all sin in this nihilist religion, you need an infinite number of 
-config screens to keep up with the growing number of options of the growing 
-program: there is no upper bound and no end to this race. 
-[L<6>].  At some point, 
-things break down, and some foundation must be hardcoded, somewhere. The gentle art of 
-bootstrapping, non GUI editable config files, and compile-time preferences have 
-an enduring place in software. Likewise, the breaks need to be put on OO. Perl 
-programs haven't reached this level of garishness yet. Perl is a humble 
-language, as L<http://wiki.slowass.net/E<63>LarryWall> says, so with some ties to our roots, perspective, and 
-frequent trips to the confessional, it may never become garish. Lets hope. 
-Systems of Object relationships should never create more complexity than they 
-clear up. This is an important and powerful motive to stop OO-ifying a program 
-at a certain point. OO-ifying a program should make the program shorter, more 
-readable, easier to prototype, cleaner, more robust - everything that OO zealots 
-promised. If it doesn't it isn't a fault of OO or the OO zealots, its your 
-fault - you've gone too far.
-
-
-An important tip of the hat to L<http://wiki.slowass.net/E<63>MarkJasonDominus> goes here. His "'Design 
-Patterns' Aren't" lightning talk voiced some latent objections I couldn't quite 
-formulate. L<http://wiki.slowass.net/E<63>ChristopherAlexander>, author of L<http://wiki.slowass.net/E<63>PatternLanguage>, 
-conceived of design patterns for architecture. His book doesn't tell you what 
-to build, nor how to build it. To quote M. J. Dominus, 
-//The problem Alexander is trying to solve is: How can you distribute 
-responsibility for design through all levels of a large hierarchy, while still 
-maintaining consistency and harmony of overall design?// Convention and 
-communication are key, especially since convention in Perl is purely voluntary. 
-Alexander's book is concerned with the level immediately above and immediately 
-below yours, in addition to what you're doing. To think of space being 
-distributed not only according to boundaries but according to delegation and 
-impact is novel. When designing a city, planning for neighborhoods, public t
-ransportation, and intertwined natural areas are smaller scale architectural 
-elements. When designing a school, park, or housing community, they are larger, 
-encompassing architectural elements. Designing a nice whatever is important, 
-but fitting it into the surrounding picture, at the same time thinking of the 
-people who will pick up your work where you leave it, is paramount. This cuts 
-deeper to the heart of encapsulation and delegation than any single programming 
-technique.
-
-
-I<Architecture is often seen as a luxury or a frill, or the indulgent pursuit of lily-gilding compulsives who have no concern for the bottom line.> -- Pattern Language of Program Design IV
-
-
-Architects know how to design skylights, and they delegate the actual construction 
-of architectural objects to qualified builders. The primary job of the a
-rchitect is a creative one: designing something functional that uses standard 
-elements to create custom solutions for unanticipated specifications. This is 
-remarkably similar to the plight of the programmer, baring one difference: 
-programmers have to do the construction themselves. Being bogged down in this 
-labor-intensive discipline can suck time away from contemplating the bigger 
-picture. The mention of a skylight makes an architect giddy as he visualizes 
-the light playing across the open spaces. The mention of a skylight makes a 
-builder sigh as he ponders reinforcing the roof, hanging drywall in the roof, 
-and more trim work. Not only can being bogged down in this level of detail keep 
-programmers from appreciating architectural elements of software, it can keep 
-them from learning about them at all. If that isn't enough, only recently was 
-any effort made to catalog them. To top it all off, clients don't ask for 
-architecturally sound software: they ask for huge amounts of square footage 
-decorated with endless amounts of cheap facade. Design is cast away as an 
-inconvenient nuisance that limits how much software can be churned out how fast. 
-Architects are judged by the quality of their work. Programmers are judged by 
-the quantity of their work.
-
-
-Architects design stable structures, but they also creatively ply their craft 
-to devise ways to make their customers value the structure more. The structures 
-that pass the test of time are not only the most solid ones, but the most 
-innovative, imaginative, inspirational, and useful.
-
-
-That being said, its important to decide what to build, and how to build it, on 
-your own. It is also important to know what is available to build, and the 
-techniques available to do so. Being the designer-constructor, you have to pay 
-your own price for your design errors.
-
-
-I<Programmers are, in their hearts, architects, and the first thing they want to do when they get to a site is to bulldoze the place flat and build something grand.> - L<http://wiki.slowass.net/E<63>JoelOnSoftware>
+
+=item *
+
+L<PerlDesignPatterns/PerlDesignPatterns> - browse the Wiki to collaborate
+
+
+=item *
+
+L<http://wiki.slowass.net/recent.cgi> - recently edited files
+
+
+=item *
+
+L<AboutPerlPatternsProject/AboutPerlPatternsProject>
+
+
+=back
+
+
+
+=head3 Also Also Wik
+
+
+
+There is no master site map: this site is itself a web.
+Some recommeneded starting points are: L<PerlDesignPatterns/PerlDesignPatterns>, L<http://wiki.slowass.net/E<63>SkipTheIntroduction>,
+L<http://wiki.slowass.net/E<63>CategoryAntiPattern>,
+L<CategoryBook/CategoryBook>, L<http://wiki.slowass.net/E<63>CategoryConcept>, L<http://wiki.slowass.net/E<63>CategoryRefactoring>, L<http://wiki.slowass.net/E<63>CategoryWiki>, 
+L<PerlPatternsResources/PerlPatternsResources>.
+
+
+"We are now the Knights who say ... Wiki wiki wiki wiki, bih-kang, zoop-boing, zowenzum" - I've been B<dying> to say that ;) - Kurt quoting L<http://wiki.slowass.net/E<63>MontyPython>
+
+
+Why are all the words of all of the links run together? Because thats how you make links! Words written this way get turned into links. Linking to an
+unknown page creates a new page. See L<http://wiki.slowass.net/E<63>TinyWiki> for a jumpstart.
+
+
+L<http://wiki.slowass.net/E<63>WardCunningham> started this madness with his original L<http://wiki.slowass.net/E<63>WikiWiki> at L<http://c2.com.>
+
+
+Feel free to edit pages to make corrections, improvements, editorial comments,
+ask questions, and so on. Someone will see your changes in
+L<http://wiki.slowass.net/recent.cgi> and answer your questions or touch up your work.
+
+
+Wikis exist to discuss all topics: see L<http://wiki.slowass.net/E<63>CategoryWiki> for a few others. 
+This site is a tool for collaboration on the L<PerlDesignPatterns/PerlDesignPatterns> project.
+Discussion of Wiki technology, Perl, OO programming in general, language
+theory, are on topic.
+You're encouraged to make a page named after yourself
+(for example, L<http://wiki.slowass.net/E<63>ScottWalters> is mine) and 
+link to it off the L<http://wiki.slowass.net/E<63>GuestLog> - your L<http://wiki.slowass.net/E<63>PersonalPage> need not be on topic.
+Off topic text not on your L<http://wiki.slowass.net/E<63>PersonalPage> is likely to be moved there or
+pruned, not because we don't think it's funny, merely because focus is
+important. See L<http://wiki.slowass.net/E<63>HowToWrite>.
+
+
+
+  Have Fun!
+  - ScottWalters 
+
+
+
+$Id: L<HomePage/HomePage>,v 1.68 2003/04/16 23:48:36 httpd Exp $
+
+
+Pages Linking to This Page:
+
+
+<!-- cut here - do not remove this comment -->
+
+
+=over 1
+
+=item *
+
+L<http://www.slowass.net/wiki2/?PerlDesignPatterns>
+
+
+=item *
+
+L<http://www.usemod.com/cgi-bin/mb.pl?ActiveWikiPages>
+
+
+=item *
+
+L<http://www.usemod.com/cgi-bin/mb2.pl?PublicallyEditableInterMap>
+
+
+=item *
+
+L<http://www.usemod.com/cgi-bin/mb2.pl?ActiveWikiPages>
+
+
+=item *
+
+L<http://www.slowass.net/phaedrus/>
+
+
+=item *
+
+L<http://www.slowass.net/>
+
+
+=item *
+
+L<http://search.cpan.org/author/SWALTERS/interface-0.01/interface.pm>
+
+
+=item *
+
+L<http://www.seedwiki.com/page.cfm?doc=tinywiki&wikiid=1723&wpid=>
+
+
+=item *
+
+L<http://usemod.com/cgi-bin/mb.pl?ActiveWikiPages>
+
+
+=item *
+
+L<http://www.exiledplanet.org/articles/200.shtml>
+
+
+=item *
+
+L<http://search.yahoo.com/bin/search?p=SLOWASS>
+
+
+=item *
+
+L<http://www.csc.uvic.ca/~csunion/index.cgi?ExecWikiInstructions>
+
+
+=item *
+
+L<http://ipaterson.ca/wiki/assemble.cgi?TinyWiki>
+
+
+=item *
+
+L<http://phoenix.pm.org/wiki/?PerlProjects>
+
+
+=item *
+
+L<http://www.sowjet.org/plus/parse.pl?file=BasicIdea.D>
+
+
+=item *
+
+L<http://phoenix.pm.org/wiki/assemble.cgi?PerlProjects>
+
+
+=item *
+
+L<http://ipaterson.ca/wiki/assemble.cgi?HomePage>
+
+
+=item *
+
+L<http://www.google.com/search?hl=en&lr=&ie=UTF-8&oe=UTF-8&q=wiki+and+.net>
+
+
+=back
+
 
 
 =head2 SoftwareQualityLevels
@@ -748,7 +1534,227 @@ lines long, none of this amounts to a hill of beans.
 I<Software does not wear out in the traditional sense of machinery with moving >
 I<parts. However, software is constantly being used in ways its authors never >
 I<expected (often uncovering errors), and end users are constantly demanding >
-I<extensions to their software. >- L<http://wiki.slowass.net/E<63>FrederickBrooks>, L<http://wiki.slowass.net/E<63>TheMythicalManMonth>
+I<extensions to their software. >- L<http://wiki.slowass.net/E<63>FredBrooks>, L<http://wiki.slowass.net/E<63>TheMythicalManMonth>
+
+
+=head2 AboutPerl
+
+
+Because we don't know how programs will reinvent themselves, we don't know how 
+to design an "Interface" 
+[L<1>]
+, 
+what composite types are involved, and what containment and inheritance 
+hierarchies will look like. In the beginning, we seldom know that a program 
+will grow into this at all!
+
+
+Perl's easy going attitude and powerful features shine here. After a program 
+has devised a solution to a logic problem, and after it has proved its 
+continued usefulness, we have a route for improvement.
+
+
+=head2 AboutObjects
+
+
+I<That's about all there is to it. Now you need just to go off and buy a book about object-oriented design methodology, and bang your forehead with it for the next six months or so.>
+- L<http://www.perldoc.com/cgi-bin/htsearch?restrict=perl5.8.0&words=perlobj>
+
+
+I<Objects> allow arbitrary arrangements of useful logic. This enables software 
+to scale, exhibit flexibility within its development cycle, and within the life
+on a single invocation. Implementations of different facilities can be swapped 
+out not only during development, but while the program is running.
+
+
+Objects don't help you finish a boring program quicker. They don't help much 
+with diddling with a bit of code until it works. They don't magically make your
+programs maintainable and extensible. 
+
+
+Many Perl programmers happily blast OO. I believe every idea has its time and 
+place. Clearly, small scripts aren't the place for OO, and before the code is 
+even working isn't the time. Knowing when and how to use OO means knowing how 
+to benefit from it without it getting in the way.
+
+
+Conventional wisdom says that you can't graft objects onto an existing design. 
+Perhaps you're already a Perl fan because it lets you break rules. This is one 
+that needs breaking. In Perl, you can indeed bless
+[L<2>]
+an existing datastructure into object-hood. 
+
+
+Graphical User Interfaces
+[L<3>]
+proved the value of Object Oriented programming: see L<http://wiki.slowass.net/E<63>PerlPaint>.  Everything
+that gets drawn on your screen shares are few similarity: it has an appearance that
+only it knows how to draw. It can inside of another object, such as menus can be in title bars
+and buttons can be in windows. It can send messages when activated to other objects which control the
+behavior of the application. Versions of components customized for appearance or behavior
+could easily be created, extending existing code.  Taking advantage of these similarities 
+allowed graphical elements to be mixed and matched, and allowed the application to 
+treat similar elements in the same way. It also allowed complex structures to be arranged
+at run time and continiously revised as the user moved things around on the screen and
+opened windows. The possibilities are built in rather than the limits.
+The gospel spilled out. Large applications and operating systems adopted the tenets.  
+Web programming adopted it after a rash of horrible overgrown "scripts" mostly written
+by Perl programmers. 
+
+
+Software Engineering has traditionally meant applying the right algorithm for 
+the job. Most University educations focus on understanding algorithms. This is 
+important, and L<http://wiki.slowass.net/E<63>AdvancedAlgorithmsInPerl>, O'Reilly Press, is good reading on the topc. 
+Attention to the overall structure of the program, how the algorithms fit 
+together, and building software with (at least the appearance of) a grand 
+design is the trendy new wave.
+
+
+With this in mind, lets think of Objects as tools, just like any other Perl 
+shortcut or magic. Remember - There is More Than One Way To Do It.
+
+
+Back to L<PerlDesignPatterns/PerlDesignPatterns>
+
+
+=head2 AboutPatterns
+
+
+L<http://wiki.slowass.net/E<63>ObjectOriented> programming books tell you what an L<http://wiki.slowass.net/E<63>ObjectOriented> program looks 
+like, and all of the benefits of writing code in this style. 
+Too often, they don't tell you how to arrive at this ideal.
+The result has been large amounts of code that use OO features, but miss the 
+boat on benefiting from them. Since we're using them strictly for fun and 
+profit, we're going to concentrate on the exact utility of each idea, and when 
+it is useful to apply it.
+
+
+"DesignPatterns" are parables of good software design.
+Good parables have a cast of evil creatures, good creatures, and a moral.
+The follies of evil become evident. Lessons are learned. 
+Sometimes, the evil creatures aren't killed, but change their ways.
+L<http://wiki.slowass.net/E<63>DesignPatterns> represent an ideal, explain the ideal, and give a path,
+all in neat little case studies. Think of it as your software bible.
+
+
+"DesignPatternsElementsOfReusableSoftwareComponents" brought 
+L<http://wiki.slowass.net/E<63>DesignPatterns> to computer science. When it did, it talked about OO constructs 
+exclusively. Since Perl programs combine many other ideas,  we're going to 
+extend the concept. Objects are data attached to code; "LambdaClosures" are 
+code attached to data. "Exporting" lets one module alter the world of another. 
+Usually this means adding keywords, but there are few limits. Perl's 
+introspective, L<http://wiki.slowass.net/E<63>DynamicLanguage> capabilities open up a new area of investigation. 
+Perl is multi-paradigmatic, and we should be too.
+
+
+XXX I<I apologize for the length of this letter, for I lacked the time to make it shorter.> -- Blaise Pascal 
+
+
+Are Design Patterns worth it? Programmers freshly exposed to Design Patterns 
+start building Winchester mansions
+[L<4>]
+The creations themselves could likewise said be garish curiosities, Victorian 
+in their own right. The same disease has been noted in programmers first 
+exposed to the L<http://wiki.slowass.net/E<63>LambdaProgramming> style of Scheme and programmers first exposed
+to L<http://wiki.slowass.net/E<63>ObjectOriented> programming. Creatively applying L<http://wiki.slowass.net/E<63>ObjectOrientation> to a 
+problem quickly degenerates into creatively making everything an object. Soon 
+every variable, operator, condition, state, state transition, record, and 
+connection is an object. Don't laugh. I've read serious texts that have turned 
+state transitions into objects 
+[L<5>]. 
+There is a difference between building an 
+abstraction and abstract building. I'd have to answer the question "no" for 
+most programmers: L<http://wiki.slowass.net/E<63>DesignPatterns> aren't worth it. On the other hand, most 
+programmers don't program Perl. Perl programmers already have well-ventilated 
+feet. To me, reading L<http://wiki.slowass.net/E<63>ObjectOriented> code is often like reading Atari BASIC 
+(or any other non-procedural BASIC, for that matter). Finding out where values 
+come from is a riddle. Names of objects and constructor prototypes give hints 
+about how things are arranged, which let you wager a guess about where it 
+probably should come from, which is sometimes where they do come from. 
+The code is a web, and values tend to travel pretty darn far across it. On the 
+other hand, in BASIC, important constants are near the top. I think BASIC wins 
+this one. BASIC programs were proud of their constants: the fact that they were 
+made into variables instead of repeated hardcodes, and placed at the top of the 
+file, let them proudly display them as the easy to change options they are. In 
+OO programming style, something is either adjusted with a GUI preferences 
+screen, or its a shameful bit of post-war relic. The bad news is in order to be 
+cleansed of all sin in this nihilist religion, you need an infinite number of 
+config screens to keep up with the growing number of options of the growing 
+program: there is no upper bound and no end to this race. 
+[L<6>].  At some point, 
+things break down, and some foundation must be hardcoded, somewhere. The gentle art of 
+bootstrapping, non GUI editable config files, and compile-time preferences have 
+an enduring place in software. Likewise, the breaks need to be put on OO. Perl 
+programs haven't reached this level of garishness yet. Perl is a humble 
+language, as L<http://wiki.slowass.net/E<63>LarryWall> says, so with some ties to our roots, perspective, and 
+frequent trips to the confessional, it may never become garish. Lets hope. 
+Systems of Object relationships should never create more complexity than they 
+clear up. This is an important and powerful motive to stop OO-ifying a program 
+at a certain point. OO-ifying a program should make the program shorter, more 
+readable, easier to prototype, cleaner, more robust - everything that OO zealots 
+promised. If it doesn't it isn't a fault of OO or the OO zealots, its your 
+fault - you've gone too far.
+
+
+An important tip of the hat to L<http://wiki.slowass.net/E<63>MarkJasonDominus> goes here. His "'Design 
+Patterns' Aren't" lightning talk voiced some latent objections I couldn't quite 
+formulate. L<http://wiki.slowass.net/E<63>ChristopherAlexander>, author of L<http://wiki.slowass.net/E<63>PatternLanguage>, 
+conceived of design patterns for architecture. His book doesn't tell you what 
+to build, nor how to build it. To quote M. J. Dominus, 
+//The problem Alexander is trying to solve is: How can you distribute 
+responsibility for design through all levels of a large hierarchy, while still 
+maintaining consistency and harmony of overall design?// Convention and 
+communication are key, especially since convention in Perl is purely voluntary. 
+Alexander's book is concerned with the level immediately above and immediately 
+below yours, in addition to what you're doing. To think of space being 
+distributed not only according to boundaries but according to delegation and 
+impact is novel. When designing a city, planning for neighborhoods, public t
+ransportation, and intertwined natural areas are smaller scale architectural 
+elements. When designing a school, park, or housing community, they are larger, 
+encompassing architectural elements. Designing a nice whatever is important, 
+but fitting it into the surrounding picture, at the same time thinking of the 
+people who will pick up your work where you leave it, is paramount. This cuts 
+deeper to the heart of encapsulation and delegation than any single programming 
+technique.
+
+
+I<Architecture is often seen as a luxury or a frill, or the indulgent pursuit of lily-gilding compulsives who have no concern for the bottom line.> -- Pattern Language of Program Design IV
+
+
+Architects know how to design skylights, and they delegate the actual construction 
+of architectural objects to qualified builders. The primary job of the 
+architect is a creative one: designing something functional that uses standard 
+elements to create custom solutions for unanticipated specifications. This is 
+remarkably similar to the plight of the programmer, baring one difference: 
+programmers have to do the construction themselves. Being bogged down in this 
+labor-intensive discipline can suck time away from contemplating the bigger 
+picture. The mention of a skylight makes an architect giddy as he visualizes 
+the light playing across the open spaces. The mention of a skylight makes a 
+builder sigh as he ponders reinforcing the roof, hanging drywall in the roof, 
+and more trim work. Not only can being bogged down in this level of detail keep 
+programmers from appreciating architectural elements of software, it can keep 
+them from learning about them at all. If that isn't enough, only recently was 
+any effort made to catalog them. To top it all off, clients don't ask for 
+architecturally sound software: they ask for huge amounts of square footage 
+decorated with endless amounts of cheap facade. Design is cast away as an 
+inconvenient nuisance that limits how much software can be churned out how fast. 
+Architects are judged by the quality of their work. Programmers are judged by 
+the quantity of their work.
+
+
+Architects design stable structures, but they also creatively ply their craft 
+to devise ways to make their customers value the structure more. The structures 
+that pass the test of time are not only the most solid ones, but the most 
+innovative, imaginative, inspirational, and useful.
+
+
+That being said, its important to decide what to build, and how to build it, on 
+your own. It is also important to know what is available to build, and the 
+techniques available to do so. Being the designer-constructor, you have to pay 
+your own price for your design errors.
+
+
+I<Programmers are, in their hearts, architects, and the first thing they want to do when they get to a site is to bulldoze the place flat and build something grand.> - L<http://wiki.slowass.net/E<63>JoelOnSoftware>
 
 
 =head2 AboutFlack
@@ -810,7 +1816,9 @@ See L<http://wiki.slowass.net/E<63>IdiomaticProgramming>.
 I<We begin with the part of the language which defines a town or a community. These patterns can never be "designed" or "built" in one fell swoop - but patient piecemeal growth, designed in such a way that every individual act is always helping to create or generate these larger global patterns, will, slowly and surely, over the years, make a community that has these global patterns in it.> - A L<http://wiki.slowass.net/E<63>PatternLanguage>
 
 
-NP Complete problems take an exponential, relative to the amount of input, to complete. See L<http://wiki.slowass.net/E<63>MasteringAlgorithmsWithPerl>.
+NP Complete problems take an exponential, relative to the amount of input, to complete. 
+Calling something "NP Complete" describes it at a problem not worth trying to solve,
+or only trying to solve in a very approximate fashion. See L<http://wiki.slowass.net/E<63>MasteringAlgorithmsWithPerl>.
 
 
 Contrived interfaces result from arrogantly believing that every aspect of the 
@@ -866,6 +1874,219 @@ See Also: L<http://wiki.slowass.net/E<63>AccidentalHero>, L<http://wiki.slowass.
 L<http://wiki.slowass.net/E<63>DesignDocuments>, L<http://wiki.slowass.net/E<63>FlowCharts>, L<http://wiki.slowass.net/E<63>DesignPatterns>, L<AboutTheAuthor/AboutTheAuthor>, L<AboutObjects/AboutObjects>
 
 
+<!--
+
+  
+  <|dave|> you're right. OO can be useful. but the thing is, it gets forced down our throats
+  > feel free to edit any page. there is a little "edit" link in the bottom left corner.
+  <|dave|> everyone tries to bend a project to make it OO
+  <|dave|> when some of them just arent suited to OO
+  <uri> |dave|: i didn't force it down my throat. i designed with it and not against it. my project needed polymorphism and OO perl does that.
+  <|dave|> few projects suit OO
+  <uri> |dave|: wrong. some do. 
+  <uri> many do.
+  <|dave|> < 50%
+  <uri> but many projects are poorly architected in any paradigm
+  > |dave| - there was an idea that modeling the project using OO/usecase etc would make the program scalable. that never happened. that failed
+    horribly. not only cna't you plan for something that complex, but throwing objets in the mix doesn't help at all.
+  <uri> architecture is key. that is shitty all over
+  > objects are much better used to clean up existing code incrementally than try to avoid the np-complete problem of predicting the future
+  <uri> scrottie: same there. architecture is key. always will be.
+  <uri> architecture is not OO. it is making a coherent whole out of parts
+  > learning as you go is key. constant injetions of architecture rather than a poorly planned attempt up front is key.
+  <uri> no one does architecture at all.
+  <|dave|> when i look at OO code, i just cant stand it. so much overhead.... people work in micoarchitecture making so many tiny little
+    improvements to squeeze as much performance as possible out of a computer, then people f*ck it away using OO
+  <uri> |dave|: you haven't seen good OO code then.
+  > |dave| - trying to delegate everything "just in case" makes a special kind of speghetti code. you can't figure out the flow of the program, how
+    things are constructed, where values come from - because it is so indirect
+  <uri> rare but good OO code makes sense. 
+  > good OO code has abstraction removed as often as it has it added, and people hiding behind OO to make their code good aren't willing to do that
+  <|dave|> what do you mean scrottie
+  <|dave|> about "just in case" i mean
+  > if a constructor gets called, and you have to dig through 30 different constructor calls, methods, delegations, etc to figure out where the hell
+    the values came from, something is wrong
+  > oh
+  > people add a lot of delegation and abstraction "just in case it might be useful" to keeping things modular
+  > which, as it turns out, is a complete rat race. it is impossible to add enough abstraction up front to have the exact right abstraction you end
+    up needing
+  <|dave|> yeah
+  > then, they refuse to remove any of it
+  > leaving a tangled web as bad as any speghetti code
+  > spaghetti? i can't spell
+  <|dave|> right on
+  > PerlDesignPatterns tries to expose aspiring OO programmers to as many *other* ideas as possible
+  <|dave|> one reason im anti-OO is that someone has to be
+  
+
+-->
+
+
+=head2 InnerClasses
+
+
+Synopsis: Related packages can be created where they are defined.
+
+
+When: Adding another Interface to an object, passing out callbacks, creating helper objects.
+Moving inheritance, or interfaces, out of your object but not far from it.
+
+
+
+  package WebsafeColors;
+
+
+
+
+  sub new { ... };
+
+
+
+
+  sub getIterator {
+    my $parentThis = shift;
+    return eval {
+      package WebsafeColors::Iterator;
+      # this mini sub-package only knows how to iterate over our data structure
+      @ISA=(Iterator);
+      sub new {
+        my $type = shift;
+        my $this = { currentIndex=>0 };
+        bless $this, $type;
+      }
+      sub hasNext {
+        my $this = shift;
+        return @{$parentThis->{'colors'}} > $this->{'currentIndex'};
+      }
+      sub getNext {
+        my $this = shift;
+        die unless $this->hasNext();
+        return $parentThis->{'colors'}->[$this->{'currentIndex'}++];
+      }
+      __PACKAGE__;
+    }->new();
+  }
+
+
+
+
+  # there should be two underscores on either side of PACKAGE. TinyWiki is having a bug. sorry.
+
+
+
+WebsafeColors::Iterator (L<http://www.cpan.org/modules/by-module/WebsafeColors/> L<Iterator|http://search.cpan.org/searchE<63>module=WebsafeColors::Iterator>) implements all of 
+the functions required to be an instance of Iterator. If something takes an 
+argument, and insists it implement Iterator, it will accept the result of 
+calling getIterator() on a L<http://wiki.slowass.net/E<63>WebsafeColors> object. However, L<http://wiki.slowass.net/E<63>WebsafeColors> itself 
+does not implement these methods, or inherit the base abstract class for Iterators. 
+The package that does is contained entirely inside L<http://wiki.slowass.net/E<63>WebsafeColors>'s getIterator() 
+method. This technique lets you localize the impact of having to provide an interface, 
+and keep code related to supporting that interface together and away from the 
+rest of the code. This supports the basic idea of putting code where it belongs.
+
+
+When we return a WebsafeColors::Iterator (L<http://www.cpan.org/modules/by-module/WebsafeColors/> L<Iterator|http://search.cpan.org/searchE<63>module=WebsafeColors::Iterator>) object, that object uses a variable 
+defined lexically inside L<http://wiki.slowass.net/E<63>WebsafeColors>. Since defined lexically (contained inside 
+the block, in this case, the method) to the variable $parentThis, we hold a 
+reference to it. If it changes, we see the changes. If the parent is destroyed 
+before the WebsafeColors::Iterator (L<http://www.cpan.org/modules/by-module/WebsafeColors/> L<Iterator|http://search.cpan.org/searchE<63>module=WebsafeColors::Iterator>) object we return is, this variable will live 
+on until all references are destroyed. This way, we can share data efficiently 
+with our parent. In some situations, it may be better to copy the data before 
+giving it to the inner class, or to use Immutable Objects, explained in Chapter XXX.
+
+
+Our Perl implementation could cause problems if two threads contend for the same 
+datastructure, even by way of different objects. Thus, if used in a threading 
+environment, the L<http://wiki.slowass.net/E<63>WebsafeColors> and all of its returned inner classes would need 
+to synchronize on the same object for access to the array of colors. Failure to 
+do so would lead to iterators that miss colors, end prematurely, or overrun the 
+array.
+
+
+L<BiDirectionalRelationshipToUnidirectional/BiDirectionalRelationshipToUnidirectional> talks about how L<InnerClasses/InnerClasses>
+may be employed to cleanly build structures of mutually referring objects.
+
+
+L<AdapterPattern/AdapterPattern> is similar to L<InnerClasses/InnerClasses>, but the adapter has no access to
+lexical data, and sits in a seperate file. Adapters can be (and usually are)
+added after the fact, and have the advantage of not requiring tampering with
+a class to implement. L<CurryingConcept/CurryingConcept> talks about creating method-level
+wrappers to serve as adapters.
+
+
+An L<IteratorInterface/IteratorInterface> is a good use of L<InnerClasses/InnerClasses>. Interfaces clutter up 
+a namespace with lots of methods designed to present the data and logic
+in an object is various ways. The L<IteratorInterface/IteratorInterface> encapsulates the requirements,
+keeping things as neat as possible.
+
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<IteratorInterface/IteratorInterface>
+
+
+=item *
+
+L<AbstractClass/AbstractClass>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>LambdaClosure>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>LexicalsMakeSense>
+
+
+=item *
+
+L<http://perlmonks.org/index.pl?node=246322>
+
+
+=item *
+
+L<AdapterPattern/AdapterPattern>
+
+
+=item *
+
+L<BiDirectionalRelationshipToUnidirectional/BiDirectionalRelationshipToUnidirectional>
+
+
+=back
+
+L<http://wiki.slowass.net/E<63>CategoryPattern>, L<http://wiki.slowass.net/E<63>CategoryNovice>, L<http://wiki.slowass.net/E<63>CategoryIntermediate>
+
+
+External Pages Linking to This Page:
+
+
+<!-- cut here - do not remove this comment - added by L<PagesLinkingHere/PagesLinkingHere> -->
+
+
+=over 1
+
+=item *
+
+L<http://www.perlmonks.org/index.pl?parent=246322&title=Dynamicly%20controlling%20%40ISA%20and%20namespaces&lastnode_id=246322&displaytype=display&type=superdoc&node=Comment%20on>
+
+
+=back
+
+
+
 =head2 AggregatePattern
 
 
@@ -905,7 +2126,7 @@ detail then are pressed with the problem of giving it all a high level
 interface. 
 
 
-Creat an object as a wrapper, using the same API, with a common subtype
+Create an object as a wrapper, using the same API, with a common subtype
 as a cart entry, but allow it to hold other objects of that subtype: make
 it a container. Define its accessors to return aggregate information
 on the objects it contains.
@@ -960,11 +2181,103 @@ casually calling I<->query_price()> on your I<Cart::Basket> object
 won't have to concern himself with this - things will just work.
 
 
-See Also: L<VisitorPattern/VisitorPattern>, L<http://wiki.slowass.net/E<63>TemplateClass>, L<FacadePattern/FacadePattern>, L<IteratorInterface/IteratorInterface>, L<TypeSafety/TypeSafety>,
+This will break. Unless the advice of L<AbstractRootClasses/AbstractRootClasses> is followed and
+different implementations of the same thing share the same interface, the 
+basket can't confidently aggregate things. Unless the advice of L<StateVsClass/StateVsClass>
+is heeded, L<AbstractRootClasses/AbstractRootClasses> will never be acheived: the temptation to
+draw distinctions between classes that lack certian functions will be too
+strong. These distinctions run counter to L<AbstractRootClasses/AbstractRootClasses>, causing
+segmentation and proliferation of interfaces for no good reason. This proliferation
+of types prevents aggregation in baskets and containers. Avoid this vicious
+cycle. Parrots that don't squak are still parrots.
+
+
+XXX L<IteratorInterface/IteratorInterface> blurb - aggregation is kind of like iteration in 
+that they both present information gleaned from a number of objects through
+a tidy interface in one object. While L<IteratorInterface/IteratorInterface> deals with each
+contained or known object in turn, L<AggregatePattern/AggregatePattern> summerizes them in
+one fell swoop.
+
+
+
+
+=head3 Categories
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CategoryPattern>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CategoryIntermediate>
+
+
+=back
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<VisitorPattern/VisitorPattern>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>TemplateClass>
+
+
+=item *
+
+L<FacadePattern/FacadePattern>
+
+
+=item *
+
+L<IteratorInterface/IteratorInterface>
+
+
+=item *
+
+L<TypeSafety/TypeSafety>
+
+
+=item *
+
 L<FunctionalProgramming/FunctionalProgramming>
 
 
-L<http://wiki.slowass.net/E<63>CategoryPattern>, L<http://wiki.slowass.net/E<63>CategoryIntermediate>
+=item *
+
+L<StateVsClass/StateVsClass>
+
+
+=item *
+
+L<AbstractRootClasses/AbstractRootClasses>
+
+
+=item *
+
+L<IteratorInterface/IteratorInterface>
+
+
+=back
+
 
 
 =head2 DecoratorPattern
@@ -973,10 +2286,12 @@ L<http://wiki.slowass.net/E<63>CategoryPattern>, L<http://wiki.slowass.net/E<63>
 Synopsis: Attach additional logic to an existing object.
 
 
-When: Something about an object needs to change. Objects can have attributes that change something about them.
+When: Something about an object needs to change. Objects can have attributes 
+that change something about them.
 
 
-Decorators provide a flexible alternative to subclassing for extending functionality.
+Decorators provide a flexible alternative to subclassing for extending 
+functionality.
 
 
 L<http://wiki.slowass.net/E<63>TheJoyOfPatterns> used stacking burger toppings as an example. It's a good 
@@ -987,7 +2302,7 @@ a heat lamp, pre-made, waiting for someone to order the standard taco. A rash
 of bowel disrupting bacteria outbreaks brought suspicion on the heat lamps, so 
 people began ordering tacos with and without all kinds of weird toppings in 
 attempt to foil the pre-making efforts and get a fresh taco. The concessions 
-stand found that the cashiers were making a lot of errors adding up the costs 
+stand management found that the cashiers were making a lot of errors adding up the costs 
 of the toppings, so they complained to the corporate office. Corporate office 
 searches the web for "a programmer that doesn't interview like they are reading
 from a script and who doesn't design patterns using taco toppings like the last
@@ -1097,13 +2412,16 @@ register shared by two people, and it would keep us from having two taco orders
 on the same tab, each with different toppings. Dynamic inheritance is a cool 
 trick, but you must remember that its effects are global. Reserve it for 
 creating objects of a new, unique name, of user specification, and perhaps a 
-few similar applications.
+few similar applications. See L<http://wiki.slowass.net/E<63>BeanPattern> and L<AbstractFactory/AbstractFactory> for more on custom-crafted
+objects. For some reason, this mess reminds me of L<SelfJoiningData/SelfJoiningData>.
 
 
 For our purposes, though, this won't fly. The linked list approach is the right
-approach. However, we need to instantiate individual toppings, so that they 
+approach. We need to instantiate individual toppings as objects, so that they 
 each have private data. In this private data, we need to store the 
 relationship: what the topping is topping is an attribute of each topping.
+See L<InstanceVariables/InstanceVariables> for more on keeping data private to an instance
+of an object. 
 
 
 
@@ -1145,6 +2463,10 @@ relationship: what the topping is topping is an attribute of each topping.
   sub query_price { return 5.95; }
   
   # in a file named Topping/Lettuce.pm:
+
+
+
+
   package Topping::Lettuce;
   use ImplicitThis; ImplicitThis::imply();
   @ISA = qw(Topping);
@@ -1154,12 +2476,13 @@ relationship: what the topping is topping is an attribute of each topping.
 There! We finally have something that passes as workable! This solution is good
 for something where we want to change arbitrary features of the object without 
 the containing object (in this case, taco) knowing before hand. We don't make 
-use this strength in this example. Since the query_price() method of the taco 
-object just passes the request right along, we can do any math we want. We 
-would be using this strength if we had a two-for-taco-toppings-Tuesday, where 
-all toppings were half price on Tuesdays. With a press of a button, a new 
-object could be pushed onto the front of the list that defined a price method 
-just returned half of whatever the price_method() in the next object returns. 
+use of this strength in this example. The query_price() method of the taco 
+object just passes the request right along, we any math we want can be done.
+A two-for-taco-tappings-Tuesday, where 
+all toppings were half price on Tuesdays, would show off the strengths of the L<DecoratorPattern/DecoratorPattern>. 
+With a press of a button, a new 
+object could be pushed onto the front of the list that defined a price method that
+just returns half of whatever the price_method() in the next object returns. 
 The important thing to note is that we can stack logic by inserting one object 
 in front of another when "has-a" relationships.
 
@@ -1171,22 +2494,81 @@ For the sake of simplicity and clarity, each of these approaches has a
 different API. There is no reason they couldn't have been done consistently.
 
 
-See also: L<AbstractClass/AbstractClass>
 
 
-See also: NEXT on CPAN
+=head3 See Also
 
 
-See also: L<AggregatePattern/AggregatePattern>
 
 
-See also: L<http://patternsinperl.com/designpatterns/decorator/>
+
+=over 1
+
+=item *
+
+L<AbstractClass/AbstractClass>
 
 
-See also: L<http://hatena.dyndns.org/~jkondo/DesignPattern/Decorator/>
+=item *
 
+NEXT on CPAN
+
+
+=item *
+
+L<AggregatePattern/AggregatePattern>
+
+
+=item *
+
+L<http://patternsinperl.com/designpatterns/decorator/>
+
+
+=item *
+
+L<http://hatena.dyndns.org/~jkondo/DesignPattern/Decorator/>
+
+
+=item *
+
+L<http://perlmonks.org/index.pl?node=227847> - modifying @ISA at runtime
+
+
+=item *
+
+L<SelfJoiningData/SelfJoiningData>
+
+
+=item *
+
+L<AbstractFactory/AbstractFactory>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>BeanPattern>
+
+
+=back
 
 L<http://wiki.slowass.net/E<63>CategoryPattern>, L<http://wiki.slowass.net/E<63>CategoryNovice>, L<http://wiki.slowass.net/E<63>CategoryIntermediate>
+
+
+External Pages Linking to This Page:
+
+
+<!-- cut here - do not remove this comment - added by L<PagesLinkingHere/PagesLinkingHere> -->
+
+
+=over 1
+
+=item *
+
+L<http://www.perlmonks.org/index.pl?parent=246322&title=Dynamicly%20controlling%20%40ISA%20and%20namespaces&lastnode_id=246322&displaytype=display&type=superdoc&node=Comment%20on>
+
+
+=back
+
 
 
 =head2 ProxyPattern
@@ -1279,28 +2661,59 @@ Other ideas, such as the L<FacadePattern/FacadePattern>, are based on this. This
 L<http://wiki.slowass.net/E<63>AccessCoherency> requirements touch on L<AccumulateAndFire/AccumulateAndFire>.
 
 
-See Also: L<FacadePattern/FacadePattern>, L<AdapterPattern/AdapterPattern>, L<AccumulateAndFire/AccumulateAndFire>
-
-
 L<http://wiki.slowass.net/E<63>CategoryPattern>, L<http://wiki.slowass.net/E<63>CategoryNovice>
+
+
+B<See Also> 
+
+
+
+
+=over 1
+
+=item *
+
+L<FacadePattern/FacadePattern>
+
+
+=item *
+
+L<AdapterPattern/AdapterPattern>
+
+
+=item *
+
+L<AccumulateAndFire/AccumulateAndFire>
+
+
+=item *
+
+L<http://www.perl.com/pub/a/2002/08/07/proxyobject.html>
+
+
+=item *
+
+L<http://hatena.dyndns.org/~jkondo/DesignPattern/Proxy/> 
+
+
+=item *
+
+L<http://www.object-arts.com/EducationCentre/Patterns/Proxy.htm>
+
+
+=back
+
 
 
 =head2 AdapterPattern
 
 
 Problem: 
-You have code that will work with one kind of object, but there is another kind
+Code will work with one kind of object, but there is another kind
 of object that should be able to be used in its place, that should work, but 
 doesn't. Two Interfaces are incompatible implementations of the same idea. 
 Using vender products interchangeably. 
-You have an object that requires one kind of object, when it should accept several different kinds. 
-You have one object that requires a certain type of object. You have another
-object that provides an interface. You want to use them together.  You could
-subclass one of the objects, but you'd loose polymorphism, unless all 
-subclasses and compatible objects were subclassed individually as well. 
-Instead, you make a generic container that is accepted by any of the first
-class, and contains anything derived from the second class, which translates
-between the two disparate interfaces. 
+Or, an object that requires one kind of object, when it should accept several different kinds. 
 
 
 Solution:
@@ -1308,7 +2721,20 @@ Translate one interface to the other using a dedicated Adapter object.
 
 
 The Adapter is a case of the L<ProxyPattern/ProxyPattern>. It isn't even a special case.
-You could call it an example of a Proxy.
+You could call it an example of a Proxy. Or vice versa.
+
+
+One object requires a certain type of object. You have another
+object that provides an interface. You want to use them together.  You could
+subclass one of the objects, but you'd lose polymorphism, unless all 
+subclasses and compatible objects were subclassed individually as well -
+which wreaks of the L<http://wiki.slowass.net/E<63>BridgePattern> or parallel inheritance hierachies. Yuck.
+Instead, make a generic container that is accepted by any of the first
+class, and contains anything derived from the second class, which translates
+between the two disparate interfaces. 
+
+
+XXX despretely needs a diagram here
 
 
 
@@ -1342,6 +2768,9 @@ XXX Discussion
 XXX Code
 
 
+L<http://www.pobox.com/~schwern/talks/Design_Patterns/full_slides/slide017.html> - L<http://wiki.slowass.net/E<63>MichaelSchwern>'s version from his Design Patterns talk
+
+
 L<InnerClasses/InnerClasses> are often used as Adapters. In Java, there is no way to pass
 a closure, a subroutine pointer, or any other first class object other than
 an actual object. Java 1.0 required you to create a class for each and every
@@ -1353,16 +2782,70 @@ and allowed the definition to be placed in your code right where they
 are passed. See L<InnerClasses/InnerClasses> for more information.
 
 
-See Also: L<ProxyPattern/ProxyPattern>, L<InnerClasses/InnerClasses>, L<http://wiki.slowass.net/E<63>CallBack>
 
 
-See Also: L<http://hatena.dyndns.org/~jkondo/DesignPattern/Adapter/>
+=head3 Categories
 
 
-See Also: L<http://www.pobox.com/~schwern/talks/Design_Patterns/full_slides/slide017.html> - L<http://wiki.slowass.net/E<63>MichaelSchwern>'s version from his Design Patterns talk
 
 
-L<http://wiki.slowass.net/E<63>CategoryPattern>, L<http://wiki.slowass.net/E<63>CategoryNovice>
+
+=over 1
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CategoryPattern>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CategoryNovice>
+
+
+=back
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<ProxyPattern/ProxyPattern>
+
+
+=item *
+
+L<InnerClasses/InnerClasses>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CallBack>
+
+
+=item *
+
+L<http://hatena.dyndns.org/~jkondo/DesignPattern/Adapter/>
+
+
+=item *
+
+L<http://www.pobox.com/~schwern/talks/Design_Patterns/full_slides/slide017.html>
+
+
+=item *
+
+L<http://www.object-arts.com/EducationCentre/Patterns/Adapter.htm>
+
+
+=back
+
 
 
 =head2 FacadePattern
@@ -1402,19 +2885,52 @@ remain blissfully ignorant of the whole ordeal.
 [L<10>]
 
 
+L<http://www.theperlreview.com/Articles/v0i4/facade.pdf> - "The Facade Design Pattern" by brian d foy, I<The Perl Review>, v0 i4, L<http://www.theperlreview.com>
+
+
 Credits: L<http://wiki.slowass.net/E<63>GangOfFour>
 
 
-See Also: L<ProxyPattern/ProxyPattern>, L<DecoratorPattern/DecoratorPattern>
-
-
-See Also: L<http://hatena.dyndns.org/~jkondo/DesignPattern/Facade/> 
-
-
-See Also: L<http://www.theperlreview.com/Articles/v0i4/facade.pdf> - "The Facade Design Pattern" by brian d foy, <i>The Perl Review</i>, v0 i4, L<http://www.theperlreview.com>
-
-
 L<http://wiki.slowass.net/E<63>CategoryPattern>, L<http://wiki.slowass.net/E<63>CategoryNovice>
+
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<ProxyPattern/ProxyPattern>
+
+
+=item *
+
+L<DecoratorPattern/DecoratorPattern>
+
+
+=item *
+
+L<http://hatena.dyndns.org/~jkondo/DesignPattern/Facade/> 
+
+
+=item *
+
+L<http://www.theperlreview.com/Articles/v0i4/facade.pdf>
+
+
+=item *
+
+L<http://www.martinfowler.com/eaaCatalog/remoteFacade.html>
+
+
+=back
+
 
 
 =head2 ResultObject
@@ -1457,7 +2973,8 @@ killing bug.
 Credits: L<http://wiki.slowass.net/E<63>GangOfFour>
 
 
-See Also: L<http://wiki.slowass.net/E<63>WholeObject>, L<TypeSafety/TypeSafety>, L<PassingPattern/PassingPattern>, L<http://wiki.slowass.net/E<63>ValueObject>
+See Also: L<http://wiki.slowass.net/E<63>WholeObject>, L<TypeSafety/TypeSafety>, L<PassingPattern/PassingPattern>, L<http://wiki.slowass.net/E<63>ValueObject>,
+L<http://www.object-arts.com/EducationCentre/Patterns/ValueModel.htm>
 
 
 L<http://wiki.slowass.net/E<63>CategoryPattern>, L<http://wiki.slowass.net/E<63>CategoryNovice>
@@ -1671,23 +3188,71 @@ I<query_price()>, and I<add_price()>.
 Credits: L<http://wiki.slowass.net/E<63>GangOfFour>
 
 
-See Also: L<ResultObject/ResultObject>, L<MoveLargeDatastructuresToContainers/MoveLargeDatastructuresToContainers>, L<http://wiki.slowass.net/E<63>WholeObject>, L<http://wiki.slowass.net/E<63>MixIns>,
+L<http://wiki.slowass.net/E<63>CategoryPattern>, L<http://wiki.slowass.net/E<63>CategoryIntermediate>
+
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<ResultObject/ResultObject>
+
+
+=item *
+
+L<MoveLargeDatastructuresToContainers/MoveLargeDatastructuresToContainers>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>WholeObject>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>MixIns>
+
+
+=item *
+
 L<StateVsClass/StateVsClass>
 
 
-See Also: Class::Visitor (L<http://www.cpan.org/modules/by-module/Class/> L<Visitor|http://search.cpan.org/searchE<63>module=Class::Visitor>) on CPAN, Netscape::Bookmarks (L<http://www.cpan.org/modules/by-module/Netscape/> L<Bookmarks|http://search.cpan.org/searchE<63>module=Netscape::Bookmarks>) on CPAN
+=item *
+
+Class::Visitor (L<http://www.cpan.org/modules/by-module/Class/> L<Visitor|http://search.cpan.org/searchE<63>module=Class::Visitor>)
 
 
-See Also: L<http://patternsinperl.com/designpatterns/visitor/>
+=item *
+
+Netscape::Bookmarks (L<http://www.cpan.org/modules/by-module/Netscape/> L<Bookmarks|http://search.cpan.org/searchE<63>module=Netscape::Bookmarks>)
 
 
-See Also: L<http://hatena.dyndns.org/~jkondo/DesignPattern/Visitor/>
+=item *
+
+L<http://patternsinperl.com/designpatterns/visitor/>
 
 
-See Also: L<http://wiki.slowass.net/E<63>AdvancedPerlProgramming>, page 56: the L<http://wiki.slowass.net/E<63>ExpressionPlotting> example
+=item *
+
+L<http://hatena.dyndns.org/~jkondo/DesignPattern/Visitor/>
 
 
-L<http://wiki.slowass.net/E<63>CategoryPattern>, L<http://wiki.slowass.net/E<63>CategoryIntermediate>
+=item *
+
+L<http://wiki.slowass.net/E<63>AdvancedPerlProgramming>, page 56: the L<http://wiki.slowass.net/E<63>ExpressionPlotting> example
+
+
+=back
+
 
 
 =head2 ClassAsTypeCode
@@ -1750,7 +3315,7 @@ of all of the members of the pool:
 
 Everything from this set passes the "isa" test, so we can use L<TypeSafety/TypeSafety>
 to check our arguments. In any other language, it would be impossible to add 
-to the set after being created this way, but we could do revisit the package (see L<http://wiki.slowass.net/E<63>RevisitingNamespaces>)
+to the set after being created this way, but we could do revisit the package (see L<RevisitingNamespaces/RevisitingNamespaces>)
 or redefine the constructor in Perl, so this shouldn't be considered secure.
 
   
@@ -1841,11 +3406,46 @@ could possibly obtain it
 Credits: Unknown! Dates back a long time, though... XXX
 
 
-See Also: L<http://wiki.slowass.net/E<63>ContainerPattern>, L<StateVsClass/StateVsClass>, L<SingletonPattern/SingletonPattern>, 
-L<http://wiki.slowass.net/E<63>RevisitingNamespaces>, L<OverloadOperators/OverloadOperators>
-
-
 L<http://wiki.slowass.net/E<63>CategoryPattern>, L<http://wiki.slowass.net/E<63>CategoryIntermediate>
+
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://wiki.slowass.net/E<63>ContainerPattern>
+
+
+=item *
+
+L<StateVsClass/StateVsClass>
+
+
+=item *
+
+L<SingletonPattern/SingletonPattern>
+
+
+=item *
+
+L<RevisitingNamespaces/RevisitingNamespaces>
+
+
+=item *
+
+L<OverloadOperators/OverloadOperators>
+
+
+=back
+
 
 
 =head2 StatePattern
@@ -1969,15 +3569,74 @@ and a facade, but through an L<AbstractFactory/AbstractFactory> that spits out i
 L<ImmutableObject/ImmutableObject>. 
 
 
-See Also: L<PassingPattern/PassingPattern>,
-L<ClassAsTypeCode/ClassAsTypeCode>, L<StateVsClass/StateVsClass>, L<http://wiki.slowass.net/E<63>StateMachine>,
-L<http://wiki.slowass.net/E<63>BreadthFirstRecurssion>, L<http://wiki.slowass.net/E<63>DepthFirstRecurssion>, L<http://wiki.slowass.net/E<63>UseDiagrams>.
+L<http://wiki.slowass.net/E<63>CategoryPattern>, L<http://wiki.slowass.net/E<63>CategoryIntermediate>
 
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<PassingPattern/PassingPattern>
+
+
+=item *
+
+L<ClassAsTypeCode/ClassAsTypeCode>
+
+
+=item *
+
+L<StateVsClass/StateVsClass>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>StateMachine>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>BreadthFirstRecurssion>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>DepthFirstRecurssion>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>UseDiagrams>
+
+
+=back
 
 See Also: L<http://hatena.dyndns.org/~jkondo/DesignPattern/State/> 
 
 
-L<http://wiki.slowass.net/E<63>CategoryPattern>, L<http://wiki.slowass.net/E<63>CategoryIntermediate>
+External Pages Linking to This Page:
+
+
+<!-- cut here - do not remove this comment - added by L<PagesLinkingHere/PagesLinkingHere> -->
+
+
+=over 1
+
+=item *
+
+L<http://www.perlmonks.org/index.pl?parent=246322&title=Dynamicly%20controlling%20%40ISA%20and%20namespaces&lastnode_id=246322&displaytype=display&type=superdoc&node=Comment%20on>
+
+
+=back
+
 
 
 =head2 MomentoPattern
@@ -2168,7 +3827,10 @@ only, L<http://wiki.slowass.net/E<63>MountRushmore>, and not someone's cheap kno
 Singletons are a special case of L<http://wiki.slowass.net/E<63>StaticObjects>.
 
 
-B<Don't Use Singletons When...>
+
+
+=head3 Don't Use Singletons When...
+
 
 
 This is over used. Don't make too many assumptions about when two of 
@@ -2194,7 +3856,13 @@ different runtime parameters. Failure to do so would violate the identity
 requirement of L<http://wiki.slowass.net/E<63>ObjectOriented> programming, and we wouldn't want that, would we?
 
 
-L<http://wiki.slowass.net/E<63>CategoryPattern>
+L<http://www.theperlreview.com/Issues/The_Perl_Review_0_1.pdf> - brian d foy's article on Singleton in The Perl Review
+
+
+L<http://www.perlmonks.com/index.pl?node_id=234123> for a good description of the delimma - very good.
+
+
+L<http://wiki.slowass.net/E<63>CategoryPattern>, L<http://wiki.slowass.net/E<63>CategoryNovice>
 
 
 Credits: L<http://wiki.slowass.net/E<63>GangOfFour>
@@ -2205,16 +3873,62 @@ Resources:
 
 
 
+=head3 See Also
+
+
+
+
+
 =over 1
 
 =item *
 
-L<http://www.theperlreview.com/Issues/The_Perl_Review_0_1.pdf> - brian d foy's article on Singleton in The Perl Review
+L<StatePattern/StatePattern>
 
 
 =item *
 
-L<http://c2.com/cgi/wikiE<63>PerlSingleton>) - Wiki Perl Singleton
+L<StateVsClass/StateVsClass>
+
+
+=item *
+
+L<PassingPattern/PassingPattern>
+
+
+=item *
+
+L<FlyweightPattern/FlyweightPattern>
+
+
+=item *
+
+L<ClassAsTypeCode/ClassAsTypeCode>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>ResourcePool>
+
+
+=item *
+
+L<http://www.object-arts.com/EducationCentre/Patterns/Singleton.htm>
+
+
+=item *
+
+L<http://c2.com/cgi/wiki?SingletonsAreEvil>
+
+
+=item *
+
+L<http://c2.com/cgi/wiki?NarrowTheInterface>
+
+
+=item *
+
+L<http://www.theperlreview.com/Issues/The_Perl_Review_0_1.pdf>
 
 
 =item *
@@ -2229,31 +3943,31 @@ L<http://hatena.dyndns.org/~jkondo/DesignPattern/Singleton/>
 
 =item *
 
-L<http://c2.com/cgi/wikiE<63>PerlSingleton>) - a daemon-like object that is singular by nature
+L<http://c2.com/cgi/wiki?PerlSingleton>
 
 
 =item *
 
-L<http://c2.com/cgi/wikiE<63>NarrowTheInterface>)
+L<http://www.perlmonks.com/index.pl?node_id=234123>
 
 
 =item *
 
-L<http://www.perlmonks.com/index.pl?node_id=234123> for a good description of the delimma - very good.
+L<http://search.cpan.org/author/GSAR/perl-5.6.1/pod/perltootc.pod#Monadic_Classes>
 
 
 =item *
 
-L<http://c2.com/cgi/wikiE<63>SingletonsAreEvil>)
+L<http://www.martinfowler.com/eaaCatalog/identityMap.html>
+
+
+=item *
+
+L<http://www.martinfowler.com/eaaCatalog/registry.html>
 
 
 =back
 
-See Also: L<StatePattern/StatePattern>, L<StateVsClass/StateVsClass>, L<PassingPattern/PassingPattern>, L<FlyweightPattern/FlyweightPattern>,
-L<ClassAsTypeCode/ClassAsTypeCode>, L<http://wiki.slowass.net/E<63>ResourcePool>
-
-
-L<http://wiki.slowass.net/E<63>CategoryPattern>, L<http://wiki.slowass.net/E<63>CategoryNovice>
 
 
 =head2 CurryingConcept
@@ -2568,22 +4282,93 @@ some more money down, but we have the power of creating objects to represent sta
 at the same time.
 
 
-See Also: L<TooManyArguments/TooManyArguments>, L<InnerClasses/InnerClasses>, L<StateVsClass/StateVsClass>, Perl6::Currying (L<http://www.cpan.org/modules/by-module/Perl6/> L<Currying|http://search.cpan.org/searchE<63>module=Perl6::Currying>) 
+L<http://perlmonks.org/index.pl?node=62737> - taking reference to methods (closure) - closely related to L<CurryingConcept/CurryingConcept> -
+L<http://wiki.slowass.net/E<63>CategoryToDo> - import this
 
 
-See Also: Anti Pattern: L<AccumulateAndFire/AccumulateAndFire>.
+L<http://wiki.slowass.net/E<63>CategoryConcept>, L<http://wiki.slowass.net/E<63>CategoryIntermediate>, L<http://wiki.slowass.net/E<63>CategoryExpert>, L<http://wiki.slowass.net/E<63>CategoryRefactoring>
 
 
-L<http://wiki.slowass.net/E<63>CategoryConcept>, L<http://wiki.slowass.net/E<63>CategoryIntermediate>, L<http://wiki.slowass.net/E<63>CategoryExpert>
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://wiki.slowass.net/E<63>LambdaProgramming>
+
+
+=item *
+
+L<FunctionalProgramming/FunctionalProgramming>
+
+
+=item *
+
+L<TooManyArguments/TooManyArguments>
+
+
+=item *
+
+L<InnerClasses/InnerClasses>
+
+
+=item *
+
+L<StateVsClass/StateVsClass>
+
+
+=item *
+
+Perl6::Currying (L<http://www.cpan.org/modules/by-module/Perl6/> L<Currying|http://search.cpan.org/searchE<63>module=Perl6::Currying>) 
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CoRoutine>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CoRoutines>
+
+
+=item *
+
+L<AccumulateAndFire/AccumulateAndFire>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CrossSectionalRefactoring>
+
+
+=item *
+
+L<http://perlmonks.org/index.pl?node=62737> - taking references to methods
+
+
+=back
+
 
 
 =head2 CloningPattern
 
 
-Synopsis: You have an object which is wholly or partly a container for data. 
-You want to pass or work with a copy of it so you can preserve the original. 
-Instead of probing into its innards from outside, you implement it, re-implement 
-it, to have a clone() method, that makes an exact duplicate of it from the inside. 
+Problem: A copy of an object is needed so it can be diddled while preserving
+the original, or an existing object should serve as a template for a new object.
+
+
+Solution:
+Instead of probing into its innards from outside, implement it, or re-implement 
+it, to have a I<clone()> method. I<clone()> makes an exact duplicate of it 
+from the inside. 
 
 
 When: You want to keep an unmodified copy of an object around, or you want to 
@@ -2708,7 +4493,53 @@ references existing to them, and so forth. This violates the encapsulation
 principle. 
 
 
-B<See Also>
+Class::Classless (L<http://www.cpan.org/modules/by-module/Class/> L<Classless|http://search.cpan.org/searchE<63>module=Class::Classless>) is an interesting twist on the idea of using one class as a
+template - not only is object instance data replicated, but objects themselves
+are configured to have the logic and methods you want, and then are cloned
+for their behavior. L<http://wiki.slowass.net/E<63>JavaScript> works this way. Objects could be looked at
+as buckets of data and methods, whether either type of thing can be thrown
+into the bucket. Copying (by reference) the methods from one object into a 
+fresh one is the work of a constructor, and is how new objects of that "class" 
+are made. Copying the methods and the data would be a clone, according to our
+description of object cloning. XXX more on Class::Classless (L<http://www.cpan.org/modules/by-module/Class/> L<Classless|http://search.cpan.org/searchE<63>module=Class::Classless>).
+
+
+
+
+=head3 Categories
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CategoryIntermediate>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CategoryPattern>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CategoryNovice>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CategoryToDo>
+
+
+=back
+
+
+
+=head3 See Also
+
 
 
 
@@ -2738,6 +4569,31 @@ L<MomentoPattern/MomentoPattern>
 =item *
 
 L<NewObjectFromExisting/NewObjectFromExisting>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>WholeObject>, L<http://wiki.slowass.net/E<63>ValueObject>
+
+
+=item *
+
+L<http://www.stonehenge.com/merlyn/UnixReview/col30.html> - Deep copy vs shallow copy
+
+
+=item *
+
+Class::Classless (L<http://www.cpan.org/modules/by-module/Class/> L<Classless|http://search.cpan.org/searchE<63>module=Class::Classless>)
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>ClassClassless>
+
+
+=item *
+
+Clone on CPAN
 
 
 =back
@@ -2857,6 +4713,28 @@ See Also: L<http://hatena.dyndns.org/~jkondo/DesignPattern/FlyWeight/>
 L<http://wiki.slowass.net/E<63>CategoryPattern>, L<http://wiki.slowass.net/E<63>CategoryIntermediate>
 
 
+External Pages Linking to This Page:
+
+
+<!-- cut here - do not remove this comment - added by L<PagesLinkingHere/PagesLinkingHere> -->
+
+
+=over 1
+
+=item *
+
+L<http://www.perlmonks.org/index.pl?node=218992>
+
+
+=item *
+
+L<http://www.perlmonks.org/index.pl?node_id=219268>
+
+
+=back
+
+
+
 =head2 ImmutableObject
 
 
@@ -2914,6 +4792,12 @@ class is a blessed scalar, your add() method might look like:
 
 
 
+Returning new objects rather than changing ones that someone else might
+have a reference to avoids the problems of L<ActionAtADistance/ActionAtADistance> with
+pointers - so long as you're using variables which the correct scope
+to store the pointers. [L<17>]
+
+
 Returning new objects containing the new state is strictly required for 
 overloading Perl operators. Java's String class (different than L<http://wiki.slowass.net/E<63>StringBuffer>) 
 are an example of this: you can never make changes to a String, but you can ask
@@ -2940,12 +4824,11 @@ L<http://wiki.slowass.net/E<63>CategoryPattern>, L<http://wiki.slowass.net/E<63>
 =head2 AbstractFactory
 
 
-Problem: Code that decides
-which of several subclasses to instantiate
+Problem: Code that decides which of several subclasses to instantiate
 is being cut and paste around the program.
 
 
-Solution: Centralize that logic in an object which returns a subtype of
+Solution: Centralize that logic in an object. Return a subtype of
 some abstract type.
 
 
@@ -2956,7 +4839,7 @@ The decision of which type of object to create doesn't seem
 to belongs where the object is created, but rather somewhere neutral.
 
 
-Symptoms: You split a class into two, or introduce a new or different 
+Symptoms: Split a class into two, or introduce a new or different 
 implementation of a class under a different name. Suddenly you find yourself 
 going through all of the code looking for references to the old package. You 
 know that if you make a similar change in the future, you'll have to go through 
@@ -2969,7 +4852,7 @@ all of the code again.
 
 =item *
 
-L<http://wiki.slowass.net/E<63>AbstractFactories> create L<http://wiki.slowass.net/E<63>AbstractObjects>.
+An L<AbstractFactory/AbstractFactory> creates L<http://wiki.slowass.net/E<63>AbstractObject> objects.
 
 
 =item *
@@ -2984,7 +4867,7 @@ This sounds pretty damn useless.
 
 =item *
 
-Contimplate that objects extending a class, empty or not, are considered to be of that type (IS-A).
+Contemplate that objects extending a class, empty or not, are considered to be of that type (IS-A).
 
 
 =item *
@@ -2999,7 +4882,7 @@ An interface just tells everyone the object is usable in a given role.
 
 =item *
 
-Logic to decide which object to create based on parameters...
+L<AbstractFactory/AbstractFactory> contains the logic to decide which object to create based on parameters...
 
 
 =item *
@@ -3007,9 +4890,20 @@ Logic to decide which object to create based on parameters...
 ... Rather than spreading the logic around everywhere that something of that base class is created.
 
 
+=back
+
+An Abstract Factory makes the decision of which class or subclass to create when.
+This decision making logic is tucked away in one place, rather than being spread around -
+think of it as L<http://wiki.slowass.net/E<63>CrossSectionalRefactoring>. Centralizing the logic gives us:
+
+
+
+
+=over 1
+
 =item *
 
-"Refactor" subclasses into smaller subclasses without breaking everything.
+Now possible to refactor subclasses into smaller, more, or different subclasses without breaking everything.
 
 
 =item *
@@ -3029,25 +4923,13 @@ Good for when you're rewriting crummy code some lazy programmer left for you.
 
 =back
 
-An Abstract Factory makes the decision of which class or subclass to create when 
-you don't want to tie yourself to only one possibility. This is useful to:
-
-
-=over 1
-
-=item *
-
-Create a single point in the code that a single value can be hardcoded safely and changed easily.
-
-
-=item *
-
-House the logic that makes the decision of which of several to create. This creates the possibility of turning the class you're instantiating into a number of subclasses, or you're creating one of several objects implementing an abstract class (a certain interface) that aren't even related.
-
-
-=back
-
 The return value for the method is the base class type or abstract class type (essentially the same in Perl).
+
+
+
+
+=head3 Example
+
 
 
 
@@ -3085,12 +4967,35 @@ The return value for the method is the base class type or abstract class type (e
   my $car = Car::Factory->create_car(2, 175); $car->isa('Car') or die;
   
 
-To be OO "pure" (polymorphic) each kind of car should @ISA = (Car), so that
-they pass the $ob->isa('Car') test. This lets programs know that it is a car
+To be L<http://wiki.slowass.net/E<63>ObjectOriented> "pure", each kind of car should do I<push @ISA, 'Car'>, so that
+they pass the I<$ob->isa('Car')> test required by L<TypeSafety/TypeSafety>. This lets programs know that it is a car
 (reguardless of kind) and can thus be used interchangably. 
+See L<http://wiki.slowass.net/E<63>ObjectOriented>, L<http://wiki.slowass.net/E<63>PolymorphismConcept>, L<TypeSafety/TypeSafety>.
 
 
-If you just want to cheat and bless something into a package:
+
+
+=head3 Refactoring
+
+
+
+L<http://wiki.slowass.net/E<63>RefactoringConcept> may lead you to turn an object from a regular object
+into an L<AbstractFactory/AbstractFactory>. Break code down into subclasses of ourself, and 
+create those objects. This page is now L<http://wiki.slowass.net/E<63>CategoryRefactoring>. Before breaking
+up the code, create the subclasses. 
+
+
+
+
+=head3 Class AutoVivification
+
+
+
+Before creating the subclasses, play with letting Perl do it for you. 
+L<ClassAsTypeCode/ClassAsTypeCode> says that a classes primary type can be used to 
+distinguish it as a special case of a generic type, even if no implementation
+changes. This will give us a chance t prototype working with subclasses
+and make sure we aren't falling prey to L<EmptySubclassFailure/EmptySubclassFailure>.
 
 
 
@@ -3101,42 +5006,13 @@ If you just want to cheat and bless something into a package:
 
   sub create_car {
     # this way we can do Car::Factory->create_car(...) or $carfactoryref->create_car(...)
-    my $package = shift; $package = ref $package if ref $package;
-  
-    my $car = new Car::GenericAmericanCar;
-  
-    my $kind = shift;
-  
-    return bless $car, 'Car::Ford' if $kind eq 'ford';
-    return bless $car, 'Car::Dodge' if $kind eq 'dodge';
-    return bless $car, 'Car::Buick' if $kind eq 'buick';
-    return bless $car, 'Car::Pontiac' if $kind eq 'pontiac';
-    die "I don't think we make $kind in this country. Try Mexico."; 
-  }
-
-
-
-If you do something like that, you will prolly want Car::Ford (L<http://www.cpan.org/modules/by-module/Car/> L<Ford|http://search.cpan.org/searchE<63>module=Car::Ford>) to inherit 
-Car::GenericAmericanCar (L<http://www.cpan.org/modules/by-module/Car/> L<GenericAmericanCar|http://search.cpan.org/searchE<63>module=Car::GenericAmericanCar>) with a line at the top reading 
-@ISA = qw(Car::GenericAmericanCar Car)
-so that the methods continue to be available after you re-bless it (and so that
-they are marked as being a Car). Going hog wild, we could make our code do
-this for us:
-
-
-
-  package Car::Factory;
-  
-  sub create_american_car {
+    # see NewObjectFromExisting 
     my $package = shift; $package = ref $package if ref $package;
   
     my $car = new Car::GenericAmericanCar;
   
     my $kind = ucfirst(shift());
-
-
-
-
+  
     push @{$kind.'::ISA'}, 'Car', 'Car::GenericAmericanCar';
   
     return bless $car, 'Car::' . $kind;
@@ -3145,26 +5021,110 @@ this for us:
 
 
   }
-  
+
+
 
 There! No matter what kind of car the user requests, we create it - even if it didn't
 exist before we created it. We set the I<@ISA> array to inherit from I<Car> and
 I<Car::GenericAmericanCar>. Even if the package was completely empty, it now contains
 the minimal amount of definition to make it useful: an inheritance. You probably don't
 want to do exactly this, unless you really want the same product rebadged with a bizarre
-variety of different names.
+variety of different names. 
 
 
-a good example of an abstract factory would be building a system that worked with mod_perl 1 and mod_perl 2. Eventually, I'll get round to giving you an example of this - nwetters
+I<$kind> could be computed rather than taken verbatum from input. In most cases, you
+will want to compute it, as in our first example. Once computed, the package can be
+set up automatically.
 
 
-See Also L<http://wiki.slowass.net/E<63>DynamicTypes>, L<http://wiki.slowass.net/E<63>OnceAndOnlyOnce>, L<AbstractClass/AbstractClass>, L<AdapterPattern/AdapterPattern>, L<AbstractRootClasses/AbstractRootClasses>.
 
 
-See Also: L<http://hatena.dyndns.org/~jkondo/DesignPattern/AbstractFactory/> 
+=head3 And
+
+
+
+Resist temptation to re I<bless> or convert things except into subclasses: see L<NoSexUntilMarriage/NoSexUntilMarriage>.
+
+
+
+
+=head3 Comments
+
+
+
+A good example of an abstract factory would be building a system that worked 
+with mod_perl 1 and mod_perl 2. Eventually, I'll get round to giving you an 
+example of this - L<http://wiki.slowass.net/E<63>NigelWetters>
+
+
+Yes, a useful example would be nice indeed! - L<http://wiki.slowass.net/E<63>ScottWalters>
 
 
 L<http://wiki.slowass.net/E<63>CategoryPattern>, L<http://wiki.slowass.net/E<63>CategoryIntermediate>
+
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<AbstractClass/AbstractClass>
+
+
+=item *
+
+L<AbstractRootClasses/AbstractRootClasses>
+
+
+=item *
+
+L<NoSexUntilMarriage/NoSexUntilMarriage>
+
+
+=item *
+
+L<AdapterPattern/AdapterPattern>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>OnceAndOnlyOnce>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>DynamicLanguage>, L<http://wiki.slowass.net/E<63>DynamicTypes>
+
+
+=item *
+
+L<ClassAsTypeCode/ClassAsTypeCode>
+
+
+=item *
+
+L<StateVsClass/StateVsClass>
+
+
+=item *
+
+L<http://hatena.dyndns.org/~jkondo/DesignPattern/AbstractFactory/> 
+
+
+=item *
+
+L<http://www.object-arts.com/EducationCentre/Patterns/AbstractFactory.htm>
+
+
+=back
+
 
 
 =head2 FactoryObject
@@ -3209,7 +5169,7 @@ be changed.
 
 
 
-  my $husbands_car = $factory->ChevyFactory;
+  my $husbands_car = $factory->create_car();
   $husbands_car->isa('Car') or die; 
 
 
@@ -3251,19 +5211,66 @@ Supports Polymorphism and L<LooseCoupling/LooseCoupling>.
 
  
 
-See also:  L<http://patternsinperl.com/designpatterns/factorymethod/>
-
-
-See also:  L<http://hatena.dyndns.org/~jkondo/DesignPattern/FactoryMethod/>
-
-
-See also:  L<http://www.pobox.com/~schwern/talks/Design_Patterns/full_slides/slide015.html> - example by L<http://wiki.slowass.net/E<63>MichaelSchwern>
-
-
-See Also: L<http://wiki.slowass.net/E<63>FactoryPattern>, L<StatePattern/StatePattern>, L<AbstractFactory/AbstractFactory>, L<http://wiki.slowass.net/E<63>FactoryMethod>. 
-
-
 L<http://wiki.slowass.net/E<63>CategoryPattern>, L<http://wiki.slowass.net/E<63>CategoryIntermediate>
+
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://patternsinperl.com/designpatterns/factorymethod/>
+
+
+=item *
+
+L<http://hatena.dyndns.org/~jkondo/DesignPattern/FactoryMethod/>
+
+
+=item *
+
+L<http://www.pobox.com/~schwern/talks/Design_Patterns/full_slides/slide015.html> - example by L<http://wiki.slowass.net/E<63>MichaelSchwern>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>FactoryPattern>
+
+
+=item *
+
+L<StatePattern/StatePattern>
+
+
+=item *
+
+L<AbstractFactory/AbstractFactory>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>FactoryMethod>
+
+
+=item *
+
+L<AbstractRootClasses/AbstractRootClasses>
+
+
+=item *
+
+L<http://www.object-arts.com/EducationCentre/Patterns/Factory.htm>
+
+
+=back
+
 
 
 =head2 RunAndReturnSuccessor
@@ -3427,6 +5434,273 @@ Credits: L<http://wiki.slowass.net/E<63>DesignPatternsElementsOfReusableSoftware
 L<http://wiki.slowass.net/E<63>CategoryIntermediate>, L<http://wiki.slowass.net/E<63>CategoryExpert>, L<http://wiki.slowass.net/E<63>CategoryPattern>
 
 
+=head2 InlineObjects
+
+
+I<new()> might thought to be the creator of objects, but we know 
+I<bless()> is how objects are really made. Objects creation is
+really little more than:
+
+
+
+  my $ob = bless { color => 'yellow', size => 'large' }, 'GetAndSet';
+
+
+
+Of course, we need to back this up with some implementation:
+
+
+
+  package GetAndSet;
+
+
+
+
+  sub AUTOLOAD {
+      my $this = shift;
+      (my $method) = $AUTOLOAD =~ m/::(.*)$/;
+      return if $method eq 'DESTROY';
+      (my $request, my $attribute) = $method =~ m/^([a-z]+)_(.*)/;
+      if($request eq 'set') {
+        $this->{$attribute} = shift;
+        return 1;
+      }
+      if(request eq 'get') {
+        return $this->{$attribute};
+      }
+      die "unknown operation '$method'";
+  }
+
+
+
+Of course, this is considered L<http://wiki.slowass.net/E<63>BadStyle>. You should always use L<http://wiki.slowass.net/E<63>ConstructorPattern>.
+Okey, usually. 
+
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<PerlDesignPatterns/PerlDesignPatterns> - the table of contents
+
+
+=item *
+
+L<FlyweightPattern/FlyweightPattern>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>ClassClassless>, Class::Classless (L<http://www.cpan.org/modules/by-module/Class/> L<Classless|http://search.cpan.org/searchE<63>module=Class::Classless>)
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>BadStyle>
+
+
+=back
+
+
+
+=head2 AboutInheritance
+
+
+
+  /*
+   * If you are going to copy this file, in the purpose of changing
+   * it a little to your own need, beware:
+   *
+   * First try one of the following:
+   *
+   * 1. Do clone_object(), and then configure it. This object is specially
+   *    prepared for configuration.
+   *
+   * 2. If you still is not pleased with that, create a new empty
+   *    object, and make an inheritance of this objet on the first line.
+   *    This will automatically copy all variables and functions from the
+   *    original object. Then, add the functions you want to change. The
+   *    original function can still be accessed with '::' prepended on the name.
+   *
+   * The maintainer of this LPmud might become sad with you if you fail
+   * to do any of the above. Ask other wizards if you are doubtful.
+   *
+   * The reason of this, is that the above saves a lot of memory.
+   */
+  
+
+I<- Comment as seen on core library objects in LPMud 2.4.5>
+
+
+If you're thinking of using inheritance - I<@ISA> in Perl - then you
+should be reading L<http://wiki.slowass.net/E<63>AbstractClasses> - there is a correct way to do it, then
+there is what everyone else does.
+
+
+If you aren't thinking of using inheritance, then I wonder why you're
+reading this, and you probably are too.
+
+
+LPMud is a dynamic adventure system. Players play while wizards code. New puzzles
+spring into being from within the game, while its running. The game is, of course,
+L<http://wiki.slowass.net/E<63>ObjectOriented>, in the name of mirrioring real-life object relationships. LPMud
+comes from the days when 24 megs was a lot of memory on a Unix server 
+[L<18>]
+
+
+Given this object oriented system and these 24 megs of RAM, wizards cleverly 
+started copying core library objects around - the player object, the monster
+object, the weapon object - and making changes to them for their own use -
+a clear case of L<CutAndPasteProgramming/CutAndPasteProgramming>. As you can see, that didn't go over very well. 
+
+
+Modern motivations against L<CutAndPasteProgramming/CutAndPasteProgramming> are different than lack of RAM.
+See L<CutAndPasteProgramming/CutAndPasteProgramming>, and then when you're sold, L<AbstractClass/AbstractClass>.
+
+
+Perl's equivilent to LPMud's I<clone_object(ob)> is I<ob->new()>, though
+a L<http://wiki.slowass.net/E<63>FactoryMethod> may return a cloned or configured object. See L<CloningPattern/CloningPattern>.
+Creating object structures by holding onto references to other objects that
+you created with I<new()> is known as I<delegation>. See L<http://wiki.slowass.net/E<63>DelegationConcept>.
+This is the basis of most object patterns in this book.
+
+
+Perl's equivilent to I<inherit> is I<use base>. See L<http://wiki.slowass.net/E<63>UseBase>.
+Creating object structures using inheritance is called L<http://wiki.slowass.net/E<63>MixIns>. L<http://wiki.slowass.net/E<63>MixIns> are
+best avoided. Inheritance should be used to build specialized versions of
+generic objects - not to generalize further, and not to combine general objects
+to make something. 
+
+
+Inheritance shouldn't be confused with exporting.
+Exporting adds features to a package, very much like L<http://wiki.slowass.net/E<63>MixIns>, but these
+features are used by that object only. Exporting isn't used by sane people
+to build new types of objects. If you want I<Carp>, for instance,
+you'll I<use Carp> yourself, and not attempt to call I<croak> in another
+object that happens to I<use Carp>. See L<ExportingPattern/ExportingPattern>.
+
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://wiki.slowass.net/E<63>UseBase>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>MixIns>
+
+
+=item *
+
+L<StateVsClass/StateVsClass>
+
+
+=item *
+
+L<AbstractRootClasses/AbstractRootClasses>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>TemplateMethodFromSubclassCommonalities>
+
+
+=item *
+
+L<AbstractClass/AbstractClass>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>ImplementationInheritance>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>AttributeInheritance>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>InterfaceInheritance>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>ParrallelInheritanceHeirachies>
+
+
+=item *
+
+L<HowDoesPerlStackUp/HowDoesPerlStackUp>
+
+
+=item *
+
+L<CloningPattern/CloningPattern>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>ConceptCrossReference>
+
+
+=item *
+
+Delegation::Concept (L<http://www.cpan.org/modules/by-module/Delegation/> L<Concept|http://search.cpan.org/searchE<63>module=Delegation::Concept>)
+
+
+=item *
+
+GraphViz::ISA (L<http://www.cpan.org/modules/by-module/GraphViz/> L<ISA|http://search.cpan.org/searchE<63>module=GraphViz::ISA>) - graph inheritance trees
+
+
+=back
+
+
+
+=head3  Contrast
+
+
+
+
+
+=over 1
+
+=item *
+
+Class::Classless (L<http://www.cpan.org/modules/by-module/Class/> L<Classless|http://search.cpan.org/searchE<63>module=Class::Classless>)
+
+
+=back
+
+
+
+=head3 Category
+
+
+
+L<http://wiki.slowass.net/E<63>CategoryNovice>, L<http://wiki.slowass.net/E<63>ConceptsCrossReference>
+
+
 =head2 StateVsClass
 
 
@@ -3554,7 +5828,24 @@ A call to I<squak()> in a parrot is a notification that it should squak, or
 a request that it sqauk, never a garantee that a squak will be emitted. 
 
 
-B<See Also>
+L<AbstractClass/AbstractClass> and L<FunctionalityIsToBeShared/FunctionalityIsToBeShared> [L<19>] 
+tell us to move functionality as high up the inheritance chain as is useful.
+
+
+L<StatePattern/StatePattern> suggests delegating requests to a different object depending upon
+state, where each object you delegate to represents a state. This satisifies
+our requirement that objects not be swapped out runtime, and that polymorphism
+should be maintained [L<20>], even when the bird goes into a "dead" state.
+We still maintain the same presentation - unlike L<RunAndReturnSuccessor/RunAndReturnSuccessor>, a
+completely different object isn't swapped in in our place. Only behind
+the scenes, through a cleverly placed layer of delegating, is statehood
+implemented in terms of objects. This satisifies the L<LawOfDemeter/LawOfDemeter>.
+
+
+
+
+=head3 See Also
+
 
 
 
@@ -3574,6 +5865,46 @@ L<ExplicitTypeCaseAnalysis/ExplicitTypeCaseAnalysis>, L<StatePattern/StatePatter
 =item *
 
 L<http://c2.com/cgi/wikiE<63>DualityBetweenStateAndClass>)
+
+
+=item *
+
+L<StatePattern/StatePattern>
+
+
+=item *
+
+L<ClassAsTypeCode/ClassAsTypeCode>
+
+
+=item *
+
+L<AbstractClass/AbstractClass>
+
+
+=item *
+
+L<FunctionalityIsToBeShared/FunctionalityIsToBeShared>
+
+
+=item *
+
+L<RunAndReturnSuccessor/RunAndReturnSuccessor>
+
+
+=item *
+
+L<AbstractionInversion/AbstractionInversion>, L<ThinWrappers/ThinWrappers>
+
+
+=item *
+
+L<LawOfDemeter/LawOfDemeter>
+
+
+=item *
+
+L<NoSexUntilMarriage/NoSexUntilMarriage>
 
 
 =back
@@ -3660,10 +5991,10 @@ dispatching the command, once it has it:
 
 
 
-Since Perl offers AUTOLOAD, this idea could be emulated. If a package wanted to
+Since Perl offers I<AUTOLOAD>, this idea could be emulated. If a package wanted to
 process an arbitrary and growing collection of commands to the best of its 
-ability, it could catch all undefined method calls using AUTOLOAD, and then 
-attempt to dispatch them (this assumes %commandHandlers is set up with a list 
+ability, it could catch all undefined method calls using I<AUTOLOAD>, and then 
+attempt to dispatch them (this assumes I<%commandHandlers> is set up with a list 
 of object references keyed by method name):
 
 
@@ -3679,17 +6010,63 @@ of object references keyed by method name):
 
 
 This converts calls to different methods in the current object to calls to a 
-handleCommand() method is different objects. This is an example of using Perl 
+I<handleCommand()> method is different objects. This is an example of using Perl 
 to shoehorn a Command Object pattern onto a non Command Object interface.
 
 
-See also: L<http://wiki.slowass.net/E<63>ValueObject>, L<ResultObject/ResultObject>, L<http://wiki.slowass.net/E<63>ModelViewController>, L<http://wiki.slowass.net/E<63>EventListeners>.
-
-
-See Also: L<http://hatena.dyndns.org/~jkondo/DesignPattern/Command/> 
+XXX virtual machine as an interpreter operating on a series of command objects
 
 
 L<http://wiki.slowass.net/E<63>CategoryPattern>, L<http://wiki.slowass.net/E<63>CategoryIntermediate>
+
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://wiki.slowass.net/E<63>ValueObject>
+
+
+=item *
+
+L<ResultObject/ResultObject>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>ModelViewController>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>EventListeners>.
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>WholeObject>
+
+
+=item *
+
+L<http://hatena.dyndns.org/~jkondo/DesignPattern/Command/> 
+
+
+=item *
+
+L<http://www.martinfowler.com/eaaCatalog/unitOfWork.html>
+
+
+=back
+
 
 
 =head2 IteratorInterface
@@ -3698,7 +6075,7 @@ L<http://wiki.slowass.net/E<63>CategoryPattern>, L<http://wiki.slowass.net/E<63>
 Synopsis: Create a unified interface for iterating through data items.
 
 
-When: You have objects that contain sets of things, or you have objects that 
+hen: You have objects that contain sets of things, or you have objects that 
 are arranged into structures.
 
 
@@ -3818,7 +6195,7 @@ wrapped in an Iterator interface.
 
 
 
-This [L<17>] code allows a network of objects having the getIterator 
+This [L<21>] code allows a network of objects having the getIterator 
 method to cooperatively and transparently work together. Each object in the 
 network may have a different way of iterating. This example represents a tree 
 datastructure. The tree may contain other tree nodes, array objects, queues, 
@@ -3944,16 +6321,121 @@ you'll find it to be remarkably similar. It lets users mix and match IO
 processing facilities.
 
 
-See Also: L<InnerClasses/InnerClasses>, L<http://wiki.slowass.net/E<63>AbstractTypes>, 2D Linked List, L<http://wiki.slowass.net/E<63>LazyEvaluation>, L<http://wiki.slowass.net/E<63>CommandProcessingChainOfResponsibility>, L<http://wiki.slowass.net/E<63>ProcessDataInPlace>, L<http://wiki.slowass.net/E<63>AdvancedPerlProgramming> page 60, L<FunctionalProgramming/FunctionalProgramming>
 
 
-See Also: L<http://hatena.dyndns.org/~jkondo/DesignPattern/Iterator/> 
+=head3 Iterating and Overloading
 
 
-See Also: L<http://www.theperlreview.com/Issues/v0i5.shtml> - L<http://wiki.slowass.net/E<63>ThePerlReview> article
+
+Perl I<overloads> the "++" operator to iterator strings through a useful realm
+of values:
 
 
-See Also: L<http://www.samag.com/documents/s=1273/sam05020007/> - L<http://wiki.slowass.net/E<63>ThePerlJournal>'s Iterator
+
+  $a = "aaa"; $a++; print $a, "\n"; # prints "aab"
+
+
+
+See L<OverloadOperators/OverloadOperators> for how to create constructs like this yourself in Perl
+according to this formula:
+
+
+
+
+=over 1
+
+=item *
+
+An accessor returns an object, perhaps using L<InnerClasses/InnerClasses>
+
+
+=item *
+
+That object has operators overloaded for it, specifically "++"
+
+
+=back
+
+XXX - an exmample of exactly this would be really nice
+
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://www.perlmonks.org/index.pl?node=looping+over+multiple+arrays> - Closures as Iterators
+
+
+=item *
+
+L<http://hatena.dyndns.org/~jkondo/DesignPattern/Iterator/> 
+
+
+=item *
+
+L<http://www.theperlreview.com/Issues/v0i5.shtml> - L<http://wiki.slowass.net/E<63>ThePerlReview> article
+
+
+=item *
+
+L<http://www.samag.com/documents/s=1273/sam05020007/> - L<http://wiki.slowass.net/E<63>ThePerlJournal>'s Iterator
+
+
+=item *
+
+L<InnerClasses/InnerClasses>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>AbstractTypes>
+
+
+=item *
+
+2D Linked List
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>LazyEvaluation>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CommandProcessingChainOfResponsibility>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>ProcessDataInPlace>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>AdvancedPerlProgramming> page 60
+
+
+=item *
+
+L<FunctionalProgramming/FunctionalProgramming>
+
+
+=item *
+
+L<http://citeseer.nj.nec.com/55669.html>
+
+
+=back
+
 
 
 L<http://wiki.slowass.net/E<63>CategoryPattern>, L<http://wiki.slowass.net/E<63>CategoryConcept>, L<http://wiki.slowass.net/E<63>CategoryIntermediate>
@@ -3970,16 +6452,19 @@ and let A pass it to B itself, rather than trying to take charge and set up all
 of the relationships yourself.  Extension of idea of encapsulation. 
 
 
-[L<18>]
+[L<22>]
 
 
-[L<19>]
+[L<23>]
 
 
-[L<20>]
+[L<24>]
 
 
-B<See Also>
+
+
+=head3 See Also
+
 
 
 =over 1
@@ -4104,7 +6589,55 @@ L<http://wiki.slowass.net/E<63>CategoryPattern>, L<http://wiki.slowass.net/E<63>
 =head2 AnonymousSubroutineObjects
 
 
-B<Blessed Coderef>
+
+
+=head3 Problem
+
+
+
+Perl's L<http://wiki.slowass.net/E<63>ObjectOriented> programming interface sucks. L<InstanceVariables/InstanceVariables>
+are slow to access, and require a special syntax that is unsightly and
+prevents easily converting procedural code to OO code. Subclass data
+can clobber superclass instance data unless manually prefixed with
+the class name. Or, you just want to integrate the L<http://wiki.slowass.net/E<63>LambdaProgramming>
+style with the L<http://wiki.slowass.net/E<63>ObjectOriented> programming style to harness their
+respective strengths.
+
+
+
+
+=head3 Solution
+
+
+
+Mix L<http://wiki.slowass.net/E<63>ObjectOriented> and L<http://wiki.slowass.net/E<63>LambdaProgramming> styles to deal with the ugliness
+of Perl's L<InstanceVariables/InstanceVariables> syntax, write more concise program, and use
+scopes for implicit data flow rather than manually passing to and reading
+from constructors.
+
+
+L<http://wiki.slowass.net/E<63>LambdaProgramming>'s concept of automatically binding code to a
+perticular variable created at a perticular time is the perfect replacement
+for using hashes or arrays to contain instance data. Instead, routines
+magically hang on to the normal scalars, hashes, arrays, and so forth
+that were defined with I<my> when the object was created. All that is
+needed is a block to set up the lexical context (define the I<my> variables
+in) and a little glue.
+
+
+
+
+=head3 Blessed Coderef
+
+
+
+One of the strengths of the L<http://wiki.slowass.net/E<63>LambdaProgramming> style is ease of 
+doing things like L<InnerClasses/InnerClasses>. Logic and data can be bundled without
+having to type out the name of each variable to pass it to a constructor,
+and without having to read it and assign it names in the constructor.
+Instead, the new object is automagically coupled to the object that
+it was created in, and variables that are in scope when the new object
+was created remain in scope and available for use in future calls.
 
 
 You should be familiar with this by now:
@@ -4158,10 +6691,15 @@ You should be familiar with this by now:
 
 
 
-The string "color" appears ten times. Ten! In Perl, no less. If I wrote out the constructors for the other arguments, this would be repeated for each variable. Shame. If we trust the user to pass in the right things to the constructor, we can get rid of two. Still, even typing each thing eight times is begging for a typo to come rain on your parade.
+The string "color" appears ten times. Ten! In Perl, no less. If I wrote out the 
+constructors for the other arguments, this would be repeated for each variable. 
+Shame. If we trust the user to pass in the right things to the constructor, we 
+can get rid of two. Still, even typing each thing eight times is begging for a 
+typo to come rain on your parade.
 
 
-If you're a LISP or Scheme programmer, you wouldn't even consider writing an autocracy like this. You'd probably write something like:
+If you're a LISP or Scheme programmer, you wouldn't even consider writing an 
+autocracy like this. You'd probably write something like:
 
 
 
@@ -4197,19 +6735,45 @@ If you're a LISP or Scheme programmer, you wouldn't even consider writing an aut
 
 
 
-First, the { query_name => sub { } }->{$arg}->(@_) is a sort of switch/case statement. It creates an anonymous hash of names to functions, then looks up one of the functions by name, using the first argument passed in. Once we have that code reference, we execute it and pass it our unused arguments. Then we've added a default case to it, so we don't try to execute undef as code. This could have been coded using if/elsif/else just as easily.
+First, the I<{ query_name => sub { } }->{$arg}->(@_)> is a sort of switch/case 
+statement. It creates an anonymous hash of names to functions, then looks up 
+one of the functions by name, using the first argument passed in. Once we have 
+that code reference, we execute it and pass it our unused arguments. Then we've 
+added a default case to it, so we don't try to execute undef as code. This could 
+have been coded using if/elsif/else just as easily.
 
 
-Don't confuse the this case idiom {name=>sub{}}->{$arg}->(@_) with =8>-()<, the rubber chicken idiom.
+Don't confuse the this case idiom I<{name=>sub{}}->{$arg}->(@_)> with I<=8>-()<>, the 
+rubber chicken idiom.
 
 
-The get_preferences() routine sets some variables, then returns a code reference. "my" variables get created when they're declared, and they don't get destroyed until no one can see them any more. Since the code reference we're ruturning when we say "return L<http://wiki.slowass.net/E<63>MessageMethod> sub { }" can see these variables, and we can see this code reference, Perl doesn't get rid of them. They continue to live on, and keep their same values, as if the subroutine they were created in had never returned. What this means to us is that we don't have to copy the value from one variable into a hash when we create an object! This saves us having type the variable name as we pass it, specify what the variable should be named in the hash that gets passed, then goes on to save us from having to do the same steps in reverse once the object gets the hash passed to it. With the same security, we've cut the use of the word "color" in half, down to 5 uses.
+The I<get_preferences()> routine sets some variables, then returns a code reference. 
+I<my> variables get created when they're declared, and they don't get destroyed 
+until no one can see them any more. Since the code reference we're returning 
+when we say I<return MessageMethod sub { }> can see these variables, and we can 
+see this code reference, Perl doesn't get rid of them. They continue to live on, 
+and keep their same values, as if the subroutine they were created in had never 
+returned. What this means to us is that we don't have to copy the value from 
+one variable into a hash when we create an object! This saves us having type 
+the variable name as we pass it, specify what the variable should be named in 
+the hash that gets passed, then goes on to save us from having to do the same 
+steps in reverse once the object gets the hash passed to it. With the same 
+security, we've cut the use of the word "color" in half, down to 5 uses.
 
 
-If you think of Perl's sub { } feature as preserving the exact state of "my" variables in a routine, you'll think of countless applications for returning anonymous subroutines. Object Oriented object creation is much more explicit, so you may find yourself getting lost in code like this. If you figure out where an anonymous subroutine was defined, then start reading the code leading up to it, you'll find where the variables are declared, and where their values are set. The cost of the reduced typing is reduced redundancy, which can make the program both harder and easier to read at the same time.
+If you think of Perl's sub { } feature as preserving the exact state of "my" 
+variables in a routine, you'll think of countless applications for returning 
+anonymous subroutines. Object Oriented object creation is much more explicit, 
+so you may find yourself getting lost in code like this. If you figure out 
+where an anonymous subroutine was defined, then start reading the code leading 
+up to it, you'll find where the variables are declared, and where their values 
+are set. The cost of the reduced typing is reduced redundancy, which can make 
+the program both harder and easier to read at the same time.
 
 
 Normal Objects:
+
+
 
 
 =over 1
@@ -4234,6 +6798,8 @@ Method is called and evaluated when the object is created.
 Lexically Defined Object:
 
 
+
+
 =over 1
 
 =item *
@@ -4254,7 +6820,11 @@ Method is created and returned when the object is created. It is not yet evaluat
 
 =back
 
-There is one little mystery left, though. Code references are dereferenced using the $ref->(@args) syntax. $ref->function(@args) syntax is reserved for objects. We shouldn't be able to call $ob->get_street() in our example on a code reference -- unless that code reference has been blessed into a package. It just so happens that that is exactly what L<http://wiki.slowass.net/E<63>MessageMethod> does.
+There is one little mystery left, though. Code references are dereferenced 
+using the I<$ref->(@args)> syntax. I<$ref->function(@args)> syntax is 
+reserved for objects. We shouldn't be able to call $ob->get_street() in our 
+example on a code reference -- unless that code reference has been blessed into 
+a package. It just so happens that that is exactly what I<MessageMethod> does.
 
 
 
@@ -4287,13 +6857,39 @@ There is one little mystery left, though. Code references are dereferenced using
 
 
 
-Given a code reference, L<http://wiki.slowass.net/E<63>MessageMethod> blesses it into its own package. There are no methods aside from new() and AUTOLOAD(). AUTOLOAD handles undefined methods for Perl, and since there are no methods, it handles all of them. (There is an exception to that, where new() has to pass off requests). AUTOLOAD() merely takes the name of the function it is standing in for and sends that as the first argument to a call to the code reference, along with the rest of the arguments. We're translating $ob->foo('bar') into $ob->('foo', 'bar'). This does nothing but let us decorate our code reference with a nice OO style syntax.
+Given a code reference, I<MessageMethod> blesses it into its own package. There 
+are no methods aside from I<new()> and I<AUTOLOAD()>. I<AUTOLOAD()> handles undefined methods 
+for Perl, and since there are no methods, it handles all of them. (There is an 
+exception to that, where new() has to pass off requests). I<AUTOLOAD()> merely 
+takes the name of the function it is standing in for and sends that as the first 
+argument to a call to the code reference, along with the rest of the arguments. 
+We're translating I<$ob->foo('bar')> into I<$ob->('foo', 'bar')>. This does nothing 
+but let us decorate our code reference with a nice OO style syntax.
 
 
 This is similar to Python's method lookup logic XXX, in that it returns the method as an object.
 
 
-B<Blessed Hash full of Coderefs>
+
+
+=head3 Blessed Hash full of Coderefs
+
+
+
+The previous example was simplicity itself. This one is usefullness itself.
+Doing I<if> and I<elsif> in a chain to inspect an argument to see which 
+clause to run to simulate methods is the L<http://wiki.slowass.net/E<63>LambdaProgramming> paradigm, but
+L<http://wiki.slowass.net/E<63>ObjectOriented>'s concept of automatically dispatching to methods is 
+superior. Obviously, a single code reference isn't enough to let OO
+do its dispatch magic. We need something larger - something like a hashref
+that contains a bunch of coderefs, one coderef per method. The normal
+thing to do in Perl is to put all of the code directly in the package,
+using the symbol table (or stash, or namespace, or what have you) to
+hold all of the code references, and define the code references using a
+simple named I<sub> statement. This doesn't allow each instance of
+the object to have different code references lexically bound to different
+L<InstanceVariables/InstanceVariables>. We need private storage for the code references
+and the anonymous version of the I<sub> statement. We need I<hashclosure.pm>.
 
 
 
@@ -4328,7 +6924,11 @@ for a hash element of that name, and if we find it, we execute it as a code
 reference. 
 
 
-Dropping the above code verbatum into a .pm file it doesn't change the package, 
+XXX - diagram here.
+
+
+Dropping the above code verbatum into a .pm file it doesn't change package
+(there is no I<package> statement), 
 so it defines an I<AUTOLOAD()> method for the current package. 
 This is a L<WrapperModule/WrapperModule> of sorts. L<http://wiki.slowass.net/E<63>LambdaClosures> and our I<AUTOLOAD()>
 method work together to provide L<http://wiki.slowass.net/E<63>ImplicitThis>-like easy access to I<$this>
@@ -4441,11 +7041,107 @@ the least code to acheive, and the least work on my part, and the least chance
 of error. 
 
 
-See Also: L<InnerClasses/InnerClasses>, L<PassingPattern/PassingPattern>, L<http://wiki.slowass.net/E<63>FakingDelegationUsingAutoload>, L<WrapperModule/WrapperModule>,
-L<http://wiki.slowass.net/E<63>LambdaClosure>, L<TemplateMethod/TemplateMethod>
+In other news, L<http://perlmonks.org/index.pl?node=116725> defines a I<class> package usabe as such:
 
 
-L<http://wiki.slowass.net/E<63>CategoryPattern>, L<http://wiki.slowass.net/E<63>CategoryExpert>
+
+    my $class = new class sub{
+        my $field = shift;
+        $this->field = $field;
+        $this->arrayref = [1,2,3];
+        $this->hashref = {a => b, c => d};
+        $this->method = sub{ return $this->field };
+    };
+
+
+
+...allowing the anonymous, inline construction of classes. 
+
+
+
+
+=head3 Categories
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CategoryPattern>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CategoryExpert>
+
+
+=back
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://wiki.slowass.net/E<63>FakingDelegationUsingAutoload>
+
+
+=item *
+
+L<WrapperModule/WrapperModule>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>LambdaClosure>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>LexicalsMakeSense>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>LambdaProgramming>
+
+
+=item *
+
+L<InnerClasses/InnerClasses>
+
+
+=item *
+
+L<PassingPattern/PassingPattern>
+
+
+=item *
+
+L<TemplateMethod/TemplateMethod>
+
+
+=item *
+
+L<http://www.object-arts.com/EducationCentre/Patterns/ExternalMethodSelectors.htm>
+
+
+=item *
+
+L<http://perlmonks.org/index.pl?node=116725>
+
+
+=back
+
 
 
 =head2 ConstraintSystem
@@ -4753,13 +7449,257 @@ XXX- constraint system example - traffic lights
 XXX- constraint system with tied variables... $tempcelcius = 100; print $tempfarenheight;
 
 
-See Also: L<IteratorInterface/IteratorInterface>, L<http://wiki.slowass.net/E<63>StructureAndInterpretationOfComputerPrograms>,
+L<http://wiki.slowass.net/E<63>CategoryExport>, L<http://wiki.slowass.net/E<63>CategoryPattern>
+
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<PerlDesignPatterns/PerlDesignPatterns>
+
+
+=item *
+
+L<IteratorInterface/IteratorInterface>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>StructureAndInterpretationOfComputerPrograms>
+
+
+=item *
+
 L<http://wiki.slowass.net/E<63>FuzzyLogic>
 
 
-L<http://wiki.slowass.net/E<63>CategoryExport>, L<http://wiki.slowass.net/E<63>CategoryPattern>
+=item *
 
-  
+L<http://wiki.slowass.net/E<63>LambdaProgramming>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>LexicalsMakeSense>
+
+
+=back
+
+
+
+=head2 RevisitingNamespaces
+
+
+Problem: Functionality doesn't exist in a class, but should.
+Subclassing to add the functionality isn't appropriate - the
+features are needed in all existing objects retroactively.
+
+
+Solution: Change over to its package temproarily to define some new methods
+in the existing package.
+
+
+
+
+=head3 Scenarios
+
+
+
+
+
+=over 1
+
+=item *
+
+Adding set_ methods to a package that only has get_ methods. 
+
+
+=item *
+
+Enhancing classes to keep more information about their state. 
+
+
+=item *
+
+Base class needs to be extended rather than make a subclass and trying to talk other people into using the subclass.
+
+
+=back
+
+
+
+=head3 Examples
+
+
+
+
+  *{'ExistingPackage::new_function} = sub {
+     # new accessor
+  };
+
+
+
+
+  sub ExistingPackage::new_function {
+    # new accessor
+  };
+
+
+
+Any object created from I<ExistingPackage> will instantly have
+a method, I<new_function()>, after this code is run. Both examples
+do essentially the same thing. The first is uglier, but allows closures
+to be taken. Perl still considers the new function to be the package
+it was defined in [L<25>].
+This means that we can't use lexical data that was in scope when 
+I<ExistingPackage> was originally created, nor can we use
+I<UseVars> and I<OurVariables> that exist in I<ExistingPackage>.
+
+
+Examples exist of using lexically scoped I<my> variables for the
+purpose of keeping people away from your data. While not completely
+fool proof, it does make it inconvinient. I<UseVars> and I<OurVariables>
+are easier.
+
+
+
+  sub ExistingPackage::new_function {
+    my $self = shift;
+    local *existing_var = \${ref($self) . '::existing_var'};
+    # code here that uses $existing_var freely, as if it were in
+    # out package scope.
+    $existing_var++;
+  }
+
+
+
+The I<local *glob = selfref> idioms is, well, ugly. We compute
+the name of the variable - find the package that I<$self> was 
+blessed into, concatonated with "::existing_var", and then
+used as a soft reference. A reference is then taken to that soft
+reference using the backslash operator.
+See L<http://wiki.slowass.net/E<63>ComputedReferences>.
+
+
+
+  local $ExistingPackage::new_variable;
+
+
+
+I<$new_variable> will be static - individual objects won't have
+their own copy. See L<StaticVariables/StaticVariables>. This is usually not the
+desired result.
+
+
+To add, and initialize, a new
+variable to each instance of objects from this package, redefine the
+constructor, I<new()>, before any objects are made from it:
+
+
+
+  do {
+    my $oldnew = \&ExistingPackage::new;
+    *ExistingPackage::new = sub {
+      my $self = $oldnew->(@_);
+      $self->{new_variable} = compute_value();
+      $self;
+    };
+  };
+
+
+
+This defines a I<new()> routine in I<ExistingPackage> that
+invokes the old I<new()> routine using the reference we saved in
+I<$oldnew>. This reference is passed all of the arguments given
+to the replacement I<new()> routine. This assumes that the datastructure
+underlieing objects defined by I<ExistingPackage> is a hash reference:
+I<$self->{new_variable}> would need to be changed to something
+similar to I<$self->[num]> if it were an array. I<compute_value()>
+is a place holder for whatever logic you really want to do. 
+We insert this value forcefully, disreguarding L<http://wiki.slowass.net/E<63>AccessorsPattern>.
+Finally, we return the modified I<$self>. The I<return> operator
+breaks the I<tie>ing on perl 5.6.1 and perhaps later, so we just
+let the last value of the block fall through.
+
+
+Use the I<x = sub { }> version of I<sub>: it waits until
+run time to return the code reference, allowing a closure to be taken.
+See L<http://wiki.slowass.net/E<63>LambdaClosure>.
+We're taking a closure on I<$oldnew>, in this example: we have to 
+wait to bind to this variable until the specific instance of that
+variable we want has been created. This is being done in side of a
+I<do { }> block so as not to pollute our lexical context with
+variables that don't need to be in our scope. See L<http://wiki.slowass.net/E<63>LexicalsMakeSense>.
+
+
+Example: B::Generate - [L<26>]
+
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<AbstractRootClasses/AbstractRootClasses>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>DynamicLanguages>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>ComputedReferences>
+
+
+=item *
+
+L<StaticVariables/StaticVariables>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>LambdaClosures>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>AccessorsPattern>
+
+
+=item *
+
+L<IteratorInterface/IteratorInterface>, L<http://wiki.slowass.net/E<63>EqualsInterface>
+
+
+=item *
+
+L<AnonymousSubroutineObjects/AnonymousSubroutineObjects>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CategoryNovice>
+
+
+=back
 
 
 
@@ -4806,7 +7746,7 @@ often exposes design limits in a system where the things can happen in reality
 that the software isn't prepared for.
 
 
-[L<21>]
+[L<27>]
 
 
 
@@ -4884,7 +7824,29 @@ This makes it easy to navigate relationships in a relational database system,
 but doesn't do a lot for us in the way of reporting.
 
 
-[L<22>]
+[L<28>]
+
+
+L<http://www.objectarchitects.de/ObjectArchitects/orpatterns/index.htm> - design patterns
+of objects and relational database systems
+
+
+L<http://www.martinfowler.com/eaaCatalog/singleTableInheritance.html> is actually somewhat
+interesting, and begins to touch on the idea of data cubes - flattening and restoring
+hyperdimentional data structures into two dimentions.
+
+
+L<http://www.martinfowler.com/eaaCatalog/concreteTableInheritance.html> is prevelent,
+though not insightful, and should be illustrated here in depth. It ties in with L<http://wiki.slowass.net/E<63>BeanPattern>,
+too. If a relational database and an object system each match up part to part - 
+table for class - the object system will work through normal delegation and composition.
+The database will also "just work", though newbies will need to learn how to write
+large-ish queries that do lots of outter joins. Detecting NULL for key fields replaces
+->can(), or is used when constructing queries that build systems of objects, and
+->can()/->isa() information is needed. This gets into datacube stuff, too.
+
+
+L<http://wiki.slowass.net/E<63>CategoryPattern>, L<http://wiki.slowass.net/E<63>CategoryIntermediate>, L<http://wiki.slowass.net/E<63>CategoryExpert>
 
 
 B<See Also> 
@@ -4911,15 +7873,93 @@ L<ManyToManyRelationship/ManyToManyRelationship>
 
 =item *
 
+L<http://wiki.slowass.net/E<63>SelfJoingData>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>BeanPattern>
+
+
+=item *
+
 L<OneToOneRelationshipsTurnIntoOneToManyRelationships/OneToOneRelationshipsTurnIntoOneToManyRelationships>
+
+
+=item *
+
+DBI::FAQ (L<http://www.cpan.org/modules/by-module/DBI/> L<FAQ|http://search.cpan.org/searchE<63>module=DBI::FAQ>) 
+
+
+=item *
+
+L<http://www.objectarchitects.de/ObjectArchitects/orpatterns/index.htm>
+
+
+=item *
+
+L<http://www.martinfowler.com/eaaCatalog/identityField.html>
+
+
+=item *
+
+L<http://www.martinfowler.com/eaaCatalog/foreignKeyMapping.html>
+
+
+=item *
+
+L<http://www.martinfowler.com/eaaCatalog/associationTableMapping.html>
+
+
+=item *
+
+L<http://www.martinfowler.com/eaaCatalog/singleTableInheritance.html>
+
+
+=item *
+
+L<http://www.martinfowler.com/eaaCatalog/concreteTableInheritance.html>
+
+
+=item *
+
+L<http://www.martinfowler.com/eaaCatalog/inheritanceMappers.html>
+
+
+=item *
+
+L<http://www.martinfowler.com/eaaCatalog/metadataMapping.html>
+
+
+=item *
+
+L<http://tangram.sourceforge.net/pod/Tangram.html>
 
 
 =back
 
-L<http://wiki.slowass.net/E<63>CategoryPattern>, L<http://wiki.slowass.net/E<63>CategoryIntermediate>, L<http://wiki.slowass.net/E<63>CategoryExpert>
 
 
 =head2 SelfJoiningData
+
+
+Problem: Reporting on a database with only one table, or a self-referential
+data structure.
+
+
+Solution: Use relational database capabilities to I<join> anyway, joining
+the data to itself, write queries to normalize the data 
+[L<29>],
+or refactor the database. For datastructures, use loops, temporarily
+hashes, and L<http://wiki.slowass.net/E<63>BreadthFirstRecurssion> to make sense of the data
+[L<30>].
+
+
+L<SelfJoiningData/SelfJoiningData> refers to data not spread across objects or tables or
+different types. Instead, everything is of the same type or in the
+same table, and this data forms a web of internal references.
+Sometimes powerful, usually applied incorrectly. In the database world,
+refered to as "non-normalized" or "flat".
 
 
 When relational data isn't normalized, you get something like:
@@ -4931,6 +7971,10 @@ When relational data isn't normalized, you get something like:
          self as self2
   where  self1.name = self2.param
 
+
+
+Note how the table I<self> is being joined against the table I<self>.
+This is where the name comes from.
 
 
 Or something like:
@@ -4951,14 +7995,270 @@ these that automate ugliness production. I guess you could categories this
 as an L<http://wiki.slowass.net/E<63>AntiPattern> in the form of a L<http://wiki.slowass.net/E<63>CodeSmell>.
 
 
+The more fields you want back from the database, the more times you have to
+self-join the data. 
+
+
+Pretend you have a database that stores form submits.
+I<forms> has one record per post, but since an HTML form has any number of
+name-attribute pairs, several entries in I<parameters> reference the
+entry in I<forms> for any given post. Given a I<formid>, we want to extract a few named
+parameters: "email", "name", and "gender":
+
+
+
+  select  p1.value as email,
+          p2.value as name,
+          p3.value as gender
+  from    form
+          parameters as p1,
+          parameters as p2,
+          parameters as p3
+  where   form.formid = ?
+  and     p1.formid = form.formid
+  and     p1.name = 'email'
+  and     p2.formid = form.formid
+  and     p2.name = 'name'
+  and     p3.formid = form.formid
+  and     p3.name = 'gender'
+
+
+
+Each additional field requires 4 additional lines in our query. If we were 
+joining the additional tables in, it would take 2:
+
+
+
+  select emails.email   as email, 
+         names.name     as name, 
+         genders.gender as gender
+  from   forms, emails, names, genders
+  where  forms.formid  = ?
+  and    forms.nameid   = names.nameid
+  and    forms.emailid  = emails.emailid
+  and    forms.genderid = gender.genderid
+
+
+
+Obviously, lumping everything in one table would simplify further in this case,
+and in this case would be perfectly acceptable. When not all of the columns
+describe the primary key and only the primary key, the database design degenerates.
+L<SelfJoiningData/SelfJoiningData> usually comes about as a means to cope with trying to report
+on such degenerate databases. 
+
+
+Simply, different kinds of things should be placed in different tables. 
+The structure (which table references which IDs in which
+other tables) shows the relationship between the different kinds of things.
+One to many relationships require two tables; many to many relationships require
+three. 
+
+
+
+
+=head3 Datastructures
+
+
+
+Solutions:
+
+
+
+
+=over 1
+
+=item *
+
+Promote to objects. Write recursive solutions: define methods that call
+methods in neighbor objects. See L<IteratorInterface/IteratorInterface> for an example of an
+iterator that recurses across all objects in a network.
+
+
+=item *
+
+Do dereferencing in a loop until the solution is arrived at. XXX - example.
+
+
+=back
+
 XXX this place is a placeholder. You can fix it up yourself, or you can wait for me
 to do it. If you are here expecting a finished version of something, 
-stick to L<http://wiki.slowass.net/assemble.cgi?PerlDesignPatterns> and don't wander
+stick to L<http://wiki.slowass.net/assemble.cgiPerlDesignPatterns> and don't wander
 off the path.
 
 
-See also L<ObjectsAndRelationalDatabaseSystems/ObjectsAndRelationalDatabaseSystems>
 
+  <TakeFive> Juerd: I think I'm going to go with multiple tables after all.
+             It will save me headaches in the future.
+             And I can pull them (assuming the 'header' record is in %h) with:
+             "select value from $h{datatype} where id = $h{id} order by sequence"
+
+
+
+
+  <Juerd> subqueries, subqueries, subqueries, joins.
+          subqueries, subqueries, subqueries, joins.
+
+
+
+
+  <TakeFive> :)
+
+
+
+
+  <Juerd> Ideally, you don't use a query just to have enough information to do the next
+
+
+
+
+  <scrottie> Except for meta applications like database admins, usually you 
+             don't want a variable table name.
+ 
+  <Juerd> That is correct.
+          Same goes for column names.
+
+
+
+
+  <Juerd> TakeFive: Think symbolic references
+
+
+
+
+  <scrottie> If all of your things are of essentially of the same type, put atleast
+             the parts of them that describe the primary key in one table. You
+             can always OutterJoin a lot of other tables, so you get kind of an 
+             ObjectOriented like thing going on - everything "is a" foo, but 
+             you have some MixIns going on as well.
+             Not that MixIns are encouraged in OO, but it is kind of the same idea.
+
+
+
+
+  <TakeFive> scrottie: the problem is (going back to the oceanographic implementation)
+             right now, with the dataset I have, all the actual data is floating 
+             point numbers --
+
+
+
+
+  <scrottie> i've always said we should dump our problems in the ocean =)
+
+
+
+
+  <TakeFive> salinities, depths, current speeds and such.
+             but now i've been told i need to support character fields, 
+             latitude/longitude pairs, and timestamps, and ultimately, I'll
+             need to be able to generate pictures of buoys as they float, or 
+             purely text output.
+             If I use a single table, I'll always have to check what kind of data 
+             I have.
+
+
+
+
+  <scrottie> n:1 relationships break out into another table,
+             so if you have a bunch of buoys for one given primary record (what 
+             is the primary record anyway?), then throw them all in another
+             table.
+             If you have an arbitrary number of other things of types that you can't 
+             anticipate, you could promote everything to the same object type
+             and allow recurisve references between objects ;)
+             Perlers tend to write databases like that... like perlmonks's 
+             codebase... but it is best not to talk of such things
+
+
+
+
+  <Juerd> It's called Everything
+
+
+
+
+  <scrottie> If you have a lot of different things, you can set up an attribute-value 
+             pairs table. Think of HTML forms. Someone posts a form. That
+             gets a record in a Posts table, lets say. it has a bunch of name value 
+             pairs. Each of those gets a record in the Attribute table,
+             where each record references the Posts table entry.
+
+
+
+
+  <TakeFive> scrottie: ah, add a column like: "datatype" for each record.
+
+
+
+
+  <scrottie> Yeah. You lose the ability to cleanly join at that point - 
+             everything is nested subqueries with another self-join for each 
+             (lag) record you want from Attributes. ugly. So, that way is 
+             sometimes - seldom but sometimes - better. 
+
+
+
+
+  <Juerd> subqueries, subqueries, subqueries, joins.
+
+
+
+
+  <scrottie> Well, the value in the attribute-value pair will always be the 
+             largest thing - if you're holding binary data, it will be a blob. 
+             Few databases index blobs.
+
+
+
+
+  <scrottie> You probably don't want SelfJoiningData, and you don't want to 
+             promote all records to the same type. That leaves creating a lot
+             of tables, one for each type of thing, and doing a lot of joins
+             and OutterJoins. It kind of sucks, but it is powerful, and a lot
+             less ugly in the end than any alternative. 
+             The relation between tables is based purely on references
+             between fields. Never list table names in a database as a means
+             of creating references.
+
+
+
+Juerd is right. Use lots of joins and subqueries to pull your data together
+from multiple different tables. 
+As Juerd says, ideally, you should get
+your result in one query. Use only IDs in auxiliary tables or
+L<http://wiki.slowass.net/E<63>HingeTables>. You can easily create more auxiliary tables and
+reference the primary table from them. Only queries that want
+this information will know about and know to ask for it to be
+joined in. 
+[L<31>]
+
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<ObjectsAndRelationalDatabaseSystems/ObjectsAndRelationalDatabaseSystems>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>BreadthFirstRecursion>
+
+
+=item *
+
+L<IteratorInterface/IteratorInterface>
+
+
+=back
 
 L<http://wiki.slowass.net/E<63>CategoryToDo>, L<http://wiki.slowass.net/E<63>CategoryIntermediate>, L<http://wiki.slowass.net/E<63>CategoryPattern>
 
@@ -5058,7 +8358,7 @@ moving to the next object in the list. Places where the single object was
 implicitly manipulated need only be wrapped in a loop.
 
 
-[L<23>]
+[L<32>]
 
 
 See also: L<IteratorInterface/IteratorInterface>, L<CompositePattern/CompositePattern>, L<ObjectsAndRelationalDatabaseSystems/ObjectsAndRelationalDatabaseSystems>, L<BiDirectionalRelationshipToUnidirectional/BiDirectionalRelationshipToUnidirectional>
@@ -5074,9 +8374,12 @@ L<http://wiki.slowass.net/E<63>CategoryRefactoring>
 
 
 Problem: 
+Relationship between objects is confusing. Responsbility is ambigious, or calls
+bounce back and forth.
 
 
 Solution:
+Apply L<http://wiki.slowass.net/E<63>WholeObject>, L<InnerClasses/InnerClasses>, L<http://wiki.slowass.net/E<63>ModelViewController>, or a L<ConstraintSystem/ConstraintSystem> as necessary.
 
 
 In it's most basic form:
@@ -5161,7 +8464,10 @@ this relationship repeats.
 
 =back
 
-B<WholeObject>
+
+
+=head3 WholeObject
+
 
 
 Contention for data of exactly this sort is a strong hint at a 
@@ -5170,7 +8476,10 @@ into a L<http://wiki.slowass.net/E<63>ValueObject> and passed whole, negating th
 See L<http://wiki.slowass.net/E<63>WholeObject>, L<PassingState/PassingState>, L<http://wiki.slowass.net/E<63>ValueObject>
 
 
-B<InnerClasses>
+
+
+=head3 InnerClasses
+
 
 
 Using L<InnerClasses/InnerClasses>, the parent class need not have its API burdoned with the
@@ -5194,7 +8503,10 @@ Or...
 
 
 
-B<ModelViewController>
+
+
+=head3 ModelViewController
+
 
 
 As L<http://wiki.slowass.net/E<63>ObjectOrientedDesignHeuristics> says, books don't shelve themselves,
@@ -5204,19 +8516,78 @@ This is more of interest to dealing with too much complexity in the logic
 rather than too much complexity in the code.
 
 
-B<ConstraintSystem>
+
+
+=head3 ConstraintSystem
+
 
 
 An odd web of objects that participate in group-think is unavoidable or desireable.
 Bite the bullet and do it right. See L<ConstraintSystem/ConstraintSystem>.
 
 
-B<Resources>
 
 
-See Also: L<ManyToManyRelationship/ManyToManyRelationship>, L<http://wiki.slowass.net/E<63>ModelViewController>, L<http://wiki.slowass.net/E<63>ClassVsState>, L<http://wiki.slowass.net/E<63>ValueObject>,
-L<PassingPattern/PassingPattern>, L<PassingState/PassingState>, L<http://wiki.slowass.net/E<63>WholeObject>
+=head3 Resources
 
+
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<ManyToManyRelationship/ManyToManyRelationship>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>ModelViewController>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>ClassVsState>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>ValueObject>
+
+
+=item *
+
+L<PassingPattern/PassingPattern>
+
+
+=item *
+
+L<PassingState/PassingState>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>WholeObject>
+
+
+=item *
+
+L<ObjectOrgy/ObjectOrgy>
+
+
+=item *
+
+L<ClassNaming/ClassNaming>
+
+
+=back
 
 L<http://wiki.slowass.net/E<63>CategoryRefactoring>, L<http://wiki.slowass.net/E<63>CategoryIntermediate>
 
@@ -5261,7 +8632,10 @@ When adding and removing arguments, it can be difficult to remember the order yo
   }
   
 
-B<See Also>
+
+
+=head3 See Also
+
 
 
 
@@ -5373,7 +8747,10 @@ several irons in the fire, so to speak.
 
 =back
 
-B<See Also>
+
+
+=head3 See Also
+
 
 
 
@@ -5382,7 +8759,7 @@ B<See Also>
 
 =item *
 
-L<http://wiki.slowass.net/E<63>AbstractionInversion>
+L<AbstractionInversion/AbstractionInversion>
 
 
 =item *
@@ -5422,22 +8799,38 @@ L<http://wiki.slowass.net/E<63>CategoryNovice>, L<http://wiki.slowass.net/E<63>C
 =head2 FunctionTemplating
 
 
-FUNCTION TEMPLATING
-
-
 Synopsis: Creating a custom compliment of code cleans crufty object access syntax.
 
 
 When: Your code is bloating due to another cumbersome interface. 
 
 
-"Forth" teaches that no language will be well suited to every problem, so the best language is one that is well suited to creating languages for expression solutions in general. Huh? Instead of attaching the problem head on, step back and formulate a plan involving intermediate steps to the goal. We've designed data structures using objects. We've engineered programs using objects as building blocks. Whens the last time we've designed a language to solve a problem? Any language lets you create functions, but Forth lets you create functions that create other functions (Forth calls functions "words"). We don't need to cook up a VM and a syntax to do this, though we could. Perl's VM and syntax will work.
+L<http://wiki.slowass.net/E<63>ForthLanguage> teaches that no language will be well suited to every problem, so the 
+best language is one that is well suited to creating languages for expression 
+solutions in general. Huh? Instead of attaching the problem head on, step back 
+and formulate a plan involving intermediate steps to the goal. We've designed 
+data structures using objects. We've engineered programs using objects as 
+building blocks. Whens the last time we've designed a language to solve a 
+problem? Any language lets you create functions, but Forth lets you create 
+functions that create other functions (Forth calls functions "words"). We don't 
+need to cook up a VM and a syntax to do this, though we could. Perl's VM and syntax will work.
 
 
-This is kind of a like an Abstract Factory. Objects certainly give you a way to generalize a solution, but they don't give you a mechanism to express a solution. If the solution involves making lots of method calls, the algorithm can get swamped down in OO syntax to the point where it is hidden. Removing the excess syntax is one way of refactoring code. Everyone benefits from the clarity, especially when you're trying to formulate a language as an intermediate step to solving a tough problem.
+This is kind of a like an Abstract Factory. Objects certainly give you a way 
+to generalize a solution, but they don't give you a mechanism to express a 
+solution. If the solution involves making lots of method calls, the algorithm 
+can get swamped down in OO syntax to the point where it is hidden. Removing the 
+excess syntax is one way of refactoring code. Everyone benefits from the clarity, 
+especially when you're trying to formulate a language as an intermediate step to 
+solving a tough problem.
 
 
-Lets take template processing as an example. Lets say you've got various sorts of templates: templates representing HTML fragments, templates representing email templates, database queries, and so on. You could create objects to represent each type of thing, and give each a stringify() method that requires a hash argument of values to template in. You would then write a huge amount of code, mostly method calls, loops, and string concatenations. 
+Lets take template processing as an example. Lets say you've got various sorts 
+of templates: templates representing HTML fragments, templates representing 
+email templates, database queries, and so on. You could create objects to 
+represent each type of thing, and give each a stringify() method that requires 
+a hash argument of values to template in. You would then write a huge amount of 
+code, mostly method calls, loops, and string concatenations. 
 
 
 Or... XXX untested code.:
@@ -5571,10 +8964,14 @@ Recursion.
 
 =back
 
-createtemplate() is a simple example. createquery() is more advanced. A simple example appeared in Chapter XXX 3 where we created accessors for ourself. 
+createtemplate() is a simple example. createquery() is more advanced. A simple 
+example appeared in Chapter XXX 3 where we created accessors for ourself. 
 
 
-For any task that is suited our mini language, we've completely factored out several tedious syntactical things. We're now free to work in a very concise, expressive, short-hand language. Yet, we still have all of the power of Perl available - we haven't given up anything.
+For any task that is suited our mini language, we've completely factored out 
+several tedious syntactical things. We're now free to work in a very concise, 
+expressive, short-hand language. Yet, we still have all of the power of Perl 
+available - we haven't given up anything.
 
 
 The key elements are:
@@ -5582,10 +8979,13 @@ The key elements are:
 
 The returned code reference is lexically bound to the data you passed to it.
 The data passed to it could be any datatype, including objects, scalars, and most importantly, code references.
-Logic is factored out of the main program into the inner part of the "create" routine, inside of the anonymous subroutine block.
+Logic is factored out of the main program into the inner part of the "create" 
+routine, inside of the anonymous subroutine block.
 
 
-Creating a symbol table entry (assigning the anonymous subroutine to a glob of the given name) is optional. This skip can be stepped and done manually if you find yourself mostly creating functions to pass to other functions:
+Creating a symbol table entry (assigning the anonymous subroutine to a glob of 
+the given name) is optional. This skip can be stepped and done manually if you 
+find yourself mostly creating functions to pass to other functions:
 
 
 
@@ -5596,16 +8996,62 @@ Creating a symbol table entry (assigning the anonymous subroutine to a glob of t
 It is traditional in languages like Lisp and Scheme to skip naming things unless actually necessary.
 
 
-Next time you're getting bogged down in syntax, ask yourself if a function generator could be written that would take care of the tedious busy work.
+Next time you're getting bogged down in syntax, ask yourself if a function 
+generator could be written that would take care of the tedious busy work.
 
 
-See also: L<CurryingConcept/CurryingConcept>, L<InnerClasses/InnerClasses>, L<http://wiki.slowass.net/E<63>LambdaClosure>, L<http://wiki.slowass.net/E<63>LexicalsMakeSense>.
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://wiki.slowass.net/E<63>AcmeTemplate>
+
+
+=item *
+
+L<CurryingConcept/CurryingConcept>
+
+
+=item *
+
+L<InnerClasses/InnerClasses>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>LambdaClosure>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>LexicalsMakeSense>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CrossSectionalRefactoring>
+
+
+=back
+
 
 
 =head2 AssertPattern
 
 
-Die early, die often, get closer to the root of the problem. Don't let an error in one part of the program trigger problems much later in a distant, unrelated part of the program. Check arguments types, provide accessors to enforce policies and handle state changes in objects there so that they are responsible for keeping themselves consistent.
+Die early, die often, get closer to the root of the problem. Don't let an error 
+in one part of the program trigger problems much later in a distant, unrelated 
+part of the program. Check arguments types, provide accessors to enforce 
+policies and handle state changes in objects there so that they are responsible 
+for keeping themselves consistent.
 
 
 
@@ -5724,8 +9170,53 @@ I<eval {}> statements are needed.
 
 
 
-See also: L<TypeSafety/TypeSafety>, L<TypedVariables/TypedVariables>, L<AccessorPattern/AccessorPattern>, L<BigBallOfMud/BigBallOfMud>,
-L<http://wiki.slowass.net/E<63>ObjectOriented>, L<http://wiki.slowass.net/E<63>DaemonPattern>, L<ErrorReporting/ErrorReporting>
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<TypeSafety/TypeSafety>
+
+
+=item *
+
+L<TypedVariables/TypedVariables>
+
+
+=item *
+
+L<AccessorPattern/AccessorPattern>
+
+
+=item *
+
+L<BigBallOfMud/BigBallOfMud>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>ObjectOriented>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>DaemonPattern>
+
+
+=item *
+
+L<ErrorReporting/ErrorReporting>
+
+
+=back
+
 
 
 =head2 CodeAsData
@@ -5842,7 +9333,124 @@ years. For debugging, detecting what looks like a run away condition can be a li
 
 
 
-See Also: L<ConstraintSystem/ConstraintSystem>, L<http://wiki.slowass.net/E<63>EventListeners>
+
+
+=head3 Recursion and Locking on User Data
+
+
+
+Recursing through user data. Sends chills up your spine, doesn't it? User data is notorious
+for kiniving, minipulation, and being just plain old abusive, contreived rubbish. Why do users
+write HTML files that include a second HTML file that includes the first? To piss you off, thats
+why.  
+
+
+
+  # expand includes in HTML templates
+  # eg, <!-- #include virtual="/includes/header_logo.html" -->
+
+
+
+
+  my $numfound;
+
+
+
+
+  FOUNDSOME: 
+
+
+
+
+  $numfound = 0;
+
+
+
+
+  $tmpl =~ s{<!--\s*#include\s*virtual\s*=\s*('")(.*?)\1\s*-->}{
+    die "invalid include path: '$2'" if $2 =~ m{\/\.\./\/};
+    open my $f, "$inputdir/$2" or die "include not found: $inputdir/$2 $!";
+    read $f, my $repl, -s $f;
+    close $f;
+    $numfound++;
+    return $repl;
+  }gie;
+
+
+
+
+  goto FOUNDSOME if($numfound);
+
+
+
+This would run indefinately (if permitted by the universe) if a user tried the A includes B, B
+includes A attack. Preventing reentry into some method wouldn't work. If we created a method,
+we would need to be able to reenter it to include more than one file deep. Of course, we could
+make it non-recursive, but it wouldn't do L<http://wiki.slowass.net/E<63>TheRightThing>. Things that seem like they should
+work, don't.
+
+
+Limiting the stack depth is another option, but it is a violation of the L<BusySpin/BusySpin> antipattern:
+no correct value can possibly be chosen that is large enough for extreme, but valid cases, but
+too small to shut out denial of service attacks. Someone fetching a malicious construct
+over and over will easily take the server out.
+
+
+Refusing to include the same page twice would also fail to do L<http://wiki.slowass.net/E<63>TheRightThing>, and would throw
+cold water on most template arrangements that sites actually, really use. It is, however,
+simple to implement. Limiting the number of times that a single file may be included
+helps but the breaks on things, but violates the above pragmas concerning L<BusySpin/BusySpin> as well:
+
+
+
+  my $numfound;
+  my %done;  # added this
+
+
+
+
+  FOUNDSOME: 
+
+
+
+
+  $numfound = 0;
+
+
+
+
+  $tmpl =~ s{<!--\s*#include\s*virtual\s*=\s*('")(.*?)\1\s*-->}{
+    die "invalid include path: '$2'" if $2 =~ m{\/\.\./\/};
+    die "file '$2' included entirely too many times" if $done{$2}++ > 30;   # added this
+    open my $f, "$inputdir/$2" or die "include not found: $inputdir/$2 $!";
+    read $f, my $repl, -s $f;
+    close $f;
+    $numfound++;
+    return $repl;
+  }gie;
+
+
+
+
+  goto FOUNDSOME if($numfound);
+
+
+
+Another solution is to maintain a stack, perhaps a L<http://wiki.slowass.net/E<63>SimpleStack>, and continiously examine it for
+repeated sequences. Such attempts are prone to occurance of a L<http://wiki.slowass.net/E<63>RaceCondition>, and there is usually
+an upper limit on how large of the stack segment it will compare to the rest of the stack. For
+example, if the code only checks for repeated patterns of two through 300 stack frame
+entries, someone need only create a circulation inclusion attack that 301 pages. D'oh!
+
+
+Correctly solving this problem could be done by computing routes between pages and make a map
+of which pages include which others. See L<http://wiki.slowass.net/E<63>DepthFirstRecursion>. This is far too complex for
+most people to stomache. If you happen to write a solution to this, please, by all means,
+post it here. It should be a stright forward adaptation of L<http://wiki.slowass.net/E<63>DepthFirstRecursion> to use the
+example above. Yes, I'm just too lazy to do it myself right now.
+
+
+See Also: L<ConstraintSystem/ConstraintSystem>, L<http://wiki.slowass.net/E<63>EventListeners>, L<http://wiki.slowass.net/E<63>PerlSecurity>
 
 
 =head2 SelectPollPattern
@@ -5869,7 +9477,7 @@ of the event oriented X11 platform on Unix-like hosts.
 The L<SelectPollPattern/SelectPollPattern> is counter-intuitive for most people to use. It
 requires manual management of the CPU, and each task has to 
 completely return to the inner loop and then be called fresh.
-[L<24>]
+[L<33>]
 
 
 
@@ -5924,7 +9532,7 @@ write, and the third, for exceptions.
 
 
 
-Filehandles may be blessed into classes [L<25>], 
+Filehandles may be blessed into classes [L<34>], 
 and then methods called to handle the event where input becomes available for read. This is
 easy to implement, simple, and sane - to implement. Using it is another story.
 
@@ -5963,7 +9571,7 @@ and more discussion.
 See Also: IO::Select (L<http://www.cpan.org/modules/by-module/IO/> L<Select|http://search.cpan.org/searchE<63>module=IO::Select>) and perldoc -f select
 
 
-See Also: L<http://wiki.slowass.net/E<63>PerlGotchas>, L<StatePattern/StatePattern>
+See Also: L<http://wiki.slowass.net/E<63>PerlGotchas>, L<StatePattern/StatePattern>, L<http://wiki.slowass.net/E<63>DaemonProcess>
 
 
 =head2 JournalingPattern
@@ -6191,7 +9799,7 @@ illustrates the trade off between read time and write time that simple
 journaling approaches offer.
 
 
-[L<26>]
+[L<35>]
 
 
 See Also: perldoc perltie
@@ -6201,6 +9809,162 @@ See Also: L<http://wiki.slowass.net/E<63>FakingAccessorsUsingTiedData>, L<Anonym
 Pages Linking to This Page:
 
 
+<!-- cut here - do not remove this comment -->
+
+
+=head2 ApplicationGenerator
+
+
+I<I'd rather write programs that write programs than write programs>
+- L<http://c2.com/cgi/wiki?BradAppleton>
+
+
+L<http://wiki.slowass.net/E<63>OnceAndOnlyOnce> says we should do something in only one place. 
+In accordance with keeping our secret bits hidden away and
+not duplicated all over the place like a scandle on the tabloid
+front page. A Perl module would be expected to export these values
+and routines when I<use>d. A Java package would be expected
+to give an object reference that can be prodded with method calls
+and examination of package global and object instance fields. A
+Bourne shell script would spit out another shell script which it
+would then execute. Thats what I want to talk about.
+
+
+A lot of language rheteric tells us not to worry about the size of
+our applications. We should load all of the modules we need rather
+than ever thinking of copying and modifying a program or module. Like
+anything that says "always" or "never", this is dangerous. Rather than
+writing a clean implementation that loads a bazzilion modules, we'll
+sheepishly dumb down the specs, and set our expectations of the
+application low. We'll hardcode things for fear of creating modules.
+In short, we'll deal with module explosion problem by developing
+a neurotic adversion to creating more of the bastards. Each new
+candidate for modulehood seems to pale in comparison to the last 3
+or 4 hundred modules that were endorced.
+
+
+The heart of the problem is with diverging applications, the kind
+we make when we copy one program to reuse it for another client, for
+instance. Conventional wisdom says to copy the entire thing and
+add on to it, in essence, without removing anything. There are two
+cross sections we're trying to cut the same application into at once: 
+the cross section of the functionality we need for this client, and
+the cross section of how functionality within the application.
+
+
+Organizing the entire application by which logic may or may not be
+needed for future projects assumes knowledge we don't have, and it
+completely neglects organizing the objects by their relationship
+with each other - our primary reason for using objects.
+
+
+Organizing the entire application by its fuctional structure 
+includes an undue amount of dependence between building blocks
+in an environment where the very purpose of the application
+can go two or more ways at once, as different clients have an
+application customized. In face, it is very rare it is even
+attempted that diverging versions will track each other. L<http://wiki.slowass.net/E<63>NetBSD>,
+L<http://wiki.slowass.net/E<63>OpenBSD> and L<http://wiki.slowass.net/E<63>FreeBSD> selectively adapting code from each others
+projects is a good example. Even so,
+each BSD has gone in a different direction, introducing a
+very real element of manual labor in adapting code, dispite the
+histric common origins.
+
+
+Another exmaple is GNU autoconf. If you've ever installed Unix
+software from source code (Perl, perhaps?), you've probably downloaded
+a tarball, typed I<tar -xzvf foo.tar.gz>, I<chdir>ed into the directory,
+typed I<./configure>, then I<make>. I<configure> is a shell script,
+generated by GNU autoconf. Every time anyone needs to test for a new
+feature which may or may not be present in POSIX like operating environments
+as part of the build process the test for that feature is added to GNU
+autoconf. Okey, not every time, but this is the secret to GNU autoconf's
+success. Every application running the same configure script, which tested
+for B<everything> would be unworkable. It would take hours to run
+on a fast computer, and do all sorts of work not needed. Configuring
+certain tests off would help, but you're still forcing poor bash* to
+read a several thousand line (several hundred thousand line long?) script
+when only a few may be needed. With open source software, programmers
+may be tolerant of lots of unrelated code or hooks kicking around. In
+the real world, clients don't want to know about each other. They're
+just happier that way*.
+
+
+
+
+=over 1
+
+=item *
+
+bash is the Bourne Again Shell, also available from the GNU Project.
+See L<http://www.gnu.org.>
+
+
+=item *
+
+Kind of like ex girlfriends. Clients can be very catty. They want
+someone experienced who knows the industry, but they'll question your
+motives, and make you sign all sorts of things certifying that you have
+no intellectual property. I once got a job because I released my shopping
+cart code under the GNU GPL license and it was obvious I knew my way around
+credit card processing gateways. I was then denied the job because I had
+intellectual property that represented a conflict of interest with the
+company - since I had released my code to the public and could not retract it
+if I wanted to, I couldn't work there. Some people.
+
+
+=back
+
+Writing an application to write applications lets you put everything where it
+belongs, score high on L<http://wiki.slowass.net/E<63>OnceAndOnlyOnce> tests, structure your code
+according a natural, logical criteria, and not bog clients down with
+a beast that is the sum of the size of all of its copies. This idea is
+nothing new. The concept of returning code is cornerstone of the Lambda
+programming style, and is also known as L<http://wiki.slowass.net/E<63>FirstClassData>. We could, and
+otherwise should, use L<http://wiki.slowass.net/E<63>LambdaClosures>, but we're trying to exclude the
+code from ever going out the door. The idea is similar to generating
+a string of code and using <i>eval</i> on it, but once again, we're
+trying to keep the code from ever disgracing their harddrive.
+
+
+Using L<http://wiki.slowass.net/E<63>AutoSplit> and L<http://wiki.slowass.net/E<63>AutoLoader> breaks your module up into individual
+functions (methods) that are loaded on demand from strings stored past
+the I<__END__> of your program.
+
+
+XXX quick hack to look at an L<http://wiki.slowass.net/E<63>AutoSplit> module and spit out select
+sections either as L<http://wiki.slowass.net/E<63>AutoLoader> ready or as regular Perl code.
+
+
+L<http://wiki.slowass.net/E<63>CategoryToDo> - round this out, proof it, give it a few examples.
+
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CvsIntro>
+
+
+=item *
+
+L<http://www.perldoc.com/cgi-bin/htsearch?restrict=perl5.8.0&words=AutoSplit>
+
+
+=item *
+
+L<http://www.perldoc.com/cgi-bin/htsearch?restrict=perl5.8.0&words=AutoLoad>
+
+
+=back
 
 
 
@@ -6563,7 +10327,7 @@ $Id: L<WebAuthentication/WebAuthentication>,v 1.9 2003/02/23 19:07:42 httpd Exp 
 Pages Linking to This Page:
 
 
-
+<!-- cut here - do not remove this comment -->
 
 
 =head2 WebScraping
@@ -6796,7 +10560,10 @@ Problem: Perl gives so many ways to read a file, so many of them bad.
 Solution: Know the bad ones.
 
 
-B<An Old Idiom in Poor Style>
+
+
+=head3 An Old Idiom in Poor Style
+
 
 
 
@@ -6814,7 +10581,10 @@ an array intermediary. Cons: I<$data> cannot be declared with I<my> because
 we have to create a block to localize the record seperator in. Ugly.
 
 
-B<A Short and Sweet Idiom>
+
+
+=head3 A Short and Sweet Idiom
+
 
 
 
@@ -6827,7 +10597,10 @@ Pros: Short. Sweet. Cons: Clobbers I<@ARGV>, poor error handling, inefficient fo
 large files.
 
 
-B<Shell-Holdout Idiom>
+
+
+=head3 Shell-Holdout Idiom
+
 
 
 
@@ -6840,7 +10613,10 @@ shell commands may be buried in filenames. Creates an additional process -
 poor performance for files small and large. No error handling.  Is not portable.
 
 
-B<Read/Sysread Idiom>
+
+
+=head3 Read/Sysread Idiom
+
 
 
 
@@ -6854,7 +10630,10 @@ Pros: Good error handling. Reasonably short. Efficient. Doesn't misuse
 Perl-isms to save space. Uses lexical scoping for everything. Cons: None. 
 
 
-B<Mmap Idiom>
+
+
+=head3 Mmap Idiom
+
 
 
 
@@ -6876,11 +10655,15 @@ L<http://wiki.slowass.net/E<63>CategoryNovice>
 =head2 ConfigFile
 
 
-Synopsis: Using B<require> to read config files is handy, but many people feel 
+Problem: 
+Reading configuration data from a file that users can edit and have written back to disc.
+Using I<require> to read config files is handy, but many people feel 
 they've outgrown using it, so they write elaborate modules to handle configuration.
 
 
-When: You're reading configuration data from a file that users can edit and have written back to disc.
+Solution:
+Hot-rod I<require> with advanced features to the degree it makes sense before
+resorting to complex or do-it-yourself replacements.
 
 
 
@@ -6948,7 +10731,10 @@ the Safe module. If the program is setuid and the people running it don't
 have access to edit it, use the Safe module or L<http://wiki.slowass.net/E<63>UseOps>. 
 
 
-B<Finding the Config or Data Directory>
+
+
+=head3 Finding the Config or Data Directory
+
 
 
 Something that is reasonably portable between Unix and Win is to look for an environment
@@ -6959,19 +10745,284 @@ command line. Polluting the environment in Unix is considered bad form by many,
 and dropping something in I</etc> isn't portable, so go fish.
 
 
-See Also: L<ExtensibilityPattern/ExtensibilityPattern>, Data::Dumper (L<http://www.cpan.org/modules/by-module/Data/> L<Dumper|http://search.cpan.org/searchE<63>module=Data::Dumper>)
 
 
-See Also: L<http://www.perl.com/language/style/slide34.html>
+=head3 Active Config
+
+
+
+Closures are useful for doing config options that have behavior:
+
+
+
+  $dumping = "xterm -display $display";
+
+
+
+You could (if you wanted) make that a closure. That would let you use the multiple arg
+version of I<system()>, which is good security practice, and the closure would 
+bind to I<my> variables, so if the config changes at run time, they change there too.
+
+
+
+  $dumping = sub { system 'xterm', $arg, $arg; };
+
+
+
+XXX L<http://wiki.slowass.net/E<63>CategoryToDo> - dumping active config using B::Deparse
 
 
 L<http://wiki.slowass.net/E<63>CategoryNovice>
 
 
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<ExtensibilityPattern/ExtensibilityPattern>
+
+
+=item *
+
+Data::Dumper (L<http://www.cpan.org/modules/by-module/Data/> L<Dumper|http://search.cpan.org/searchE<63>module=Data::Dumper>)
+
+
+=item *
+
+L<http://www.perl.com/language/style/slide34.html>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>LexicalsMakeSense>
+
+
+=back
+
+
+
+=head2 ErrorHandling
+
+
+
+
+=head3 Die Early, Die Often
+
+
+
+Catch errors before you get far away, or unrelated code will appear to malfunction,
+as a horrible form of L<ActionAtADistance/ActionAtADistance>.
+In the process of debugging, you're going to need to insert lots of tests anyway,
+so why not do it neatly from the beginning and integrate it into your program?
+When the program is in production is when error reporting is most needed, if users
+or logs are going to communicate the nature of the problem to you to be fixed.
+See L<RunAndReturnSuccessor/RunAndReturnSuccessor> and L<http://wiki.slowass.net/E<63>MementoPattern> for a description of checkpointing an application
+to recover from otherwise fatal errors. I<eval { }> is used for trapping errors -
+see L<AssertPattern/AssertPattern>.
+
+
+
+  open my $f, 'file.txt' or die $!;
+
+
+
+I<or die> should litterally dot your code. Thats how you communicate to Perl and
+your readership that it is not okey for the statement to silently fail. Most languages
+make such error geeration default; in Perl, you must request it. This is no excuse for
+allowing all errors to sneak by silently. 
+
+
+Should you not have the constitution to speckle your code with I<or die> clauses, or
+you're a minimalist, striving for elegance, there is a solution:
+
+
+
+  # from the Fatal.pm perldoc:
+
+
+
+
+  use Fatal qw(open close);
+
+
+
+
+  sub juggle { . . . }
+  import Fatal 'juggle';
+
+
+
+I<Fatal.pm> will place wrappers around your methods or Perl built in methods, changing
+their default behavior to throw an error. A module which does heavy file IO on a
+group of files need not check the return value of each and every I<open()>, I<read()>,
+I<write()>, and I<close()>. Only at key points - on method entry, entry into 
+worker functions, etc - do you need to handle error conditions. This is a more reasonable
+request, one easily acheived.
+Should an error occur and be cought, the text of the error message will be in I<$@>.
+
+
+
+  use Fatal qw(open close read write flock seek print);
+
+
+
+
+  sub update_data_file {
+    my $this = shift;
+    my $data = shift;
+    my $record;
+    local *filename = \$this->{filename};
+    local *record = \$this->{record};
+
+
+
+
+    eval {
+
+
+
+
+      open my $f, '>+', $filename;
+      flock $f, 4;
+      seek $f, $record, 0; 
+      print $f, $data;
+      close $f;
+
+
+
+
+    };
+
+
+
+
+    return 0 if $@;   # update failed
+    return 1;         # success
+
+
+
+
+  }
+
+
+
+Alternatively, rather than using I<eval { }> ourselves, following L<AssertPattern/AssertPattern>,
+we could trust that someone at some point installed a I<__DIE__> handler. The
+most recently installed I<local> handler gets to try to detangle the web. 
+
+
+
+  sub generate_report {
+    local $SIG{__DIE__} = { 
+      print "Whoops, report generation failed. Tell your boss it was my fault. Reason: ", @_;
+    }
+    foreach my $i ($this->get_all_data()) {
+      $data->update_data_file($i);
+    }
+  }
+
+
+
+
+  sub checkpoint_app {
+    local $SIG{__DIE__} = { 
+      print "Whoops, checkpoint failed. Correct problem and save your data. Reason: ", @_;
+    }
+    $data->update_data_file($this->get_data());
+  }
+
+
+
+Using I<local> scoped handlers this way allows you to provide context-sensitive recoverory,
+or atleast diagnostics, when errors are thrown. This is easy to do and all that is required
+to take full advantage of I<Fatal.pm>.
+
+ 
+
+I<Fatal.pm> was written by Lionel.Cons@cern.ch with prototype updates by Ilya 
+Zakharevich ilya@math.ohio-state.edu.
+
+
+
+
+=head3 Throwing Objects
+
+
+
+I<Here's another problem: Exceptions and die are the same thing in Perl, which sometimes surprises people. Someone wrote into perl5-porters recently about a library function that was going to run a subprocess. The fork() succeeded but the exec() failed, so the child process called die. That was usually the right thing to do. In this case, however, the library function had been called inside of an eval block, which trapped the child's die. The original process was still waiting for the child to complete, but the child was going ahead, thinking it was the parent!>
+
+
+I<Groundwork for rationalization has been laid here; recent versions of Perl let you throw any sort of object with die, not just a string. Using these objects you could propagate complex kinds of exceptions in your programs. But as far as I know these features are little-used. There are several modules that provide try-catch-cleanup syntax, but as far as I know they're also little-used. And there are no widely accepted guidelines for the behavior of modules. >
+
+
+- L<http://wiki.slowass.net/E<63>MarkJasonDominus> at L<http://www.perl.com/pub/a/1999/11/sins.html>
+
+
+[L<36>]
+
+
+L<http://wiki.slowass.net/E<63>CategoryNovice>, L<http://wiki.slowass.net/E<63>CategoryIntermediate>
+
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://wiki.slowass.net/E<63>PadWalker> on CPAN
+
+
+=item *
+
+L<ActionAtADistance/ActionAtADistance>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>TryCatch>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>UseFatal>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CarpModule>
+
+
+=item *
+
+L<http://www.perl.com/pub/a/2002/11/14/exception.html> - OO style error handling
+
+
+=back
+
+
+
 =head2 ErrorReporting
 
 
-B<Use die()>
+
+
+=head3 Use die()
+
 
 
 Avoid temptation to write a new death-handler and call it by name in 
@@ -7007,10 +11058,76 @@ reporting, and so on. If you don't use I<die()>, you can't easily localize
 which handler is used in a given scope.
 
 
-B<Report Everything>
 
 
-In the event of an error, display as much information as possible about the
+=head3 Every Error, Great And Small
+
+
+
+I<warn()> provides a reasonable default for reporting potential errors. Programs
+run at the command line get I<warn()> messages sent to stderr. CGI programs
+get I<warn()> messages sent to the error log, under Apache and thttpd
+[L<37>].
+Using CGI::Carp (L<http://www.cpan.org/modules/by-module/CGI/> L<Carp|http://search.cpan.org/searchE<63>module=CGI::Carp>), warnings are queued up for display in the event of a I<die()>, thus
+making important debugging information available.
+
+
+Even reasonable defaults aren't always what you want. Without changing your code
+[L<38>], the
+behavior of I<warn()> and I<die()> can be changed:
+
+
+
+  # send diagnostic output to the end of a log
+
+
+
+
+  open my $debug, '>>bouncemail.debug';
+  $SIG{__WARN__} = sub { print $debug $_, join(" - ", @_); };
+  $SIG{__DIE__} = sub { print $debug $_, join(" - ", @_); exit 0; };
+
+
+
+Some logic will want to handle its own errors - some times a fatal condition
+in one part of code doesn't really matter a hill of beans on the grand scale
+of the application. A command line print utility may want to die if the printer
+is off line
+[L<39>]
+
+ - a word processor probably does __not__ want to exit with unsaved
+
+changes merely because the document couldn't be printed. So, do this:
+
+
+
+  local $SIG{__DIE__} = sub {
+    # yeah, whatever
+  };
+
+
+
+
+  # or...
+
+
+
+
+  local $SIG{__DIE__} = 'IGNORE';
+
+
+
+...or, do the error processing of your choice. Perhaps set a lexically bound variable flag -
+see L<http://wiki.slowass.net/E<63>LexicalsMakeSense>.
+
+
+
+
+=head3 Report Everything
+
+
+
+In the event of a fatal error, display as much information as possible about the
 current execution context.
 
   
@@ -7019,7 +11136,7 @@ current execution context.
 
 
 
-  $version = '$Id: ErrorReporting,v 1.7 2003/03/04 11:51:24 phaedrus Exp $'; # CVS will populate this if you use CVS
+  $version = '$Id: ErrorReporting,v 1.16 2003/04/18 07:05:20 phaedrus Exp $'; # CVS will populate this if you use CVS
 
 
 
@@ -7171,7 +11288,7 @@ current execution context.
     print "$_<br>\n" while(<$cart>);
     print qq{
       <script language="javascript">
-        window.open("$errororderpage");
+        window.open($errororderpage);
       </script>
     };
     close $cart;
@@ -7193,148 +11310,39 @@ current execution context.
 
 
 
-B<Die Early, Die Often>
+I<A software error has occured.> Give the user an out. I wish I could remember what book
+this was from - the St. Thomas University library in St. Paul, Minnesota had it, but the
+author quoted a conversation that went something like...
 
 
-Catch errors before you get far away, or unrelated code will appear to malfunction,
-as a horrible form of L<ActionAtADistance/ActionAtADistance>.
-In the process of debugging, you're going to need to insert lots of tests anyway,
-so why not do it neatly from the beginning and integrate it into your program?
-When the program is in production is when error reporting is most needed, if users
-or logs are going to communicate the nature of the problem to you to be fixed.
-See L<RunAndReturnSuccessor/RunAndReturnSuccessor> and L<http://wiki.slowass.net/E<63>MementoPattern> for a description of checkpointing an application
-to recover from otherwise fatal errors. I<eval { }> is used for trapping errors -
-see L<AssertPattern/AssertPattern>.
+I<I noticed a contingency in the code, so I went to the client and asked him how I should handle it.>
+I<He said, "Oh, that won't happen, it doesn't matter". Dumbfounded, knowing full well that it might>
+I<happen, I said, "Oh, so if the program reaches this point, it is okey to drop the database,>
+I<delete all of the data, lock up, and stop responding without printing any diagnostic message?>
+I<The client reeled back aghast and exclaimed, "No! You can't do that!". I said, unless we put>
+I<some code in here to handle this situation, thats exactly what might happen! Now, when the>
+I<code reaches this point, how should we handle it?>
 
 
+Poping up a form that asked for contact information rather than a credit card, and transmits
+it insecurely along with the contents of the cart is our L<http://wiki.slowass.net/E<63>FailOver> solution. Perhaps their
+order wasn't complete - thats okey. Atleast the system knew it failed and did something reasonable.
 
-  open my $f, 'file.txt' or die $!;
 
 
 
-I<or die> should litterally dot your code. Thats how you communicate to Perl and
-your readership that it is not okey for the statement to silently fail. Most languages
-make such error geeration default; in Perl, you must request it. This is no excuse for
-allowing all errors to sneak by silently. 
+=head3 See Also
 
-
-Should you not have the constitution to speckle your code with I<or die> clauses, or
-you're a minimalist, striving for elegance, there is a solution:
-
-
-
-  # from the Fatal.pm perldoc:
-
-
-
-
-  use Fatal qw(open close);
-
-
-
-
-  sub juggle { . . . }
-  import Fatal 'juggle';
-
-
-
-I<Fatal.pm> will place wrappers around your methods or Perl built in methods, changing
-their default behavior to throw an error. A module which does heavy file IO on a
-group of files need not check the return value of each and every I<open()>, I<read()>,
-I<write()>, and I<close()>. Only at key points - on method entry, entry into 
-worker functions, etc - do you need to handle error conditions. This is a more reasonable
-request, one easily acheived.
-Should an error occur and be cought, the text of the error message will be in I<$@>.
-
-
-
-  use Fatal qw(open close read write flock seek print);
-
-
-
-
-  sub update_data_file {
-    my $this = shift;
-    my $data = shift;
-    my $record;
-    local *filename = \$this->{filename};
-    local *record = \$this->{record};
-
-
-
-
-    eval {
-
-
-
-
-      open my $f, '>+', $filename;
-      flock $f, 4;
-      seek $f, $record, 0; 
-      print $f, $data;
-      close $f;
-
-
-
-
-    };
-
-
-
-
-    return 0 if $@;   # update failed
-    return 1;         # success
-
-
-
-
-  }
-
-
-
-Alternatively, rather than using I<eval { }> ourselves, following L<AssertPattern/AssertPattern>,
-we could trust that someone at some point installed a I<__DIE__> handler. The
-most recently installed I<local> handler gets to try to detangle the web. 
-
-
-
-  sub generate_report {
-    local $SIG{__DIE__} = { 
-      print "Whoops, report generation failed. Tell your boss it was my fault. Reason: ", @_;
-    }
-    foreach my $i ($this->get_all_data()) {
-      $data->update_data_file($i);
-    }
-  }
-
-
-
-
-  sub checkpoint_app {
-    local $SIG{__DIE__} = { 
-      print "Whoops, checkpoint failed. Correct problem and save your data. Reason: ", @_;
-    }
-    $data->update_data_file($this->get_data());
-  }
-
-
-
-Using I<local> scoped handlers this way allows you to provide context-sensitive recoverory,
-or atleast diagnostics, when errors are thrown. This is easy to do and all that is required
-to take full advantage of I<Fatal.pm>.
-
- 
-
-I<Fatal.pm> was written by Lionel.Cons@cern.ch with prototype updates by Ilya 
-Zakharevich ilya@math.ohio-state.edu.
-
-
-B<See Also>
 
 
 
 
 =over 1
+
+=item *
+
+L<ErrorHandling/ErrorHandling>
+
 
 =item *
 
@@ -7366,6 +11374,11 @@ L<http://wiki.slowass.net/E<63>CarpModule>
 L<http://www.perl.com/pub/a/2002/11/14/exception.html> - OO style error handling
 
 
+=item *
+
+L<http://www.stonehenge.com/merlyn/LinuxMag/col14.html> - get CGI errors as emails
+
+
 =back
 
 L<http://wiki.slowass.net/E<63>CategoryNovice>, L<http://wiki.slowass.net/E<63>CategoryIntermediate>
@@ -7390,7 +11403,7 @@ question. How about the other case - a small script meant to automate
 some task? This requires that the script have knowledge about the 
 structure of the application - it must know how to assemble the modules,
 initialize them, and so on. It is forced to work with aspects of the API
-that it almost certainly isn't concerned with. This is a kind of L<http://wiki.slowass.net/E<63>AbstractionInversion> - where something abstract is graphed onto something
+that it almost certainly isn't concerned with. This is a kind of L<AbstractionInversion/AbstractionInversion> - where something abstract is graphed onto something
 concrete, or something simple is grafted onto the top of something complex.
 It would make more sense in this case for the application to implement a 
 sort of L<VisitorPattern/VisitorPattern>, and allow itself to be passed whole, already
@@ -7628,7 +11641,48 @@ See Also: L<http://wiki.slowass.net/E<63>PerlPaint>
 XXX a B::Generate exmaple!
 
 
-See Also: L<http://wiki.slowass.net/E<63>AbstractionInversion>, L<VisitorPattern/VisitorPattern>, L<FacadePattern/FacadePattern>, L<http://wiki.slowass.net/E<63>StateMachine>
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<AbstractionInversion/AbstractionInversion>
+
+
+=item *
+
+L<VisitorPattern/VisitorPattern>
+
+
+=item *
+
+L<FacadePattern/FacadePattern>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>StateMachine>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>TwoVersionNumbers>
+
+
+=item *
+
+L<http://www.martinfowler.com/eaaCatalog/plugin.html>
+
+
+=back
+
 
 
 =head2 CutAndPasteProgramming
@@ -7799,13 +11853,108 @@ scientific tests.
 
 
 
-XXX L<http://wiki.slowass.net/E<63>CategoryToDo> - another rant. Bleah. Mention cross sectional refactoring.
 Cut and paste code is a sign of larger problems. 
 
 
-See also: L<TemplateMethod/TemplateMethod>, L<FacadePattern/FacadePattern>, L<AbstractFactory/AbstractFactory>, L<AccumulateAndFire/AccumulateAndFire>, 
-L<http://wiki.slowass.net/E<63>AccessorsPattern>, Exceptions, L<BigBallOfMud/BigBallOfMud>, L<FeatureEnvy/FeatureEnvy>, L<LavaFlow/LavaFlow>, L<http://wiki.slowass.net/E<63>OrphanCode>, 
+
+
+=head3 Categories
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CategoryToDo>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CategoryAntiPattern>
+
+
+=back
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<TemplateMethod/TemplateMethod>
+
+
+=item *
+
+L<FacadePattern/FacadePattern>
+
+
+=item *
+
+L<AbstractFactory/AbstractFactory>
+
+
+=item *
+
+L<AccumulateAndFire/AccumulateAndFire> 
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>AccessorsPattern>
+
+
+=item *
+
+L<ErrorHandling/ErrorHandling>
+
+
+=item *
+
+L<BigBallOfMud/BigBallOfMud>
+
+
+=item *
+
+L<FeatureEnvy/FeatureEnvy>
+
+
+=item *
+
+L<LavaFlow/LavaFlow>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>OrphanCode> 
+
+
+=item *
+
 L<http://wiki.slowass.net/E<63>AdaptToAdapt>
+
+
+=item *
+
+L<CurryingConcept/CurryingConcept>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CrossSectionalRefactoring>
+
+
+=back
+
 
 
 =head2 BlindFaith
@@ -7826,19 +11975,69 @@ Are objects being used purely to hold values? You've probably got one or two big
 Can you remove an object from the system without breaking every other object? If not, they are too interdependent, with very few exceptions. Even with the Microsoft Windows operating system, something like "the registry" sounded like a great idea at first. Any program, as well as the operating system, could store configuration and run time data in a central database. In practice, it creates a single point of failure, frequently sustaining damage that causes the entire system to need to be restored from backup or reinstalled. The file grows too large and the operating system fails on any attempt to grow it beyond the limit of the max file size. Windows was designed with the register being a core, unchanging idea, but in retrospect, it may have been better if it weren't an absolute. Examining your code for objects which absolutely cannot be removed provides great insight into over dependence. If every object is dependent on every other object, object orientation is doing nothing for you. If any object can be removed with minimal damage to the overall structure, you have something healthy and organic.
 
 
-See also: Object Orgy, Layering Pattern, Functions to Objects, Polymorphism, Abstract Factory, Interface Type
+L<http://wiki.slowass.net/E<63>CategoryToDo>
+
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+Object Orgy
+
+
+=item *
+
+Layering Pattern
+
+
+=item *
+
+Functions to Objects
+
+
+=item *
+
+Polymorphism
+
+
+=item *
+
+Abstract Factory
+
+
+=item *
+
+Interface Type
+
+
+=back
+
 
 
 =head2 BigBallOfMud
 
 
-Procedural code converted to OO lends itself to one main object with lot of little objects hung off of it. The interdependency in the code doesn't change, and objects don't become noticeably autonomous. Like things may be grouped together, but for the wrong reasons: historically they have been used in sequence, or they form an implementation and interface wrapped together.
+Procedural code converted to OO lends itself to one main object with lot of 
+little objects hung off of it. The interdependency in the code doesn't change, 
+and objects don't become noticeably autonomous. Like things may be grouped 
+together, but for the wrong reasons: historically they have been used in 
+sequence, or they form an implementation and interface wrapped together.
 
 
 I<A BIG BALL OF MUD is haphazardly structured, sprawling, sloppy, duct-tape and bailing wire, spaghetti code jungle. We've all seen them. These systems show unmistakable signs of unregulated growth, and repeated, expedient repair. Information is shared promiscuously among distant elements of the system, often to the point where nearly all the important information becomes global or duplicated. The overall structure of the system may never have been well defined. If it was, it may have eroded beyond recognition. Programmers with a shred of architectural sensibility shun these quagmires. Only those who are unconcerned about architecture, and, perhaps, are comfortable with the inertia of the day-to-day chore of patching the holes in these failing dikes, are content to work on such systems.> - L<http://wiki.slowass.net/E<63>PatternLanguageOfProgramDesign> 4
 
 
-Also known as a Stove Pipe System, as apparently stove pipes were prone to corrosion and needed frequent repair with whatever was at hand, creating a discombobulated kludge.
+Also known as a Stove Pipe System, as apparently stove pipes were prone to 
+corrosion and needed frequent repair with whatever was at hand, creating a 
+discombobulated kludge.
 
 
 I<An ill-assorted collection of poorly matching parts, forming a distressing whole.> - Jackson Granholme
@@ -7899,6 +12098,29 @@ object.
 
 <s>This exhibits L<LayeringPattern/LayeringPattern>, Polymorphism, L<LooseCoupling/LooseCoupling>, L<CommandObject/CommandObject>, Routing, 
 and L<http://wiki.slowass.net/E<63>EventListener> patterns. </s>
+
+
+L<http://wiki.slowass.net/E<63>CategoryToDo>
+
+
+See L<PerlDesignPatterns/PerlDesignPatterns> for the table of contents
+
+
+External Pages Linking to This Page:
+
+
+<!-- cut here - do not remove this comment - added by L<PagesLinkingHere/PagesLinkingHere> -->
+
+
+=over 1
+
+=item *
+
+L<http://www.google.de/search?hl=de&ie=UTF-8&oe=UTF-8&q=bigballofmud&btnG=Google-Suche&meta=>
+
+
+=back
+
 
 
 =head2 SpaghettiCode
@@ -7988,6 +12210,12 @@ didn't function correctly on this machine.
 Hardware or software that serves no useful purpose that is kept around for political reasons. Often, everyone is secretly waiting for it to be used again, so it is no longer a derelict eyesore.
 
 
+L<http://wiki.slowass.net/E<63>CategoryToDo>
+
+
+Not sure this antipattern really fits with the motif of this text.
+
+
 =head2 BusySpin
 
 
@@ -8012,71 +12240,88 @@ This example applies to threaded code, but non threaded code can fall prey as we
 Both of these examples attempt to use 100% CPU resources. In the best case, you make everything sluggish. Worst case, you never release the CPU so the thing you're waiting for happens. On different systems, the results are different, too. Some threads preempt. Others never take the CPU back until you call yield() or an IO function! Writing code like this is the quickest way to make things work on some systems but not others.
 
 
-Using sleep() and yield() is an improvement. Sometimes polling is unavoidable. When you wrote the code you're waiting on, using thread::shared::semaphore lets you easily and efficiently communicate readiness between threads. Unix programs have no way of being notified when a file shows up, so polling may be the only solution: just sleep() so others can get work done.
+Using sleep() and yield() from the threads package is an improvement. 
+Sometimes polling is unavoidable. When you wrote the code you're waiting 
+on, using thread::shared::semaphore lets you easily and efficiently 
+communicate readiness between threads. Unix programs have no way of 
+being notified when a file shows up, so polling may be the only solution: 
+just sleep() so others can get work done.
 
 
 XXX talk about using pipes, signals to communicate.
 
 
-See also: L<http://wiki.slowass.net/E<63>AbstractionInversion>
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<SelectPollPattern/SelectPollPattern>
+
+
+=item *
+
+L<AbstractionInversion/AbstractionInversion>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>DaemonProcess>
+
+
+=back
+
+L<http://wiki.slowass.net/E<63>CategoryAntiPattern>
 
 
 =head2 GodObject
 
 
-Objects are a good way to divide work between programmers. I've seen this 
-taken to an extreme: one object, per programmer. The advantage is that it 
-keeps your code out of the hands of other programmers. Everything in that 
-file is unequivocally yours. It would be modular, but it has too many methods 
-to be rewritten should another implementation be desired. No one would pick 
-that interface anyway. This happens out of haste or laziness. A programmer 
-is afraid moving or changing or even fixing anything will break his 
-increasingly fragile code. The situation perpetuates itself as the code grows 
-more and more fragile. Also known as a L<http://wiki.slowass.net/E<63>TarPit>. The last indefinately: 
-no one will touch them. When people set out to clean it up, 
-they struggle against opaque code and get sucked 
-in to endless cleaning. Since the code is 
-incomprehensible, it isn't even usable as a reference implementation. If you 
-think it will be quicker to reimplement a tangled web of code rather than fix 
-it, you're probably right. For a counter view, see L<http://wiki.slowass.net/E<63>NeverRewriteCode>.
 
 
-If we absolutely had to break up one of these, things will get worse before 
-they get better. Start moving methods out, one by one, into another object. 
-Organize them however seems best at first - you'll learn otherwise later and 
-have to move stuff again, but at least then it'll be much easier to move stuff. 
-Each thing you move out, replace it with a stub method that delegates off the 
-call to where ever you've moved the method, passing as much context as it has 
-to. This corresponds to L<MoveCollectionsOfFunctionsToObjects/MoveCollectionsOfFunctionsToObjects>.
-Eventually the God Object will contain nothing but these delegations - 
-good! Now the God Object is only a repository for data. We can reduce how 
-much of this mess of data we have to pass around by identifying data items 
-that can be sent to a sub object once, when that object is created. This 
-datum will be moved to the constructor call of that object, where that object 
-will remember it. See L<MoveLargeDatastructuresToContainers/MoveLargeDatastructuresToContainers> and L<http://wiki.slowass.net/E<63>WholeObject>.
-Doubtlessly, many things will need to go multiple places. 
-In this case there is nothing to do but to two things: 
+=head3 Synopsis
+
+
+
+Anti-patterns stereotype pathological, degenerate code.
+The God Object anti-pattern afflicts Perl programs at a shocking rate.
+It is a hold over from top down design in procedural languages.
+It's the first trap aspiring Object Oriented programs fall into, so it's a suitable
+first Anti-Pattern. I assume that you know the basic syntax for creating
+objects in Perl. If not, go read Tom Christiansen's tutorial at 
+L<http://search.cpan.org/author/GSAR/perl-5.6.1/pod/perltoot.pod> [L<40>]
+then come right back - this is the next thing you need to know.
 
 
 
 
-=over 1
-
-=item *
-
-A few related bits of information:
-
-
-=back
-
-Pass the objects that contains the data to whichever object that wants the data. 
-At first, you might be sending around several large, unrelated container
-objects.
+=head3 Anti Patterns
 
 
 
-  $fooLogic->doSomething($stuff, $morestuff);
+[L<41>]
 
+
+Programming is fun. "Hacking on a program" is an expression of the glee that comes from
+rapidly adding neat features to a program.
+
+
+Programmers are optimisits. We assume that each feature in the specification
+for a project can be added in a constant amount of time even as the code
+grows, and we add each new feature just like we added the last. In other words,
+that I<programs are completed in linear time>. 
+The last half, recursively, takes twice as long.
+
+
+Unchecked code growth destroys a program from the inside out. 
+Sure signs of unchecked growth are:
 
 
 
@@ -8085,132 +12330,1168 @@ objects.
 
 =item *
 
-Isolated bits of information being communicated:
-Go through the bother of querying the data from the objects only 
-to pass it as arguments to the object that contains the logic.
+Forced to make design comprimises. 
+
+
+=item *
+
+No obvious clean implementation for new functionality. 
+
+
+=item *
+
+Unclear consequences of adding more code. 
 
 
 =back
 
-
-  $fooLogic->doAnotherThing($stuff->querySomeThing(), $morestuff->queryOtherThing());
-
-
-
-Hack through this overgrown jungle long enough, and paths will emerge - 
-or you'll discover that there is no where to go and curse yourself for 
-abandoning civilization.
+Code degeneration causes lack of programmer interest, which leads to forked 
+Open Source projects, over budget or failed commercial ventures, and 
+most horrifically, loss of interest in working on a program that used to be fun.
 
 
-Confronted with hundreds of twisty little methods that all look alike and all 
-use package-global data, there is one little trick for getting an object out of 
-them with a minimal number of keystrokes:
-
-
-
-  package DoEverythingThenSome;
+Reading difficult to comprehend code is work. If the quality of the code is
+good, this work is rewarded. If the quality is poor, the reader suffers the code
+with no joy or benefit. There are volumes full of difficult to understand code
+that people willingly pour over. Programming Pearls is one such book
+[L<42>]. The readers
+patience in studying the algorithms is rewarded with deep insight.
+Quality is difficult to put your thumb on and impossible to quantify. Just because
+code is difficult to read doesn't mean it isn't worth your time. It is our job
+to make it worth reading, worth keeping, worth reusing, and worth hacking on.
 
 
 
 
-  my $foo;
-  my $bar;
-  sub nastysub1 { $foo += 300; ... }
-  sub nastysub2 { ... }
-  ...
-  sub nastysub300 { ... }
+=head3 God Object Anti-Pattern
 
 
 
-Okay, nastysub1 through 100 are getting the boot:
+Named for the conspicous centralization of control. 
+It is a hold over from procedural languages and top-down design. 
+Top-down design states that the way to design a program is to start with
+a main routine, and repeatedly break it into smaller and smaller peices until
+each peice is obvious in function. The problem posed is that actions
+must be explicitly sequenced by code near the main routine, even if the program
+must take wildly different routes. A program designed by top
+down design is in essence one huge routine that has been broken into
+smaller ones. Top-down design busts up code into smaller reusable parts, 
+but it does nothing for creating a clean, reusable interface to working with
+datastructures.
+
+
+Other anti-patterns never farm out any data, or they contain all code,
+or they have historical rather than practical boundries, or  
+break down encapsulation, or even social influences on code. The God Object 
+scenario doesn't necessarily fall into any of these pitfalls. The only required 
+failing is that the code never lets go of control. It is placed firmly into
+a position of coordinating all events. It reads like a laundry list of actions to 
+perform even if it does use objects. 
+
+
+[L<43>]
+
+
+In contrast, the God Object hoards power and is intimately involved with every part 
+of the program. Other situations spawning them include: 
+programmers preasured into using objects;
+management dictats objects for the wrong reasons; each programmer on a team
+makes exactly one object to contain all of their code; objects are used to look object oriented.
 
 
 
-  package FooBarUlator;
+
+=head3 Identifying the God Object in the Wild
 
 
 
 
-  use ImplicitThis; ImplicitThis::imply();
+
+=over 1
+
+=item *
+
+Modules grow out of control. All of the resources are in the module, and placing
+code outside of it would mean exile.
+
+
+=item *
+
+Methods imply performing an action, but that action doesn't do one clear, well-defined
+thing. 
+
+
+=item *
+
+Internal datastructures aren't accessable from the outside.
+
+
+=item *
+
+Methods return complex, confusing internal datastructures.
+
+
+=item *
+
+Arrays of arrays or hashes of arrays or hashes of hashes.
+
+
+=item *
+
+Code to handle datastructures is spread around the code.
+
+
+=item *
+
+Code to handle datastructures is a function called without the -> syntax.
+
+
+=item *
+
+No clearly defined method of obtaining different kinds of resources exists.
+
+
+=item *
+
+All resources are implicitly parts of the same object.
+
+
+=item *
+
+Knows how to get to every object in the system and how to use most of them.
+
+
+=back
+
+[L<44>]
+
+
+
+
+=head3 Understanding the Procedural Problem
+
+
+
+While collections of related data may be
+contained in objects, the only useful location to place new logic in is the
+God Object - no other module knows enough to track down the facilities it needs.
+Control stays in the God Object, so the God Object must be included in all
+operations. It, in turn, includes all other logic and data in the system.
+Even when other objects are hung off of the God Object, there is no modularity. 
+Functionality cannot truely be split off from the core as long
+as the core knows everything and controls everything. The core is still dependent
+on every line of code in the program.
+
+
+Worry about the the "when" aspect: when is the module in control? Under what 
+states, which events? What will execute before it, what will it call, when will 
+it return? The flow of time should make as much sense as the flow of data.
+
+
+
+  # procedural code gives exactly one possible definition for a function call - 
+  # the code and data are mixed all over the place
+
+
+
+
+  sub do_a { $thing->[0]++; }
+  sub do_b { $thing->[1]++; }
+  sub do_c { $thing->[2]++; }
+
+
+
+
+  sub do_stuff {
+    my $thing = shift;
+    do_a($thing);
+    do_b($thing);
+    do_c($thing);
+  }
+
+
+
+Because any data access methods are handled in functional way, the data
+is dependent on the module and can't be returned or used seperately.
+
+
+I hinted at procedural code being unable to cope with changes to the way data is
+handled. 
+
+
+
+  sub do_a { $thing->[0]++; }
+  sub do_b { $thing->[1]++; }
+  sub do_c { $thing->[2]++; }
+
+
+
+
+  sub do_a_neg { $thing->[0]--; }
+  sub do_b_neg { $thing->[1]--; }
+  sub do_c_neg { $thing->[2]--; }
+
+
+
+
+  sub do_stuff {
+    my $thing = shift;
+    if($thing->[0] < 0) {
+    } else {
+      do_a($thing);
+    }
+    do_b($thing);
+    do_c($thing);
+  }
+
+
+
+This is what has to be untangled [L<45>]
+
+
+Blessing the data structure into a package with methods special just for it 
+allows it to no longer be dependent on modification routines defined in the god 
+object. This unties the knot that keeps all of the important code and data
+in one place.
+
+
+
+  # object oriented code allows method calls to be defined any number of different ways -
+  # the data has its own code
+
+
+
+
+  package ThingOne;
+
+
+
+
+  sub new { bless [], shift(); }
+  sub do_a { my $thing = shift; $thing->[0]++; }
+  sub do_b { my $thing = shift; $thing->[1]++; }
+  sub do_c { my $thing = shift; $thing->[2]++; }
+
+
+
+
+  package ThingTwo;
+
+
+
+
+  sub new { bless [], shift(); }
+  sub do_a { my $thing = shift; $thing->[0]--; }
+  sub do_b { my $thing = shift; $thing->[1]--; }
+  sub do_c { my $thing = shift; $thing->[2]--; }
+
+
+
+
+  package main;
+
+
+
+
+  sub do_stuff {
+    my $thing = shift;
+    $thing->do_a();
+    $thing->do_b();
+    $thing->do_c();
+  } 
+
+
+
+
+  my $t1 = new ThingOne();
+  do_stuff($t1);
+
+
+
+
+  my $t2 = new ThingTwo();
+  do_stuff($t2);
+
+
+
+
+
+=head3 Refactoring - Or, Getting From Here to There
+
+
+
+Perlers too often reserve objects for CPAN modules, and then provide exactly 
+one package. 
+
+
+Objects don't cure all of the programming worlds ills,
+but not knowing I<when> to use modules keeps programmers from using them.
+Knowing when, besides just as a facade for CPAN modules, helps ward off the
+nasty stale code syndrome. 
+
+
+The solution in any anti-pattern is always the same: healthy doses of refactoring. 
+Refactoring is the step by step process of rearranging code and its structure, aimed
+at not breaking the code. Not how, but when to refactor, is interesting.
+Object Oriented Design Heuristics 
+[L<46>] and
+Refactoring: Improving the Design of Existing Code 
+[L<47>]
+are good books on the subject [L<48>].
+Refactoring is what is all about. Anti-Patterns just match the symptom to the cure.
+Anti-patterns are ultimately just case studies in refactoring perticular flavors of degenerate code.
+Most required refactoring is the same, so we will have to cover a few bases before
+we get to the good stuff. I'll keep it brief.
+
+
+
+
+=head3 Combine Related Variables
+
+
+
+Groups of related scalars require lots of typing to pass around
+together. Resist the urge to keep them global for this reason - 
+instead promote them to be members of hash. Variables declared in a block
+is a good sign. Variables with common prefixes in their names is a sure
+sign. 
+Michael Schwern first pointed out this idea.
+His fine talks are online at L<http://www.pobox.com/~schwern/talks/> .
+
+
+
+  my $treasure_location_x = 3;
+  my $treasure_location_y = 10;
+  my $treasure_value = 1000;
+  my $treasure_weight = 30;
+
+
+
+
+  # is better written:
+
+
+
+
+  my $treasure = {};
+  $treasure->{location}->{x} = 3;
+  $treasure->{location}->{y} = 10;
+  $treasure->{value} = 1000;
+  $treasure->{weight} = 30;
+
+
+
+
+  # or even:
+
+
+
+
+  ($treasure->{location}->{x}, $treasure->{location}->{y}, $treasure->{value},
+   $treasure->{weight}) = (3, 10, 1000, 30);
+
+
+
+There is almost never a time to use symbolic references. Unless you are
+doing meta-muddling across modules, use hashes instead. You can compute
+a hash index just as easily as a name table entry, and two different hashes
+will never step on each other.
+
+
+
+  ${$varname} = $value;
+
+
+
+
+  # is better written:
+
+
+
+
+  $table->{$varname} = $value;
+
+
+
+
+
+=head3 Promote References to Objects
+
+
+
+You may later discover that several objects are performing the same
+or similar operations on this hash or array reference. 
+Data isn't always clearly associated with some routines and not others. 
+This interdepency prevents you from moving functions and their associated global
+data all into one neat little isolated package.
+Promote the reference to an object, and move the redundant code into this new object's 
+package where it can exist once and only once, accessiable by all
+(I'm half serious - keep reading).
+
+
+Each use of the datastructure as a plain old hash or array should be changed to
+use the object accessor syntax - in an ideal world.
+
+
+
+  my @array = (1, 2, 3);
+  $array[2]++;
+
+
+
+
+  # all occurances of @array manually changed:
+
+
+
+
+  my $array = new Array::Wrapper();     # our container for something that was an array
+  my $value = $array->get_element(2); 
+  $array->set_element(2, $value+1);
+
+
+
+Failing to rewrite all code that accesses this variable to use the object 
+oriented syntax violates I<encapsulation>. An object encapsulates the logic about
+how it makes computations and how it represents its data - the format things
+are stored in internally. Having a large amount of legacy code that depends on
+exactly one representation being used is a lot of momentum to shift. Perhaps
+the code should be rewritten to protect the data encapsulation, but this may
+not be the strongist motivating force. What if we want the benefit of mnenomic names
+for the array slots, or we want to move some code close to the data it works on? 
+Future code can make use of the data strucutre as an object even as legacy code continues
+to run. The legacy code can be rewritten at your leisure. Don't refuse
+to use objects because notions of purity insist that all old code first be rewritten.
+
+
+
+  # in your code:
+
+
+
+
+  my @array;
+  my $array = new Array::Wrapper(\@array);
+
+
+
+
+  $array[3] = 10;     # this works
+  $array->set(3, 10); # so does this
+
+
+
+
+  # in Array::Wrapper.pm:
 
 
 
 
   sub new {
-    my $type = shift;
-    my %args = @_;
-    bless {
-      foo => $args{foo},
-      bar => $args{bar}
-    }, $type;
+      my $type = shift;
+      my $self = shift;
+      bless $self, $type; 
   }
 
 
 
 
-  # cut and paste directly from DoEverythingThenSome:
+  sub get {
+      my $self = shift;
+      my $index = shift;
+      return $self->[$index];
+  }
 
 
 
 
-  sub nastysub1 { $foo += 300; ... }
-  sub nastysub2 { ... }
-  ...
-  sub nastysub100 { ... }
+  sub set {
+      my $self = shift;
+      my $index = shift;
+      $self->[$index] = shift;
+      return $self;
+  }
 
 
 
-Functions that use package-global variables (eg, my variables declared at 
-the outer most level, the file scope) that should be migrated to objects 
-present one huge problem: tracking down each and every use of the variable 
-and changing it to a hash dereference to work with Perl's object 
-implementation. L<http://wiki.slowass.net/E<63>ImplicitThis> lets you cheat your way out of this chore by 
-making it look all the same to you. By creating a package with a constructor 
-and instance data, we're opening up the possibility of one-to-many 
-relationships against our object: several independent instances of 
-L<http://wiki.slowass.net/E<63>FooBarUlator> can exist at once, each with different values for $foo and $bar 
-and any other fields it defines.
+I<Array::Wrapper::new()> blesses an existing array reference into its
+package. The object returned and the existing array both represent
+the same data: changes to one are mirrored by the other.
+Subclass C<Array::Wrapper> and add more methods to do things specific to
+a given datastructure, or just copy the code and modify it.
+
+  
+
+Oregon Health & Science University holds
+a programming competition every year: the International Functional Programming Competition.
+L<http://icfpcontest.cse.ogi.edu/> has details. Last years competition involved
+writing a client application to control a robot in a multi user maze. The
+robot had to find and deliver packages, avoid water, and interact with other
+robots. I got a late start, having missed a day for lack of seeing the
+announcement in time, and fresh from studying object orientation,
+spent two dreary sleepless days writing Perl.
+The code is quick, dirty, and ugly. It was hastily written and serves as a 
+fine example of how not to write Perl. Mired down with a mesh of arrays, and
+without time to rewrite code, I shoehored objects on top of the arrays.
+Reality tends to be closer to a programming game than anything you'd call "real".
 
 
-Data isn't always clearly associated with some routines and not others. This
-interdepency prevents you from moving functions and their associated global
-data all into one neat little isolated package. This pleads for moving related
-data items into a collection, in the form of an object.
-See L<MoveLargeDatastructuresToContainers/MoveLargeDatastructuresToContainers>.
-This requires rewriting. Rewriting can introduce errors into already
-confusing code. XXX blurb about L<http://wiki.slowass.net/E<63>SharedData>, hacked version of L<http://wiki.slowass.net/E<63>SharedData>
-that exports symbols directly, doesn't require $sd-> syntax, mention lvalue
-accessors, L<http://wiki.slowass.net/E<63>AccessorsPattern>.
+
+  # At the top of the main program:
 
 
-See also: L<SpaghettiCode/SpaghettiCode>, L<http://wiki.slowass.net/E<63>ImplicitThis>, L<http://wiki.slowass.net/E<63>ExportingFunctionsLexicallyBoundToData>,
-L<MoveCollectionsOfFunctionsToObjects/MoveCollectionsOfFunctionsToObjects>, L<MoveLargeDatastructuresToContainers/MoveLargeDatastructuresToContainers>,
-L<http://wiki.slowass.net/E<63>WholeObject>, L<http://wiki.slowass.net/E<63>LexicalsMakeSense>, L<http://wiki.slowass.net/E<63>GodObjectProposal>, L<http://wiki.slowass.net/E<63>SharedData>, L<StateVsClass/StateVsClass>,
+
+
+  my @treasure;  # [x, y, bot, weight, destx, desty]
+
+
+
+
+  # Logic that generates a status report with map, written before I knew what 
+  # I was getting into:
+
+
+
+
+  foreach my $i (grep {ref $_} @treasure)  { 
+    push @objs, [$i->[0], $i->[1], 't'] unless $i->[2];
+  }
+
+
+
+
+  # In logic that reads updates from server, I was overcome with complexity,
+  # created a helpful wrapper, and blessed my array into it:
+
+
+
+
+  my $treasure = new Treasure::Chest(\@treasure) or die;
+
+
+
+
+  # ... later in same area... 
+ 
+  $treasure->get($t)->set_bot($bots[$curbot]);
+
+
+
+
+  # In logic that considers possible actions:
+
+
+
+
+  foreach my $i ($treasure->by_bot($bot)) {
+      my $dropoff = $i->get_dropoff();
+      my @coords = ($bot->[0], $bot->[1], $dropoff->x(), $dropoff->y());
+      my $route = [$dropoff, sub { plot_route(@coords) }, undef ];
+      $route->[2] = approx_cost(@coords);
+      $route->[2] -= 100 if($cap < $carry / 2);
+      $route->[2] -= 100 if($cap < $carry / 3);
+      $route->[2] -= 100 if($cap < $carry / 4);
+      push @routes, $route;
+  };
+
+
+
+
+  # In another possible action agent:
+
+
+
+
+  @goodies = SortPackages::go(
+      $treasure, $blockbuilder, $carry-$bot->[2], $bot->[0], $bot->[1]
+  );
+
+
+
+
+  # Deliver everything destined for this spot:
+
+
+
+
+  foreach my $i ($treasure->by_bot($bot)) {
+    if($i->destx == $bot->[0] and $i->desty == $bot->[1]) {
+      my $id = $i->id();
+      return [90, sub {
+          $treasure->zero($id);
+          "1 Drop $id"   
+      }];
+    }
+  }
+
+
+
+[L<49>]
+
+
+Don't try too hard to understand the code. It is hallow. It smells of chaos.
+Reality is actually much worse. Several other datastructures got the same
+treatment, and they all referenced each other. 
+The I<@treasure> and I<$treasure[]> syntax was used initially. Later, I<$treasure->x> and other
+method calls became the prefered way to access data. I<$treasure->by_bot()>
+was perticularly helpful, as it moved into the object logic that had been repeated all over
+the program, or atleast prevented the logic from having to be repeated any further.
+
+
+
+  my $treasure = new Treasure::Chest(\@treasure) or die;
+
+
+
+... is the heart of this trick. An object is a blessed reference. I<@treasure>
+can't be blessed because it isn't a reference. We, can, however take a reference
+to that. We could say I<bless \@treasure, Treasure::Chest>, but it is better to
+leave those details to I<Treasure::Chest> itself. We just pass the array off
+there for blessing and immediate return.
+
+
+I<$treasure> and I<@treasure> describe the exact same data, but with two different
+interfaces: a complex datastructure, and a clean mnenompic object style interface.
+
+
+
+
+=head3 Whole Object or Custom Crafted Request?
+
+
+
+Isolated bits of information from different collections being passed to another
+object presents a delimia: do you pass all of the numerous required hash and
+array references, or do you first extract the needed values and pass those
+directly?
+
+
+
+  $fooLogic->doAnotherThing($stuff, $morestuff);
+  # or...
+  $fooLogic->doAnotherThing($stuff->{some_thing}, $morestuff->{some_other_thing});
+
+
+
+
+  $blockbuilder->plot_route($bot, $i);
+  # or...
+  $blockbuilder->plot_route($bot->[0], $bot->[1], $i->[0], $i->[1]);
+
+
+
+
+  # or a mixture...
+  @goodies = SortPackages::go(
+    $treasure, $blockbuilder, $carry-$bot->[2], $bot->[0], $bot->[1]
+  );
+
+
+
+Go with your instricts, but be prepaired to change your mind later.
+To paraphrase Arthur Riel, sometimes awkward interfaces are new abstractions
+waiting to be discovered. Large numbers of seemingly unreleated things passed together
+might suggest some unseen relationship that can be used to further organize the
+data. Don't sweat it though. 
+
+
+B<Delegate - Migrate Functionality out of Core> 
+
+
+Start moving methods out, one by one, into another object. 
+Organize them however seems best at first - you'll learn otherwise later and 
+have to move stuff again, but at least then it'll be much easier to move stuff. 
+Each function you move out, replace it with a stub function. This stub function
+turns the function call into a method call into another object. Kicking requests
+off to another object is called delegation - the object we're kicking them to is
+the delegate. Our stub method will pass as much data as it needs to, which will
+be all of the data passed to it plus possibly some global data as well.
+Pass the data refences to whichever object wants them.
+At first, you might be sending around several large, unrelated hash references.
+Many things will need to go multiple places, so for now, they will need to
+continue to live in the God Object.
+
+
+
+  # other functions in the god object still think plot_route() is a local
+  # function rather than a method in another object
+
+
+
+
+  sub plot_route {
+    my $sx = shift; my $sy = shift;
+    my $fx = shift; my $fy = shift;
+    # logic moved into $blockbuilder object
+    return $blockbuilder->plot_route($sx, $sy, $fx, $fy);
+  } 
+
+
+
+Perl throws a monkey wrench into the works with the requirement that object
+instance data (data that is independent from one object of that type to another)
+be accessed with a funky syntax. This effectively prevents cutting and pasting
+code out from the former God Object into a clean, new object. 
+
+
+
+  # square foo when foo is a regular variable:
+  $foo = $foo * $foo; 
+
+
+
+
+  # square foo when foo is an object instance variable:
+  $this->{'foo'} = $this->{'foo'} * this->{'foo'}; 
+
+
+
+See Alias.pm or L<http://wiki.slowass.net/E<63>ImplicitThis>.pm on CPAN, or live on the wild side of life
+(syntactically speaking) and make your own alias for I<$foo>:
+
+
+
+  sub setvalue {
+    no strict 'refs';
+    my $this = shift;
+    local *foo = \$this->{foo};
+
+
+
+
+    $foo = $foo * $foo;
+  }
+
+
+
+Don't tell anyone you got this from me, what ever you do. I'd never hear the
+end of it.
+
+
+
+
+=head3 Migrate Data Containment to Objects
+
+
+
+The God Object will eventually contain nothing but some core logic, 
+declaration of datastructures and these delegations - good! 
+
+
+Think for a moment of an object as an array element: there are many of them
+to pick from for, and each has different data in it.
+Several independent instances of an object can exist at once, each with different 
+values for its instance variables.
+
+
+Reduce how much of this mess of data we have to pass around by picking out
+data items that should be sent to a only once to a sub-object. 
+Simply make the hash or array reference permentaly visible to the object at the time
+that the object is created. 
+
+
+
+  sub new {
+      my $class = shift;
+      my $hashref = shift;
+      my $self = { 
+          foo => 'bar',
+          num => 10,
+          hashref => $hashref,
+      }; 
+      bless $self, $class;
+  }
+
+
+
+
+  sub dog_years {
+      my $self = shift;
+      my $age = shift;
+      # no need to take $hashref as an argument, we have it stashed in $self
+      return $age * $self->{hashref}->{'dog_factor'};
+  }
+
+
+
+This hash or array reference will be passed to the constructor call of that 
+object. It will be passed exactly once instead of for every call into 
+that object. This is not always the good and correct thing to do - when not 
+frequently used by that object, it is best to pass data only when it is needed. 
+
+
+The art is limiting the scope of data - 
+where it can be seen at. If the scope is too narrow, you spend too much effort 
+passing it around. If the scope is too broad, it isn't clear how the data gets around.
+If the data gets around everywhere, and it has far too close of relationship with all
+of the objects, God would be displeased.
+
+
+Data that is clearly only used in one object can be created in that object and
+live there. Rather than creating the data object in our former God Object
+and passing it to the constructor of our new object, we need only define it in
+the constructor of the new object itself.
+
+
+
+  sub new {
+      my $class = shift;
+      my %options = @_;
+      my $self = {
+          foo => 'bar',
+          num => 10,
+          thing => $options{'thing'},
+      };
+      bless $self, $class;
+  }
+
+
+
+
+
+=head3 Godless Objects
+
+
+
+Objects given enough state information, or the means to track it down,
+can be returned and used without the God Object involved. The code
+is modular when this is acheived. True polymorphism, an object oriented ideal
+for easily adaptable code, is still a ways off, but we're much closer now.
+
+
+
+  # which bot is holding treasure $x, if any?
+  $treasure = $treasure_chest->get($x)->bot();  
+
+
+
+
+  # which map region is bot $green standing on?
+  $block = $block_builder->bounded_by($bots->get($green)->x(), $bot->get($green)->y());
+
+
+
+
+  # what objects stand between us and where we want to be?
+  @route = $block->solve_maze($x, $y);
+
+
+
+Build healthy relationships between objects:
+
+
+
+
+=over 1
+
+=item *
+
+The fields of an object should be related to each other and support a single coherent idea.
+[Composition is delegation - if you must create an object made of several simplier things, delegate to them].
+
+
+=item *
+
+Query objects directly to find the answer or find the object that knows the answer.
+
+
+=item *
+
+Return only an object of the required type. All of the rest of the code is then dissinvolved.
+
+
+=item *
+
+A single object may know about many objects if it has a relationship with them.
+
+
+=item *
+
+Objects can perform operations that require the help of other objects because it knows
+where to find them.
+
+
+=back
+
+Since the object is now stand-alone, compatable objects that provide 
+different features can be created and used in their place - the code is 
+attached to the data - this is polymorphism. Polymorphism is what we really 
+want, because it lets us use objects as abstrctions, which is what they really are.
+
+
+[L<50>]
+
+
+
+
+
+<!--
+Feedback from brian d foy to integrate:
+i read this the other night, and there is a lot of things going on in the
+article :)
+
+
+i see several ways to go with this, and several articles that it might
+turn into.  don't' worry about the meatiness---say as much as you need to
+say.  if the article is really short, no worries (although example code
+tends to strech things out).
+
+
+
+
+=over 1
+
+=over 2
+
+=item *
+
+focus on the God Object---how a program ends up with a good
+object, what a God object does, the consequences it has, and so on without
+talking about refactoring necessarily.  after that discussion, you could
+present a case study with a new design (without refactoring---just
+starting over).  this is the one i'm excited about :)
+
+
+=back
+
+there is no such thing as an anti-pattern that doesn't prescribe refactoring =)
+
+
+=back
+
+
+
+=over 1
+
+=over 2
+
+=item *
+
+forget about the anti-pattern angle and focus on the refactoring
+(which is most of the article right now).  this could be an intermediate
+to advanced level article.
+
+
+=back
+
+hooks into doing refactorings as future articles?
+
+
+=back
+
+
+
+=over 1
+
+=over 2
+
+=item *
+
+i'm not excited about Alias and L<http://wiki.slowass.net/E<63>ImplicitThis>, but the examples
+with $treasure_foo going into a hash are really good.  i'd like to see a
+lot of really simple things that beginners can understand. this would be a
+beginner to intermediate level article.
+
+
+=back
+
+-->
+
+
+=back
+
+c2 wiki -
+
+
+The "God Class" problem is described on page 32 of Arthur Reihl's excellent "Object-Oriented
+Design Heuristics" (L<http://shop.bn.com/bookSearch/isbnInquiry.aspE<63>isbn=0-201-63385-X>) . A "God class" is an object that controls a bunch of
+other objects in the system. It is a form of the L<http://wiki.slowass.net/E<63>MediatorPattern>, misapplied. 
+
+
+
+
+
+
+
+=head3 Not An Object
+
+
+
+[L<51>]
+
+
+[L<52>]
+CPAN modules provide a simple, clean interface for using them - this is what
+an abstraction is. You tell it what you want done, without worrying about how -
+how exists in the abstract realm. More generally, an abstraction is a layer
+between two parts to seperate the interface from the implementation.
+Abstracting things conflicts with the top-down mentality of control. One
+constant fixed peice of code is invoked directly - the implementation.
+There is [L<53>] no chance
+to handle a request for a kind of thing in a different way - everything is always
+handled the same way, unless if statements are peppered through the entire program
+listing at every turn the various ways it might be handled - continueing to 
+tie the program to the implementation.
+[L<54>]
+
+
+
+
+=head3 Todo
+
+
+
+Perhaps move the Oregon blurb near the top to give context to the examples -
+a robot collecting treasure.<br>
+
+
+
+
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<SpaghettiCode/SpaghettiCode>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>ImplicitThis>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>ExportingFunctionsLexicallyBoundToData>
+
+
+=item *
+
+L<MoveCollectionsOfFunctionsToObjects/MoveCollectionsOfFunctionsToObjects>
+
+
+=item *
+
+L<MoveLargeDatastructuresToContainers/MoveLargeDatastructuresToContainers> 
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>WholeObject>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>LexicalsMakeSense>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>GodObjectProposal>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>SharedData>
+
+
+=item *
+
+L<StateVsClass/StateVsClass>
+
+
+=item *
+
 L<SoftrefsToHash/SoftrefsToHash>
+
+
+=item *
+
+L<http://www.martinfowler.com/eaaCatalog/lazyLoad.html>
+
+
+=item *
+
+L<http://perlmonks.org/index.pl?node=85769> - references to array elements using slices and references
+
+
+=back
+
 
 
 =head2 ObjectOrgy
 
 
-Not using encapsulation. "Absence of data encapsulation. The data members may be public (or might as well be because they are exposed to the world through getters and setters), or the objects may hold references to each other. In any case the objects do more tweaking of the other objects data than their own, with ensuing confusion about who did what to whom when." - L<http://c2.com/cgi/wiki/ObjectOrgy>
+Not using encapsulation. 
 
 
-Have you ever attempted to disassemble a mechanical stopwatch? While most aren't as bad, many things share one interesting trait: upon removing the back cover, tiny springs, gears, cogs, plates, shafts, sprockets, ratchets and dozens of unidentifiable pieces literally fly out. The sensation of hopelessness is matched only by a programmer assigned to make changes to a program designed to work exactly one and never be changed. Building anew is far more likely than ever picking the pieces up.
+I<Absence of data encapsulation. The data members may be public (or might as well be because they are exposed to the world through getters and setters), or the objects may hold references to each other. In any case the objects do more tweaking of the other objects data than their own, with ensuing confusion about who did what to whom when.> - L<http://c2.com/cgi/wikiE<63>ObjectOrgy>)
 
 
-It is true that at some point things must be hardcoded. It is expected that at the very top level many objects will be created, and most passed to the constructors of others. An object shouldn't assume the right to muck with the internals of another object, much less assume its existence in the first place. Create objects at the top level of a program, package, or class, where ever the scope is above where the object is used, but not so far up it clutters an unrelated space. Pass it down via constructors. Objects will be told about the presence of each other in an organized way, and the flow of references will be traceable. 
+Have you ever attempted to disassemble a mechanical stopwatch? While most 
+aren't as bad, many things share one interesting trait: upon removing the back 
+cover, tiny springs, gears, cogs, plates, shafts, sprockets, ratchets and dozens 
+of unidentifiable pieces literally fly out. The sensation of hopelessness is 
+matched only by a programmer assigned to make changes to a program designed to 
+work exactly one and never be changed. Building anew is far more likely than 
+ever picking the pieces up.
 
 
-See Also: L<PassingPattern/PassingPattern>, L<BigBallOfMud/BigBallOfMud>
+It is true that at some point things must be hardcoded. It is expected that at 
+the very top level many objects will be created, and most passed to the 
+constructors of others. An object shouldn't assume the right to muck with the 
+internals of another object, much less assume its existence in the first place. 
+Create objects at the top level of a program, package, or class, where ever the 
+scope is above where the object is used, but not so far up it clutters an 
+unrelated space. Pass it down via constructors. Objects will be told about the 
+presence of each other in an organized way, and the flow of references will be 
+traceable. 
+
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<PassingPattern/PassingPattern>
+
+
+=item *
+
+L<BigBallOfMud/BigBallOfMud>
+
+
+=item *
+
+L<LawOfDemeter/LawOfDemeter>
+
+
+=back
+
 
 
 =head2 FeatureEnvy
 
 
-"The whole point of objects is that they are a technique to package data with 
-the processes used on that data. A classic [L<27>] smell is a method that seems 
-more interested in a class other than the one it is in. The most common focus 
-of the envy is the data."
+I<The whole point of objects is that they are a technique to package data with> 
+I<the processes used on that data. A classic [code] smell is a method that seems >
+I<more interested in a class other than the one it is in. The most common focus >
+I<of the envy is the data.>
 - Fowler, L<http://wiki.slowass.net/E<63>RefactoringImprovingtheDesignofExistingCode>, Chap. 3, p. 80.
 
 
@@ -8223,7 +13504,40 @@ It shouldn't give up too much encapsulation,  and the methods should reflect
 the purpose of the object. 
 
 
-See Also: L<http://c2.com/cgi/wikiE<63>FeatureEnvy>) - "... a method that seems more interested in a class than the one its in.."
+I<... a method that seems more interested in a class than the one its in..>
+- L<http://c2.com/cgi/wiki?FeatureEnvy>
+
+
+L<http://wiki.slowass.net/E<63>CategoryAntiPattern>
+
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<PerlDesignPatterns/PerlDesignPatterns>
+
+
+=item *
+
+L<http://c2.com/cgi/wiki?FeatureEnvy>
+
+
+=item *
+
+L<GodObject/GodObject>
+
+
+=back
+
 
 
 =head2 EmptySubclassFailure
@@ -8233,11 +13547,35 @@ See Also: L<http://c2.com/cgi/wikiE<63>FeatureEnvy>) - "... a method that seems 
 -- perlmodlib manpage 
 
 
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CreatingCPANModules>
+
+
+=item *
+
+L<PerlDesignPatterns/PerlDesignPatterns>
+
+
+=back
+
+
+
 =head2 CheckingTypeInsteadOfMembership
 
 
-This is a special case of Voodoo Coding that happens as a result of misguided 
-OO zeal. Usually, all you want from an object is a Contract that they can fill 
+This is a special case of L<http://wiki.slowass.net/E<63>VoodooChickenCoding> that happens as a result of misguided 
+L<http://wiki.slowass.net/E<63>ObjectOriented> zeal. Usually, all you want from an object is a Contract that they can fill 
 a role. It doesn't matter if they inherited the ability or if they are the Base 
 Class. Checking a callers package using ref() is the correct thing for the very 
 rare cases where you won't accept anything but an instance of the base class 
@@ -8247,26 +13585,42 @@ case of the "Empty Subclass Text".
 
 
 
-Does your module pass the 'empty subclass' test? If you say @SUBCLASS::ISA = qw(YOURCLASS); your applications should be able to use SUBCLASS in exactly the same way as YOURCLASS. For example, does your application still work if you change: $obj = new YOURCLASS; into: $obj = new SUBCLASS; ?
 
 
-Avoid class name tests like: die "Invalid" unless ref $ref eq 'FOO'. Generally you can delete the eq 'FOO' part with no harm at all. Let the objects look after themselves! Generally, avoid hard-wired class names as far as possible.
+Does your module pass the 'empty subclass' test? If you say I<@SUBCLASS::ISA = qw(YOURCLASS);> 
+your applications should be able to use I<SUBCLASS> in exactly the same way as I<YOURCLASS>. 
+For example, does your application still work if you change: I<$obj = new YOURCLASS>; 
+into: I<$obj = new SUBCLASS;> ?
 
 
-Exports pollute the namespace of the module user. If you must export try to use @EXPORT_OK in preference to @EXPORT and avoid short or common names to reduce the risk of name clashes.
+Avoid class name tests like: I<die "Invalid" unless ref $ref eq 'FOO'>. Generally 
+you can delete the eq 'FOO' part with no harm at all. Let the objects look after 
+themselves! Generally, avoid hard-wired class names as far as possible.
+
+
+- from L<http://www.perldoc.com/cgi-bin/htsearch?restrict=perl5.8.0&words=perlmodlib>
 
 
 
 
-=over 1
 
-=item *
+L<TypeSafety/TypeSafety> argues that L<AbstractRootClasses/AbstractRootClasses> should be installed, so that type can be verified.
+Since type is being verified, not class, we're happy with anything derived from a base class,
+or even just implementing the features (interface) of that class or L<AbstractClass/AbstractClass>. To test
+type instead of class, do:
 
-perlmodlib manpage
 
 
-=back
+  die "Invalid" unless $obj->isa('FOO');
 
+
+
+This will let I<BAR>s by, if I<BAR> inherits from I<FOO>, or if I<FOO> is an L<AbstractClass/AbstractClass>
+that I<BAR> implements. It is much more forgiving, and it correctly handles the idea that
+types are complex structures, composed of other types.
+
+
+L<http://wiki.slowass.net/E<63>CategoryAntiPattern>
 
 
 =head2 ExplicitTypeCaseAnalysis
@@ -8397,6 +13751,9 @@ how to implement one set of features.
 Credit: L<http://wiki.slowass.net/E<63>ObjectOrientedDesignHeuristics> 5.12
 
 
+L<http://wiki.slowass.net/E<63>CategoryAntiPattern>
+
+
 See Also: L<http://wiki.slowass.net/E<63>ConditionalElimination>, L<AbstractClass/AbstractClass>, L<CompositePattern/CompositePattern>
 
 
@@ -8419,16 +13776,76 @@ L<ActionAtADistance/ActionAtADistance> problems, just as having a large number o
 XXX - example code!
 
 
-See Also: L<TooManyArguments/TooManyArguments>, L<CurryingConcept/CurryingConcept>, L<http://wiki.slowass.net/E<63>WholeObject>, L<http://wiki.slowass.net/E<63>RaceCondition>, L<ActionAtADistance/ActionAtADistance>
 
+
+=head3 Categories
+
+
+
+
+
+=over 1
+
+=item *
 
 L<http://wiki.slowass.net/E<63>CategoryAntiPattern>
+
+
+=item *
+
 L<http://wiki.slowass.net/E<63>CategoryToDo>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CategoryIntermediate>
+
+
+=back
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<TooManyArguments/TooManyArguments>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>RaceCondition>
+
+
+=item *
+
+L<CurryingConcept/CurryingConcept>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>WholeObject>
+
+
+=item *
+
+L<ActionAtADistance/ActionAtADistance>
+
+
+=back
+
 
 
 =head2 ActionAtADistance
 
 
+Problem:
 Someone is doing something at the wrong time, or stomping on something they 
 shouldn't. Problem is, there is no way to track down who or where. Local data 
 isn't local, instance data isn't inside an object instance. Side effects from 
@@ -8437,22 +13854,43 @@ communication may be intentionally going through channels, such as namespaces,
 that are public by nature. 
 
 
+Solution:
 Decide who should be talking to whom. Move communications to events or queues 
 rather than shaded state. Using events, if some unexpected happens, everyone 
 knows right away, because they have a chance to check values and react 
 immediately. Using queues, at least everyone knows which way the data is flowing.
 
 
-[L<28>]
-
-
-[L<29>]
-
-
 From physics, where particles may be created that cancel each other out -
 such particles instantianiously communicate information across space
 reguardless of distance
 in what L<http://wiki.slowass.net/E<63>AlbertEinstien> called "spooky action at a distance".
+
+
+From L<http://www.perl.com/pub/a/1999/11/sins.html> - 11 deadly sins of Perl by 
+L<http://wiki.slowass.net/E<63>MarkJasonDominus>:
+
+
+I<Array indices normally begin at 0 because the value of $[ is normally 0; if you set $[ to 1, then arrays start at 1, which makes Fortran programmers happy, and so we see examples like this in the perl3 man page:>
+
+
+
+        foreach $num ($[ .. $#entry) {
+          print "  $num\t'",$entry[$num],"'\n";
+        }
+
+
+
+I<And of course you could set $[ to 17 to have arrays start at 17 instead of at 0 or 1. This was a great way to sabotage module authors.>
+
+
+I<Fortunately, sanity prevailed. These features are now recognized to have been mistakes. The perl5-porters mailing list now has a catchphrase for such features: they're called `action at a distance'. The principle is that a declaration in one part of the program shouldn't drastically and invisibly alter the behavior of some other part of the program. Some of the old action-at-a-distance features have been reworked into safer versions. For example, In Perl 5, you are not supposed to use $*. Instead, you put /m on the end of the match operator to say that the meanings of ^ and $ should be changed just for that one regex.> - L<http://oreilly.com>
+
+
+
+
+=head3 Catching Action at a Distance in Scalars
+
 
 
 
@@ -8493,7 +13931,7 @@ in what L<http://wiki.slowass.net/E<63>AlbertEinstien> called "spooky action at 
 
 
 
-[L<30>]
+[L<55>]
 
 
 Use this with:
@@ -8501,25 +13939,9 @@ Use this with:
 
 
   use WhineyScalar;
-
-
-
-
   new WhineyScalar my $foo;
-
-
-
-
   $foo = 30;  # this generates diagnostic output
-
-
-
-
   print $foo, "\n";
-
-
-
-
   $foo++;     # this generates diagnostic output
   
 
@@ -8527,15 +13949,124 @@ Using I<tie> on a scalar, we can intercept attempts to store data, and generate 
 us track down what unexpected sequence of events is taking place.
 
 
+
+
+=head3 Queues
+
+
+
+[L<56>]
+
+
+
+
+=head3 Action at a Distance Across Objects
+
+
+
+The L<LawOfDemeter/LawOfDemeter> states that objects should only diddle other objects near itself.
+Should action in a distant part of the system be required, the message should be
+propogated. This minimizes impact of changes to a program.
+
+
+Preasure to create an L<ObjectOrgy/ObjectOrgy> arises from poor interface design, perhaps 
+taking the form of a L<GodObject/GodObject>, not implementing L<MoveCollectionsOfFunctionsToObjects/MoveCollectionsOfFunctionsToObjects>,
+or failing to heed the L<LawOfDemeter/LawOfDemeter>.
+
+
+L<AccumulateAndFire/AccumulateAndFire> situations, where 
+should be replaced with a L<CommandObject/CommandObject> or L<http://wiki.slowass.net/E<63>WholeObject> arrangement, or a
+L<http://wiki.slowass.net/E<63>ModelViewController> configuration.
+
+
+
+
+=head3 Categories
+
+
+
+
+
+=over 1
+
+=item *
+
 L<http://wiki.slowass.net/E<63>CategoryAntiPattern>
 
 
-Supports L<LooseCoupling/LooseCoupling>.
+=item *
+
+L<http://wiki.slowass.net/E<63>CategoryToDo>
 
 
-See also: L<ObjectOrgy/ObjectOrgy>, L<http://wiki.slowass.net/E<63>LexicalsMakeSense>, L<LocalVariablesReplaceGlobalVariables/LocalVariablesReplaceGlobalVariables>, Tie::Scalar (L<http://www.cpan.org/modules/by-module/Tie/> L<Scalar|http://search.cpan.org/searchE<63>module=Tie::Scalar>), L<http://wiki.slowass.net/E<63>FakingAccessorsUsingTiedData>,
-perldoc perltie, L<AccumulateAndFire/AccumulateAndFire>
+=item *
 
+L<LooseCoupling/LooseCoupling>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CategoryIntermediate>
+
+
+=back
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://wiki.slowass.net/E<63>LexicalsMakeSense>
+
+
+=item *
+
+L<LocalVariablesReplaceGlobalVariables/LocalVariablesReplaceGlobalVariables>
+
+
+=item *
+
+Tie::Scalar (L<http://www.cpan.org/modules/by-module/Tie/> L<Scalar|http://search.cpan.org/searchE<63>module=Tie::Scalar>) L<http://wiki.slowass.net/E<63>FakingAccessorsUsingTiedData>,
+
+
+=item *
+
+L<http://www.perldoc.com/cgi-bin/htsearch?restrict=perl5.8.0&words=perltie>
+
+
+=item *
+
+L<AccumulateAndFire/AccumulateAndFire>
+
+
+=item *
+
+L<ObjectOrgy/ObjectOrgy>
+
+
+=item *
+
+L<LawOfDemeter/LawOfDemeter>
+
+
+=item *
+
+L<StatePattern/StatePattern>
+
+
+=item *
+
+L<GodObject/GodObject>
+
+
+=back
 
 L<http://wiki.slowass.net/E<63>CategoryToDo>
 
@@ -8596,9 +14127,42 @@ See Also: L<CompositePattern/CompositePattern>, L<http://wiki.slowass.net/E<63>F
 Controller logic creeps in to something that should be pure state. When sending a message, you shouldn't be explaining how to interpret the message. The point of a command object is to establish a common language. If you're using the same abstraction to separate code, you're asking too much of the abstraction. Make an extensible command language: turn your base Command Object into an Abstract Class, and use a L<http://wiki.slowass.net/E<63>PublisherSubscriber> model to dispense the commands to listeners that may or may not know how to deal with various subtypes. Rather than putting logic in the Command Object directly, let it contain Visitor Objects that were for some reason previously selected to do operations on that Command Object.
 
 
-See also: L<http://wiki.slowass.net/E<63>PublisherSubscriber>, L<http://wiki.slowass.net/E<63>DectoratorPattern>, L<CommandObject/CommandObject>, L<AbstractClass/AbstractClass>, L<VisitorPattern/VisitorPattern>
 
 
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://wiki.slowass.net/E<63>PublisherSubscriber>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>DectoratorPattern>
+
+
+=item *
+
+L<CommandObject/CommandObject>
+
+
+=item *
+
+L<AbstractClass/AbstractClass>
+
+
+=item *
+
+L<VisitorPattern/VisitorPattern>
+
+
+=back
 
 
 
@@ -8609,6 +14173,27 @@ See also: L<http://wiki.slowass.net/E<63>PublisherSubscriber>, L<http://wiki.slo
 
 
 
+
+=over 1
+
+=item *
+
+L<http://wiki.slowass.net/E<63>InvariantsArentAlwaysConstants>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CategoryAntiPattern>
+
+
+=item *
+
+L<AboutObjects/AboutObjects>
+
+
+=back
+
+<!-- cut here - do not remove this comment -->
 
 
 =head2 CachingFailure
@@ -8628,6 +14213,247 @@ be done to clear the flag so the system will try again, in addition to a
 description of the cause of the error.
 
 
+XXX BIND's cache failure timeout option
+
+
+L<http://wiki.slowass.net/E<63>CategoryAntiPattern>, L<http://wiki.slowass.net/E<63>CategoryToDo>
+
+
+=head2 NoSexUntilMarriage
+
+
+Problem: Given an object of type I<A>, you want one of type I<B>.
+
+
+Anti-Solution: Create a converter object that knows the inner workings of both packages
+but is a member of neither.
+
+
+Anti-Solution: Diddle with @ISA
+
+
+Solution: Make them essentially synonymous.
+
+
+If any given I<A> may need to be converted to a I<B> at some unknown point, then
+any distinction between I<A> and I<B> is moot.
+
+
+There are correct ways to express this relationship
+[L<57>]:
+
+
+
+
+=over 1
+
+=item *
+
+L<AbstractClass/AbstractClass> - Implement both I<A> and I<B> interfaces - make your object truely polymorphic. 
+See L<AbstractRootClasses/AbstractRootClasses>.
+
+
+=item *
+
+L<DecoratorPattern/DecoratorPattern>  - talks at length about the problems of dynamic inheritance and mixins,
+ultimately arrives at the L<DecoratorPattern/DecoratorPattern> as a means of getting everything you want in one
+clean, save package. Dectoratrs stand-in for objects, delegating requests to them, but not
+before adding in their two cents. This allows composition of complex structures through
+chains of delegation.
+
+
+=item *
+
+L<InnerClasses/InnerClasses> - I<A> sometimes needs to present itself as I<B>, but the logic shouldn't
+be cluttered with I<B>'s logic. Implement I<B> as an inner class of I<A> using L<InnerClasses/InnerClasses>.
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>FactoryMethod> - I<A> may return a I<B> upon request. This is a case of L<CloningPattern/CloningPattern>, when
+a stock object is created and then configured. Requires I<A> to know about I<B>'s interface
+without implementing it, so it is unrecommended for idealists: too many strange interdependencies.
+
+
+=item *
+
+L<StatePattern/StatePattern> - If I<A> only becomes I<B> under certain conditions, and doesn't go back, 
+except perhaps under other specific circumstances, implement L<StatePattern/StatePattern>. 
+Under the difference between state and class - a change in behavior need not, and
+generally should not, be synonymous with a change in class. See L<StateVsClass/StateVsClass>.
+
+
+=item *
+
+Class::Classless (L<http://www.cpan.org/modules/by-module/Class/> L<Classless|http://search.cpan.org/searchE<63>module=Class::Classless>) - customize existing objects to serve as new objects. Create new objects
+from existing objects as templates. New objects inherit from the object used as the template.
+See L<http://wiki.slowass.net/E<63>JavaScript>.
+
+
+=back
+
+L<http://wiki.slowass.net/E<63>CategoryAntiPattern>
+
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://wiki.slowass.net/E<63>UseBase>
+
+
+=item *
+
+L<VisitorPattern/VisitorPattern>
+
+
+=item *
+
+L<DecoratorPattern/DecoratorPattern> 
+
+
+=item *
+
+L<http://perlmonks.org/index.pl?node=227847> - modifying @ISA at runtime
+
+
+=back
+
+External Pages Linking to This Page:
+
+
+<!-- cut here - do not remove this comment - added by L<PagesLinkingHere/PagesLinkingHere> -->
+
+
+=over 1
+
+=item *
+
+L<http://www.perlmonks.org/index.pl?parent=246322&title=Dynamicly%20controlling%20%40ISA%20and%20namespaces&lastnode_id=246322&displaytype=display&type=superdoc&node=Comment%20on>
+
+
+=item *
+
+L<http://www.perlmonks.com/index.pl?node_id=246685>
+
+
+=item *
+
+L<http://perlmonks.org/index.pl?node_id=246322>
+
+
+=item *
+
+L<http://www.perlmonks.org/index.pl?node_id=246685>
+
+
+=item *
+
+L<http://www.martinfowler.com/eaaCatalog/mapper.html>
+
+
+=back
+
+
+
+=head2 AbstractionInversion
+
+
+An abstraction is said to be "inverted" if something simple is built
+on top of something complex [L<58>]. 
+
+
+Usually implies an inefficient imlementation. For example, disk files
+are used to implement an array, or data is sent over the network to
+add two numbers. May also lead to deadlock - programmers will assume
+that the simple operation requires few resources, when in fact the
+depenencies are quite extravagent, even requiring exclusive locks,
+or the object that originally invoked it!
+
+
+Some core module stuggles with the availability of I<Carp>
+for error reporting, but I can't remember which one. XXX, L<http://wiki.slowass.net/E<63>CategoryToDo>
+
+
+Don't build simpler layers on top of complex layers when possible. 
+Instead, refactor the monolithic complex layer. Fine granularity 
+will allow subclasses to inherit from the correct level of abstraction.
+
+
+
+
+=head3 Categories
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CategoryRefactoring>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CategoryIntermediate>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CategoryToDo>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CategoryAntiPattern>
+
+
+=back
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<AbstractClass/AbstractClass>
+
+
+=item *
+
+L<AbstractRootClasses/AbstractRootClasses>
+
+
+=item *
+
+L<ThinWrappers/ThinWrappers>
+
+
+=item *
+
+L<LayeringPattern/LayeringPattern>
+
+
+=back
+
+
+
 =head2 AboutRefactoring
 
 
@@ -8640,7 +14466,7 @@ Or, objects: the next step.
 
 Anyone who has worked in the Real World for long suspects that
 boss types exist to take the fun out of work. In the metaworld
-of programming, management [L<31>]
+of programming, management [L<59>]
 
 
 Objects are mandated by boss types when:
@@ -8783,7 +14609,7 @@ break existing code.
 
 Many programmers have been disguested by
 a large, but working, program and have resolved to rewrite the
-whole mess [L<32>]. This results in burn out quicker than any other
+whole mess [L<60>]. This results in burn out quicker than any other
 practise in programming. The reward of solving the problem and
 procuring a working program has already been had. The only thing
 remaining is minor bragging rights. Half way through the project,
@@ -8811,14 +14637,35 @@ even potentially the ones you haven't though of) it usually ends up being quite
 elegant and maintainable.
 
 
+Just my $0.02 worth. -- L<http://c2.com/cgi/wiki?MarkGrosberg>
+
+
+
+
+
+
+
+=head3 See Also
+
+
+
 
 
 =over 1
 
 =item *
 
-Just my $0.02 worth. -- L<http://c2.com/cgi/wikiE<63>MarkGrosberg>)
----------------------
+L<PerlDesignPatterns/PerlDesignPatterns>
+
+
+=item *
+
+L<http://c2.com/cgi/wiki?HomePage>
+
+
+=item *
+
+L<http://c2.com/cgi/wiki?MarkGrosberg>
 
 
 =back
@@ -8882,6 +14729,40 @@ L<http://www.pobox.com/~schwern/talks/Refactoring/slides/slide052.html> - by L<h
 L<http://wiki.slowass.net/E<63>CategoryRefactoring>
 
 
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://wiki.slowass.net/E<63>RefactoringImprovingTheDesignOfExistingCode>
+
+
+=item *
+
+L<http://c2.com/cgi/wiki?WikiPagesAboutRefactoring>
+
+
+=item *
+
+L<http://www.pobox.com/~schwern/talks/Refactoring/slides/slide008.html>
+
+
+=item *
+
+L<http://www.pobox.com/~schwern/talks/Refactoring/slides/slide052.html>
+
+
+=back
+
+
+
 =head2 GeneralizePattern
 
 
@@ -8892,10 +14773,11 @@ generalization handy is the removal of special-case conditionals and hooks.
 Sometimes it's difficult to come up with a true general solution, and in that 
 case you may have to live with specialized code. Of course, when you do have a 
 general solution that does cover all cases (and even potentially the ones you 
-haven't though of) it usually ends up being quite elegant and maintainable. -- Mark Grosberg, on L<http://c2.com/cgi/wiki/>
+haven't though of) it usually ends up being quite elegant and maintainable. 
+-- Mark Grosberg, on L<http://c2.com/cgi/wiki/>
 
 
-Initially, your object will be custom crafted to do the exact single thing that 
+Your object will initially be custom crafted to do the exact single thing that 
 it needs to. As maintainability enter the picture, you're faced with options of 
 breaking it down into parts, subclassing it to change things around, and 
 creating a common interface type between it and a new object. All of these 
@@ -8908,7 +14790,7 @@ into an empty base class (interface), and move the old code into a class that
 implements that interface, leaving open the chance to implement a plug-in replacement. 
 
 
-L<http://wiki.slowass.net/E<63>CategoryRefactoring>
+L<http://wiki.slowass.net/E<63>CategoryRefactoring>, L<http://wiki.slowass.net/E<63>CategoryConcept>
 
 
 =head2 ExpressionsBecomeFunctions
@@ -8937,7 +14819,7 @@ program. This lets you repeat it an unknown number of times, and makes it easy
 to run it or not run it under different variable conditions.
 
 
-L<http://wiki.slowass.net/E<63>CategoryRefactoring>
+L<http://wiki.slowass.net/E<63>CategoryNovice>, L<http://wiki.slowass.net/E<63>CategoryRefactoring>
 
 
 =head2 BreakDownLargeFunctions
@@ -8952,7 +14834,22 @@ what the new function does without having to resort to something contrived just
 to distinguish it from the original function.
 
 
+
+
+=over 1
+
+=item *
+
 L<http://wiki.slowass.net/E<63>CategoryRefactoring>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CategoryToDo>
+
+
+=back
+
 
 
 =head2 LocalVariablesReplaceGlobalVariables
@@ -9137,7 +15034,36 @@ Bound to a L<http://wiki.slowass.net/E<63>LambdaClosure>
 
 =back
 
-L<http://wiki.slowass.net/E<63>CategoryRefactoring>, L<http://wiki.slowass.net/E<63>LexicalVariablesMakeSense>, L<http://wiki.slowass.net/E<63>DesignPatternCatalog>
+L<http://wiki.slowass.net/E<63>CategoryRefactoring>
+
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://wiki.slowass.net/E<63>LexicalVariablesMakeSense>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>DesignPatternCatalog>
+
+
+=item *
+
+L<GlobalToLexical/GlobalToLexical>   
+
+
+=back
+
 
 
 =head2 GlobalToLexical
@@ -9275,12 +15201,63 @@ dispose of these rotten assumptions. See L<http://wiki.slowass.net/E<63>LambdaCl
 and L<http://wiki.slowass.net/E<63>AnonymousSubroutineObject> for more.
 
 
-See Also: L<http://wiki.slowass.net/E<63>AnonymousSubroutineObject>,
-L<http://wiki.slowass.net/E<63>LambdaClosure>, L<http://wiki.slowass.net/E<63>LexicalsMakeSense>, L<http://wiki.slowass.net/E<63>AccessorsPattern>,
-L<OneToOneRelationshipsTurnIntoOneToManyRelationships/OneToOneRelationshipsTurnIntoOneToManyRelationships>,
-L<http://wiki.slowass.net/E<63>LexicalsMakeRefactoringEasy>,
-L<MoveCollectionsOfFunctionsToObjects/MoveCollectionsOfFunctionsToObjects>,
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://wiki.slowass.net/E<63>AnonymousSubroutineObject>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>LambdaClosure>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>LexicalsMakeSense>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>AccessorsPattern>
+
+
+=item *
+
+L<OneToOneRelationshipsTurnIntoOneToManyRelationships/OneToOneRelationshipsTurnIntoOneToManyRelationships>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>LexicalsMakeRefactoringEasy>
+
+
+=item *
+
+L<MoveCollectionsOfFunctionsToObjects/MoveCollectionsOfFunctionsToObjects>
+
+
+=item *
+
 L<InnerClasses/InnerClasses>
+
+
+=item *
+
+L<LocalVariablesReplaceGlobalVariables/LocalVariablesReplaceGlobalVariables>
+
+
+=back
+
 
 
 =head2 SoftrefsToHash
@@ -9416,12 +15393,6 @@ Perl will stop you if you use "soft" references (directly access the symbol tabl
 while I<use strict> is on.
 
 
-See Also: L<http://www.perl.com/language/style/slide25.html>
-
-
-Credits: First documented by L<http://wiki.slowass.net/E<63>TomChristiansen>
-
-
 
 
 
@@ -9454,8 +15425,38 @@ Credits: First documented by L<http://wiki.slowass.net/E<63>TomChristiansen>
   <hull> Yaakov: hash of hashes... sorta like multi-dimensional hash, uh?
   <scrottie> http://wiki.slowass.net/?SoftrefsToHash
   <scrottie> hull, you've been here before
-  
+ 
 
+XXX do a writeup on English::Reference (L<http://www.cpan.org/modules/by-module/English/> L<Reference|http://search.cpan.org/searchE<63>module=English::Reference>) - lot of people don't understand
+reference syntax, and for good reason. Ugh.
+
+
+
+
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://www.perl.com/language/style/slide25.html>
+
+
+=item *
+
+English::Reference (L<http://www.cpan.org/modules/by-module/English/> L<Reference|http://search.cpan.org/searchE<63>module=English::Reference>)
+
+
+=back
+
+Credits: First documented by L<http://wiki.slowass.net/E<63>TomChristiansen>
 
 
 =head2 TooManyVariables
@@ -9645,10 +15646,10 @@ create a small wrapper for the function or method when we need it, that remember
 
 
 
-In this example, $i and $a are lexically bound to the variables of the same 
+In this example, I<$i> and I<$a> are lexically bound to the variables of the same 
 name created just before it. If you change the value of these variables, it 
-affects the code reference you've created in $send_region. If you pass $send_region 
-off, or if you return it, $i and $a will continue to hold their values. 10 and 15 
+affects the code reference you've created in I<$send_region>. If you pass I<$send_region> 
+off, or if you return it, I<$i> and I<$a> will continue to hold their values. 10 and 15 
 will be hardcoded in and cannot be changed. The two argument positions that contain 
 the keyword shift() will take their arguments from what is passed to the reference 
 that is created. This illustrates three different ways of getting values into 
@@ -9669,13 +15670,16 @@ the code reference. Each has its purpose and its place.
 
 
 
-The advantage of the approach that uses $send_region->() is that we could set 
-values for $x1 and $x2, and pass $send_region out to another routine that could 
-supply more arguments, without actually having to explicitly pass $x1 and $x2 along with $send_region. 
+The advantage of the approach that uses I<$send_region->()> is that we could set 
+values for I<$x1> and I<$x2>, and pass $send_region out to another routine that could 
+supply more arguments, without actually having to explicitly pass I<$x1> and I<$x2> along with I<$send_region>. 
 
 
 Creating custom, special purpose code references that have some of their arguments 
 already filled, or have some of their arguments attached to lexically defined data, is called "currying".  
+
+
+See L<CurryingConcept/CurryingConcept>, L<http://wiki.slowass.net/E<63>LexicalsMakeSense> for more.
 
 
 Objects can, and often should, do something similar to currying. Avoid
@@ -9720,9 +15724,20 @@ having a reference to the object and mucking up its state when we aren't
 looking: every change creates a new, unique copy all our own.
 
 
+=item *
+
+L<AdapterPattern/AdapterPattern>: Not wanting to modify an existing object, you can
+make an object that acts as a wrapper around it, delegating requests,
+slightly translated, to it. See L<http://wiki.slowass.net/E<63>DelegationConcept>. Think of it as
+currying, but on an object level rather than method level.
+
+
 =back
 
-B<See Also>
+
+
+=head3 See Also
+
 
 
 
@@ -9752,6 +15767,16 @@ L<InnerClasses/InnerClasses>
 =item *
 
 L<AccumulateAndFire/AccumulateAndFire>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>LexicalsMakeSense>
+
+
+=item *
+
+L<CurryingConcept/CurryingConcept>
 
 
 =back
@@ -10018,7 +16043,10 @@ databases, it pays to be overly cautious about breaking up data into atomic
 collections. With applications, you can usually put it off until the need arises.
 
 
-B<See Also>
+
+
+=head3 See Also
+
 
 
 
@@ -10267,10 +16295,26 @@ with convinience methods. XXX - examples of these so-called real-world
 designs.
 
 
+L<AbstractFactory/AbstractFactory> has an exmaple of breaking down a large class into
+subclasses, and replacing it with a L<http://wiki.slowass.net/E<63>FactoryMethod>.
+
+
+Define logic early on that subclasses are likely subclasses are likely to be 
+needed. This minimizes the need for Facades or multiple inheritance to graft 
+features on later, and they can always be redefined in subclasses. Define 
+data only when needed:  it costs, and ambigiously unneeded data creates room for 
+inconsistant program state, which is bad. Encapsulate the data in an object and 
+use the L<VisitorPattern/VisitorPattern>.
+[L<61>].
+
+
 Credits: Opedyke 1992, MIT OCW
 
 
-B<See Also>
+
+
+=head3 See Also
+
 
 
 
@@ -10285,6 +16329,11 @@ L<http://wiki.slowass.net/E<63>MarkerInterface>
 =item *
 
 L<AbstractClass/AbstractClass>
+
+
+=item *
+
+L<AbstractFactory/AbstractFactory>
 
 
 =item *
@@ -10317,8 +16366,73 @@ L<http://wiki.slowass.net/E<63>CategoryRefactoring>
 L<http://wiki.slowass.net/E<63>ObjectOrientedDesignHeuristics>
 
 
+=item *
+
+L<AbstractRootClasses/AbstractRootClasses>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>TemplateMethodFromSubclassCommonalities>
+
+
+=item *
+
+L<VisitorPattern/VisitorPattern>
+
+
+=item *
+
+L<AbstractionInversion/AbstractionInversion>
+
+
 =back
 
+
+
+=head2 ThinWrappers
+
+
+Problem: Too much abstraction at once can add needless complexity and
+make it difficult for a programmer to understand what is really going on under the hood.
+
+
+Solution: Several thin wrappers, stacked on top of each other, allow
+programmers to find the right level of abstraction and convinience.
+
+
+No one abstraction will suit all purposes. Attempts to make such an 
+abstraction will manage to create many abstractions but fail to anticipate
+many important ones. Left to itself, code, like human populations and
+government, can grow indefinately. 
+
+
+Abstractions themselves will need to be refactored over time.
+
+
+Faced with an overreaching abstraction that doesn't even do what you
+need to do, programs are often faced with the proposition of gutting
+the existing implementation for ideas and information as they reimplement
+a minimal or "Lite" version. Sometimes the "Lite" version is just
+an interface on top of the "Heavy" version:  this degenerate situation
+is called L<AbstractionInversion/AbstractionInversion>.
+
+
+The solution is to stack increasingly abstract interfaces on top of
+more concrete ones. The programmer is free to choosse the level
+of abstraction that suits his purposes, rather than I<all or nothing>.
+There need not be twenty or even three; merely avoiding the
+L<AbstractionInversion/AbstractionInversion> issue opens the door to future refactoring 
+efforts.
+
+
+To avoid L<AbstractionInversion/AbstractionInversion>, and avoid making interfaces [L<62>].
+
+
+L<http://wiki.slowass.net/E<63>CategoryPattern>
+
+
+See Also: L<LayeringPattern/LayeringPattern>, L<AbstractionInversion/AbstractionInversion>
 
 
 =head2 IntroduceNullObject
@@ -10367,7 +16481,16 @@ L<http://wiki.slowass.net/E<63>CategoryRefactoring>
 
 
 Root classes should be abstract. 
+
+
+Root classes are any and every class that doesn't inherit from something else.
+Each concrete implementation (a module that does something) should inherit
+from an L<AbstractClass/AbstractClass> (a module that merely defines the interface). 
+
+
 When the class is handled, it should be referenced by the abstract type. 
+
+
 Doing otherwise defeats the primary purpose of using objects - polymorphism.
 Polymorphism is your ticket to painlessly expanding your application in the future.
 In a well designed program, adding features amounts to adding classes. You can't
@@ -10380,7 +16503,15 @@ more implementations.
 Credit: L<http://wiki.slowass.net/E<63>ObjectOrientedDesignHeuristics> 5.7
 
 
-B<See Also>
+On the other hand, when concrete functionality is actually implemented in
+a concrete subclass, functionality should be implemented as high on the
+inheritance tree as it is useful: see L<FunctionalityIsToBeShared/FunctionalityIsToBeShared>.
+
+
+
+
+=head3 Categories
+
 
 
 
@@ -10389,12 +16520,39 @@ B<See Also>
 
 =item *
 
-L<http://wiki.slowass.net/E<63>IntroductionPattern>
+L<http://wiki.slowass.net/E<63>CategoryNovice>
 
 
 =item *
 
-L<http://wiki.slowass.net/E<63>AbstractClasses>
+L<http://wiki.slowass.net/E<63>CategoryIntermediate>
+
+
+=back
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<AbstractClass/AbstractClass>
+
+
+=item *
+
+L<EmptySubclassFailure/EmptySubclassFailure>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>IntroductionPattern>
 
 
 =item *
@@ -10422,9 +16580,158 @@ L<LooseCoupling/LooseCoupling>
 L<StateVsClass/StateVsClass>
 
 
+=item *
+
+L<http://bioperl.org/Projects/SeqAlign/proposal.html>
+
+
+=item *
+
+L<http://www.object-arts.com/EducationCentre/Patterns/HandleBody.htm>
+
+
+=item *
+
+L<FunctionalityIsToBeShared/FunctionalityIsToBeShared>
+
+
+=item *
+
+L<http://www.martinfowler.com/eaaCatalog/separatedInterface.html>
+
+
+=item *
+
+L<http://www.martinfowler.com/eaaCatalog/layerSupertype.html>
+
+
 =back
 
-L<http://wiki.slowass.net/E<63>CategoryNovice>, L<http://wiki.slowass.net/E<63>CategoryIntermediate>
+
+
+=head2 LiterateProgramming
+
+
+L<LiterateProgramming/LiterateProgramming>: a book by L<http://wiki.slowass.net/E<63>DonaldKnuth>
+
+
+(L<http://shop.bn.com/bookSearch/isbnInquiry.aspE<63>isbn=0937073806>)
+
+
+Literate Programming explains that writing software to be read by a human,
+rather than programming for the computer, leads to better programs through
+the magic of exposition. Just as when explaining a function to someone you
+will suddenly stop and realize a mistake you've made, or that extra care is
+put into code that will be shown to other programmers, writing all of your
+code to be consumed by humans leads to better code. Your program is written
+in an order that makes sense to understand it in, very often the order
+it is written in. Somewhat like a L<TemplateMethod/TemplateMethod>, additional logic is
+added later in the program, rather than inserted into an existing function -
+refactoring for understandability. This naturally leads to an outline form,
+where the main points are at the top and the detail is at the bottom.
+As the code progresses, documentation
+is interspersed. The documentation can be processed to generate an
+interface definition and/or explanation of internal implementation, similar
+to javadoc and Perl's own POD system. 
+
+
+Written in the 1970's at a time when L<http://wiki.slowass.net/E<63>StructuredProgramming> was vogue, Knuth
+bucked the system. Instead of L<http://wiki.slowass.net/E<63>TopDownDesign>, hes talking about refactoring
+a program to maintain order as the program naturally grows. 
+For example,
+he proposed that thought process of the author of the program as
+the program is written is a good canidate for the best order to
+consider the parts of the program in as it is read by another individual.
+Each concept expounds on more basic concepts, filling in detail.
+
+
+I<But there has been far too much emphasis on goto elimination instead of on the really important issues; people have a natural tendency to set up an easily understood quantative goal like the abolition of jumps, instead of working directly for a qualatative goal like good program structure> ...
+I<What we really want is to conceive of our programs in such a way that we rarely even think about goto statements, because the need for them hardly ever arises. The language in which we express our ideas has a strong influence on our thought process.> - L<LiterateProgramming/LiterateProgramming>, L<http://wiki.slowass.net/E<63>DonaldKnuth>, p.40
+
+
+L<http://wiki.slowass.net/E<63>WardCunningham>, the father of Wiki, talks about work on "HyperPerl", a L<LiterateProgramming/LiterateProgramming>
+Perl platform, at L<http://c2.com/cgi/wikiE<63>HyperPerl>), but has yet to release anything resembling code.   
+
+
+
+
+=head3 Categories
+
+
+
+
+
+=over 1
+
+=item *
+
+L<CategoryBook/CategoryBook>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CategoryRefactoring>
+
+
+=back
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://wiki.slowass.net/E<63>DonaldKnuth>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>StructuredProgramming>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>TopDownDesign>
+
+
+=item *
+
+L<TemplateMethod/TemplateMethod>
+
+
+=item *
+
+L<http://www.perlmonks.org/index.pl?node_id=64793> - a very good essay
+
+
+=item *
+
+L<http://www.perl.com/pub/a/tchrist/litprog.html>
+
+
+=item *
+
+L<http://www.eecs.harvard.edu/~nr/noweb/>
+
+
+=item *
+
+L<http://winnipeg.pm.org/newsletter/>
+
+
+=item *
+
+L<http://winnipeg.pm.org/newsletter/pubcrawl/pqtangle>
+
+
+=back
+
 
 
 =head2 LooseCoupling
@@ -10501,7 +16808,70 @@ Supported By: L<http://wiki.slowass.net/E<63>LateBinding>, L<http://wiki.slowass
 L<http://wiki.slowass.net/E<63>KeepYourOptionsOpen>
 
 
-See Also: L<http://wiki.slowass.net/E<63>ConceptsCrossReference>, L<ObjectOrgy/ObjectOrgy>, L<AbstractClass/AbstractClass>, L<AbstractFactory/AbstractFactory>, L<FacadePattern/FacadePattern>,
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<LawOfDemeter/LawOfDemeter>
+
+
+=item *
+
+L<ObjectOrgy/ObjectOrgy>
+
+
+=item *
+
+L<AbstractClass/AbstractClass>
+
+
+=item *
+
+L<AbstractFactory/AbstractFactory>
+
+
+=item *
+
+L<FacadePattern/FacadePattern>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>ConceptsCrossReference>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>DeCouple>
+
+
+=back
+
+
+
+External Pages Linking to This Page:
+
+
+<!-- cut here - do not remove this comment - added by L<PagesLinkingHere/PagesLinkingHere> -->
+
+
+=over 1
+
+=item *
+
+L<http://search.yahoo.com/bin/search?p=Loosecoupling>
+
+
+=back
+
 
 
 =head2 TypeSafety
@@ -10557,7 +16927,7 @@ This leaves latent bugs.
 
 
 
-This is the play() method from our L<http://wiki.slowass.net/E<63>TradingFloor>.pm example. We mentioned this briefly in L<http://wiki.slowass.net/E<63>ObjectOrientationOrientation>, but it bears lassification [L<33>]. Each object passed in is tested to see if they fit that type. 
+This is the play() method from our L<http://wiki.slowass.net/E<63>TradingFloor>.pm example. We mentioned this briefly in L<http://wiki.slowass.net/E<63>ObjectOrientationOrientation>, but it bears lassification [L<63>]. Each object passed in is tested to see if they fit that type. 
 For I<->isa()>, either being blessed into that package directly, or inheriting from that package will work. In the case of references, check the
 reference type directly: 
 
@@ -10635,9 +17005,88 @@ various shades inbetween are enforced at compile time, preventing even
 the mere mention of something that you shouldn't have access to.
 
 
-See L<AbstractClass/AbstractClass>, L<AbstractClass/AbstractClass>, L<AbstractFactory/AbstractFactory>, L<http://wiki.slowass.net/E<63>UseDiagrams>, L<TypeSafety/TypeSafety>, L<StateVsClass/StateVsClass>,
-L<http://wiki.slowass.net/E<63>UnitTests>,
-L<AccessorPattern/AccessorPattern>, L<InterfaceBloat/InterfaceBloat>, L<http://wiki.slowass.net/E<63>LivingDocumentation>, L<http://wiki.slowass.net/E<63>UseDiagrams>, L<http://wiki.slowass.net/E<63>ConceptCrossReference>
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://wiki.slowass.net/E<63>DesignByContract>
+
+
+=item *
+
+L<AbstractClass/AbstractClass>
+
+
+=item *
+
+L<AbstractRootClasses/AbstractRootClasses>
+
+
+=item *
+
+L<AbstractFactory/AbstractFactory> 
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>UseDiagrams>
+
+
+=item *
+
+L<TypeSafety/TypeSafety>
+
+
+=item *
+
+L<StateVsClass/StateVsClass>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>UnitTests>
+
+
+=item *
+
+L<AccessorPattern/AccessorPattern>
+
+
+=item *
+
+L<InterfaceBloat/InterfaceBloat>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>LivingDocumentation>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>UseDiagrams>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>ConceptCrossReference>
+
+
+=item *
+
+Class::Contract (L<http://www.cpan.org/modules/by-module/Class/> L<Contract|http://search.cpan.org/searchE<63>module=Class::Contract>)
+
+
+=back
+
 
 
 =head2 LayeringPattern
@@ -10689,7 +17138,10 @@ Keeping things at arms length lets you isolate other objects from violate code
 and parts of the system that are prone to changing. 
 
 
-B<See Also>
+
+
+=head3 See Also
+
 
 
 
@@ -10698,7 +17150,7 @@ B<See Also>
 
 =item *
 
-L<http://wiki.slowass.net/E<63>AbstractionInversion>
+L<AbstractionInversion/AbstractionInversion>
 
 
 =item *
@@ -10736,12 +17188,14 @@ What is a program if not explicit sequencing? Webster's 1913 Unabridged dictiona
 says:
 
 
-<i>Programme \Pro"gramme\, n. [L<34>]
-That which is written or printed as a public notice or
-advertisement; a scheme; a prospectus; especially, a brief
-outline or explanation of the order to be pursued, or the
-subjects embraced, in any public exercise, performance, or
-entertainment; a preliminary sketch.</i>  
+I<Programme \Pro"gramme\, n. [L. programma a public proclamation,>
+I<manifesto, Gr. ?, fr. ? to write before or in public; ?>
+I<before, forth + ? to write; cf. F. programme. See Graphic.]>
+I<That which is written or printed as a public notice or>
+I<advertisement; a scheme; a prospectus; especially, a brief>
+I<outline or explanation of the order to be pursued, or the>
+I<subjects embraced, in any public exercise, performance, or>
+I<entertainment; a preliminary sketch.>
 
   
 
@@ -10834,7 +17288,7 @@ of functional code in Perl. Now the only question is, do we want to?
 
 Large numbers of global variables, or even instance variables in objects, creates
 a state explosion problem: there is an absolutely huge number of possible states 
-[L<35>]
+[L<64>]
 our program could be in at any given. Merely knowing where it is currently
 executing in the code tells us very little about where it is going to go. The
 code conditionally changes flow dependent on the state. This causes problems
@@ -11196,10 +17650,313 @@ I<shuffle()> returns the list with each element placed in a random order.
 
 =back
 
-See Also: L<PassingPattern/PassingPattern>, L<PassingState/PassingState>, Language::Functional (L<http://www.cpan.org/modules/by-module/Language/> L<Functional|http://search.cpan.org/searchE<63>module=Language::Functional>), L<SelectCPANModules/SelectCPANModules>
 
 
-See Also: L<http://c2.com/cgi/wikiE<63>FunctionalProgramming>)
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<PassingPattern/PassingPattern>
+
+
+=item *
+
+L<PassingState/PassingState>
+
+
+=item *
+
+Language::Functional (L<http://www.cpan.org/modules/by-module/Language/> L<Functional|http://search.cpan.org/searchE<63>module=Language::Functional>)
+
+
+=item *
+
+L<SelectCPANModules/SelectCPANModules>
+
+
+=item *
+
+L<http://c2.com/cgi/wiki?FunctionalProgramming>
+
+
+=back
+
+
+
+=head2 LawOfDemeter
+
+
+From L<http://c2.com/cgi/wikiE<63>LawOfDemeter>)...
+
+
+I<PeterVanRooijen posted the following description of the LawOfDemeter to Usenet:>
+
+
+
+
+=over 1
+
+=over 2
+
+=item *
+
+I<You can play with yourself.>
+
+
+=item *
+
+I<You can play with your own toys (but you can't take them apart),>
+
+
+=item *
+
+I<You can play with toys that were given to you.>
+
+
+=item *
+
+I<And you can play with toys you've made yourself.>
+
+
+=back
+
+To avoid L<ActionAtADistance/ActionAtADistance> and L<ObjectOrgy/ObjectOrgy>, speak only objects near you. Mass misinformation
+would be radically reduced if we read online news according to our friends blogged
+recommendations rather than from TV and radio news.
+
+
+=back
+
+
+
+=over 1
+
+=item *
+
+Use your own resources.
+
+
+=item *
+
+Use resources your friends give you.
+
+
+=item *
+
+Create resources for you and your friends.
+
+
+=back
+
+The entire program, or the bulk of the program, being dependent on a single class
+is a good sign that L<http://wiki.slowass.net/E<63>ObjectOrientation> has broken down. The L<http://wiki.slowass.net/E<63>LawOfDemter> says to deal
+only with those in proximity to you. This sounds harsh - how will you ever get anything
+done? You don't need to depend on the interfaces of remote objects in the system.
+If classes near yours can't or shouldn't delegate requests to them, then the structure
+is broken. Mass interdependency isn't encapsulation and it isn't OO.
+
+
+Delegation is the name of the game.
+
+
+
+
+=over 1
+
+=item *
+
+L<ActionAtADistance/ActionAtADistance> - 
+State changes in one object should have a specific, well defined sphere of influence.
+With L<http://wiki.slowass.net/E<63>EventListeners>, those affected by change are clearly classes implementing the
+listening interface. Most typically, it will be just be classes that are
+known to interact - creating instances of each other, acting as collections,
+and so forth.
+
+
+=item *
+
+L<ObjectOrgy/ObjectOrgy> - 
+The code to tweak things stays near the thing being tweaked.
+Values don't change because one object queried an object from one object, then
+used that to query, another object, and has been hanging onto a reference to that.
+Objects are diddled using their interface - collections of objects forming a social
+sphere should be considered to have an interface too. A sort of I<secretary-boss>
+arrangement is instigated - requests are handed to the secretary that are meant for the
+boss because the boss can't be bothered with catering the needs of the general public -
+access controls need be put in place.
+
+
+=item *
+
+L<GodObject/GodObject> - 
+An object that affects the state of objects remotely and uses other objects to do 
+dirty work while not letting go of the CPU is a L<GodObject/GodObject>. 
+
+
+=back
+
+
+  # in violation of the law:
+
+
+
+
+  $a->get_b()->get_c();
+
+
+
+This example hard-codes dependencies of the programs structures into the current
+object. When these dependencies are shallow, there is no problem. When they 
+are deep, the program becomes fragile - no part can be changed without breaking
+thousands of cases of this sort of dependency.
+
+
+Before stringing accessors up like popcorn on a thread, ask yourself if your class
+really has any business knowing how to to I<c> - it probably doesn't. I<b>
+has much more business knowing how to get to I<c> - move the dependency there.
+
+
+
+  # instead, if it really is //$a//'s personally to know about and direct things to //c//, then
+  # formalize it as part of //$a//'s interface:
+
+
+
+
+  $a->get_c();
+
+
+
+Here, I<$a> is providing access to I<c> - but I<how> it provides access is left up to
+the implementation. 
+
+
+Perhaps I<$a>... 
+
+
+
+
+=over 1
+
+=item *
+
+goes through an L<AbstractFactory/AbstractFactory> to create one on the fly.
+
+
+=item *
+
+uses a L<http://wiki.slowass.net/E<63>FlyWeight> to cache them. 
+
+
+=item *
+
+has to go through an accessor in another object to track it down. 
+
+
+=item *
+
+I<$a> and I<c> were merged, and I<$a> need only return itself when asked for I<c>.
+
+
+=back
+
+L<http://wiki.slowass.net/E<63>UseDiagrams> have strata that illustrate seperation of classes into their social spheres.
+This is the L<LooseCoupling/LooseCoupling> angle - because objects only interact with objects near themselves,
+remote parts of the system are not unduely bound together.
+
+
+From L<http://c2.com/cgi/wikiE<63>LawOfDemeter>)...
+
+
+I<LoD can be regarded as the principle of assuming "least structural knowledge">
+I<(something its creator calls "Structure-shy programming"). The idea is to>
+I<assume knowledge of no object's internal structure other than your own immediate self.>
+
+
+I<When an object is encapsulating structural knowledge and you try to take>
+I<advantage of that, your object method is making a rigid assumption about the >
+I<traversal path to access that knowledge. Even if its well-encapsulated, the>
+I<path to the information may later change (perhaps due to refactoring).> -- L<http://c2.com/cgi/wikiE<63>BradAppleton>)
+
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<CompositePattern/CompositePattern>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>DelegationConcept>
+
+
+=item *
+
+L<PrivateFunctions/PrivateFunctions>
+
+
+=item *
+
+L<ObjectOrgy/ObjectOrgy>
+
+
+=item *
+
+L<ActionAtADistance/ActionAtADistance>
+
+
+=item *
+
+L<StateVsClass/StateVsClass>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>UseDiagrams>
+
+
+=item *
+
+L<GodObject/GodObject>
+
+
+=item *
+
+L<LooseCoupling/LooseCoupling>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>DeCouple>
+
+
+=item *
+
+L<http://c2.com/cgi/wiki?LawOfDemeter>
+
+
+=item *
+
+L<http://www.martinfowler.com/eaaCatalog/lazyLoad.html>
+
+
+=back
+
 
 
 =head2 InstanceVariables
@@ -11244,7 +18001,13 @@ different values. We call these variables "instance variables" because the
 variable is associated with a specific instance of the class.
 
 
-B<See Also>
+L<http://wiki.slowass.net/E<63>CategoryNovice>
+
+
+
+
+=head3 See Also
+
 
 
 
@@ -11256,9 +18019,23 @@ B<See Also>
 L<http://wiki.slowass.net/E<63>AccessorsPattern>
 
 
+=item *
+
+L<StaticVariables/StaticVariables>
+
+
+=item *
+
+L<http://www.object-arts.com/EducationCentre/Patterns/GlobalVariable.htm>
+
+
+=item *
+
+L<http://www.object-arts.com/EducationCentre/Patterns/InstanceVariables.htm>
+
+
 =back
 
-L<http://wiki.slowass.net/E<63>CategoryNovice>
 
 
 =head2 ShortHandInstanceVariables
@@ -11416,7 +18193,7 @@ to change the namespace, in the Perl 4 fashion. I like local customizations, and
 wanted to take the above code and start melding it, thats exactly what I would do.
 I've done that and gone one step further: I've put it into a regular module and grafted 
 some logic onto it that avoids having to use any strange syntax at all in your modules.
-The program [L<36>] L<http://wiki.slowass.net/E<63>ImplicitThis>.pm gives you all of these features:
+The program [L<65>] L<http://wiki.slowass.net/E<63>ImplicitThis>.pm gives you all of these features:
 
 
 
@@ -11470,7 +18247,7 @@ to make sure that the call originated from within the package.
 This isn't a real Design Pattern. It does make Perl objects more usable and natural, so I'm giving it special attention.
 
 
-See Also: L<http://wiki.slowass.net/E<63>ImplicitThis>.pm on CPAN, L<InstanceVariables/InstanceVariables>
+See Also: L<http://wiki.slowass.net/E<63>ImplicitThis>.pm on CPAN, L<InstanceVariables/InstanceVariables>, L<PrivateFunctions/PrivateFunctions>
 
 
 =head2 StaticVariables
@@ -11501,7 +18278,9 @@ or variable which we aren't worried about changing.
   }
   
 
-This example keeps a serial number in a variable. Every object has access to this, in addition to their own "SerialNumber" instance variable.
+This example keeps a serial number in a variable. Every object has access to 
+this, in addition to their own "SerialNumber" instance variable.
+[L<66>]
 
 
 In C, a "static" variable is one that gets its own place in memory. It isn't lost 
@@ -11518,7 +18297,8 @@ but they would have to jump through a few hoops:
 
 
 
-This assumes that $obj is an object of type L<http://wiki.slowass.net/E<63>SerialNumbered>, and $globalSerialNumber were a "local" instead of a "my" variable.
+This assumes that $obj is an object of type L<http://wiki.slowass.net/E<63>SerialNumbered>, and $globalSerialNumber 
+were a "local" instead of a "my" variable.
 
 
 This example assumes that serial numbers must be globally unique accrost the program. 
@@ -11529,7 +18309,233 @@ program into two objects. One would have an instance variable holding the serial
 number and use it to generate copies of the second object.
 
 
-See also: Singleton, L<InstanceVariables/InstanceVariables>, L<AccessorPattern/AccessorPattern>
+
+
+
+From perldoc perltootc...
+
+
+I<.. class attributes act somewhat like global variables for the entire class, >  
+I<but unlike program-wide globals, class attributes have meaning only to the class itself.>
+
+
+I<Here are a few examples where class attributes might come in handy:>
+
+
+
+
+=over 1
+
+=over 2
+
+=item *
+
+I<to keep a count of the objects you've created, or how many are still extant.>
+
+
+=item *
+
+I<to extract the name or file descriptor for a logfile used by a debugging method.>
+
+
+=item *
+
+I<to access collective data, like the total amount of cash dispensed by all ATMs in a network in a given day.>
+
+
+=item *
+
+I<to access the last object created by a class, or the most accessed object, or to retrieve a list of all objects. >
+
+
+=back
+
+Should be minipulated through accessors, if at all. Many will be private. 
+
+
+=back
+
+
+
+
+L<http://wiki.slowass.net/E<63>CategoryNovice>
+
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+Singleton
+
+
+=item *
+
+L<InstanceVariables/InstanceVariables>
+
+
+=item *
+
+L<AccessorPattern/AccessorPattern>
+
+
+=item *
+
+L<StaticMethods/StaticMethods>
+
+
+=item *
+
+L<http://www.object-arts.com/EducationCentre/Patterns/TemporaryVariables.htm>
+
+
+=back
+
+
+
+=head2 StaticMethods
+
+
+Problem: Method should be available before any instances of the object are created, or some
+method does not use any instance data.
+
+
+Solution: Publicly accessable static methods.
+
+
+I<new()> is implemented by almost all packages as a static method. 
+
+
+Static methods aren't called from an instance of an object, but instead
+directly from the package name:
+
+
+
+  # connect is a factory method that returns a different object type.
+  # connect is also static.
+
+
+
+
+  use DBI;
+
+
+
+
+  my $dbh = DBI->connect($dsn, $login, $pass);
+
+
+
+
+
+=over 1
+
+=item *
+
+L<AbstractFactory/AbstractFactory> creates instances, but often does so from an object that has no
+state itself, but is just a container for the logic. All variables are passed in and 
+not kept.
+
+
+=item *
+
+L<NewObjectFromExisting/NewObjectFromExisting> goes the other direction - a static method, I<new()>, also works
+when called in an instance method.
+
+
+=back
+
+Contrast with L<AccessorPattern/AccessorPattern>: accessors alter or report on the status of a specific
+instance of a type of object.
+
+
+
+  # an $sth can only be created using an instance of DBI
+
+
+
+
+  my $sth = $dbh->prepare("select * from table");
+
+
+
+Attempting to call I<DBI->prepare()> would fail. 
+
+
+Some packages, such as I<CGI>, allow static method style access to all public methods.
+Calls to the package are essentially reidrected to a single default instance of the object.
+This makes sense for objects of which there is only likely to ever be one instance, but
+multiple instances should be supported. See L<ExportingPattern/ExportingPattern>.
+
+
+I<... For example, suppose you want a function to apply to multiple windows, such as CloseAllOpenWindows. The wrong way to do this is to have clients call a TWindowManager class. The correct way is to make CloseAllOpenWindows a static member of TWindow. It is associated with the class it applies to, and its multiobject function is reflected by its being static.>
+-- From Taligent's Guide to Designing Programs, "Managers aren't Objects" section.
+L<http://pcroot.cern.ch/TaligentDocs/TaligentOnline/DocumentRoot/1.0/Docs/books/WM/WM_1.html>
+Care of L<http://c2.com/cgi/wiki?DontNameClassesObjectManagerHandlerOrData>
+
+
+L<http://wiki.slowass.net/E<63>CategoryNovice>
+
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<NewObjectFromExisting/NewObjectFromExisting>
+
+
+=item *
+
+L<AbstractFactory/AbstractFactory>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>AccessorsPattern>
+
+
+=item *
+
+L<StaticVariables/StaticVariables>
+
+
+=item *
+
+L<InstanceVariables/InstanceVariables>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>FactoryMethod>
+
+
+=item *
+
+L<ExportingPattern/ExportingPattern>
+
+
+=item *
+
+L<http://pcroot.cern.ch/TaligentDocs/TaligentOnline/DocumentRoot/1.0/Docs/books/WM/WM_1.html>
+
+
+=back
+
 
 
 =head2 AccessorPattern
@@ -11543,7 +18549,7 @@ expectations of it. Other code should not have expectations on how you
 do it. 
 We aren't barring them, just putting up a hoop and asking them to jump. 
 Cleanliness is our main goal - not security.
-[L<37>]
+[L<67>]
 
 
 In L<http://wiki.slowass.net/E<63>ObjectOriented> lingo, a I<mutator> is an accessor that changes the state of an object,
@@ -11551,7 +18557,7 @@ for example by setting an L<http://wiki.slowass.net/E<63>InstanceVariable>.
 A mutator is called to request that the state of the object change rather than 
 accessing the datastructure directly.
 Guarding access to our data with mutators lets us:
-[L<38>]
+[L<68>]
 
 
 
@@ -11589,7 +18595,7 @@ without affecting the interface.
 Our code can safely be
 changed without worry of breaking outside code as long as we meet the
 contract set forth by our interface. See L<DesignContract/DesignContract>.
-[L<39>]
+[L<69>]
 
 
 Should people meddle in the internals of your object, you must provide
@@ -11598,7 +18604,10 @@ other peoples code - even if you have no way of knowing what people
 are diddling.
 
 
-B<Writing Accessors is Tedious>
+
+
+=head3 Writing Accessors is Tedious
+
 
 
 In many strictly L<http://wiki.slowass.net/E<63>ObjectOriented> languages, a large amount of repetitious 
@@ -11606,7 +18615,7 @@ code is needed just to set up the accessors. While some accessors will vary,
 most of them fit the mould of a I<set_whatever()> and I<get_whatever()>, 
 where "whatever" is the name of a variable. 
 Perl holds true the notion that computers should do tedious things for us.
-[L<40>].
+[L<70>].
 
 
 
@@ -11634,10 +18643,13 @@ syntax. They then work as normal methods. When invoked, they are
 still bound to the variable that was created with I<my> when
 they were created in the I<for> loop. They're able to use this variable
 to pick out the correct field. 
-[L<41>] 
+[L<71>] 
 
 
-B<ObjectOriented Syntax is Tedious>
+
+
+=head3 ObjectOriented Syntax is Tedious
+
 
 
 Another option is to step inside of another object and access the variable 
@@ -11692,7 +18704,7 @@ that hasn't been robbed of its usefulness is the -> operator.
 
 You have to fetch everything you want to do a computation on into a variable, do your 
 operation, then use an accessor to stow this value away where it belongs.
-[L<42>]
+[L<72>]
 
 
 This is the main reason L<http://wiki.slowass.net/E<63>ObjectOriented> languages are seldom expressive.
@@ -11701,14 +18713,17 @@ compiler. Not being able to use the I<+=> operator to tell the language
 that you want to add is a serious impedement to self expression..
 
 
-B<Accessors vs InstanceVariables, or: How I Learned to Stop Worrying and Love Accessors>
+
+
+=head3 Accessors vs InstanceVariables, or: How I Learned to Stop Worrying and Love Accessors
+
 
 
 L<http://wiki.slowass.net/E<63>JamieZawinski>, of Netscape fame, observently complained that distinguishing 
 between accessing object methods and object instance variables required large 
 amounts of code to be rewritten when you switch from using one
 to the other.
-[L<43>]
+[L<73>]
 It isn't unusual at all for a programmer to start out with a publically accessable instance
 variable and later discover the need to wrap it inside of an accessor:
 
@@ -11881,7 +18896,10 @@ This buys us a few things:
 
 
 
-B<See Also>
+
+
+=head3 See Also
+
 
 
 See also: Class::Accessor (L<http://www.cpan.org/modules/by-module/Class/> L<Accessor|http://search.cpan.org/searchE<63>module=Class::Accessor>) on CPAN will make accessors for you, programatically.
@@ -11889,6 +18907,12 @@ See also: Class::Accessor (L<http://www.cpan.org/modules/by-module/Class/> L<Acc
 
 An illustration of the various ways to generate accessors can be found at 
 L<http://www.pobox.com/~schwern/papers/Closures_and_Accessors/>
+
+
+
+
+=head3 See Also
+
 
 
 
@@ -11940,8 +18964,37 @@ L<http://wiki.slowass.net/E<63>MutatorPattern>
 L<http://wiki.slowass.net/E<63>ConstructorPattern>
 
 
+=item *
+
+L<http://search.cpan.org/author/GSAR/perl-5.6.1/pod/perltootc.pod#Translucent_Attributes>
+
+
+=item *
+
+L<http://www.object-arts.com/EducationCentre/Patterns/AccessorMethods.htm>
+
+
 =back
 
+External Pages Linking to This Page:
+
+
+<!-- cut here - do not remove this comment - added by L<PagesLinkingHere/PagesLinkingHere> -->
+
+
+=over 1
+
+=item *
+
+L<http://search.yahoo.com/search?p=get+field+datatype+in+Perl&ei=UTF-8&vm=i&n=20&fl=0&xargs=0&b=21>
+
+
+=back
+
+I'm not sure what this person is asking. Array field or return value of an accessor? If you ask
+for the I<ref()> of a return value, you're likely to get a specific subclass where you really
+wanted the relavent superclass - see L<EmptySubclassFailure/EmptySubclassFailure>. Class::Contract (L<http://www.cpan.org/modules/by-module/Class/> L<Contract|http://search.cpan.org/searchE<63>module=Class::Contract>) would give a priori 
+knowledge of this, but the program would have to be written to use this.
 
 
 =head2 TypedVariables
@@ -12078,7 +19131,38 @@ Todo XXX: static source byte code tree analysis - would have to take interface s
 at their word as far as return types.
 
 
-See Also: L<AbstractFactory/AbstractFactory>, L<IntroduceNullObject/IntroduceNullObject>, L<MoveCollectionsOfFunctionsToObjects/MoveCollectionsOfFunctionsToObjects>, L<http://wiki.slowass.net/E<63>WeaklyTyped>
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<AbstractFactory/AbstractFactory>
+
+
+=item *
+
+L<IntroduceNullObject/IntroduceNullObject>
+
+
+=item *
+
+L<MoveCollectionsOfFunctionsToObjects/MoveCollectionsOfFunctionsToObjects>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>WeaklyTyped>
+
+
+=back
+
 
 
 =head2 PrivateFunctions
@@ -12111,413 +19195,52 @@ separate from the interface. Opting to not allow foreign code to access your
 internals buys you privacy and freedom to change around your internals.
 
 
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+Attribute::Protected (L<http://www.cpan.org/modules/by-module/Attribute/> L<Protected|http://search.cpan.org/searchE<63>module=Attribute::Protected>)
+
+
+=item *
+
+Attribute::Private (L<http://www.cpan.org/modules/by-module/Attribute/> L<Private|http://search.cpan.org/searchE<63>module=Attribute::Private>)
+
+
+=item *
+
+L<ShortHandInstanceVariables/ShortHandInstanceVariables>
+
+
+=item *
+
+L<http://www.object-arts.com/EducationCentre/Patterns/PrivateMethods.htm>
+
+
+=back
+
+
+
 =head2 FunctionalityIsToBeShared
 
 
-Define logic early on that subclasses are likely subclasses are likely to be 
-needed. This minimizes the need for Facades or multiple inheritance to graft 
-features on later, and they can always be redefined in subclasses. Define 
-data only when needed:  it costs, and ambigiously unneeded data creates room for 
-inconsistant program state, which is bad. Encapsulate the data in an object and 
-use the L<VisitorPattern/VisitorPattern>.
-
-
-B<See Also>
-
-
-
-
-=over 1
-
-=item *
-
-L<AbstractClass/AbstractClass>
-
-
-=item *
-
-L<VisitorPattern/VisitorPattern>
-
-
-=item *
-
-L<StateVsClass/StateVsClass>
-
-
-=item *
-
-L<FacadePattern/FacadePattern>
-
-
-=item *
-
-L<http://wiki.slowass.net/E<63>AbstractionInversion>
-
-
-=back
-
-
-
-=head2 AbstractClass
-
-
-Problem: 
-Several objects should be of the same basic type, as they are interchangeable,
-though they will have different implementations.
-
-
-Solution: 
-Implement the service differently in each subclass, but provide the same interface.
-Use one or more "empty" objects as parents to create common base types.
-
-
-B<Abstract Class Is...>
-
-
-
-
-=over 1
-
-=item *
-
-Objects are user-defined datatypes.
-
-
-=item *
-
-One object can serve as any number of different object types as enforced by I<->isa()>.
-
-
-=item *
-
-Testing for the presence of an Interface allows a running program to deturmine if an object offers certain features.
-
-
-=item *
-
-An Interface, or API, is a specification of features that doesn't include any actual implementation of the features.
-
-
-=item *
-
-Interfaces are defined by L<http://wiki.slowass.net/E<63>AbstractClasses>.
-
-
-=back
-
-B<Formula>
-
-
-
-
-=over 1
-
-=item *
-
-Create an empty base package and inherit it from each interchangeable module using I<use base> or I<@ISA>.
-I<use interface> or a similar mechanism to do compile-time checking to catch API omissions. 
-
-
-=item *
-
-Create stub methods in the base class to document the required methods and to generate meaningful warnings
-if they aren't implemented in the subclass.
-
-
-=back
-
-B<Logic>
-
-
-Having an interface, or extending a real class is basically the same idea: 
-put the new class or interface in the @ISA array, and you offer all of the 
-methods required to be a working version of that class. Normally this is not a 
-problem - the base class takes care of everything. Some base classes only 
-contain stubs for methods, and leave it up to you to implement something useful
-for each of them. This is an L<AbstractClass/AbstractClass>, or "Pure Virtual Class". An 
-Abstract Class defines an "Interface".
-
-
-B<Motivations>
-
-
-
-
-=over 1
-
-=item *
-
-L<TypeSafety/TypeSafety>
-
-
-=item *
-
-Polymorphism
-
-
-=back
-
-B<Section>
-
-
-Some times you will see Abstract Classes define an Interface with nothing in 
-it. Any class in the world can automatically meet the expectations of an empty 
-interface merely by including mention of the Abstract Class in its @ISA array. 
-This is a L<http://wiki.slowass.net/E<63>MarkerInterface>. It tells the world that the object can do something, 
-or be used in a certain way that does not directly translate to which methods 
-it defines. It could mark the class as being "lightweight", telling the world 
-that its okay to create a million instances of it. It could be used to tell the 
-world that the object is safe to store with Storable.
-
-
-Inheriting empty classes can be used as a simple, cheap way to set attributes 
-on objects. It can mark two classes as being the same base type so they can be 
-used interchangeably (polymorphism). 
-
-
-Why bother? Lets say you have a web based shopping cart, as so many programmers 
-do. You can add objects to it. These objects may return thier price, weight, 
-name, description, and an image when queried. You start off with one kind of 
-object - lets say, ink jet cartridges. So far, so good.
-
-
-
-  package Item;
-
-
-
-
-  sub new {
-    my $type = shift;
-    my %args = @_;
-    $me->{name} = $args{name};
-    $me->{price} = $args{price};
-    $me->{image} = $args{image};
-    $me->{description} = $args{description};
-    $me->{weight} = $args{weight};
-  }
-  
-  foreach my $i (qw(name price weight desciption image)) {
-    # create accessor
-  }
-  
-
-Then the store adds paper, toner, refill kits, cables, dye sublimation ink, 
-impact ribbons, and new ribbons. Then the store starts giving discounts for 
-toner and inkjet cartridge returns. Then you're asked to give warnings if 
-someone tries to buy a new printer with the wrong kind of paper or ink. Fields 
-are introduced to specify compatibilty and compatibility requirements, as well 
-as return discount amout and eligability. 
-
-
-Since each type of object is doing something a little different, you make them 
-seperate objects. You've lain the original Item class to rest in favor of 
-Printer, Toner, Ink, L<http://wiki.slowass.net/E<63>InkRefill>, Paper, etc classes. Years later, another 
-programmer comes along and adds donations to a good cause (matched by the store) 
-that users may buy. Unaware of the ugliness behind the cart, he adds the name, 
-price, weight, decription, and image fields. Everything seems to work fine 
-until someone tries to buy a printer and thc cart calls compatability($printerob) 
-in his object to find out if that item is compatable with that printer. This 
-method isn't found, and the program blows up.
-
-
-By reintroducing Item.pm as an object full of empty methods, and using 
-interface.pm to declare Item.pm as an interface in Toner.pm, Paper.pm, 
-Donation.pm, Ink.pm, and L<http://wiki.slowass.net/E<63>InkRefill>.pm, we know right away if a module has 
-failed to define a needed method. We don't need to wait for a good testing, or 
-worse: a user finds it before we do. This is "design by contract": because of 
-the interface contract, we know exactly which methods need to be implemented, 
-not because we were told, but because the system requires it by refusing to 
-compile. The objects in question can be used interchangeably - we're garunteed of it.
-
-
-Explicitly using, then adding to @ISA, a marker interface is kind of ugly. One 
-solution is to move part of the work to the abstract marker class:
-
-
-
-  package Item;
-
-
-
-
-  sub import {
-    push @{caller().'::ISA'}, __PACKAGE__;
-  }
-
-
-
-Viola! Whenever anyone uses Item.pm, their package will be marked as being 
-(is-a) Item. Should that object ever be tested with ->isa('Item'), it will come 
-back true. We have this one bit of @ISA munging logic in the abstract marker 
-class rather than:
-
-
-
-  use Item;
-  push @ISA, 'Item';
-
-
-
-...floating around everywhere. 
-
-
-A quick and dirty trick for 
-A base class could abuse its I<import()> method to do compile-time interface (API) checking.
-Since I<import()> gets called while the I<use> for that module is being processed and
-before the I<use>'ing module is allowed to run, it has a perfect chance to steal that
-CPU-share (kind of like mind-share) to do some checking and discover if any of the
-stub methods aren't in fact being redefined.
-
-
-
-  # example of making sure that an interface is implemented
-
-
-
-
-  package FooAbstractClass; # rename this with your abstract class
-
-
-
-
-  sub import {
-    my $caller = caller;
-    eval "use $caller;"; # let them finish loading
-    foreach my $i (grep { defined &{$_} } keys %{__PACKAGE__.'::'}) {
-      die __PACKAGE__ . " is listed as a base type in $caller, but the $i method is not implemented!"
-        unless defined &{$caller.'::'.$i};
-    }
-  }
-
-
-
-interface.pm by yours truly (look for it on CPAN) implements compile-time interface checking in Perl,
-similar to the example above, merely with a cleaner interface itself:
-
-
-
-  use interface 'Class::Struct', 'Clonable';
-
-
-
-This tells Perl that we must define all of the methods listed in Class::Struct (L<http://www.cpan.org/modules/by-module/Class/> L<Struct|http://search.cpan.org/searchE<63>module=Class::Struct>) 
-as well as Clonable. If we fail to, we don't compile, and we don't run. 
-
-
-B<Interface Design Guidelines>
-
-
-
-
-=over 1
-
-=item *
-
-Don't bundle unrelated operations in a single method. Methods shouldn't
-have bizarre side effects when used from the perspective of wanting
-one or the other feature.
-
-
-=item *
-
-Few is usually better than more. Should new functionality be needed in
-the future, it can be defined by an interface, then implemented by whichever
-modules it is appropriate for, or even added directly to the base parent class.
-
-
-=item *
-
-The few operations should combine well. This means creating and returning
-objects that can be directly used by other accessors and other objects.
-
-
-=item *
-
-Objects of the same type should combine well.
-L<http://wiki.slowass.net/E<63>OverloadPattern> can be employed to define the combinatrics of how two
-objects interact. If operator overloading isn't desired, think in terms
-of operating overloading. L<http://wiki.slowass.net/E<63>EqualsInterface>, L<http://wiki.slowass.net/E<63>AggreatePattern>
-
-
-=back
-
-B<See Also>
-
-
-
-
-=over 1
-
-=item *
-
-L<IteratorInterface/IteratorInterface>
-
-
-=item *
-
-L<http://wiki.slowass.net/E<63>UseBase>
-
-
-=item *
-
-L<AbstractFactory/AbstractFactory>
-
-
-=item *
-
-L<http://wiki.slowass.net/E<63>MarkerInterface>
-
-
-=item *
-
-L<TypeSafety/TypeSafety>
-
-
-=item *
-
-L<http://wiki.slowass.net/E<63>EqualsInterface>
-
-
-=item *
-
-L<http://wiki.slowass.net/E<63>AggreatePattern>
-
-
-=item *
-
-L<DesignContract/DesignContract>
-
-
-=item *
-
-L<http://wiki.slowass.net/E<63>AbstractObject>
-
-
-=item *
-
-L<TemplateMethod/TemplateMethod>
-
-
-=item *
-
-L<http://wiki.slowass.net/E<63>CategoryNovice>
-
-
-=item *
-
-L<InterfaceBloat/InterfaceBloat>
-
-
-=back
-
+See instead L<SuperClassAbstraction/SuperClassAbstraction>
 
 
 =head2 ChainOfConstructors
 
 
-Synopsis: You're inheriting a class and adding features to it. The class you're 
-extending may do some, but you need to do some setup, too. You run their constructor, then augment the result.
+Synopsis: Adding features to a class via inheritance.
+The class you're extending may do some, but you need to do some setup, too. You 
+run their constructor, then augment the result.
 
 
 When: Any time you inherit, but especially when the constructor of the class does some setup work.
@@ -12552,7 +19275,19 @@ having it change in a future version. If someone extends us, they can apply this
 same pattern, and add features to what we do.
 
 
-B<See Also>
+
+
+=head3 Categories
+
+
+
+L<http://wiki.slowass.net/E<63>CategoryNovice>
+
+
+
+
+=head3 See Also
+
 
 
 
@@ -12561,12 +19296,22 @@ B<See Also>
 
 =item *
 
-L<http://wiki.slowass.net/E<63>RevisitingNamespaces>
+L<RevisitingNamespaces/RevisitingNamespaces>
 
 
 =item *
 
 NEXT on CPAN
+
+
+=item *
+
+L<AboutInheritance/AboutInheritance> 
+
+
+=item *
+
+L<EmptySubclassFailure/EmptySubclassFailure>
 
 
 =back
@@ -12724,7 +19469,7 @@ so to speak: coming at the same problem from two angles to make things
 better.
 
 
-I<A subtle phenomenon occurs in traditional programming languages:  While writing the program for '<Issue an error message and try to recover>', a programmer subconsciously tries to get by with the fewest possible lines of code, in cases where the program for '<Update the code structure>' is quite short. For if an extensive error recovery were actually programmed, the subroutine would appear to hvae error-message printing as its main purpose. The programmer knows that the error is really an exceptional case that arises only rarely; therefore a lengthy error recovery doesn't look right, and most programmers will minimize it (without raelizing they are doing so) in order to make the subroutine appearance match its intended behavior.> - L<http://wiki.slowass.net/E<63>DonaldKnuth>, in L<http://wiki.slowass.net/E<63>LiterateProgramming>
+I<A subtle phenomenon occurs in traditional programming languages:  While writing the program for '<Issue an error message and try to recover>', a programmer subconsciously tries to get by with the fewest possible lines of code, in cases where the program for '<Update the code structure>' is quite short. For if an extensive error recovery were actually programmed, the subroutine would appear to hvae error-message printing as its main purpose. The programmer knows that the error is really an exceptional case that arises only rarely; therefore a lengthy error recovery doesn't look right, and most programmers will minimize it (without raelizing they are doing so) in order to make the subroutine appearance match its intended behavior.> - L<http://wiki.slowass.net/E<63>DonaldKnuth>, in L<LiterateProgramming/LiterateProgramming>
 
 
 This highlights another benefit: the purpose of the routine is immediately
@@ -12799,7 +19544,10 @@ The new case we handle is when someone already has a reference but wants a new o
 
 
 
-B<See Also>
+
+
+=head3 See Also
+
 
 
 
@@ -12840,7 +19588,10 @@ In Perl, the result of an assignment is the variable that got assigned to. This 
 Instead of returning "1", we return $fooOb back, to be used again.
 
 
-B<See Also>
+
+
+=head3 See Also
+
 
 
 
@@ -12890,87 +19641,6 @@ L<http://wiki.slowass.net/E<63>CategoryToDo>
 
 
 L<http://wiki.slowass.net/E<63>CategoryNovice>
-
-
-=head2 InnerClasses
-
-
-Synopsis: Related packages can be created where they are defined.
-
-
-When: You want a helper object, or you want to move code, inheritance, or interfaces out of your object but not far from it.
-
-
-
-  package WebsafeColors;
-
-
-
-
-  sub new { ... };
-
-
-
-
-  sub getIterator {
-    my $parentThis = shift;
-    return eval {
-      package WebsafeColors::Iterator;
-      # this mini sub-package only knows how to iterate over our data structure
-      @ISA=(Iterator);
-      sub new {
-        my $type = shift;
-        my $this = { currentIndex=>0 };
-        bless $this, $type;
-      }
-      sub hasNext {
-        my $this = shift;
-        return @{$parentThis->{'colors'}} > $this->{'currentIndex'};
-      }
-      sub getNext {
-        my $this = shift;
-        die unless $this->hasNext();
-        return $parentThis->{'colors'}->[$this->{'currentIndex'}++];
-      }
-      __PACKAGE__;
-    }->new();
-  }
-
-
-
-The full listing is available at XXX. WebsafeColors::Iterator (L<http://www.cpan.org/modules/by-module/WebsafeColors/> L<Iterator|http://search.cpan.org/searchE<63>module=WebsafeColors::Iterator>) implements all of 
-the functions required to be an instance of Iterator. If something takes an 
-argument, and insists it implement Iterator, it will accept the result of 
-calling getIterator() on a L<http://wiki.slowass.net/E<63>WebsafeColors> object. However, L<http://wiki.slowass.net/E<63>WebsafeColors> itself 
-does not implement these methods, or inherit the base abstract class for Iterators. 
-The package that does is contained entirely inside L<http://wiki.slowass.net/E<63>WebsafeColors>'s getIterator() 
-method. This technique lets you localize the impact of having to provide an interface, 
-and keep code related to supporting that interface together and away from the 
-rest of the code. This supports the basic idea of putting code where it belongs.
-
-
-When we return a WebsafeColors::Iterator (L<http://www.cpan.org/modules/by-module/WebsafeColors/> L<Iterator|http://search.cpan.org/searchE<63>module=WebsafeColors::Iterator>) object, that object uses a variable 
-defined lexically inside L<http://wiki.slowass.net/E<63>WebsafeColors>. Since defined lexically (contained inside 
-the block, in this case, the method) to the variable $parentThis, we hold a 
-reference to it. If it changes, we see the changes. If the parent is destroyed 
-before the WebsafeColors::Iterator (L<http://www.cpan.org/modules/by-module/WebsafeColors/> L<Iterator|http://search.cpan.org/searchE<63>module=WebsafeColors::Iterator>) object we return is, this variable will live 
-on until all references are destroyed. This way, we can share data efficiently 
-with our parent. In some situations, it may be better to copy the data before 
-giving it to the inner class, or to use Immutable Objects, explained in Chapter XXX.
-
-
-Our Perl implementation could cause problems if two threads contend for the same 
-datastructure, even by way of different objects. Thus, if used in a threading 
-environment, the L<http://wiki.slowass.net/E<63>WebsafeColors> and all of its returned inner classes would need 
-to synchronize on the same object for access to the array of colors. Failure to 
-do so would lead to iterators that miss colors, end prematurely, or overrun the 
-array.
-
-
-See Also: L<IteratorInterface/IteratorInterface>, L<AbstractClass/AbstractClass>, L<http://wiki.slowass.net/E<63>LambdaClosure>, L<http://wiki.slowass.net/E<63>LexicalsMakeSense>
-
-
-L<http://wiki.slowass.net/E<63>CategoryPattern>, L<http://wiki.slowass.net/E<63>CategoryNovice>, L<http://wiki.slowass.net/E<63>CategoryIntermediate>
 
 
 =head2 OverloadOperators
@@ -13026,10 +19696,11 @@ into the largest parts that still let you reuse the parts, and build your object
 When: Any time there is partial overlap in the capabilities of objects.
 
 
-I<Compose objects into tree structures to represent part-whole hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly.> - alexander
+I<Compose objects into tree structures to represent part-whole hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly.> - L<http://wiki.slowass.net/E<63>ChristopherAlexander>
 
 
-Objects may be members of a number of linked lists in our system. The linked lists organize the objects by different criteria. 
+Objects may be members of a number of linked lists in our system. The linked 
+lists organize the objects by different criteria. 
 
 
 
@@ -13081,6 +19752,8 @@ composition gives us what we want:
       size_order => new LinkedList,
       save_order => new LinkedList,
       @_
+    };
+    bless $me, $type;
   }
 
 
@@ -13164,10 +19837,24 @@ better. B makes for shorter code and less typing when the relationship between t
 objects isn't likely to change.
 
 
-Each L<http://wiki.slowass.net/E<63>LinkedList> instance is a "delegate" in this example. The methods that propogate requests to them are "delegate methods".
+Each L<http://wiki.slowass.net/E<63>LinkedList> instance is a "delegate" in this example. The methods that 
+propogate requests to them are "delegate methods".
 
 
-B<See Also>
+I<Compose> means a special thing: it refers to building objects using
+L<http://wiki.slowass.net/E<63>DelegationConcept>. Delegation-composition hangs onto constituent parts
+using references. By contrast, L<http://wiki.slowass.net/E<63>MixIns> inherit from each part. L<http://wiki.slowass.net/E<63>MixIns>
+prevent returning a L<http://wiki.slowass.net/E<63>WholeObject> in responce to requests for information,
+and they prevent you from having a more than one of any given part.
+
+
+L<http://wiki.slowass.net/E<63>CategoryIntermediate>
+
+
+
+
+=head3 See Also
+
 
 
 
@@ -13212,6 +19899,26 @@ L<http://www.pobox.com/~schwern/talks/Design_Patterns/full_slides/slide014.html>
 =item *
 
 L<http://www.pobox.com/~schwern/talks/Design_Patterns/full_slides/slide025.html> - L<http://wiki.slowass.net/E<63>MichaelSchwern>'s "Monkey Delegation"
+
+
+=item *
+
+L<LawOfDemeter/LawOfDemeter>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>DelegationConcept>
+
+
+=item *
+
+L<http://www.object-arts.com/EducationCentre/Patterns/Composite.htm>
+
+
+=item *
+
+L<http://www.martinfowler.com/eaaCatalog/lazyLoad.html>
 
 
 =back
@@ -13443,13 +20150,57 @@ Heavy use of lexicals makes the code very concise
 
 =back
 
-See Also: L<GodObject/GodObject>, L<http://wiki.slowass.net/E<63>LexicalsMakeSense>, L<http://wiki.slowass.net/E<63>LexicallyScopedVariables>,
-L<OneToOneRelationshipsTurnIntoOneToManyRelationships/OneToOneRelationshipsTurnIntoOneToManyRelationships>, L<AnonymousSubroutineObjects/AnonymousSubroutineObjects>,
-L<ImportPattern/ImportPattern>, L<http://wiki.slowass.net/E<63>ExportingFunctionsWhichAreLexicallyBoundToGenerators>
-
-
 CGI.pm, a standard Perl module, does something similar with reguards to creating a single
 default object and also providing an OO interface.
+
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<GodObject/GodObject>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>LexicalsMakeSense>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>LexicallyScopedVariables>
+
+
+=item *
+
+L<OneToOneRelationshipsTurnIntoOneToManyRelationships/OneToOneRelationshipsTurnIntoOneToManyRelationships>
+
+
+=item *
+
+L<AnonymousSubroutineObjects/AnonymousSubroutineObjects>
+
+
+=item *
+
+L<ImportPattern/ImportPattern>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>ExportingFunctionsWhichAreLexicallyBoundToGenerators>
+
+
+=back
+
 
 
 =head2 ImportPattern
@@ -13550,6 +20301,419 @@ against 2.4.2 does the right thing: 2.4.2 is larger.
 See Also: L<ExportingPattern/ExportingPattern>
 
 
+=head2 AbstractClass
+
+
+Problem: 
+Several objects should be of the same basic type, as they are interchangeable,
+though they will have different implementations.
+
+
+Solution: 
+Implement the service differently in each subclass, but provide the same interface.
+Use one or more "empty" objects as parents to create common base types.
+
+
+
+
+=head3 Abstract Class Is...
+
+
+
+
+
+=over 1
+
+=item *
+
+Objects are user-defined datatypes.
+
+
+=item *
+
+One object can serve as any number of different object types as enforced by I<->isa()>.
+
+
+=item *
+
+Testing for the presence of an Interface allows a running program to deturmine if an object offers certain features.
+
+
+=item *
+
+An Interface, or API, is a specification of features that doesn't include any actual implementation of the features.
+
+
+=item *
+
+Interfaces are defined by L<http://wiki.slowass.net/E<63>AbstractClasses>.
+
+
+=back
+
+
+
+=head3 Formula
+
+
+
+
+
+=over 1
+
+=item *
+
+Create an empty base package and inherit it from each interchangeable module using I<use base> or I<@ISA>.
+I<use interface> or a similar mechanism to do compile-time checking to catch API omissions. 
+
+
+=item *
+
+Create stub methods in the base class to document the required methods and to generate meaningful warnings
+if they aren't implemented in the subclass.
+
+
+=back
+
+
+
+=head3 Logic
+
+
+
+Having an interface, or extending a real class is basically the same idea: 
+put the new class or interface in the @ISA array, and you offer all of the 
+methods required to be a working version of that class. Normally this is not a 
+problem - the base class takes care of everything. Some base classes only 
+contain stubs for methods, and leave it up to you to implement something useful
+for each of them. This is an L<AbstractClass/AbstractClass>, or "Pure Virtual Class". An 
+Abstract Class defines an "Interface".
+
+
+
+
+=head3 Motivations
+
+
+
+
+
+=over 1
+
+=item *
+
+L<TypeSafety/TypeSafety>
+
+
+=item *
+
+Polymorphism
+
+
+=back
+
+
+
+=head3 Section
+
+
+
+Some times you will see Abstract Classes define an Interface with nothing in 
+it. Any class in the world can automatically meet the expectations of an empty 
+interface merely by including mention of the Abstract Class in its @ISA array. 
+This is a L<http://wiki.slowass.net/E<63>MarkerInterface>. It tells the world that the object can do something, 
+or be used in a certain way that does not directly translate to which methods 
+it defines. It could mark the class as being "lightweight", telling the world 
+that its okay to create a million instances of it. It could be used to tell the 
+world that the object is safe to store with Storable.
+
+
+Inheriting empty classes can be used as a simple, cheap way to set attributes 
+on objects. It can mark two classes as being the same base type so they can be 
+used interchangeably (polymorphism). 
+
+
+Why bother? Lets say you have a web based shopping cart, as so many programmers 
+do. You can add objects to it. These objects may return thier price, weight, 
+name, description, and an image when queried. You start off with one kind of 
+object - lets say, ink jet cartridges. So far, so good.
+
+
+
+  package Item;
+
+
+
+
+  sub new {
+    my $type = shift;
+    my %args = @_;
+    $me->{name} = $args{name};
+    $me->{price} = $args{price};
+    $me->{image} = $args{image};
+    $me->{description} = $args{description};
+    $me->{weight} = $args{weight};
+  }
+  
+  foreach my $i (qw(name price weight desciption image)) {
+    # create accessor
+  }
+  
+
+Then the store adds paper, toner, refill kits, cables, dye sublimation ink, 
+impact ribbons, and new ribbons. Then the store starts giving discounts for 
+toner and inkjet cartridge returns. Then you're asked to give warnings if 
+someone tries to buy a new printer with the wrong kind of paper or ink. Fields 
+are introduced to specify compatibilty and compatibility requirements, as well 
+as return discount amout and eligability. 
+
+
+Since each type of object is doing something a little different, you make them 
+seperate objects. You've lain the original Item class to rest in favor of 
+Printer, Toner, Ink, L<http://wiki.slowass.net/E<63>InkRefill>, Paper, etc classes. Years later, another 
+programmer comes along and adds donations to a good cause (matched by the store) 
+that users may buy. Unaware of the ugliness behind the cart, he adds the name, 
+price, weight, decription, and image fields. Everything seems to work fine 
+until someone tries to buy a printer and thc cart calls compatability($printerob) 
+in his object to find out if that item is compatable with that printer. This 
+method isn't found, and the program blows up.
+
+
+By reintroducing Item.pm as an object full of empty methods, and using 
+interface.pm to declare Item.pm as an interface in Toner.pm, Paper.pm, 
+Donation.pm, Ink.pm, and L<http://wiki.slowass.net/E<63>InkRefill>.pm, we know right away if a module has 
+failed to define a needed method. We don't need to wait for a good testing, or 
+worse: a user finds it before we do. This is "design by contract": because of 
+the interface contract, we know exactly which methods need to be implemented, 
+not because we were told, but because the system requires it by refusing to 
+compile. The objects in question can be used interchangeably - we're garunteed of it.
+
+
+Explicitly using, then adding to @ISA, a marker interface is kind of ugly. One 
+solution is to move part of the work to the abstract marker class:
+
+
+
+  package Item;
+
+
+
+
+  sub import {
+    push @{caller().'::ISA'}, __PACKAGE__;
+  }
+
+
+
+Viola! Whenever anyone uses Item.pm, their package will be marked as being 
+(is-a) Item. Should that object ever be tested with ->isa('Item'), it will come 
+back true. We have this one bit of @ISA munging logic in the abstract marker 
+class rather than:
+
+
+
+  use Item;
+  push @ISA, 'Item';
+
+
+
+...floating around everywhere. 
+
+
+A quick and dirty trick for 
+A base class could abuse its I<import()> method to do compile-time interface (API) checking.
+Since I<import()> gets called while the I<use> for that module is being processed and
+before the I<use>'ing module is allowed to run, it has a perfect chance to steal that
+CPU-share (kind of like mind-share) to do some checking and discover if any of the
+stub methods aren't in fact being redefined.
+
+
+
+  # example of making sure that an interface is implemented
+
+
+
+
+  package FooAbstractClass; # rename this with your abstract class
+
+
+
+
+  sub import {
+    my $caller = caller;
+    eval "use $caller;"; # let them finish loading
+    foreach my $i (grep { defined &{$_} } keys %{__PACKAGE__.'::'}) {
+      die __PACKAGE__ . " is listed as a base type in $caller, but the $i method is not implemented!"
+        unless defined &{$caller.'::'.$i};
+    }
+  }
+
+
+
+interface.pm by yours truly (look for it on CPAN) implements compile-time interface checking in Perl,
+similar to the example above, merely with a cleaner interface itself:
+
+
+
+  use interface 'Class::Struct', 'Clonable';
+
+
+
+This tells Perl that we must define all of the methods listed in Class::Struct (L<http://www.cpan.org/modules/by-module/Class/> L<Struct|http://search.cpan.org/searchE<63>module=Class::Struct>) 
+as well as Clonable. If we fail to, we don't compile, and we don't run. 
+
+
+
+
+=head3 Interface Design Guidelines
+
+
+
+
+
+=over 1
+
+=item *
+
+Don't bundle unrelated operations in a single method. Methods shouldn't
+have bizarre side effects when used from the perspective of wanting
+one or the other feature.
+
+
+=item *
+
+Few is usually better than more. Should new functionality be needed in
+the future, it can be defined by an interface, then implemented by whichever
+modules it is appropriate for, or even added directly to the base parent class.
+
+
+=item *
+
+The few operations should combine well. This means creating and returning
+objects that can be directly used by other accessors and other objects.
+
+
+=item *
+
+Objects of the same type should combine well.
+L<http://wiki.slowass.net/E<63>OverloadPattern> can be employed to define the combinatrics of how two
+objects interact. If operator overloading isn't desired, think in terms
+of operating overloading. L<http://wiki.slowass.net/E<63>EqualsInterface>, L<AggregatePattern/AggregatePattern>
+
+
+=back
+
+
+
+=head3 Categories
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CategoryNovice>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CategoryIntermediate>
+
+
+=back
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<IteratorInterface/IteratorInterface>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>UseBase>
+
+
+=item *
+
+L<AbstractFactory/AbstractFactory>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>MarkerInterface>
+
+
+=item *
+
+L<TypeSafety/TypeSafety>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>EqualsInterface>
+
+
+=item *
+
+L<AggregatePattern/AggregatePattern>
+
+
+=item *
+
+L<DesignContract/DesignContract>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>AbstractObject>
+
+
+=item *
+
+L<TemplateMethod/TemplateMethod>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CategoryNovice>
+
+
+=item *
+
+L<InterfaceBloat/InterfaceBloat>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>DiverseInterfaces>
+
+
+=item *
+
+Attribute::Abstract (L<http://www.cpan.org/modules/by-module/Attribute/> L<Abstract|http://search.cpan.org/searchE<63>module=Attribute::Abstract>)
+
+
+=item *
+
+L<http://www.object-arts.com/EducationCentre/Patterns/AbstractClass.htm>
+
+
+=back
+
+
+
 =head2 OtherStructuredSystems
 
 
@@ -13639,13 +20803,7 @@ L<http://wiki.slowass.net/E<63>CategoryToDo>
 =head2 SelectCPANModules
 
 
-[L<44>]
-
-
-See Also: L<http://www.pobox.com/~schwern/cgi-bin/perl-qa-wiki.cgi?EssentialModules> on L<http://wiki.slowass.net/E<63>MichaelScwern>'s Wiki
-
-
-See Also: L<http://www.cpan.org/modules/01modules.index.html> - module index on CPAN itself
+[L<74>]
 
 
 THREADS
@@ -13760,6 +20918,7 @@ MATH
   Math::SimpleVariable
   PDL::R::math              Routines from the "R" statistical language. "R" is like "S".
   Statistics::Regression 
+  PerlMonks:89236 - operations on vectors of X,Y,Z
 
 
 
@@ -13807,6 +20966,7 @@ LANGUAGE & SYNTAX
   Attribute::Handlers
   English::Reference        Use words to dereference things - Jerrad Pierce 
   Language::Functional
+  Sub::Approx - Exposed (with historical interest) on PerlMonks:24492
 
 
 
@@ -14013,6 +21173,10 @@ NET
   Mail::Internet
   Mail::Mailer
   Mail::Sendmail
+  PerlMonks:55320 - Decimal IP address to binary and company
+  PerlMonks:102506 - Detect machine endianness
+  PerlMonks:202181 - EDI - prolly a CPAN module that would surplant this though
+  PerlMonks:66135 - non-blocking TCP connections
 
 
 
@@ -14032,6 +21196,7 @@ WEB
   CGI::Carp
   HTML::Form
   HTML::TokeParser
+  PerlMonks:240866 - pure perl image size decoder
 
 
 
@@ -14042,7 +21207,7 @@ DATABASE
   DBI
   DBD::JDBC
   DBD::Pg
-  DBD::Mysql
+  DBD::mysql
   DBD::Oracle
   DBD::Sybase
   Sybase::DBlib
@@ -14089,44 +21254,47 @@ CLASS/OO
 
 
 
-  Clone                     idch? Recursive copy of nested objects             RDF
-  FreezeThaw                bdpf? Convert arbitrary objects to/from strings    ILYAZ
-  Persistence::
-  Class::Object             adpO? Store Object definitions with Data::Dumper   VIPUL
-  Storable                  Smcrp Persistent data structure mechanism          AMS
-  Marshal::Dispatch         cdpO? Convert arbitrary objects to/from strings    MUIR
-  Marshal::Packed           cdpO? Run::length coded version of Marshal module   MUIR
-  Marshal::Eval             cdpO? Undo serialization with eval                 MUIR
-  Tangram                   RmpO? Object persistence in relational databases   JLLEROY
-  Module::Reload
-  Module::Require
-  Module::Use
+  Class::Classless
   Class::Container
   Class::Contract
-  Class::Contract
-  Class::Date (high MilliGraham weight)
   Class::DBI
+  Class::Data::Inheritable
+  Class::Date (high MilliGraham weight)
+  Class::Delegation
+  Class::Fields
   Class::Inner
   Class::Loader
   Class::MethodMaker
   Class::Multimethods
+  Class::Object
+  Class::Object             adpO? Store Object definitions with Data::Dumper   VIPUL
   Class::ObjectTemplate
   Class::Observable
   Class::Privacy
+  Class::Prototyped
   Class::PseudoHash
   Class::Singleton
   Class::Virtual
   Class::Visitor
-  Class::Data::Inheritable
-  Class::Delegation
-  Class::Fields
-  Interface::Polymorphism  Gives "implements" and "interface" keywords.
-  import                   use import qw( org::w3c::dom );  # Loads all .pm's in org/w3c/dom/*
-  NEXT                     Redispatch method lookups
-  Event                    Base implementation of channel/event listeners and daemon
+  Clone                     idch? Recursive copy of nested objects             RDF
   Concurrent::Object       See MailOrder - fires off a method call in the background
+  Event                    Base implementation of channel/event listeners and daemon
+  FreezeThaw                bdpf? Convert arbitrary objects to/from strings    ILYAZ
+  Interface::Polymorphism  Gives "implements" and "interface" keywords.
+  Marshal::Dispatch         cdpO? Convert arbitrary objects to/from strings    MUIR
+  Marshal::Eval             cdpO? Undo serialization with eval                 MUIR
+  Marshal::Packed           cdpO? Run::length coded version of Marshal module   MUIR
+  Module::Reload
+  Module::Require
+  Module::Use
+  NEXT                     Redispatch method lookups
+  Persistence::
   Protect
+  Storable                  Smcrp Persistent data structure mechanism          AMS
   Sub::Parameters - http://search.cpan.org/author/RCLAMP/Sub-Parameters-0.03/lib/Sub/Parameters.pm
+  Tangram                   RmpO? Object persistence in relational databases   JLLEROY
+  import                   use import qw( org::w3c::dom );  # Loads all .pm's in org/w3c/dom/*
+  PerlMonks:96780          Curse - XS code example of diddling //bless// info on objects.
 
 
 
@@ -14188,7 +21356,39 @@ UNSORTED
 
 
 
-$Id: L<SelectCPANModules/SelectCPANModules>,v 1.19 2003/03/04 11:51:28 phaedrus Exp $
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://perlmonks.org/index.pl?node=Module+Reviews>
+
+
+=item *
+
+L<http://www.pobox.com/~schwern/cgi-bin/perl-qa-wiki.cgi?EssentialModules> on L<http://wiki.slowass.net/E<63>MichaelScwern>'s Wiki
+
+
+=item *
+
+L<http://www.cpan.org/modules/01modules.index.html> - module index on CPAN itself
+
+
+=item *
+
+L<http://perlmonks.org/index.pl?node=54389> - most frequently mentioned modules on L<http://wiki.slowass.net/E<63>PerlMonks>
+
+
+=back
+
+$Id: L<SelectCPANModules/SelectCPANModules>,v 1.24 2003/04/18 07:05:35 phaedrus Exp $
 
 
 =head2 HowDoesPerlStackUp
@@ -14197,28 +21397,157 @@ $Id: L<SelectCPANModules/SelectCPANModules>,v 1.19 2003/03/04 11:51:28 phaedrus 
 How does Perl stack up against other OO languages?
 
 
-We've all heard the flame wars. They usually take the form "XXX langauge isn't really OO because it doesn't do YYY". Since objects were a new feature introduced in Perl 5, we can safely assume the language wasn't designed them in mind. There are many language features associated with objects. Some of them are critical. Some are handy. Some of them are considered better excluded.
+I<One test of whether someone is a good programmer is to ask them to assess the tools they use -- languages, libraries, and operating systems. Someone who cannot perceive flaws, who cannot express an opinion about the low and high points of a design, is either not accustomed to thinking analytically about the systems they encounter or is blindly partisan in the service of their chosen favorites. Computing, at least in the exploratory fields where I hang out, is more of an art than a science, and inability to critique a design is a serious liability.>
+- from L<http://www.amk.ca/python/writing/warts.html> - author unknown
 
 
-Polymorphic - object's methods are represented by different code. Perl does this. Objects may be used interchangeably and each object defines how it responds to different "messages" or method calls. This is perhaps the most important OO feature, and the first an aspiring OO language implements.
+We've all heard the flame wars. OO flame wars take the form "XXX langauge isn't 
+really OO because it doesn't do YYY". Since objects were a new feature 
+introduced in Perl 5, we can safely assume the language wasn't designed them 
+in mind. There are many language features associated with objects. Some of them
+are critical. Some are handy. Some of them are considered better excluded.
 
 
-Inheritance - being able to create generic prototypical objects and further define them between classes is called inheritance. There are two aspects to it - data inheritance and implementation inheritance. Perl implements implementation inheritance: subroutines defined in child classes override those in parent classes, and those that aren't overriden appear untouched in the child class. Classes defined in children aren't visible to their parents. The same isn't true of data. Child class and parent class data all gets lumped together in one big pool. Most OO languages - C++, Java, XXX implement both implementation and data inheritance. Also, instead of some variables being magically provided for by inheritance, you have to go through manual steps to read the datastructure representing the class and access fields in it. We attempt to address the problem of having to read "this" and the class variables manually, while XXX module attempts to deal with the problem of data inheritance.
+B<Polymorphic> 
 
 
-Multiple Inheritance - Perl implements a simple version of this, with a depth-first, left-hand-side recursion through the @ISA array. Languages that implement multiple inheritance are faced with a number of trade offs and problems when doing so: what if a class is inherited by two separate parent classes? Perl assumes that the first parent wins over the others in this case. C++ has a more complicated system for solving these problems, while Java opts out of allowing it at all. 
+Object's methods are represented by different code. Perl does 
+this. Objects may be used interchangeably and each object defines how it 
+responds to different "messages" or method calls. This is perhaps the most 
+important OO feature, and the first an aspiring OO language implements.
 
 
-Method Overloading - Most OO languages allow you to write various implementations of methods representing the different combinations of arguments that may be supplied. This way, you can do completely different things when passed a number, a string, an object of one type, an object of another type, and so on. This avoids using explicit case logic, a big OO no no. Perl doesn't offer this natively, but a module is available XXX.
 
 
-Operator Overloading - This refers to assigning different means to operators. Usually when this is done, an object may choose how it responds to having an operator used on it (as a whole). What happens if you add two objects? Only those objects can tell you. Perl lets the first object (the one on the left) decide how to handle the operation. The object on the right is employed if the thing on the left isn't an object. Perl does offer this feature, as does C++. Java elects not to because of historic abuses of it. Programs that use operators to perform operators across objects that have nothing to do with arithmetic quickly become incomprehensible.  
+=head3 Inheritance
 
 
-Strongly Typed - This certainly doesn't describe Perl. Some language employ compile-time checking to make sure that no code anywhere attempts to pass anything not explicit accepted into any method. This makes a large class of run-time errors vanish in a puff of logic. Methods are assured that no unexpected object or data types will ever be passed to them. It doesn't rule out the case where the type of the object is expected but the range of the value or state of the object isn't acceptable. For this reason, some OO zealots argue that each possible state of an object should be a separate subclass of that object, and of course, numbers should be objects, too. C++ and Java both offer this, while Perl does not.
+
+Bbeing able to create generic prototypical objects and further 
+define them between classes is called inheritance. There are two aspects to 
+it - data inheritance and implementation inheritance. Perl implements 
+implementation inheritance: subroutines defined in child classes override those 
+in parent classes, and those that aren't overriden appear untouched in the 
+child class. Classes defined in children aren't visible to their parents. The 
+same isn't true of data. Child class and parent class data all gets lumped 
+together in one big pool. Most OO languages - C++, Java, XXX implement both 
+implementation and data inheritance. Also, instead of some variables being 
+magically provided for by inheritance, you have to go through manual steps to 
+read the datastructure representing the class and access fields in it. We 
+attempt to address the problem of having to read "this" and the class variables 
+manually, while the XXX module attempts to deal with the problem of data inheritance.
 
 
-Pure OO - this is considered extreme. Smalltalk, for instance, prides itself on representing everything with objects - even numeric constants like "3". This means you can make method calls into numbers. Languages that don't do this suffer from a sort of duality. Every time objects and non-objects interact, there are numerous possible scenarios describing the interaction. Handling these cases with type membership is much cleaner. Lacking this feature, programmers are steered in a mindset where the explicit cases are the norm. This is an Anti-Pattern. For example, my $res = $ob->call(); if(!$res) { ... } else { ... }. Java is not pure OO - primitive datatypes include numbers of various sorts, booleans, arrays, as well as object references. Perl is not pure OO either. I think Ruby is and Python is not XXX.
+
+
+=head3 Multiple Inheritance
+
+
+
+Perl implements a simple version of this, with a 
+depth-first, left-hand-side recursion through the @ISA array. Languages that 
+implement multiple inheritance are faced with a number of trade offs and 
+problems when doing so: what if a class is inherited by two separate parent 
+classes? Perl assumes that the first parent wins over the others in this case. 
+C++ has a more complicated system for solving these problems, while Java opts 
+out of allowing it at all. 
+
+
+
+
+=head3 Method Overloading
+
+
+
+Most OO languages allow you to write various implementations of methods 
+representing the different combinations of arguments that may be supplied. This 
+way, you can do completely different things when passed a number, a string, an 
+object of one type, an object of another type, and so on. This avoids using 
+explicit case logic, a big OO no no. Perl doesn't offer this natively, but a 
+module is available XXX.
+
+
+B<Operator Overloading> 
+This refers to assigning different means to operators. Usually when this is 
+done, an object may choose how it responds to having an operator used on it 
+(as a whole). What happens if you add two objects? Only those objects can tell 
+you. Perl lets the first object (the one on the left) decide how to handle the 
+operation. The object on the right is employed if the thing on the left isn't an 
+object. Perl does offer this feature, as does C++. Java elects not to because 
+of historic abuses of it. Programs that use operators to perform operators 
+across objects that have nothing to do with arithmetic quickly become incomprehensible.  
+
+
+
+
+=head3 Strongly Typed
+
+
+
+This certainly doesn't describe Perl. Some language employ compile-time 
+checking to make sure that no code anywhere attempts to pass anything not 
+explicit accepted into any method. This makes a large class of run-time errors 
+vanish in a puff of logic. Methods are assured that no unexpected object or 
+data types will ever be passed to them. It doesn't rule out the case where the 
+type of the object is expected but the range of the value or state of the 
+object isn't acceptable. For this reason, some OO zealots argue that each possible 
+state of an object should be a separate subclass of that object, and of course, 
+numbers should be objects, too. C++ and Java both offer this, while Perl does not.
+
+
+
+
+=head3 Pure OO
+
+
+
+This is considered extreme. Smalltalk, for instance, prides itself on 
+representing everything with objects - even numeric constants like "3". This 
+means you can make method calls into numbers. Languages that don't do this 
+suffer from a sort of duality. Every time objects and non-objects interact, 
+there are numerous possible scenarios describing the interaction. Handling 
+these cases with type membership is much cleaner. Lacking this feature, 
+programmers are steered in a mindset where the explicit cases are the norm. 
+This is an Anti-Pattern. For example, 
+
+
+
+  my $res = $ob->call(); if(!$res) { ... } else { ... }. 
+
+
+
+Java is not pure OO - primitive datatypes include numbers of various sorts, 
+booleans, arrays, as well as object references. Perl is not pure OO either. 
+I think Ruby is and Python is not XXX.
+
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<PerlDesignPatterns/PerlDesignPatterns>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>PerlSucks>
+
+
+=item *
+
+L<http://perlmonks.org/index.pl?node=8271> - "Why is it said that Perl does not implement true OO?"
+
+
+=back
+
 
 
 =head2 PerlDoc
@@ -14434,14 +21763,52 @@ other standard formats. In this example, the lines starting with I<=head1> are l
 
 
 
+Things linked to using the 
+
+
+
+  L<>
+
+
+
+syntax may be man pages, URLs, or =head or =item sections. The I<perldoc> program that
+comes with Perl refuses to handle forward references as of perl version 5.8.0 - 
+attempting to link to a section that comes later gives a warning message and no link
+is generated in the HTML. Guess I should fix that, eh?
+
+
 Reference: L<http://wiki.slowass.net/E<63>EffectivePerlProgramming> by Joseph N. Hall and Randal L. Schwartz, Addison-Wesley, 1998, pp. 183-187.
 
 
-See Also: L<DocBook/DocBook>, L<http://wiki.slowass.net/E<63>CreatingCPANModules>
-
-
 See Also: 
-L<http://www.perldoc.com/perl5.8.0/pod/perlpodspec.html> , the Perl POD specification for 5.8.0
+
+
+
+
+=over 1
+
+=item *
+
+L<DocBook/DocBook>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CreatingCPANModules>
+
+
+=item *
+
+L<http://www.perldoc.com/cgi-bin/htsearch?restrict=perl5.8.0&words=perlpodspec> , the Perl POD specification for 5.8.0
+
+
+=item *
+
+L<http://juerd.nl/site.plp/perlpodtut> - a good POD tutorial
+
+
+=back
+
 
 
 =head2 DocBook
@@ -14463,7 +21830,37 @@ and also PDF for documents that are printable. If your company produces and/or
 uses many documents you should consider this technology.
 
 
-L<http://wiki.slowass.net/E<63>CategoryToDo> [L<45>]
+L<http://wiki.slowass.net/E<63>CategoryToDo> [L<75>]
+
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<PerlDesignPatterns/PerlDesignPatterns>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>LaTeX>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>TinyWiki>
+
+
+=back
+
+<!-- no access log -->
 
 
 =head2 CvsQuickRef
@@ -14499,9 +21896,9 @@ will be kept up to date as file the checked in and out.
 
 
 
-  $Id: CvsQuickRef,v 1.5 2003/01/24 16:08:41 httpd Exp $
+  $Id: CvsQuickRef,v 1.7 2003/04/16 16:13:42 httpd Exp $
   $Author: httpd $
-  $Revision: 1.5 $
+  $Revision: 1.7 $
 
 
 
@@ -14517,7 +21914,7 @@ need to track versions of deployed code.  See also L<ErrorReporting/ErrorReporti
 
 
 
-  (my $version) = '$Revision: 1.5 $' =~ /([\d\.]+)/;
+  (my $version) = '$Revision: 1.7 $' =~ /([\d\.]+)/;
 
 
 
@@ -14563,22 +21960,294 @@ What actually gets put into files by h2xs:
 
 
 
-See Also: L<http://wiki.slowass.net/E<63>CvsIntro>
+From L<http://www.cpan.org/modules/00modlist.long.html> :
+
+
+
+  To be fully compatible with the Exporter and MakeMaker modules you should store 
+  your module's version number in a non-my package variable called $VERSION. 
+  This should be a valid floating point number with at least two digits after 
+  the decimal (ie hundredths, e.g, $VERSION = "0.01"). See Exporter.pm for details.
+
+
+
+
+  Don't use a "1.3.2" style version directly. If you use RCS or a similar system 
+  which supports multilevel versions/branches you can use this (but put it all 
+  on one line for MakeMaker VERSION_FROM):
+
+
+
+
+  $VERSION = do { my @r=(q$Revision: 1.7 $=~/\d+/g); sprintf "%d."."%03d"x$#r,@r };
+
+
+
+
+  It may be handy to add a function or method to retrieve the number. Use the 
+  number in announcements and archive file names when releasing the module 
+  (ModuleName-1.02.tar.gz). See perldoc ExtUtils::MakeMaker.pm for details.
+
+
+
+See Also: L<http://wiki.slowass.net/E<63>CvsIntro>, L<http://wiki.slowass.net/E<63>TinyWikiInstall>
+
+
+External Pages Linking to This Page:
+
+
+<!-- cut here - do not remove this comment - added by L<PagesLinkingHere/PagesLinkingHere> -->
+
+
+=over 1
+
+=item *
+
+L<http://www.google.com/search?hl=en&lr=&ie=UTF-8&oe=UTF-8&q=cvs+version+number+digits>
+
+
+=back
+
 
 
 =head2 ClassNaming
 
 
+I<People often make assumptions based on the object names alone.> L<http://c2.com/cgi/wiki?WardCunningham,>
+L<http://c2.com/cgi/wiki?SystemOfNames>
+
+
+
+
+=head3 Over General Namespaces
+
+
+
+I<Don't use the nouns "Object", "Manager", "Handler", or "Data" in class names. These words say nothing about the responsibility of the class, leading maintenance programmers to lump all kinds of irrelevant crap into the class. Think instead about what the class is actually supposed to do and name it after that.>
+-- L<http://c2.com/cgi/wiki?DontNameClassesObjectManagerHandlerOrData> 
+
+
+I<Rewriting an existing module? Don't just call it Foo2, try to figure out what's actually distinctive about it and call it that. If it's easier to use, call it Foo::Simple. If it's faster, call it Foo::Fast. If it doesn't have a distinctive difference, why are you writing/publishing it at all? >
+-- L<http://c2.com/cgi/wiki?DontNameClassesObjectManagerHandlerOrData> 
+
+
+I<OverGeneralizedNamespaces are those which describe just about _everything_, depending how you think about the problem, and include (in approximate order of uselessness): Data, Object, Software, Text, Net, Sys.>
+I<If you find yourself thinking of using an OverGeneralizedNamespace, think about whether you can find somewhere more specific for it. For instance, a module called Data::ParseSomehow could instead belong in Parse::Somehow.>
+-- L<http://www.pobox.com/~schwern/cgi-bin/perl-qa-wiki.cgi?ModuleNaming>
+
+
+I<Abstractions should be precise. Likewise, their names need to be precise.  Sometimes developers confuse abstraction (a precise thing) with overgeneralization (which is sloppy). One way that this shows up is in vague identifier names, and collections of similar names.  "Data", "Object", "Class" are words that shouldn't appear in identifier names. Identifiers should never be differentiated by a single character wart. If two class names are accidentally used interchangeably by their author, they are too imprecise.>
+-- L<http://c2.com/cgi/wiki?SystemOfNames>
+
+
+I<To generalize is to be an idiot.> -- William Blake
+
+
+
+
+=head3 Evil Managers
+
+
+
+I<Yes, a class with Manager in the name is generally procedural code written in an object-oriented language. It's code acting on data, which is why it was called a manager. It's acting on something external rather than acting on itself. To me, this is a CodeSmell.> -- L<http://c2.com/cgi/wiki?DontNameClassesObjectManagerHandlerOrData>
+
+
+I<I come to think of the -er-er principle, stated by WikiWiki:PeterCoad, that is to challenge any class name that ends in -er. If it has no parts, change the name of the class to what each object is managing. If it has parts, put as much work in the parts that the parts know enough to do themselves.> 
+-- L<http://c2.com/cgi/wiki?DontNameClassesObjectManagerHandlerOrData>
+
+
+A "manager" might be a sign of more serious trouble (a L<http://wiki.slowass.net/E<63>CodeSmell>) if: 
+
+
+
+
+=over 1
+
+=item *
+
+Tries to play two parts of a L<http://wiki.slowass.net/E<63>ModelViewController>. The business logic gets all mired down
+with the user or programatic interface. Eww.
+
+
+=item *
+
+L<GodObject/GodObject>, refusing to give up control of the CPU or knowledge of everythings interface. 
+Violates L<NoSexUntilMarriage/NoSexUntilMarriage>: is intimately tied to objects it has no business knowing about.
+Procedural code in disguise, as L<http://c2.com/cgi/wiki?PeterCoad> says. 
+
+
+=item *
+
+L<VisitorPattern/VisitorPattern> that performs some operation on data, but without a well defined interface
+as prescribed by L<AbstractRootClasses/AbstractRootClasses>. The "manager" becomes overly tied to one implementation
+of an idea, and an unrecognized but hard-coded relationship emerges between the implementation and
+the "manager". Not good.
+
+
+=item *
+
+L<SingletonPattern/SingletonPattern> acting as a L<http://wiki.slowass.net/E<63>ContainerPattern>. Nothing wrong with containers, but there
+are definate and numerous reasons not to use singletons.
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CommandProcessingChainOfResponsbility> may be needed if an arbitrary number of "filters",
+or steps of processing, are to be applied to data as it comes and goes. Lumping unrelated
+processing logic into a single object merely because it has the unique role of "managing"
+the data is unacceptable. See also L<DecoratorPattern/DecoratorPattern>. 
+
+
+=back
+
+Or everything may be just peachy, but could be named better:
+
+
+
+
+=over 1
+
+=item *
+
+L<LayeringPattern/LayeringPattern> and L<AbstractionInversion/AbstractionInversion> call for glue between layers of a "stack" of
+modules that implement successively more concrete logic. If the "manager" glues two
+such layers together, pay hommage to them, and reflect this in the name.
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>DaemonProcess> that performs some execuative or janitorial work. Be more specific.
+Use an analogy with real life: Receptionist (queue management), Dockhand (loading and unloading), 
+L<http://wiki.slowass.net/E<63>BeanCounter> (resource management), L<http://wiki.slowass.net/E<63>EvilHRDirector> (attendance and sick leave?), 
+L<http://wiki.slowass.net/E<63>MiddleManager> (reporting), L<http://wiki.slowass.net/E<63>ToothFaerie> (resource reclaimation).
+
+
+=back
+
+
+
+=head3 Resources
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://www.pobox.com/~schwern/cgi-bin/perl-qa-wiki.cgi?ModuleNaming> -
 The collective wisdom of the modules@perl.org, the Perl Module Naming Gurus,
-written down for the first time by L<http://wiki.slowass.net/E<63>MichaelSchwern>:
+written down for the first time by L<http://wiki.slowass.net/E<63>MichaelSchwern>. Lots of examples of good and bad
+names, and plenty of simple, concrete rules to follow. 
+
+
+=back
 
 
 
-  http://www.pobox.com/~schwern/cgi-bin/perl-qa-wiki.cgi?ModuleNaming
+=over 1
+
+=item *
+
+L<http://c2.com/cgi/wiki?DontNameClassesObjectManagerHandlerOrData> -
+Touches on many design ideas in conjuction with module naming.
+
+
+=back
 
 
 
-See Also:  L<http://c2.com/cgi/wikiE<63>DontNameClassesObjectManagerHandlerOrData>) - touches on many design ideas in conjuction
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<PerlDesignPatterns/PerlDesignPatterns> 
+
+
+=item *
+
+L<http://c2.com/cgi/wiki?DontNameClassesObjectManagerHandlerOrData>
+
+
+=item *
+
+L<http://c2.com/cgi/wiki?SystemOfNames>
+
+
+=item *
+
+L<http://c2.com/cgi/wiki?SameThingSameName>
+
+
+=item *
+
+L<http://www.object-arts.com/EducationCentre/Patterns/ClassName.htm>
+
+
+=item *
+
+L<http://www.pobox.com/~schwern/cgi-bin/perl-qa-wiki.cgi?ModuleNaming>
+
+
+=item *
+
+L<GodObject/GodObject>
+
+
+=item *
+
+L<NoSexUntilMarriage/NoSexUntilMarriage>
+
+
+=item *
+
+L<LayeringPattern/LayeringPattern>
+
+
+=item *
+
+L<AbstractionInversion/AbstractionInversion>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>DaemonProcess>
+
+
+=item *
+
+L<SingletonPattern/SingletonPattern>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>CommandProcessingChainOfResponsbility>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>ModelViewController>
+
+
+=item *
+
+L<http://www.objectmentor.com/resources/articles/naming.htm>
+
+
+=item *
+
+L<http://www.object-arts.com/EducationCentre/Patterns/ClassName.htm>
+
+
+=back
+
 
 
 =head2 ReferencesMeta
@@ -14654,7 +22323,10 @@ Perl is a lot like C, which makes C programmers wonder where the heck I<strlen()
 Some of the B<most noticable things> that must be overcome before Perl will accept your psuedo-C are:
 
 
-B<Dollar signs in front of the scalars.>
+
+
+=head3 Dollar signs in front of the scalars.
+
 
 
 Yeah, I know. Its a I<BASIC> thing that was perpetuated by I<sh>. In Perl, they are called
@@ -14688,13 +22360,19 @@ I<@foo = function();> tells I<perl> that you want a list of things, while I<$foo
 asks for only one. The situation is similar when fetching the value from variables. 
 
 
-B<strlen() and sizeof()>
+
+
+=head3 strlen() and sizeof()
+
 
 
 I<length()> serves both strings and arrays. 
 
 
-B<Command Line Arguments>
+
+
+=head3 Command Line Arguments
+
 
 
 There is no specific function which is called when a Perl program is run. Instead, Perl
@@ -14705,7 +22383,10 @@ and so on. Note that the sigil in front of the variable changes depending on wha
 back from it, not how it is actually declared. Specifically, the first element of I<@ARGV> is a scalar, so we use the scalar sigil to fetch it: I<$ARGV[0]>.
 
 
-B<Comments>
+
+
+=head3 Comments
+
 
 
 Comments begin with the hash symbol (or number sign, or pound sign, for you brits)
@@ -14725,12 +22406,15 @@ publicly accessable ones, to explain what the function does, why, and what it re
 do so.
 
 
-B<Environment>
+
+
+=head3 Environment
+
 
 
 Perl tells you about your environment in intimate detail. It is up to you to write
 portable code. Code that is oblivious to the system it is running on is an ideal, but
-is an impossible to acheive one in many cases. When workarounds are needed, you aren't restricted from performing them. See the perloc for Config, but as an example:
+is an impossible to achieve one in many cases. When workarounds are needed, you aren't restricted from performing them. See the perloc for Config, but as an example:
 
 
 
@@ -14748,7 +22432,10 @@ Perl hash, I<%ENV>. For example:
 
 
 
-B<Functions Without Parentheses>
+
+
+=head3 Functions Without Parentheses
+
 
 
 It is typical to see expressions in Perl not unlike:
@@ -14815,7 +22502,10 @@ Readability can suffer, but not having to match up parentheses all of the time s
 of bouncing around in the code. In case of doubt, use the parentheses.
 
 
-B<$foo[$i] Doesn't Subscript Strings>
+
+
+=head3 $foo[$i] Doesn't Subscript Strings
+
 
 
 I<$foo[$i]> would return the I<$i>th element of I<@foo>. Perl doesn't consider I<$foo>
@@ -14833,7 +22523,10 @@ Since strings aren't arrays of characters, this returns a string of one characte
 I<ord()> and I<chr()> to convert between ASCII values and strings of one character.
 
 
-B<Global, Local, and Lexical Variables>
+
+
+=head3 Global, Local, and Lexical Variables
+
 
 
 In C, all variables are either global, visible to the source code file but otherwise global,
@@ -14883,20 +22576,33 @@ I<use strict> are implemented mostly in terms of small modules. Downloading and
 installing modules from CPAN expands this collection, though in a subdirectory: /usr/local/lib/perl5/site_perl. You may also wish to add your own homebrew modules under there.
 
 
-B<No Preprocessor>
+
+
+=head3 No Preprocessor
+
 
 
 There is an interface to cpp available as a I<source filter>, but its something
-you have to go and install. See the XXX module on CPAN.
+you have to go and install. See the I<Filter> module and the whole I<Filter::> hierarchy on CPAN.
 
 
-A common trick when writing modules that are used frequently is defering compilation
+A common trick when writing modules that are used frequently is deferring compilation
 of parts of code until they are first used. See L<http://wiki.slowass.net/E<63>AutoSplit> for more information. 
-Constants can be established using this little trick:
+
+
+With perl 5.004 or later, constants can be created thusly:
 
 
 
-  *pi = \3.14159; # I'm not a math geek
+  use constant PI => 3.14159; # I'm not a math geek
+
+
+
+If you have an older version of perl, constants can be established using this little trick:
+
+
+
+  *PI = \3.14159; # I'm not a math geek
 
 
 
@@ -14910,7 +22616,10 @@ variable. This prevents accidential modification later on.
 You can also read in Perl code that defines variables using the I<require> statement.
 
 
-B<Primitive Data Types>
+
+
+=head3 Primitive Data Types
+
 
 
 As mentioned, there is no character datatype. Scalars, Arrays, Hashes, Globs, File handles,
@@ -14930,7 +22639,7 @@ Scalars are floating point values, integers, strings, or refrences as needed. Du
 the life of a scalar, it will typically bounce back and forth between being a string
 and a numeric value. In fact, Perl caches the numeric representation of strings
 containg numbers. For speed, Perl can be told not to use floating point representations:
-say I<use int;> at the top of your file.
+say I<use integer;> at the top of your file.
 
 
 Functions take exactly one kind of argument: an array. Each member of the array can 
@@ -14970,7 +22679,10 @@ read them. This is a technicality, and probably won't affect you. This
 clause only exists to silence technical knit-pickers.
 
 
-B<Checking Objects For Equality>
+
+
+=head3 Checking Objects For Equality
+
 
 
 Good luck. If you have a reference, you need intimate knowledge of it to compare it
@@ -14978,7 +22690,10 @@ value-for-value to a like reference. When writing your own objects, using an L<h
 is highly recommended.
 
 
-B<Perl has no Pointers... Well...>
+
+
+=head3 Perl has no Pointers... Well...
+
 
 
 Perl does automatic array expansion, I<autovivication> (creation on demand) of 
@@ -14988,11 +22703,14 @@ Perl grows arrays as needed. Attempting to access a negitive array element addre
 array relative the end.
 
 
-B<undef>
+
+
+=head3 undef
+
 
 
 The default value for variables is I<undef>, like null. With warnings on, enabled by I<use warnings> or passing
-perl the I<-w> switch, attempts to read values from variables that have not yet had a value
+perl the I<-w> switch, Perl attempts to read values from variables that have not yet had a value
 assigned results in a warning. You yourself can mark a variable as having no value:
 
 
@@ -15003,7 +22721,7 @@ assigned results in a warning. You yourself can mark a variable as having no val
   foreach my $price (@prices) {
     $sum += $price;
   }
-  print "$sum was yesterdays price. It isn't valid anymore. Sorry! Offer expired!\n";
+  print "$sum was yesterday's price. It isn't valid anymore. Sorry! Offer expired!\n";
   $sum = undef;
   print "The total for this order is: $sum\n"; # this gives an error message
 
@@ -15025,12 +22743,12 @@ The text of the error was "Use of uninitialized value in concatenation (.) or st
 
 Logically, undef == 0. Many built in functions return a number on success and I<undef> on failure:
 0 is a possible success return value. So is the null string, I<''>. Rather than testing for
-truth, you must test for definidness:
+truth, you must test for definedness:
 
 
 
   if(defined my $line = <>) {
-    # deal with more frivelous user demands
+    # deal with more frivolous user demands
   }
   # user has shut up now and hit Control-D or closed the connection
 
@@ -15078,7 +22796,10 @@ See L<http://wiki.slowass.net/E<63>DaemonProcess>. L<http://wiki.slowass.net/E<6
 weak references - an effective way of avoiding leaks.
 
 
-B<Arrays>
+
+
+=head3 Arrays
+
 
 
 Arrays are minipulated by value or by reference:
@@ -15091,7 +22812,7 @@ Arrays are minipulated by value or by reference:
 
 
 
-On the second line, the [L<46>] constructs a reference to a list, which then gets stored in $stuff. $stuff itself is not a reference, but merely a SCALAR that has an array reference stored into it. Remember, there is no pointer/reference type in Perl.
+On the second line, the [L<76>] constructs a reference to a list, which then gets stored in $stuff. $stuff itself is not a reference, but merely a SCALAR that has an array reference stored into it. Remember, there is no pointer/reference type in Perl.
 
 
 If manipulated by reference, only information about where to find the array is passed
@@ -15108,7 +22829,7 @@ two code examples do the same thing:
 
 
   @ar = map { $_++} @ar;
-  foreach my $i (@ar) { $i++ } # optionally, for means the same thing as foreach
+  foreach (@ar) { $_++ } # optionally, for means the same thing as foreach
 
 
 
@@ -15117,8 +22838,11 @@ letting Perl do it on demand:
 
 
 
-  @ar = 1000; # allocate 1000 slots
+  $#ar = 999; # allocate 1000 slots
 
+
+
+This tells perl that the last index of the @ar array is 999. Perl infers from this fact that there must be 999 elements in front of it so it allocates memory for all 1000 slots, thereby presizing @ar.
 
 
 Arrays can be multidimentional. C arrays allocated thus:
@@ -15177,11 +22901,14 @@ the creator of the object. This means that the API is more likely to be useful b
 likely to be consistent.
 
 
-B<Strings>
+
+
+=head3 Strings
+
 
 
 Strings in Perl are I<not> null-terminated arrays of characters as they are in C, nor
-are they necissarily an instance of some class, though a string-reference could be. 
+are they necessarily an instance of some class, though a string-reference could be. 
 They also aren't references, but it is possible and useful to make and use string
 references. The methods I<substr()>, I<index()>, I<sprintf()>, and I<length()>
 come to mind for being useful to work on strings. There are many more XXX. Strings in
@@ -15245,7 +22972,10 @@ references to objects. Actually, that is too broad of a statement - Perl is dyna
 typed, but this paragraph assumes that you've been consistent with your datastructure.
 
 
-B<if/elsif/else statements>
+
+
+=head3 if/elsif/else statements
+
 
 
 In Perl, the case where an else has another if after it has its own keyword. This is due
@@ -15263,7 +22993,10 @@ to the bracketing rules: each I<if> statement must have brackets around its body
 
 
 
-B<Forward References>
+
+
+=head3 Forward References
+
 
 
 Perl requires I<my> variables to be declared before they are used. Nothing else is
@@ -15274,18 +23007,41 @@ immediately compiles and executes the module in the case of I<use> or immediatel
 runs the code in the I<BEGIN { }> block, then resumes parsing where it left off.
 
 
-B<No Structures or Unions, no Typedef>
 
 
-Perl does not support Structures or Unions, expecting you to construct an object,
-no matter how trivial, to accomplish this. Typedef does not exist: once again, use
-objects. Often an L<AbstractFactory/AbstractFactory> will accomplish the same thing.
+=head3 No Structures or Unions, no Typedef
+
+
+
+Perl does not support Structures or Unions. You can use a hash to represent a struct in a pinch. For more features, see the core I<Class::Struct> module. For maximum flexibility, write an object class. This question is well-answered in the FAQ: see I<perldoc -q struct>.
+
+
+Typedef does not exist: use 
+objects instead. Often an L<AbstractFactory/AbstractFactory> will accomplish the same thing.
+
+
+Changes:
+
+
++ Added I<use constant> syntax in B<No Preprocessor> - jkeroes 5 Mar 2003
+
+
++ Changed XXX placeholder to I<Filter> in B<No Preprocessor> - jkeroes 5 Mar 2003
+
+
++ Minor changes to I<map> and I<foreach> to better compare in B<Arrays> - jkeroes 5 Mar 2003
+
+
++ Fixed bug in B<Arrays>: @ar = 1000 does *not* presize the array, $#ar does - jkeroes 5 Mar 2003
+
+
++ Tried to clarify B<No Structures or Unions, no Typedef> - jkeroes 5 Mar 2003
 
 
 Pages Linking to This Page:
 
 
-
+<!-- cut here - do not remove this comment -->
 
 
 =head2 BasicPerlOOSyntax
@@ -15362,6 +23118,12 @@ Often, calling a method in an object will return a new object. Sometimes you'll 
 
 
 "Programming Perl", O'Reilly Press, offers a complete rundown on using references, creating them, creating objects, and more. It is a thourogh tour of the how and why of Perl. That knowledge isn't critical to understand this book, but on the other hand, we don't replicate that information here, either.
+
+
+L<http://wiki.slowass.net/E<63>CategoryNovice>
+
+
+See L<PerlDesignPatterns/PerlDesignPatterns> for the table of contents for this beast
 
 
 =head2 PerlOoNutsAndBolts
@@ -15695,370 +23457,22 @@ This uses a "pragma" module to do the same thing as assign to @ISA, but with a c
 use CGI::Carp (L<http://www.cpan.org/modules/by-module/CGI/> L<Carp|http://search.cpan.org/searchE<63>module=CGI::Carp>);
 
 
-Perl always searches @PATH looking for modules, which usually includes the current directory.  However, module names with :: in them are in a subdirectory of a directory in the path. You can nest as deeply as you wish [L<47>]. Carp.pm would be in a directory named "CGI" off of a directory listed in @PATH. This is ideal for utility classes, data container classes, and other classes related to a more central class. "CGI::Carp" is only useful to CGI applications. "Carp" is the real module, while "CGI::Carp" is only a wrapper to it for CGI applications.
+Perl always searches @PATH looking for modules, which usually includes the current directory.  However, module names with :: in them are in a subdirectory of a directory in the path. You can nest as deeply as you wish [L<77>]. Carp.pm would be in a directory named "CGI" off of a directory listed in @PATH. This is ideal for utility classes, data container classes, and other classes related to a more central class. "CGI::Carp" is only useful to CGI applications. "Carp" is the real module, while "CGI::Carp" is only a wrapper to it for CGI applications.
 
 
 =head2 PerlPatternsResources
 
 
-B<Links Related to PerlDesignPatterns:>
 
 
-Perl Design Patterns Sites:
+=head3 Links Related to PerlDesignPatterns:
 
 
 
-  http://patternsinperl.com/ - NigelWetters' less complete but more polished site
-  http://hatena.dyndns.org/~jkondo/DesignPattern/ - less talk, more code!
-  http://magnonel.guild.net/~schwern/talks/Design_Patterns/full_slides/
-  http://magnonel.guild.net/~schwern/talks/Refactoring/slides/
 
 
+=head3 Perl Design Patterns Sites
 
-My (Yet Incomplete) List of References:
-
-
-
-  ReferencesMeta
-
-
-
-L<http://wiki.slowass.net/E<63>DesignPatterns> Yet to Be Merged:
-
-
-
-  L<http://c2.com/cgi/wikiE<63>TransactionsAndAccounts>)
-  L<http://c2.com/cgi/wikiE<63>InfocomZork>) - the natural language parser is brilliant due to a simple idea
-  L<http://c2.com/cgi/wikiE<63>TellDontAsk>) - related to AccumulateAndFire here
-
-
-
-L<http://wiki.slowass.net/E<63>AntiPatterns>:
-
-
-
-  L<http://c2.com/cgi/wikiE<63>EveryNightAtMidnight>) - polling without wait/notify is inheriently problematic
-  L<http://c2.com/cgi/wikiE<63>ArrowAntiPattern>) - nested ifs and whiles should refactor to objects and methods respectively
-  L<http://c2.com/cgi/wikiE<63>BackPedalling>) - having to recreate state: symptom of insufficient state
-  L<http://c2.com/cgi/wikiE<63>VoodooChickenCoding>) - symptoms of desperation or paranoia
-  http://www.jwz.org/doc/java.html - Why Java sucks - we've overcome many of these but good lessons to learn!
-  http://www.rahul.net/kenton/40errs.html - 40 most common XWindows programming mistakes
-
-
-
-Other L<http://wiki.slowass.net/E<63>DesignPatterns> Stuff:
-
-
-
-  http://ask.slashdot.org/article.pl?sid=02/10/15/2352256&mode=thread&tid=156 - UI Design Patterns
-  http://www.samag.com/documents/s=1280/sam02010001/ - Program Like Ya Mean It: TPJ
-  http://perlmonks.org/?node_id=193340 - Are Design Patterns Worth It?
-  http://perlmonks.org/index.pl?node_id=133399 - Design Patterns Considered Harmful
-  http://perl.plover.com/yak/design/ - "Design Patterns" Aren't - Dominus
-  http://www.norvig.com/design-patterns/ - Design Patterns in Dynamic Languages
-  http://www.laputan.org/foote/papers.html - BrainFoote, author of BigBallOfMud pattern
-  http://industriallogic.com/papers/learning.html - a learning guide to the GoF book
- 
-
-L<http://wiki.slowass.net/E<63>ObjectOriented> Stuff:
-
-
-
-  http://www.advogato.org/article/635.html - Why UML and OpenSource don't mix - UnifiedMarkupLanguage
-  http://www.stanford.edu/~engler/p401-xie.pdf - Redundant code sign of larger problems
-  http://martinfowler.com/books.html - MartinFowler, http://martinfowler.com/
-  http://www.advogato.org/article/575.html - Framework Building Rules of Thumb
-  http://www.iarchitect.com/mshame.htm - Interface Hall of Shame
-  http://mpt.phrasewise.com/stories/storyReader$374 - When good interfaces go crufty
-  http://www.bell-labs.com/cgi-user/OrgPatterns/OrgPatterns?WebIndex - Organisational (people) Patterns Wiki
-  http://java.sun.com/features/2003/01/lanier_qa1.html - Programs beyond 10 million lines
-  http://linux.oreillynet.com/pub/a/linux/2001/05/04/xp_intro.html - ExtremeProgramming intro
-  http://www.construx.com/seminars/onsite/topic-intro-oo.htm -- Good OO outline
-  http://java.sun.com/people/jag/Presentations/TheStoryOfJava/img20.htm - Java's Design Principles
-
-
-
-Books:
-
-
-
-  http://savannah.nongnu.org/projects/latex-manual/ - Free LaTeX manual
-
-
-
-
-  http://savannah.nongnu.org/projects/style-guide/ - Programming Style Guide
-
-
-
-
-  http://savannah.gnu.org/projects/wcpp-book/ - Webclient Programming In Perl, Free Book
-
-
-
-
-  http://savannah.nongnu.org/projects/pup/ - Picking Up Perl, Free Book
-
-
-
-
-  (L<http://shop.bn.com/bookSearch/isbnInquiry.aspE<63>isbn=0596003102>) - O'Reilly's ComputerScienceAndPerlProgramming - select TPJ articles
-  http://www.oreilly.com/catalog/tpj1/ - on oreilly.com - looks interesting!
-
-
-
-
-  (L<http://shop.bn.com/bookSearch/isbnInquiry.aspE<63>isbn=0-596-00206-8>) - Programming WebServices with Perl
-  http://www.oreilly.com/catalog/pwebserperl/ 
-
-
-
-
-  (L<http://shop.bn.com/bookSearch/isbnInquiry.aspE<63>isbn=1571690581>) - PERL 5 how-to: The Definitive PERL Programming Problem-Solver
-  Reggie David  Ed Weiss  Mike Glover - Sams Publishing - Any good? I don't know!
-
-
-
-
-  (L<http://shop.bn.com/bookSearch/isbnInquiry.aspE<63>isbn=0137613059>) - Advanced Topics in PERL - Pren Hall
-
-
-
-
-  DataMiningCookbook
-
-
-
-
-  http://www.masonbook.com/ - Embedding Perl in HTML with Mason
-
-
-
-Refactoring:
-
-
-
-  L<http://c2.com/cgi/wikiE<63>WikiPagesAboutRefactoring>)
-
-
-
-Random Perl Links:
-
-
-
-  http://www.perlmonks.org - Perl Monks
-  http://www.perldoc.com/
-  http://www.perldoc.com/perl5.8.0/pod.html - all sorts of documentation for Perl
-  http://conferences.oreillynet.com/pub/w/15/presentations.html - Perl Presentations
-  http://perl.about.com/cs/intermediateperl/ - http://about.com 's Intermediate Perl Area
-  http://perl.about.com/cs/advancedperl/ - http://about.com 's Advanced Perl Area
-  http://perl.about.com/library/glossary/blglossary.htm - http://about.com 's Perl Glossary
-  http://www.pobox.com/~schwern/talks/
-  http://www.pobox.com/~schwern/cgi-bin/perl-qa-wiki.cgi - MichaelSchwern's Perl Wiki!
-  http://www.perl.com/pub/a/language/versus/perl.html - Perl Gotchas
-  http://www.perl.com/language/style/slide-index.html - Perl Style
-  http://www.perl.com/tchrist/defop/defconfaq.html - Truth vs Definedness
-  http://www.perl.com/language/style/slide-index.html - Perl Style
-  http://perl.plover.com/IAQ/IAQlist.html - Infrequently Asked Questions
-  http://www.perl.com/doc/FMTEYEWTK/index.html - Far More Than You Ever Wanted To Know - 1996 =)
-  http://builder.com.com/article.jhtml?id=u00320021008BR101.htm&fromtm=e601-2 - Soap article
-  http://www.perl.com/pub/a/2002/11/14/exception.html - OO style exception handling   
-  http://perl.plover.com/FAQs/Namespaces.html - Coping with Scoping
-  OOops, lost the link - whats new in 5.8
-  http://www.oreillynet.com/pub/a/oreilly/perl/2002/11/04/perlsuccess.html - Perl Success Stories
-  http://www.onlamp.com/pub/a/onlamp/2002/01/17/slash_plugin.html - slash wiki plugin
-  http://milwaukee.pm.org/pub/Milwpm/PerlAquarium/raindrop.tar.gz - Perl Fishtank
-  http://www-106.ibm.com/developerworks/linux/library/l-genperl/?t=gr,lnxw01=PerlGenetics Genetic Algorithms in Perl
-  http://www.riehle.org/vuw-mirror/CS-TR-02-9.pdf - Postmodern Programming
-  http://www.devx.com/dotnet/articles/ym81502/ym81502-1.asp - Perl & .NET Interop via Interfaces
-  http://documentation.perl.org/ - Perl Documentation Project
-  http://perlmonks.org/index.pl?node=The%20St.%20Larry%20Wall%20Shrine - Larry Wall shrine
-  http://www.perlmonth.com/ - Defunct, odd Perl magazine
-
-
-
-Perl XS, assembly, internals:
-
-
-
-  http://www.swig.org
-  http://www.perlmonth.com/perlmonth/issue6/modules.html
-  http://www.perlmonth.com/perlmonth/issue7/modules.html
-  http://www.perlmonth.com/perlmonth/issue8/modules.html
-  http://www.perlmonth.com/perlmonth/issue9/modules.html
-  http://www.perlmonth.com/perlmonth/issue10/modules.html
-  PerlAssembly
-
-
-
-Background and cool CSy information:
-
-
-
-  L<http://c2.com/cgi/wikiE<63>GreatProgramsToRead>)
-  L<http://c2.com/cgi/wikiE<63>WhenToUseInnerClasses>) - alternative to multiple inherits, too many interfaces
-  L<http://c2.com/cgi/wikiE<63>DontNameClassesObjectManagerHandlerOrData>) - touches on many design ideas in conjuction
-  L<http://c2.com/cgi/wikiE<63>DualityBetweenStateAndClass>) - given kinds of things, at which point to make subclasses?
-  L<http://c2.com/cgi/wikiE<63>BizarreLoveTriangleInJava>) - solution looks like multiple inheritance, tho the InfocomZork parser certainly cuts it
-  http://www.cs.rit.edu/~afb/20013/plc/slides/procedures-07.html - Jensen's Machine - local value pools
-  http://www.cs.rit.edu/~afb/20013/plc/slides/procedures.html - Wow - Language Cencepts
-  http://java.sun.com/people/jag/pathfinder.html - Prioty Inversion with Thread Deadlocks
-  http://www.htdp.org/2002-05-09/Book/curriculum-Z-H-1.html - How to Design Programs
-  http://www.cs.indiana.edu/eopl/ - Essentials of Programming Languages
-  http://slashdot.org/article.pl?sid=02/08/28/1655207 - Literate programming
-  http://www.cs.uu.nl/people/franka/ref - Programming Language Theory Texts - Excellent!
-  http://www.slowass.net/phaedrus/todospool.pl?mesgid=29 - NeverRewriteSoftware
-  http://www.bagley.org/~doug/shootout/ - Language Shootout - Awesome!
-  http://icfpcontest.cse.ogi.edu/ - Functional Programming Competition - all languages welcome!
-  http://www.gnu.org/prep/standards_toc.html - GNU Coding Standards
-  http://www.advogato.org/article/539.html - Long term programming techniques
-  http://www.csd.uwo.ca/gradstudents/chicha/aa.html - Algorithm Animations
-  http://www.owasp.org/guide/ - Web Applications Security Paper
-  http://www.osnews.com/story.php?news_id=1901&page=1 - Fred Brooks references
-  http://ask.slashdot.org/askslashdot/02/10/26/2223230.shtml?tid=156 - Programming Disasters
-  http://ocw.mit.edu/6/6.170/f01/index.html - MIT Open Courseware - Software Engineering Lab
-  http://www.assembly.org/ - Demo coding! Yay!
-  http://www.joelonsoftware.com/index.html - JoelOnSoftware - insights, usability
-  http://www.atarimagazines.com/ - Lots of great old magazine articles with code
-  http://www.gnutella2.com/gnutella2_search.htm - Gnutella 2 Protocol Proposal - Kind of shunned by community
-  http://java.sun.com/features/2002/11/gabriel_qa.html - The Poetry of Programming
-  http://www.creativecommons.org/
-  http://grotto11.com/blog/slash.html?+1039831658
-  http://theory.whirlycott.com/~phil/antispam/rbl-bad/rbl-bad.html - The Spam Problem: Moving Beyond RBLs
-  http://www.oreillynet.com/pub/a/network/2002/10/21/community.html - online communities
-  http://martinfowler.com/ articles/evodb.html - Evolving Databases
-  http://www.wired.com/wired/archive/11.02/code.html - Immortal Code
-  http://developer.kde.org/~sewardj/ - ValGrind
-  http://www.rubycentral.com/book/ - Programming Ruby - The Pragmatic Programmer's Guide
-  http://levine.sscnet.ucla.edu/ - Game Theory & Economics
-  JoelOnSoftware
-
-
-
-Blogs:
-
-
-
-  http://www.wall.org/~larry/perl.html - LarryWall 's Perl page
-  http://www.perl.com/pub/a/language/admin/whats_new.html - TomChristiansen 's blog
-  http://use.perl.org/~brian_d_foy/journal/ - brian d foy's blog
-  http://www.oreillynet.com/pub/au/176 - chromatic
-
-
-
-Perl Newbie Stuff Other Than Books:
-
-
-
-  http://perlmonks.org/index.pl?node_id=216602 - Perl quickref
-
-
-
-Related email to/from me:
-
-
-
-  My initial post to PheonixPerlMongers list:
-  http://www.slowass.net/phaedrus/todospool.pl?mesgid=104
-  Perl with Meta-Lists a la Lisp 
-  http://www.slowass.net/phaedrus/todospool.pl?mesgid=42
-  Conversation with JB:
-  http://www.slowass.net/phaedrus/todospool.pl?mesgid=75
-  http://www.slowass.net/phaedrus/todospool.pl?mesgid=76
-  http://www.slowass.net/phaedrus/todospool.pl?mesgid=77
-  SecondSystemSyndrome care of PerlSixInternals:
-  http://www.slowass.net/phaedrus/todospool.pl?mesgid=63  
-  Many assorted thoughts on things:
-  http://www.slowass.net/phaedrus/todospool.pl?mesgid=41
-  PerlDesignPatterns considered failure:
-  http://www.advogato.org/article/579.html
-
-
-
-Speaking and Publishing Tips:
-
-
-
-  http://www.advogato.org/article/549.html - How to get a conference topic accepted
-  http://perens.com/Books/ - BrucePrens and PrenticeHall
-
-
-
-Other cookbooks and lexicons of note:
-
-
-
-  http://www.lileks.com/institute/gallery/spec.html - Regretable Food
-  NewAnarchyCookbook
-  http://sunsite.berkeley.edu/Literature/Bierce/DevilsDictionary/
-  http://wombat.doc.ic.ac.uk/foldoc/
-
-
-
-See also: L<http://wiki.slowass.net/E<63>JavaResources>, L<http://wiki.slowass.net/E<63>ForthResources>, L<http://wiki.slowass.net/E<63>PerlNewbie>
-
-
-$Id: L<PerlPatternsResources/PerlPatternsResources>,v 1.94 2003/03/04 11:51:27 phaedrus Exp $
-
-
-=head2 GuestLog
-
-
-I<Lovely engine, wonderfully hackable> :) -- L<http://wiki.slowass.net/E<63>KritTer>
-
-
-I<This wiki is an excellent Perl resource, many thanks for starting it> -- <a href="http://www.steve.org.uk/">Steve</a>
-
-
-I<Excellent info page for Perl'gramming and even for general concepts.> -- Chancer
-
-
-I<TinyWiki was a startingpoint to the intranet collaboration platform Sowjet+ > L<http://www.sowjet.org> I<, Thanks> -- L<http://wiki.slowass.net/E<63>DominiqueWehrli>
-
-
-I<Tiny is good.> -- L<http://wiki.slowass.net/E<63>JohnPassaniti>
-
-
-I<There are 10 types of people in this world. Those that understand binary, and those that dont.> - L<http://wiki.slowass.net/E<63>OldFox>
-
-
-I<Freedom confuses. So does CVS, but thats another matter.> - L<ScottWalters/ScottWalters>
-
-
-I<Chuck was here.> -- L<http://wiki.slowass.net/E<63>ChuckSter>
-
-
-I<This seems to be the ultimate graffiti wall, where anyone can add or erase anything> - Jabberw0k
-
-
-I<completion of projects is not my strong suit> - L<http://wiki.slowass.net/E<63>NigelWetters>
-
-
-I<gee, I cant think of anything to say> - L<http://wiki.slowass.net/E<63>HeatHer>
-
-
-I<Reisner's Rule of Conceptual Inertia: If you think big enough, you'll never have to do it.> - L<http://wiki.slowass.net/E<63>JustThisGuy>
-
-
-I<Comments on PerlDesignPatterns> - L<http://wiki.slowass.net/E<63>JoTotland>
-
-
-I<Cool stuff>  - L<http://wiki.slowass.net/E<63>ZahirJacobs>
-
-
-I<Yay for Wikis that work!> - L<http://wiki.slowass.net/E<63>IanPaterson> - L<http://www.ipaterson.ca/>
-
-
-I<A neat Wiki>
-
-
-L<http://www.livejournal.com/users/midoriweedle/> gave me a link - woo! Art rocks.
-
-
-L<http://wiki.slowass.net/E<63>PhoenixPerlMongers> is now running L<http://wiki.slowass.net/E<63>TinyWiki> - L<http://phoenix.pm.org>
-
-
-Wiki L<GuestLog/GuestLog> how-to:
 
 
 
@@ -16067,41 +23481,857 @@ Wiki L<GuestLog/GuestLog> how-to:
 
 =item *
 
-Click "Edit Page" below
+L<http://patternsinperl.com/> - L<http://wiki.slowass.net/E<63>NigelWetters>' less complete but more polished site
 
 
 =item *
 
-Add your name to the top of this page with perhaps a brief message.
+L<http://apprentice.perl.org/project/5.html> - curious, didn't know that was there
 
 
 =item *
 
-Your name should be in mixed case without a space - this makes it a link.
+L<http://hatena.dyndns.org/~jkondo/DesignPattern/> - less talk, more code!
 
 
 =item *
 
-Click "Save"
+L<http://magnonel.guild.net/~schwern/talks/Design_Patterns/full_slides/>
 
 
 =item *
 
-Click on your name - it should be a link - and give a brief bio, link
-to your home page, etc. 
+L<http://magnonel.guild.net/~schwern/talks/Refactoring/slides/>
+
+
+=item *
+
+L<http://www.zanthan.com/itymbi/archives/000587.html>
+
+
+=item *
+
+L<http://sagewire.sage.org/article.pl?sid=02/07/11/187241> - fluent Perl
+
+
+=item *
+
+L<http://www.panix.com/~ziggy/perl_patterns.html>
+
+
+=item *
+
+L<http://www.perl.com/pub/a/2002/08/07/proxyobject.html>
+
+
+=item *
+
+L<http://bob.marlboro.edu/~msie/2002/ipl/perl/lectures/jun29/lecture.html>
+
+
+=item *
+
+L<http://www.samag.com/documents/s=1280/sam02010001/> - Program Like Ya Mean It: TPJ
+
+
+=item *
+
+L<http://perlmonks.org/?node_id=193340> - Are Design Patterns Worth It?
+
+
+=item *
+
+L<http://perlmonks.org/index.pl?node_id=133399> - Design Patterns Considered Harmful
+
+
+=item *
+
+L<http://perl.plover.com/yak/design/> - "Design Patterns" Aren't - Dominus
 
 
 =back
 
 
 
-$Id: L<GuestLog/GuestLog>,v 1.33 2003/02/26 23:03:04 httpd Exp $
-
-
-Pages Linking to This Page:
+=head3 Perl Object Manpages
 
 
 
+
+
+=over 1
+
+=item *
+
+L<http://search.cpan.org/author/GSAR/perl-5.6.1/pod/perlbot.pod>
+
+
+=item *
+
+L<http://search.cpan.org/author/GSAR/perl-5.6.1/pod/perlmod.pod>
+
+
+=item *
+
+L<http://search.cpan.org/author/GSAR/perl-5.6.1/pod/perltootc.pod>
+
+
+=item *
+
+L<http://search.cpan.org/author/GSAR/perl-5.6.1/pod/perltoot.pod>
+
+
+=item *
+
+L<http://search.cpan.org/author/GSAR/perl-5.6.1/pod/perlobj.pod>
+
+
+=item *
+
+L<http://search.cpan.org/author/GSAR/perl-5.6.1/pod/perlmodlib.pod>
+
+
+=back
+
+
+
+=head3 Misc
+
+
+
+
+
+=over 1
+
+=item *
+
+References: L<ReferencesMeta/ReferencesMeta> (Moving away from this format towards automation)
+
+
+=item *
+
+Books: This has moved to L<CategoryBook/CategoryBook> and L<http://phoenix.pm.org/wiki/index.cgi?PerlBooks>
+
+
+=item *
+
+L<http://perlmonks.org/index.pl?node_id=216602> - Perl quickref for newbies
+
+
+=back
+
+
+
+=head3 Other DesignPatterns Stuff
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://ask.slashdot.org/article.pl?sid=02/10/15/2352256&mode=thread&tid=156> - UI Design Patterns
+
+
+=item *
+
+L<http://www.norvig.com/design-patterns/> - Design Patterns in Dynamic Languages
+
+
+=item *
+
+L<http://www.laputan.org/foote/papers.html> - L<http://wiki.slowass.net/E<63>BrainFoote>, author of L<BigBallOfMud/BigBallOfMud> pattern
+
+
+=item *
+
+L<http://industriallogic.com/papers/learning.html> - a learning guide to the GoF book
+
+
+=item *
+
+L<http://www.clickblocks.org/patterns1/pattern_synopses.htm>
+
+
+=item *
+
+L<http://exciton.cs.oberlin.edu/javaresources/DesignPatterns/default.htm>
+
+
+=item *
+
+L<http://citeseer.nj.nec.com/riehle97composite.html>
+
+
+=item *
+
+L<http://www.dmst.aueb.gr/dds/pubs/jrnl/2000-JSS-DSLPatterns/html/dslpat.html> - Patterns for Domain Specific Languages
+
+
+=item *
+
+L<http://www.martinfowler.com/eaaCatalog/> - L<http://wiki.slowass.net/E<63>MartinFowler>'s Enterprise Patterns
+
+
+=item *
+
+L<http://www.mcs.csuhayward.edu/~billard/6140.html> - CSI 6140's index of patterns sites
+
+
+=back
+
+
+
+=head3 ObjectOriented Stuff
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://www.objectarchitects.de/ObjectArchitects/orpatterns/index.htm> - Object-Relational patterns
+
+
+=item *
+
+L<http://www.stanford.edu/~engler/p401-xie.pdf> - Redundant code sign of larger problems
+
+
+=item *
+
+L<http://www.advogato.org/article/575.html> - Framework Building Rules of Thumb
+
+
+=item *
+
+L<http://java.sun.com/features/2003/01/lanier_qa1.html> - Programs beyond 10 million lines
+
+
+=item *
+
+L<http://www.iarchitect.com/mshame.htm> - Interface Hall of Shame
+
+
+=item *
+
+L<http://mpt.phrasewise.com/stories/storyReader$374> - When good interfaces go crufty
+
+
+=item *
+
+L<http://linux.oreillynet.com/pub/a/linux/2001/05/04/xp_intro.html> - L<http://wiki.slowass.net/E<63>ExtremeProgramming> intro
+
+
+=item *
+
+L<http://www.construx.com/seminars/onsite/topic-intro-oo.htm> -- Good OO outline
+
+
+=item *
+
+L<http://java.sun.com/people/jag/Presentations/TheStoryOfJava/img20.htm> - Java's Design Principles
+
+
+=item *
+
+L<http://www.advogato.org/article/635.html> - Why UML and L<http://wiki.slowass.net/E<63>OpenSource> don't mix - L<http://wiki.slowass.net/E<63>UnifiedMarkupLanguage>
+
+
+=item *
+
+L<http://martinfowler.com/books.html> - L<http://wiki.slowass.net/E<63>MartinFowler>, L<http://martinfowler.com/>
+
+
+=item *
+
+L<http://www.ambysoft.com/> - Agile books, and lots of database stuff
+
+
+=back
+
+
+
+=head3 Random Perl Links
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://www.perlmonks.org> - Perl Monks
+
+
+=item *
+
+L<http://grinder.perlmonk.org/pmsi/title.html> - All snippets, indexed!
+
+
+=item *
+
+L<http://www.perldoc.com/>
+
+
+=item *
+
+L<http://www.sysarch.com/perl/sort_paper.html> - Very, very good - XXX
+
+
+=item *
+
+L<http://www.perldoc.com/perl5.8.0/pod.html> - all sorts of documentation for Perl
+
+
+=item *
+
+L<http://conferences.oreillynet.com/pub/w/15/presentations.html> - Perl Presentations
+
+
+=item *
+
+L<http://perl.about.com/cs/intermediateperl/> - L<http://about.com> 's Intermediate Perl Area
+
+
+=item *
+
+L<http://perl.about.com/cs/advancedperl/> - L<http://about.com> 's Advanced Perl Area
+
+
+=item *
+
+L<http://perl.about.com/library/glossary/blglossary.htm> - L<http://about.com> 's Perl Glossary
+
+
+=item *
+
+L<http://www.pobox.com/~schwern/talks/>
+
+
+=item *
+
+L<http://www.pobox.com/~schwern/cgi-bin/perl-qa-wiki.cgi> - L<http://wiki.slowass.net/E<63>MichaelSchwern>'s Perl Wiki!
+
+
+=item *
+
+L<http://www.perl.com/pub/a/language/versus/perl.html> - Perl Gotchas
+
+
+=item *
+
+L<http://www.perl.com/language/style/slide-index.html> - Perl Style
+
+
+=item *
+
+L<http://www.perl.com/tchrist/defop/defconfaq.html> - Truth vs Definedness
+
+
+=item *
+
+L<http://www.perl.com/language/style/slide-index.html> - Perl Style
+
+
+=item *
+
+L<http://perl.plover.com/IAQ/IAQlist.html> - Infrequently Asked Questions
+
+
+=item *
+
+L<http://www.perl.com/doc/FMTEYEWTK/index.html> - Far More Than You Ever Wanted To Know - 1996 =)
+
+
+=item *
+
+L<http://builder.com.com/article.jhtml?id=u00320021008BR101.htm&fromtm=e601-2> - Soap article
+
+
+=item *
+
+L<http://www.perl.com/pub/a/2002/11/14/exception.html> - OO style exception handling   
+
+
+=item *
+
+L<http://perl.plover.com/FAQs/Namespaces.html> - Coping with Scoping
+
+
+=item *
+
+L<http://www.oreillynet.com/pub/a/oreilly/perl/2002/11/04/perlsuccess.html> - Perl Success Stories
+
+
+=item *
+
+L<http://www.onlamp.com/pub/a/onlamp/2002/01/17/slash_plugin.html> - slash wiki plugin
+
+
+=item *
+
+L<http://milwaukee.pm.org/pub/Milwpm/PerlAquarium/raindrop.tar.gz> - Perl Fishtank
+
+
+=item *
+
+L<http://www-106.ibm.com/developerworks/linux/library/l-genperl/?t=gr,lnxw01=PerlGenetics> Genetic Algorithms in Perl
+
+
+=item *
+
+L<http://www.riehle.org/vuw-mirror/CS-TR-02-9.pdf> - Postmodern Programming
+
+
+=item *
+
+L<http://www.devx.com/dotnet/articles/ym81502/ym81502-1.asp> - Perl & .NET Interop via Interfaces
+
+
+=item *
+
+L<http://documentation.perl.org/> - Perl Documentation Project
+
+
+=item *
+
+L<http://perlmonks.org/index.pl?node=The%20St.%20Larry%20Wall%20Shrine> - Larry Wall shrine
+
+
+=item *
+
+L<http://www.perlmonth.com/> - Defunct, odd Perl magazine
+
+
+=item *
+
+L<http://www.perl.com/pub/a/1999/11/sins.html> - 11 sins of perl
+
+
+=item *
+
+L<http://www.perl.com/pub/a/language/versus/perl.html> - 7 deadly sins of Perl 4 
+
+
+=item *
+
+L<http://cvs.simon-cozens.org/viewcvs.cgi/rubyisms/README?rev=HEAD&content-type=text/vnd.viewcvs-markup>
+
+
+=back
+
+
+
+=head3 Perl XS, assembly, internals
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://www.swig.org>
+
+
+=item *
+
+L<http://www.perlmonth.com/perlmonth/issue6/modules.html>
+
+
+=item *
+
+L<http://www.perlmonth.com/perlmonth/issue7/modules.html>
+
+
+=item *
+
+L<http://www.perlmonth.com/perlmonth/issue8/modules.html>
+
+
+=item *
+
+L<http://www.perlmonth.com/perlmonth/issue9/modules.html>
+
+
+=item *
+
+L<http://www.perlmonth.com/perlmonth/issue10/modules.html>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>PerlAssembly>
+
+
+=back
+
+
+
+=head3 Background and cool CSy information
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://c2.com/cgi/wiki?GreatProgramsToRead>
+
+
+=item *
+
+L<http://c2.com/cgi/wiki?WhenToUseInnerClasses> - alternative to multiple inherits, too many interfaces
+
+
+=item *
+
+L<http://c2.com/cgi/wiki?DontNameClassesObjectManagerHandlerOrData> - touches on many design ideas in conjuction
+
+
+=item *
+
+L<http://c2.com/cgi/wiki?DualityBetweenStateAndClass> - given kinds of things, at which point to make subclasses?
+
+
+=item *
+
+L<http://c2.com/cgi/wiki?BizarreLoveTriangleInJava> - solution looks like multiple inheritance, tho the L<http://wiki.slowass.net/E<63>InfocomZork> parser certainly cuts it
+
+
+=item *
+
+L<http://www.cs.rit.edu/~afb/20013/plc/slides/procedures-07.html> - Jensen's Machine - local value pools
+
+
+=item *
+
+L<http://www.cs.rit.edu/~afb/20013/plc/slides/procedures.html> - Wow - Language Cencepts
+
+
+=item *
+
+L<http://java.sun.com/people/jag/pathfinder.html> - Prioty Inversion with Thread Deadlocks
+
+
+=item *
+
+L<http://www.htdp.org/2002-05-09/Book/curriculum-Z-H-1.html> - How to Design Programs
+
+
+=item *
+
+L<http://www.cs.indiana.edu/eopl/> - Essentials of Programming Languages
+
+
+=item *
+
+L<http://slashdot.org/article.pl?sid=02/08/28/1655207> - Literate programming
+
+
+=item *
+
+L<http://www.cs.uu.nl/people/franka/ref> - Programming Language Theory Texts - Excellent!
+
+
+=item *
+
+L<http://www.slowass.net/phaedrus/todospool.pl?mesgid=29> - L<http://wiki.slowass.net/E<63>NeverRewriteSoftware>
+
+
+=item *
+
+L<http://www.bagley.org/~doug/shootout/> - Language Shootout - Awesome!
+
+
+=item *
+
+L<http://icfpcontest.cse.ogi.edu/> - Functional Programming Competition - all languages welcome!
+
+
+=item *
+
+L<http://www.gnu.org/prep/standards_toc.html> - GNU Coding Standards
+
+
+=item *
+
+L<http://www.advogato.org/article/539.html> - Long term programming techniques
+
+
+=item *
+
+L<http://www.csd.uwo.ca/gradstudents/chicha/aa.html> - Algorithm Animations
+
+
+=item *
+
+L<http://www.owasp.org/guide/> - Web Applications Security Paper
+
+
+=item *
+
+L<http://www.osnews.com/story.php?news_id=1901&page=1> - Fred Brooks references
+
+
+=item *
+
+L<http://ask.slashdot.org/askslashdot/02/10/26/2223230.shtml?tid=156> - Programming Disasters
+
+
+=item *
+
+L<http://ocw.mit.edu/6/6.170/f01/index.html> - MIT Open Courseware - Software Engineering Lab
+
+
+=item *
+
+L<http://www.assembly.org/> - Demo coding! Yay!
+
+
+=item *
+
+L<http://www.joelonsoftware.com/index.html> - L<http://wiki.slowass.net/E<63>JoelOnSoftware> - insights, usability
+
+
+=item *
+
+L<http://www.atarimagazines.com/> - Lots of great old magazine articles with code
+
+
+=item *
+
+L<http://www.atariarchives.org/c1bag/> - lots of old Atari books! Woo!
+
+
+=item *
+
+L<http://java.sun.com/features/2002/11/gabriel_qa.html> - The Poetry of Programming
+
+
+=item *
+
+L<http://www.creativecommons.org/>
+
+
+=item *
+
+L<http://grotto11.com/blog/slash.html?+1039831658>
+
+
+=item *
+
+L<http://theory.whirlycott.com/~phil/antispam/rbl-bad/rbl-bad.html> - The Spam Problem: Moving Beyond RBLs
+
+
+=item *
+
+L<http://www.oreillynet.com/pub/a/network/2002/10/21/community.html> - online communities
+
+
+=item *
+
+L<http://martinfowler.com/articles/evodb.html> - Evolving Databases
+
+
+=item *
+
+L<http://www.wired.com/wired/archive/11.02/code.html> - Immortal Code
+
+
+=item *
+
+L<http://developer.kde.org/~sewardj/> - L<http://wiki.slowass.net/E<63>ValGrind>
+
+
+=item *
+
+L<http://www.rubycentral.com/book/> - Programming Ruby - The Pragmatic Programmer's Guide
+
+
+=item *
+
+L<http://levine.sscnet.ucla.edu/> - Game Theory & Economics
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>JoelOnSoftware>
+
+
+=item *
+
+L<http://www.amk.ca/python/writing/warts.html>
+
+
+=item *
+
+L<http://web.mit.edu/nathanw/www/usenix/freenix-sa/freenix-sa.html>
+
+
+=item *
+
+L<http://www.bell-labs.com/cgi-user/OrgPatterns/OrgPatterns?WebIndex> - Organisational (people) Patterns Wiki
+
+
+=back
+
+
+
+=head3 Blogs
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://www.wall.org/~larry/perl.html> - L<http://wiki.slowass.net/E<63>LarryWall> 's Perl page
+
+
+=item *
+
+L<http://www.perl.com/pub/a/language/admin/whats_new.html> - L<http://wiki.slowass.net/E<63>TomChristiansen> 's blog
+
+
+=item *
+
+L<http://use.perl.org/~brian_d_foy/journal/> - brian d foy's blog
+
+
+=item *
+
+L<http://www.oreillynet.com/pub/au/176> - chromatic
+
+
+=back
+
+
+
+=head3 Related email to/from me
+
+
+
+
+
+=over 1
+
+=item *
+
+My initial post to L<http://wiki.slowass.net/E<63>PheonixPerlMongers> list:
+ L<http://www.slowass.net/phaedrus/todospool.pl?mesgid=104>
+
+
+=item *
+
+Perl with Meta-Lists a la Lisp:
+ L<http://www.slowass.net/phaedrus/todospool.pl?mesgid=42>
+
+
+=item *
+
+Conversation with JB:
+ L<http://www.slowass.net/phaedrus/todospool.pl?mesgid=75>
+ L<http://www.slowass.net/phaedrus/todospool.pl?mesgid=76>
+ L<http://www.slowass.net/phaedrus/todospool.pl?mesgid=77>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>SecondSystemSyndrome> care of L<http://wiki.slowass.net/E<63>PerlSixInternals>:
+ L<http://www.slowass.net/phaedrus/todospool.pl?mesgid=63>  
+
+
+=item *
+
+Many assorted thoughts on things:
+ L<http://www.slowass.net/phaedrus/todospool.pl?mesgid=41>
+
+
+=item *
+
+L<PerlDesignPatterns/PerlDesignPatterns> considered failure:
+ L<http://www.advogato.org/article/579.html>
+
+
+=back
+
+
+
+=head3 Other cookbooks and lexicons of note
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://www.lileks.com/institute/gallery/spec.html> - Regretable Food
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>NewAnarchyCookbook>
+
+
+=item *
+
+L<http://sunsite.berkeley.edu/Literature/Bierce/DevilsDictionary/>
+
+
+=item *
+
+L<http://wombat.doc.ic.ac.uk/foldoc/>
+
+
+=back
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<http://wiki.slowass.net/E<63>JavaResources>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>ForthResources>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>PerlNewbie>
+
+
+=item *
+
+and of course, L<PerlDesignPatterns/PerlDesignPatterns>
+
+
+=back
+
+$Id: L<PerlPatternsResources/PerlPatternsResources>,v 1.107 2003/04/18 07:05:29 phaedrus Exp $
 
 
 =head2 AboutPerlPatternsProject
@@ -16126,6 +24356,8 @@ akin to a polar region, waiting to be explored.
 
 
 Your feedback is strongly encouraged. I want to know:
+
+
 
 
 =over 1
@@ -16168,13 +24400,141 @@ Which explaination you liked better of the lot ;)
 =back
 
 You are encouraged to use the Wiki. Go ahead and add your comment
-or critisism right into the text. See L<http://wiki.slowass.net/E<63>WhyWikiWorks> for more infromation.
+or critisism right into the text. See L<http://wiki.slowass.net/E<63>TinyWiki> for more infromation.
 
 
-L<http://wiki.slowass.net/E<63>PerlPatternsToDo> - a list of things I personally need to still do.
+L<http://wiki.slowass.net/E<63>PerlPatternsToDo>, L<http://wiki.slowass.net/E<63>CategoryToDo> - lists of things that need to be done - some of them,
+I have very specific designs on what should be done, but I haven't gotten to it yet.
 
+
+At this point, almost everything is the result of me reading and writing in binges.
+
+
+These documents started in L<http://wiki.slowass.net/E<63>AbiWord> and were converted by a script to individual 
+pages. There are some artifacts of that conversion left. I've also thrashed 
+around trying to solve questions of style, and will probably continue to do so.
+
+
+There are three tiers of documents here:
+
+
+
+
+=over 1
+
+=item *
+
+Tier 1: The L<PerlDesignPatterns/PerlDesignPatterns> page and documents that it directly links to. 
+
+
+=item *
+
+Tier 2: On-topic (according to L<HomePage/HomePage>) pages that support the first tier may eventually join the first tier
+
+
+=item *
+
+Tier 3: Personal pages, pages about Wiki and L<http://wiki.slowass.net/E<63>TinyWiki>, the L<http://wiki.slowass.net/E<63>GuestLog>, and off-topic stuff like L<http://wiki.slowass.net/E<63>CopyThisBook>
+
+
+=back
+
+Tier 1: Those are compiled by
+L<http://wiki.slowass.net/assemble.cgi?PerlDesignPatterns> to output the HTML "book"
+and by the podparser.pl script for the L<PerlDoc/PerlDoc> version. These should look reasonably nice, be somewhat
+complete. Disucssions in them will quickly be integrated into the document or shuffled off elsewhere.
+
+
+Tier 2: Not finished, or no decision has been made as to whether they should be standard reading for the
+distributed "book" version. The final output should be concise, relavent, and interesting rather than
+thorough. As ideas are incubating here, discussions will be molested less.
+
+
+Tier 3: Pages not of interest to the project will be left intact or nuked as appropriate. People 
+creating pages randomly and posting rants doesn't bother me, but at a certain point I would be
+forced to play cop, in theory.
+
+
+The project has lots of goals - too many perhaps. 
+
+
+
+
+=over 1
+
+=item *
+
+Cookbook - quick how-to guide for doing common and uncommon-but-cool things relating somehow to the topic.
+
+
+=item *
+
+Free replacement for commercial books on the same topic - scalable, clean code.
+
+
+=item *
+
+Style guide for writing large Perl programs.
+
+
+=item *
+
+Introduction to L<http://wiki.slowass.net/E<63>ObjectOriented> programming in Perl for practicioners of other languages.
+
+
+=item *
+
+Introduction to L<http://wiki.slowass.net/E<63>ObjectOriented> programming in Perl for Perlers not familiar with OO.
+
+
+=back
 
 L<http://www.slowass.net/~phaedrus/slides> - a version of this done as a L<http://wiki.slowass.net/E<63>PerlMongers> presentation.
+
+
+A dead-tree format book was the original goal of this project, but I've since learned
+that I can't write, I'm a nobody, and no publisher reads those damn proposels that they
+give you elaborate templates for anyway. Rather than throw away the work, I
+put it up on the web for all, and continued tinking with it here and there. I hoped
+in doing so that the project would go to the community, reach critical mass, and
+become self-sustaining, but again, I was naive. It has continued to be my work
+and my work alone. I should have known better. No one wants to get involved with
+a project until after it becomes successful. We all have our own projects, no point
+in working on other peoples.
+
+
+
+
+=head3 See Also
+
+
+
+
+
+=over 1
+
+=item *
+
+L<PerlDesignPatterns/PerlDesignPatterns>
+
+
+=item *
+
+L<YetAnotherIntroduction/YetAnotherIntroduction>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>PerlPatternsToDo>
+
+
+=item *
+
+L<http://wiki.slowass.net/reverse?CategoryToDo>
+
+
+=back
+
 
 
 =head2 YetAnotherIntroduction
@@ -16209,6 +24569,11 @@ L<http://www.slowass.net/phaedrus/todospool.pl?mesgid=58>
 =item *
 
 L<http://www.slowass.net/phaedrus/todospool.pl?mesgid=59> 
+
+
+=item *
+
+L<http://www.xray.mpe.mpg.de/mailing-lists/modules/2003-03/msg00079.html>
 
 
 =back
@@ -16377,6 +24742,31 @@ L<http://wiki.slowass.net/E<63>AntiPatterns>
 L<http://wiki.slowass.net/E<63>ArtAndScience>
 
 
+=item *
+
+L<http://wiki.slowass.net/E<63>DiverseInterfaces>
+
+
+=item *
+
+L<BlindFaith/BlindFaith>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>StupidBosses>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>SkipTheIntroduction>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>WhyPerlDesignPatterns>
+
+
 =back
 
 
@@ -16404,6 +24794,16 @@ L<http://wiki.slowass.net/E<63>CopyThisBook>
 L<http://wiki.slowass.net/E<63>RootTheUniverse>
 
 
+=item *
+
+L<http://wiki.slowass.net/E<63>CarsAndSecurity>
+
+
+=item *
+
+L<http://wiki.slowass.net/E<63>StupidBosses>
+
+
 =back
 
 
@@ -16411,7 +24811,7 @@ L<http://wiki.slowass.net/E<63>RootTheUniverse>
 
 
 
-See Also: L<AboutPerlPatternsProject/AboutPerlPatternsProject>, L<http://wiki.slowass.net/E<63>AlternateTitles>
+See Also: L<AboutPerlPatternsProject/AboutPerlPatternsProject>, L<http://wiki.slowass.net/E<63>AlternateTitles>, L<PerlDesignPatterns/PerlDesignPatterns>
 
 
 =head2 AboutTheAuthor
@@ -16439,7 +24839,7 @@ and I had to unset it. I formulated a defense: Object Oriented programming is ju
 paradigm. New paradigms come about because of shortcomings of earlier paradigms, not because
 earlier ones are fundamentally invalid. Slavish adherance to a paradigm is no substitute
 for knowledge, skill, or artistry. Further, there were plenty of other paradigms:
-L<http://wiki.slowass.net/E<63>LambdaProgramming>, L<FunctionalProgramming/FunctionalProgramming>, L<http://wiki.slowass.net/E<63>LiterateProgramming>, and their ideas: goal-directed
+L<http://wiki.slowass.net/E<63>LambdaProgramming>, L<FunctionalProgramming/FunctionalProgramming>, L<LiterateProgramming/LiterateProgramming>, and their ideas: goal-directed
 evaluation, systems of constraints, and lots of other very powerful concepts. I'd like to
 tell you that I've been made an OO convert. If that were true, my bank account would
 nothing resemble its current state. Instead, I decided the only way anyone would mistakenly
@@ -16458,388 +24858,6 @@ Oriented programming has traditionally done exactly that. Taking away every opti
 exercise creativity including even minor design work assures that no fun will be had
 by the chimps. I'm here to score one for the chimps. If a job isn't engaging and challenging,
 the chimps loose interest, and you loose the best chimps. Unless you have bananas.
-
-
-=head2 ScottWalters
-
-
-I'm just a technical day laboror, standing on the side of the Internet
-superhighway waiting for a pickup truck to pull over and let me in so
-I can go prune someones overgrown, bug infested code and be sent on my way.
-
-
-B<Links About Me>
-
-
-
-
-=over 1
-
-=item *
-
-Mega Portal la Self: L<http://www.slowass.net/phaedrus/>
-
-
-=item *
-
-L<http://wiki.slowass.net/E<63>WikiWiki> Page: L<http://c2.com/cgi/wiki?ScottWalters>
-
-
-=item *
-
-Resume: L<http://www.illogics.org>
-
-
-=item *
-
-Mud Page: L<http://weehours.net/finger.cgi?player=Phaedrus>
-
-
-=item *
-
-CPAN Page: L<http://www.cpan.org/modules/by-authors/id/S/SW/SWALTERS/>
-
-
-=back
-
-B<Projects>
-
-
-
-
-=over 1
-
-=item *
-
-L<http://weehours.net>
-
-
-=over 2
-
-=item *
-
-Applivion
-
-
-=item *
-
-NPC bug
-
-
-=item *
-
-Gauntlet monster patch
-
-
-=item *
-
-player building: elevators next
-
-
-=item *
-
-L<http://weehours.net/todo.txt>
-
-
-=back
-
-
-
-=item *
-
-L<http://wiki.slowass.net/E<63>NetBSD>
-
-
-=over 2
-
-=item *
-
-L<http://projects.netbsd.org>
-
-
-=item *
-
-hw.cgi
-
-
-=back
-
-
-
-=item *
-
-L<http://illogics.com> - L<http://wiki.slowass.net/E<63>FreeSoftwareConsultants>
-
-
-=back
-
-
-
-=over 1
-
-=item *
-
-L<http://wiki.slowass.net/E<63>TinyWiki>
-
-
-=over 2
-
-=item *
-
-feedback/survey
-
-
-=item *
-
-faq-o-matic
-
-
-=item *
-
-L<http://wiki.slowass.net/E<63>NoStrachPress> re: L<PerlDesignPatterns/PerlDesignPatterns>?
-
-
-=back
-
-
-
-=item *
-
-Perl
-
-
-=over 2
-
-=item *
-
-TPJ article: L<http://www.slowass.net/wiki3/?GodObjectArticle>
-
-
-=item *
-
-B assembly
-
-
-=item *
-
-L<PerlDesignPatterns/PerlDesignPatterns>
-
-
-=item *
-
-L<http://patternsinperl.com> - write a chapter
-
-
-=back
-
-
-
-=item *
-
-L<http://www.lindawalters.com>
-
-
-=back
-
-
-
-=over 1
-
-=item *
-
-O'Reilly proofreading
-
-
-=back
-
-
-
-=over 1
-
-=item *
-
-Consulting - L<http://www.slowass.net/wiki3/?ConsultingTasks>
-
-
-=over 2
-
-=item *
-
-backup straylight
-
-
-=item *
-
-dd laforge
-
-
-=item *
-
-PPC ram - install
-
-
-=item *
-
-inkjet printer reviews
-
-
-=item *
-
-L<http://www.slowass.net/wiki3/?PerlSecurity>
-
-
-=item *
-
-L<http://www.slowass.net/wiki3/?PariyattiProject>
-
-
-=back
-
-
-
-=item *
-
-Social
-
-
-=over 2
-
-=item *
-
-Mark - LotR
-
-
-=item *
-
-madaline
-
-
-=item *
-
-thank Megan & Aaron
-
-
-=back
-
-
-
-=item *
-
-Money
-
-
-=over 2
-
-=item *
-
-Library fine
-
-
-=item *
-
-L<http://jerkfacehead.com>
-
-
-=item *
-
-cycle tire
-
-
-=back
-
-
-
-=item *
-
-Parrot
-
-
-=over 2
-
-=item *
-
-PMC documentation improvements.
-
-
-=item *
-
-Maintain Array PMC - specifically, merge L<http://wiki.slowass.net/E<63>PerlArray> fixes into Array
-
-
-=item *
-
-Implement Keys in Interpreter, possibly
-
-
-=item *
-
-Alternate keyed access implementation to reduce code-bloat
-
-
-=item *
-
-Introspection PMC, to expose guts of Parrot's VM
-
-
-=item *
-
-Sync Array and L<http://wiki.slowass.net/E<63>PerlArray> PMCs
-
-
-=back
-
-
-
-=back
-
-B<Random Bookmarks>
-
-
-
-
-=over 1
-
-=item *
-
-L<http://www.trl.ibm.com/projects/security/ssp/>
-
-
-=item *
-
-L<http://wiki.slowass.net/E<63>CollaborativeDevelopmentPolitics>
-
-
-=back
-
-B<Music>
-
-
-Bands! Music, yes! Local stuff, mostly. I'm a sucker for a good
-local band, and you should be too. Break the chokehold on music 
-distribution and use physical proximity!
-
-
-
-
-=over 1
-
-=item *
-
-Marconias - L<http://www.marconias.com> - does gigs!
-
-
-=item *
-
-Feldheimer Parsec - L<http://www.jerkfacehead.com>
-
-
-=back
-
-Pages Linking to This Page:
-
-
-
-*  L<http://www.slowass.net/phaedrus/>
 
 
 =head2 GnuFreeDocumentationLicense
@@ -17285,6 +25303,48 @@ and suggestions.
 L<http://wiki.slowass.net/E<63>CategoryCategory>
 
 
+=head2 PagesLinkingHere
+
+
+This is a code page. It logs the HTTP Referer (sic) header if there is one.
+This lets pages link back to where-ever happens to link to them. 
+
+
+Use this page as a module. From your code, do the L<http://wiki.slowass.net/E<63>ActiveWikiPages> escape sequence,
+which is the same as the ASP escape: less-than then percent, then:
+
+
+
+  sb_use 'PagesLinkingHere';
+
+
+
+Then the close sequence: percent then greater-than.
+
+
+Want to see the escapes yourself? Click "edit" on the bottom of the page!
+
+
+This page doubles as storage for the program: L<http://wiki.slowass.net/E<63>ActiveWikiPages> scripts can only
+write to themselves.
+
+
+Feel free to edit referer spam (yes, people do this) and search engine
+hits from the list of hits in pages.
+
+
+Reguarding the rather terse warning about not removing a certain comment, 
+you can remove it if you feel like it: its purpose is to allow this page
+to view the list of refers that have already been logged, allowing it to
+avoid logging duplicates.
+
+
+
+
+
+<!-- no access log -->
+
+
 =head2 Footnotes
 
 
@@ -17314,7 +25374,9 @@ Sarah L. Winchester, heir to the Winchester estate, began hearing voices telling
 
 
 =item 5
-we'll do that later, in L<StatePattern/StatePattern>
+we'll do that later, in L<StatePattern/StatePattern> In a case 
+where complex many-to-many relationships existed between state transitions and 
+other parts of the program. 
 
 
 =item 6
@@ -17370,26 +25432,53 @@ title makes.
 
 
 =item 17
-untested XXX
+Explain this - scope for pointers?
 
 
 =item 18
-This is dreadful! Prime example of why I need to get diagrams on line...
+...And a server had a lot more jobs than a server does now - mail, programming language
+class development machine, DNS for their domain, running MUDs, shell accounts for
+emailing with, perhaps a dozen other things.
 
 
 =item 19
-XXX better description, code example.
+and elsewhere? or elsewhere?
 
 
 =item 20
-XXX there are examples of this floating around this Wiki.. have to track them down
+that is, the requirements of the interface should
+still be met - see L<DesignContract/DesignContract>
 
 
 =item 21
-XXX Package that database result records from DBI can be blessed into to give methods to query neighbors, etc? Untested.
+untested XXX
 
 
 =item 22
+This is dreadful! Prime example of why I need to get diagrams on line...
+
+
+=item 23
+XXX better description, code example.
+
+
+=item 24
+XXX there are examples of this floating around this Wiki.. have to track them down
+
+
+=item 25
+B::Generate example to change I<newstate> ops to fix this.
+
+
+=item 26
+XXX code examples here from B modules
+
+
+=item 27
+XXX Package that database result records from DBI can be blessed into to give methods to query neighbors, etc? Untested.
+
+
+=item 28
 XXX Relational Principles -
 Todo - dr e f codd created relational model. normalization protects database 
 from inconsistent state... 2. every non-column key must depend entirely on the 
@@ -17397,61 +25486,186 @@ key. 3. no nonkey column may depend on another nonkey column. 4. no 1:many
 relationships within a record.
 
 
-=item 23
+=item 29
+todo: example of writing a query to normalize a flat database
+
+
+=item 30
+todo: example of reporting on complex self-referential datastructures
+
+
+=item 31
+This conversion essentially took place. However, it has been edited, and
+everyone and their dog has access to Wiki, so it should be considered
+ficticious at this point. Characters are real, words are not.
+
+
+=item 32
 XXX code! Example!
 
 
-=item 24
+=item 33
 Continuations, promised in Perl 6 but lacking in 5, allow each line of execution to have their own stack and not have to return all the way out in order to surrender the CPU - CPU management is still manual, but much easier, and the manual control comes with great power.
 
 
-=item 25
+=item 34
 a subclass of IO::Handle (L<http://www.cpan.org/modules/by-module/IO/> L<Handle|http://search.cpan.org/searchE<63>module=IO::Handle>) would be an intelligence choice
 
 
-=item 26
+=item 35
 XXX is there actually a CPAN module that does a clean, fast job of all of this that I
 can refer people to?
 
 
-=item 27
-code
+=item 36
+XXX todo - die/eval syntax for objects - L<http://wiki.slowass.net/E<63>CategoryToDo>
 
 
-=item 28
-Todo XXX queue example in threaded and non-threaded programs.
+=item 37
+thttpd rocks - L<http://www.acme.com> - one process, arbitrary number of concurrent requests
 
 
-=item 29
-Todo XXX tied scalar modification alert, some subtle action-at-a-distance code, and 
-the output from running the two together.
+=item 38
+and this book is really about changing your code as little as possible
 
 
-=item 30
+=item 39
+or cought fire - Linux will print "lp: /dev/lp0 on fire!" under some circumstances.
+See L<http://www.dorje.com:8080/netstuff/jokes/prog.errors> for a great list of error messages.
+
+
+=item 40
+or I<perldoc perltoot>
+
+
+=item 41
+This is replicated in other parts of L<PerlDesignPatterns/PerlDesignPatterns>, but this was
+meant to be a stand-alone article
+
+
+=item 42
+Programming Pearls, by Jon Bentley, (L<http://shop.bn.com/bookSearch/isbnInquiry.aspE<63>isbn=0201657880>)
+
+
+=item 43
+Christians (and members of other religions) can argue that God doesn't
+control every action in the universe, and doesn't even hand out punishment
+and reward (yet). Granted. God's role in a programming system might be 
+closer modeled by the error catching, recovery system, and the pre-exit
+clean up code, perhaps with some hooks into object persistance, but that isn't
+material to this discussion.
+
+
+=item 44
+XXX each of these should be explained in some detail - maybe - maybe examples
+
+
+=item 45
+strange that we don't talk about untangling it
+
+
+=item 46
+Object Oriented Design Heuristics, by Arthur J. Riel, (L<http://shop.bn.com/bookSearch/isbnInquiry.aspE<63>isbn=020163385X>)
+
+
+=item 47
+Refactoring: Improving the Design of Existing Code, by Martin Fowler, (L<http://shop.bn.com/bookSearch/isbnInquiry.aspE<63>isbn=0201485672>)
+
+
+=item 48
+No, I'm not one of those authors that waves my hands
+at books then assumes you're going to read them instead while I talk to myself - 
+reading the original is always worth while, but articles like this are good enough
+if you're on a shoe string budget
+
+
+=item 49
+XXX rewrite this mixed bag as a consistent OO example of going back and polishing the
+code if so desired
+
+
+=item 50
+XXX more of a case study of the reformed object - the above long snippit in
+moving data out to be rewritten and place here
+
+
+=item 51
+this should probably go much further down, after we've
+refactored code - it can be congradulatory
+
+
+=item 52
+XXX - probably not the right place for this disucssion
+
+
+=item 53
+all of this would be much better illustrated with code
+
+
+=item 54
+place this somewhere: objects don't just tie data and code together - well,
+they do, but that description freezes the brain. objects give generic options
+that can be used on a certain kind of datastructure, including navigating the
+datastructure to find other objects. OO features of the language make this
+easier and more natural, but aren't required, strictly speaking. object
+style code is written in C for large projects like the linux kernel and postgres
+database. every structure has a suite of routines that minipulate it and transverse
+it and do operations on it. the routines are specific to that datastructure.
+XXX some toy examples of this without breaking out functions into objects would
+rock - removing the part of a function that is dependent on the structure of
+the datastructure out into a function that only understands the structure and nothing else,
+then defining functions that know how to perform operations on that structure - the
+first routine is very hands off, non god-objecty, and doesn't know how the task is
+to be done, only requests which task. explain "knows how to" - its special. if something
+know how to do something, it has dependencies built into it - these dependencies are
+a special feature of this code because they don't exist anywhere else. if a whole
+program "knows how" to access a datastructure, it is a bad thing.
+knowledge of personal, sensitive matters belongs only in trusted hands. 
+
+
+=item 55
 XXX untested code
 
 
-=item 31
+=item 56
+Todo XXX queue example in threaded and non-threaded programs.
+
+
+=item 57
+Bind them in the time-honored tradition of 
+L<DesignContract/DesignContract>, implementing an interface, and producing a new object.
+
+
+=item 58
+for example, a porta-potty on top of a
+Mayan ruin
+
+
+=item 59
 ...and it just trails off. What was I thinking?
 
 
-=item 32
+=item 60
 L<http://wiki.slowass.net/E<63>NeverRewriteSoftware>
 
 
-=item 33
+=item 61
+Imported from another page - clean up text XXX
+
+
+=item 62
+... this is
+one of those places that I just trailed off then later had no clue
+what I was thinking originally
+
+
+=item 63
 
  classification? - JustThisGuy 
 
 
 
-=item 34
-L. programma a public proclamation,
-manifesto, Gr. ?, fr. ? to write before or in public; ?
-before, forth + ? to write; cf. F. programme. See Graphic.
-
-
-=item 35
+=item 64
 When we say "possibles states our program could be in", we don't mean Alaska,
 Alabama, Arizona, etc. We're refering to a state of being. A program at any
 moment in time can be summerized by its data and instructions. The instructions
@@ -17459,60 +25673,68 @@ typically don't change. They're constant. The data, then, represents its state
 of being.
 
 
-=item 36
+=item 65
 XXX attached, available on website, whatever
 
 
-=item 37
+=item 66
+I<my> variables can provide storage for L<InstanceVariables/InstanceVariables> as well as L<StaticVariables/StaticVariables> - see L<AccessorPattern/AccessorPattern>.
+
+
+=item 67
 If security is an issue, you should be running the dubious code in a sandbox 
 using the I<Safe> module. Every one else has the same permission and access 
 as you, otherwise. See L<http://wiki.slowass.net/E<63>UseOps>.
 See L<http://www.pobox.com/~schwern/talks/Design_Patterns/full_slides/slide002.html> for some thoughts on security in accessors in Perl by L<http://wiki.slowass.net/E<63>MichaelSchwern>.
 
 
-=item 38
+=item 68
 By guarding access to our data, we <s>acheive</s> L<http://wiki.slowass.net/E<63>JustThisGuy>  have the chance to do any of <s>several things</s> the following L<http://wiki.slowass.net/E<63>JustThisGuy>: 
 
 
-=item 39
+=item 69
 Since code is being run in your module, you can change how information is 
 stored, and provide backwards compatability when you do.
 
 
-=item 40
+=item 70
 Dishwashers wash tedious dishes for us, VCRs watch tedious television for
 us, as L<http://wiki.slowass.net/E<63>DouglasAdams> says
 
 
-=item 41
+=item 71
 This code needs a link to the explanation if it is somewhere else, or else
 it needs to be included here.
 
 
-=item 42
+=item 72
 This is remarkably like how a RISC processor works, but instead of accessors, you have addressing modes, and instead of objects, you have pointers into memory.
 
 
-=item 43
+=item 73
 Jamie Zawinki's "Why Java Sucks" paper is available on line at 
 L<http://www.jwz.org/doc/java.html.> Many of the 
 issues apply to several languages. Perl avoids many of the pitfalls. Its an interesting read.
 
 
-=item 44
-This should be a module API/inheritance thing like the second half of "Java in a Nutshell", O'Reilly. Obviously, it isn't finished. Each module should have a blurb of what it does, its public methods, which modules accept it as an argument, which modules extend it, and which modules it extends. This will be the most heavily used, valuable thing in the book, if Java in a Nutshell is any indication.
+=item 74
+This should be a module API/inheritance thing like the second half of "Java in a Nutshell", O'Reilly. Obviously, it isn't finished. Each module should have a blurb of what it does, its public methods, which modules accept it as an argument, which modules extend it, and which modules it extends. This will be the most heavily used, valuable thing in the book, if Java in a Nutshell is any indication.It has recently come to my attention that such a thing does exist
+in Perl-land - L<http://wiki.slowass.net/E<63>PerlInANutShell> has it. Well, we can still do it with a focus
+on OO crud.
 
 
-=item 45
+=item 75
 Some examples of the format, code to generate it, perhaps that Wiki
 parser I've been meaning to write
 
 
-=item 46
+=item 76
 
 
-=item 47
+=item 77
 XXX is there a hard limit enforced?
+
+
 
 
 =back

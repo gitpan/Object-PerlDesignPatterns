@@ -5,11 +5,17 @@ PerlDesignPatterns is a free on-line book, forum, and GNU-Savanna project at
 http://savannah.nongnu.org/projects/perlpatbook/ .  
 This is a collaborative work in progress.
 
+Ideas for keeping programs fun to hack on even after they grow large.
+Object, lambda, hybrid structures, Perl specific methods of refactoring, object tricks, 
+anti-patterns, non-structural recurring code patterns. 
+
 PerlDesignPatterns is...
 
 * Snapshot of an open-access project
 * Subject to constant change
+* Huge
 * Perl-centric
+* Well known patterns and refactorings are missing
 * Not an executable module
 * Not a finished product
 * Not well tested
@@ -17,6 +23,8 @@ PerlDesignPatterns is...
 * Not proofread or spell checked
 * Not official
 * Not complete
+* Not (yet) reviwed by the community
+* Not endorced by the community
 
 This book is full of tricks for old pros and novices a like.
 
@@ -30,19 +38,32 @@ The "Object Nuts and Bolts" section is for you.
 An HTML version is included. Due to the rough state of the POD output, this
 is the prefered method of viewing this document.
 
-You are encouraged to use the Wiki. Go ahead and add your comment
+You are encouraged to use the Wiki - after getting your bearings in
+the PerlDoc/HTML version. Go ahead and add your comment
 or critisism right into the text. Someone - probably me - will consider the
 comment and take it under advisement or integrate into the text.
-See WhyWikiWorks for more infromation.
+If you aren't familiar with Wiki, it is a simple web forum system.
+Anyone can edit any document. Documents autovivicate - they spring into
+existance at their first mention. Links are made between documents by
+mentioning their name. The markup language is pure ASCII. Formatting
+is derived from traditional ASCII text decoration conventions.
+Many tools exist to make Wiki usable. The URL for the Wiki hosting
+this project is http://www.perldesignpatterns.com
 
-PerlPatternsToDo - a list of things I personally need to still do.
+CHANGES
 
-The POD likely contains numerous errors.
-It was not reviwed or endorced by the community.
-Well known patterns and refactorings are missing. 
+Since the last version, Perl Design Patterns has been better cross referenced, 
+the prose cleaned up in many places, and more code added. Few new sections were
+promoted from being part of the forum to being part of the book, even
+though these satellite sections have received a great deal of care and 
+attention.
 
-http://www.slowass.net/~phaedrus/slides - a tiny version of this done as a PerlMongers presentation.
-Pictures!
+Bugs were fixed in podparser.pl, so the POD should be better this time
+around. A lot of HTML that crept into the original doccuments was
+manually removed. Formatting in general was made more consistent.
+
+The next release will likely grow the book in size over this version
+by virtue of including more of these sections.
 
 INSTALLATION
 
@@ -57,9 +78,43 @@ A POD version should then be available:
 
   perldoc Object::PerlDesignPatterns
 
+An HTML snapshot is also included:
+
+  lynx PerlDesignPatterns.html
+
+An up-to-date version of PerlDesignPatterns.html is maintained at the URL:
+
+  http://www.perldesignpatterns.com/PerlDesignPatterns.ass.html
+
+search.cpan.org seems happy enough to serve the document: Prettier, but twice
+converted, so liable to suffer lossage:
+
+  http://search.cpan.org/search?module=Object::PerlDesignPatterns
+
+GETTING INVOLVED
+
+There are a lot of things you can do:
+
+* Read pages and give feedback.
+* Make editorial comments in the pages themselves.
+* Rate pages with the 1-10 rating bar on the bottom.
+* Add links to CPAN modules related to the topic of a page - modules that help with
+  the idea, or demonstrate the idea in their code. Things of the format Foo::Bar
+  get turned into links to http://search.cpan.org
+* Add links to other online documentation on appropriate pages.
+* Correct typos and spelling errors. There are a lot of spelling errors.
+* Rephrase paragraphs.
+* Write code examples.
+* Suggest additional sections and ideas.
+* Expand on existing sections.
+* Write new sections. See http://www.perldesignpatterns.com/?PerlPatternsToDo .
+  
+
+Go to the Wiki at http://www.perldesignpatterns.com for access to the project.
+
 DEPENDENCIES
 
-None.
+An imagination and a lot of patience.
 
 COPYRIGHT AND LICENCE
 
