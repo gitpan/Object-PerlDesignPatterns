@@ -1,0 +1,70 @@
+Object/PerlDesignPatterns version 0.01
+======================================
+
+PerlDesignPatterns is a free on-line book, forum, and GNU-Savanna project at
+http://savannah.nongnu.org/projects/perlpatbook/ .  
+This is a collaborative work in progress.
+
+PerlDesignPatterns is...
+
+* Snapshot of an open-access project
+* Subject to constant change
+* Perl-centric
+* Not an executable module
+* Not a finished product
+* Not well tested
+* Not pretty
+* Not proofread or spell checked
+* Not official
+* Not complete
+
+This book is full of tricks for old pros and novices a like.
+
+Experts and aspiring experts: 
+SkipTheIntroduction is the best places to start browsing, or start at "Object 
+Adapter Design Patterns" and work down.
+
+Novices, intermediate programmers: 
+The "Object Nuts and Bolts" section is for you. 
+
+An HTML version is included. Due to the rough state of the POD output, this
+is the prefered method of viewing this document.
+
+You are encouraged to use the Wiki. Go ahead and add your comment
+or critisism right into the text. Someone - probably me - will consider the
+comment and take it under advisement or integrate into the text.
+See WhyWikiWorks for more infromation.
+
+PerlPatternsToDo - a list of things I personally need to still do.
+
+The POD likely contains numerous errors.
+It was not reviwed or endorced by the community.
+Well known patterns and refactorings are missing. 
+
+http://www.slowass.net/~phaedrus/slides - a tiny version of this done as a PerlMongers presentation.
+Pictures!
+
+INSTALLATION
+
+To install this module type the following:
+
+   perl Makefile.PL
+   make
+   make test
+   make install
+
+A POD version should then be available:
+
+  perldoc Object::PerlDesignPatterns
+
+DEPENDENCIES
+
+None.
+
+COPYRIGHT AND LICENCE
+
+Copyright (C) 2002, 2003 Scott Walters (scott@illogics.org) and various 
+contributors as noted throughout the document.
+
+See the enclosed file, GnuFreeDocumentationLicense, for terms of use and distribution.
+
